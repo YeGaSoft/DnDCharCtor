@@ -20,7 +20,7 @@ namespace DnDCharCtor.Maui
                 });
 
             // Add device-specific services used by the DnDCharCtor.Maui.Shared project
-            builder.Services.AddSingleton<IPlatformService, PlatformService>();
+            builder.Services.AddSingleton<IPlatformService, MauiPlatformService>();
 
             builder.Services.AddMauiBlazorWebView();
 

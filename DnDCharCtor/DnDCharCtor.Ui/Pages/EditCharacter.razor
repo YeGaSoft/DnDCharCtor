@@ -1,0 +1,22 @@
+﻿@page "/editCharacter/{id}"
+
+@inject EditCharacterViewModel ViewModel
+@inject IHybridCacheService HybridCacheService
+
+<CascadingValue Name="@CascadeValueNames.DataContext" Value="@ViewModel">
+
+    <FluentButton OnClick="SaveChanges">Save</FluentButton>
+
+</CascadingValue>
+
+@code {
+    
+    private async Task SaveChanges()
+    {
+        // Trigger validation and save logic here
+        // Validate all characters and show errors if any
+    }
+}
+
+
+

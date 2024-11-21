@@ -1,23 +1,19 @@
-﻿@inherits LayoutComponentBase
+﻿@inherits LayoutComponentBas
 
-<div class="page">
+@inject MainViewModel ViewModel
+
+<CascadingValue Name="@CascadeValueNames.DataContext" Value="@ViewModel">
+    <div class="page">
     <div class="sidebar">
-        <NavMenu />
+        <NavMenu CurrentCharacterExpression="@(() => ViewModel.CurrentCharacter)" />
     </div>
 
     <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
-
         <article class="content px-4">
             @Body
         </article>
     </main>
 </div>
+</CascadingValue>
 
-<div id="blazor-error-ui" data-nosnippet>
-    An unhandled error has occurred.
-    <a href="." class="reload">Reload</a>
-    <span class="dismiss">🗙</span>
-</div>
+

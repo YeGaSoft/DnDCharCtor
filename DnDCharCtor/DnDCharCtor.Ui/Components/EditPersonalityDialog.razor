@@ -1,0 +1,52 @@
+﻿@using DnDCharCtor.Models
+
+<FluentDialog IsOpen="@isDialogOpen" OnDismiss="CloseDialog">
+    <FluentDialogTitle>Edit Character</FluentDialogTitle>
+    <FluentDialogContent>
+        <EditForm Model="@Personality" OnValidSubmit="HandleValidSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <FluentTextField @bind-Value="Personality.CharacterName" Label="Character Name" Required="true" />
+            <FluentTextField @bind-Value="Personality.ClassName" Label="Class Name" Required="true" />
+            <FluentTextField @bind-Value="Personality.Level" Label="Level" Required="true" Type="number" />
+            <FluentTextField @bind-Value="Personality.Background" Label="Background" />
+            <FluentTextField @bind-Value="Personality.PlayerName" Label="Player Name" Required="true" />
+            <FluentTextField @bind-Value="Personality.Race" Label="Race" Required="true" />
+            <FluentTextField @bind-Value="Personality.Attitute" Label="Attitude" />
+            <FluentTextField @bind-Value="Personality.Experience" Label="Experience" Required="true" Type="number" />
+
+            <FluentButton Type="submit">Submit</FluentButton>
+        </EditForm>
+    </FluentDialogContent>
+    <FluentDialogActions>
+        <FluentButton OnClick="CloseDialog">Cancel</FluentButton>
+    </FluentDialogActions>
+</FluentDialog>
+
+
+@code {
+    [Parameter]
+    [EditorRequired]
+    public PersonalityViewModel Personality { get; set; } = default!;
+
+    private bool isDialogOpen = false;
+
+    private void OpenEditDialog(Character character)
+    {
+        selectedCharacter = character;
+        isDialogOpen = true;
+    }
+
+    private void CloseDialog()
+    {
+        isDialogOpen = false;
+    }
+
+
+    private void HandleValidSubmit()
+    {
+        // Handle the valid submission logic
+        CloseDialog();
+    }
+}

@@ -12,6 +12,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Fast.Components.FluentUI" Version="3.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\DnDCharCtor.Common\DnDCharCtor.Common.csproj" />
+    <ProjectReference Include="..\..\DnDCharCtor.ViewModels\DnDCharCtor.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>
