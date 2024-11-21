@@ -1,7 +1,7 @@
 using DnDCharCtor.Pwa;
 using DnDCharCtor.Pwa.Services;
-using DnDCharCtor.Shared;
-using DnDCharCtor.Shared.Services;
+using DnDCharCtor.Ui;
+using DnDCharCtor.Ui.Services;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 

@@ -1,4 +1,4 @@
-namespace DnDCharCtor.Shared.Services
+namespace DnDCharCtor.Ui.Services
 {
     public interface IFormFactor
     {

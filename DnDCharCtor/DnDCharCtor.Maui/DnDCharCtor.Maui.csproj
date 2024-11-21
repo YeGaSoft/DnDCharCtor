@@ -67,7 +67,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DnDCharCtor.Shared\DnDCharCtor.Shared.csproj" />
+    <ProjectReference Include="..\DnDCharCtor.Ui\DnDCharCtor.Ui.csproj" />
   </ItemGroup>
 
 </Project>

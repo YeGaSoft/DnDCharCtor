@@ -1,5 +1,5 @@
 using DnDCharCtor.Pwa.Services;
-using DnDCharCtor.Shared.Services;
+using DnDCharCtor.Ui.Services;
 
 namespace DnDCharCtor.Pwa.Services
 {

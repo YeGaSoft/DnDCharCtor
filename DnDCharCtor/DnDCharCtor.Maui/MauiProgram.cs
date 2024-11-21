@@ -1,5 +1,5 @@
 ﻿using DnDCharCtor.Maui.Services;
-using DnDCharCtor.Shared.Services;
+using DnDCharCtor.Ui.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Maui.Controls.Hosting;

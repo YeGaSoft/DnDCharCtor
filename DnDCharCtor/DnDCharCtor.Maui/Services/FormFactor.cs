@@ -1,5 +1,5 @@
 using DnDCharCtor.Maui.Services;
-using DnDCharCtor.Shared.Services;
+using DnDCharCtor.Ui.Services;
 using Microsoft.Maui.Devices;
 
 namespace DnDCharCtor.Maui.Services
