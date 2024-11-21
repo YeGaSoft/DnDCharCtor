@@ -15,12 +15,12 @@ public partial class PersonalityViewModel : ObservableValidator
     {
         CharacterName = personality.CharacterName;
         ClassName = personality.ClassName;
-        Level = personality.Level;
+        Level = personality.Level.ToString();
         Background = personality.Background;
         PlayerName = personality.PlayerName;
         Race = personality.Race;
         Attitute = personality.Attitute;
-        Experience = personality.Experience;
+        Experience = personality.Experience.ToString();
     }
 
     [Required]
@@ -32,8 +32,8 @@ public partial class PersonalityViewModel : ObservableValidator
     public string ClassName { get; set; }
 
     [Required]
-    [Range(1, int.MaxValue)]
-    public int Level { get; set; }
+    //[Range(1, int.MaxValue)]
+    public string Level { get; set; }
 
     [MaxLength(1024)]
     public string Background { get; set; }
@@ -50,6 +50,6 @@ public partial class PersonalityViewModel : ObservableValidator
     public string Attitute { get; set; }
 
     [Required]
-    [Range(0, int.MaxValue)]
-    public int Experience { get; set; }
+    //[Range(0, int.MaxValue)]
+    public string Experience { get; set; }
 }

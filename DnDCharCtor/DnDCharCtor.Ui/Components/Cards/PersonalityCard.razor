@@ -1,0 +1,30 @@
+﻿<FluentCard>
+    <FluentHeader>
+        <h2>@Personality.CharacterName</h2>
+    </FluentHeader>
+    <FluentBodyContent>
+        <div>
+            <strong>Class:</strong> @Personality.ClassName <br />
+            <strong>Level:</strong> @Personality.Level <br />
+            <strong>Background:</strong> @Personality.Background <br />
+            <strong>Player Name:</strong> @Personality.PlayerName <br />
+            <strong>Race:</strong> @Personality.Race <br />
+            <strong>Attitude:</strong> @Personality.Attitute <br />
+            <strong>Experience:</strong> @Personality.Experience <br />
+        </div>
+    </FluentBodyContent>
+    <FluentFooter>
+        <FluentButton OnClick="EditPersonality">Edit</FluentButton>
+    </FluentFooter>
+</FluentCard>
+
+@code {
+    [Parameter]
+    [EditorRequired]
+    public Personality Personality { get; set; } = default!;
+
+    private void EditPersonality()
+    {
+        // Logic to open an edit dialog or navigate to an edit page
+    }
+}

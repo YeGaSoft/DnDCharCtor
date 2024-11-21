@@ -1,8 +1,10 @@
-﻿@using DnDCharCtor.Models
-
-<FluentDialog IsOpen="@isDialogOpen" OnDismiss="CloseDialog">
-    <FluentDialogTitle>Edit Character</FluentDialogTitle>
-    <FluentDialogContent>
+﻿<FluentDialog IsOpen="@isDialogOpen" OnDismiss="CloseDialog">
+    <FluentStack VerticalAlignment="VerticalAlignment.Center">
+        <FluentLabel Typo="Typography.PaneHeader">
+            Edit Character
+        </FluentLabel>
+    </FluentStack>
+    <FluentDialogBody>
         <EditForm Model="@Personality" OnValidSubmit="HandleValidSubmit">
             <DataAnnotationsValidator />
             <ValidationSummary />
@@ -16,12 +18,12 @@
             <FluentTextField @bind-Value="Personality.Attitute" Label="Attitude" />
             <FluentTextField @bind-Value="Personality.Experience" Label="Experience" Required="true" Type="number" />
 
-            <FluentButton Type="submit">Submit</FluentButton>
+            <FluentButton OnClick="CloseDialog">Submit</FluentButton>
         </EditForm>
-    </FluentDialogContent>
-    <FluentDialogActions>
+    </FluentDialogBody>
+    <FluentDialogFooter>
         <FluentButton OnClick="CloseDialog">Cancel</FluentButton>
-    </FluentDialogActions>
+    </FluentDialogFooter>
 </FluentDialog>
 
 
