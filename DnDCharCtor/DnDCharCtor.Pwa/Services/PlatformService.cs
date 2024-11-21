@@ -3,7 +3,7 @@ using DnDCharCtor.Ui.Services;
 
 namespace DnDCharCtor.Pwa.Services
 {
-    public class FormFactor : IFormFactor
+    public class PlatformService : IPlatformService
     {
         public string GetFormFactor()
         {

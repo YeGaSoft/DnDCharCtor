@@ -4,7 +4,7 @@ using Microsoft.Maui.Devices;
 
 namespace DnDCharCtor.Maui.Services
 {
-    public class FormFactor : IFormFactor
+    public class PlatformService : IPlatformService
     {
         public string GetFormFactor()
         {

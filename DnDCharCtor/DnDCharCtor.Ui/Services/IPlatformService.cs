@@ -1,6 +1,6 @@
 namespace DnDCharCtor.Ui.Services
 {
-    public interface IFormFactor
+    public interface IPlatformService
     {
         public string GetFormFactor();
         public string GetPlatform();
