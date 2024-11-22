@@ -20,30 +20,4 @@
     </FluentFooter>
 </FluentCard>
 
-@code {
-    [Parameter]
-    [EditorRequired]
-    public PersonalityViewModel PersonalityViewModel { get; set; } = default!;
 
-    private DialogParameters _dialogParameters = new ()
-    {
-        Title = $"Edit Personality",
-        //Width = "500px",
-        PreventDismissOnOverlayClick = true,
-        PreventScroll = true,
-    };
-
-
-    private async void EditPersonalityViewModel()
-    {
-        var data = new PersonalityViewModel(PersonalityViewModel);
-
-        var dialog = await DialogService.ShowDialogAsync<EditPersonalityDialog>(PersonalityViewModel, _dialogParameters);
-        var result = await dialog.Result;
-        if (result.Cancelled is false && result.Data is not null)
-        {
-            PersonalityViewModel = (PersonalityViewModel)result.Data;
-            StateHasChanged();
-        }
-    }
-}

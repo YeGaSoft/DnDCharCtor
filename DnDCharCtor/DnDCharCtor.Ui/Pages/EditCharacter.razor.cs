@@ -17,9 +17,16 @@ public partial class EditCharacter
         }
         else
         {
-            ViewModel.Initialize(new());
+            ViewModel.Initialize(Character.Empty);
         }
 
         base.OnInitialized();
+    }
+
+    private async Task SaveChanges()
+    {
+        // Trigger validation and save logic here
+        // Validate all characters and show errors if any
+        await Task.Delay(1);
     }
 }

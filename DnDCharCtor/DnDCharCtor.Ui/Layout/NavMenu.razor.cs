@@ -1,5 +1,6 @@
 using DnDCharCtor.Models;
 using DnDCharCtor.Ui.Constants;
+using DnDCharCtor.ViewModels.ModelViewModels;
 using Microsoft.AspNetCore.Components;
 using System.ComponentModel;
 using System.Linq.Expressions;
@@ -13,15 +14,15 @@ public partial class NavMenu : IDisposable
 
     private string _expressionMemberName = string.Empty;
     [Parameter]
-    public Expression<Func<Character?>>? CurrentCharacterExpression { get; set; }
+    public Expression<Func<CharacterViewModel>>? CurrentCharacterExpression { get; set; }
 
-    private Character? _currentCharacter;
+    private CharacterViewModel? _currentCharacterViewModel;
 
     protected override void OnInitialized()
     {
         if (CurrentCharacterExpression is not null)
         {
-            _currentCharacter = CurrentCharacterExpression.Compile().Invoke();
+            _currentCharacterViewModel = CurrentCharacterExpression.Compile().Invoke();
             var memberExpression = (MemberExpression)CurrentCharacterExpression.Body;
             _expressionMemberName = memberExpression.Member.Name;
         }
@@ -53,7 +54,7 @@ public partial class NavMenu : IDisposable
         if (CurrentCharacterExpression is null) return;
         if (e.PropertyName != _expressionMemberName) return;
 
-        _currentCharacter = CurrentCharacterExpression.Compile().Invoke();
+        _currentCharacterViewModel = CurrentCharacterExpression.Compile().Invoke();
         InvokeAsync(StateHasChanged);
     }
 }

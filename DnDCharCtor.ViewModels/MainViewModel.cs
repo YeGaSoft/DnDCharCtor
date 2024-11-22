@@ -2,6 +2,7 @@
 using DnDCharCtor.Common.Constants;
 using DnDCharCtor.Common.Services;
 using DnDCharCtor.Models;
+using DnDCharCtor.ViewModels.ModelViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,11 +21,12 @@ public partial class MainViewModel : ObservableObject
     }
 
     [ObservableProperty]
-    private Character? _currentCharacter;
+    private CharacterViewModel? _currentCharacterViewModel;
 
     public async Task<bool> InitializeAsync()
     {
-        CurrentCharacter = await _hybridCacheService.GetCurrentCharacterAsync();
+        var currentCharacter = await _hybridCacheService.GetCurrentCharacterAsync();
+        CurrentCharacterViewModel = new(currentCharacter ?? Character.Empty);
         return true;
     }
 }
