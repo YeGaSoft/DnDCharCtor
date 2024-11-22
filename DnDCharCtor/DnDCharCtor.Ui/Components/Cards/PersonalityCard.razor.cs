@@ -25,16 +25,15 @@ public partial class PersonalityCard : IDisposable
         Title = $"Edit Personality",
         //Width = "500px",
         PreventDismissOnOverlayClick = true,
-        PreventScroll = true,
+        ShowDismiss = true,
     };
 
 
-    private async void EditPersonality()
+    private async Task EditPersonality()
     {
         if (_personalityViewModel is null) return;
 
         var data = new PersonalityViewModel(_personalityViewModel);
-
         var dialog = await DialogService.ShowDialogAsync<EditPersonalityDialog>(data, _dialogParameters);
         var result = await dialog.Result;
         if (result.Cancelled is false && result.Data is not null)
