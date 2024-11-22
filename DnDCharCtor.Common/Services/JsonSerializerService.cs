@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DnDCharCtor.Common.Services;
 
-public class JsonSerializer : IJsonSerializer
+public class JsonSerializerService : IJsonSerializerService
 {
     public T Deserialize<T>(string json)
     {

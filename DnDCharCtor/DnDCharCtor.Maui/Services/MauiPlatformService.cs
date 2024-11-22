@@ -7,9 +7,9 @@ namespace DnDCharCtor.Maui.Services;
 
 public class MauiPlatformService : IPlatformService
 {
-    private IJsonSerializer _serializer;
+    private IJsonSerializerService _serializer;
 
-    public MauiPlatformService(IJsonSerializer serializer)
+    public MauiPlatformService(IJsonSerializerService serializer)
     {
         _serializer = serializer;
     }

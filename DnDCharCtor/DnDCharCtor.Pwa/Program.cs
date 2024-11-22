@@ -11,7 +11,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddSingleton<IPlatformService, PwaPlatformService>();
-builder.Services.RegisterServices();
+builder.Services.RegisterAll();
 
 
 await builder.Build().RunAsync();

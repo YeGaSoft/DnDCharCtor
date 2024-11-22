@@ -6,10 +6,10 @@ namespace DnDCharCtor.Pwa.Services;
 
 public class PwaPlatformService : IPlatformService
 {
-    private readonly IJsonSerializer _serializer;
+    private readonly IJsonSerializerService _serializer;
     private readonly IJSRuntime _jsRuntime;
 
-    public PwaPlatformService(IJsonSerializer serializer, IJSRuntime jsRuntime)
+    public PwaPlatformService(IJsonSerializerService serializer, IJSRuntime jsRuntime)
     {
         _serializer = serializer;
         _jsRuntime = jsRuntime;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DnDCharCtor.Common.Services;
 
-public interface IJsonSerializer
+public interface IJsonSerializerService
 {
     string Serialize<T>(T obj);
 

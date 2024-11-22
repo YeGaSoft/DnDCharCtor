@@ -12,13 +12,34 @@ namespace DnDCharCtor.Ui;
 
 public static class ServiceRegister
 {
+    public static IServiceCollection RegisterAll(this IServiceCollection services)
+    {
+        return services
+            .RegisterServices()
+            .RegisterViewModels()
+            .RegisterUI();
+    }
+
     public static IServiceCollection RegisterServices(this IServiceCollection services)
     {
+        services.AddSingleton<IJsonSerializerService, JsonSerializerService>();
         services.AddSingleton<IHybridCacheService, HybridCacheService>();
-        services.AddSingleton<IJsonSerializer, JsonSerializer>();
+
+        return services;
+    }
+
+    public static IServiceCollection RegisterViewModels(this IServiceCollection services)
+    {
         services.AddSingleton<MainViewModel>();
-        services.AddSingleton<IDialogService, DialogService>();
+        services.AddSingleton<EditCharacterViewModel>();
+
+        return services;
+    }
+
+    public static IServiceCollection RegisterUI(this IServiceCollection services)
+    {
         services.AddFluentUIComponents();
+        services.AddSingleton<IDialogService, DialogService>();
 
         return services;
     }

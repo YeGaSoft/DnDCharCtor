@@ -23,7 +23,7 @@ namespace DnDCharCtor.Maui
                 });
 
             builder.Services.AddSingleton<IPlatformService, MauiPlatformService>();
-            builder.Services.RegisterServices();
+            builder.Services.RegisterAll();
 
 
             builder.Services.AddMauiBlazorWebView();
