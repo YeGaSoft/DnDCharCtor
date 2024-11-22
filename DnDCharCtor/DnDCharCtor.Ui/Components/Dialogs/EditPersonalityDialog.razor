@@ -1,52 +1,50 @@
 ﻿@implements IDialogContentComponent<PersonalityViewModel>
 
-<FluentDialog>
-    <FluentDialogHeader>
-        <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
-            <FluentLabel Typo="Typography.PaneHeader">
-                @Dialog.Instance.Parameters.Title
-            </FluentLabel>  
-        </FluentStack>
-        <br />
-        <FluentDivider />
-        <br />
-    </FluentDialogHeader>
-    
-    <FluentDialogBody>
-        <EditForm EditContext="@_editContext" class="centered-form">
-            <DataAnnotationsValidator />
+<FluentDialogHeader>
+    <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
+        <FluentLabel Typo="Typography.PaneHeader">
+            @Dialog.Instance.Parameters.Title
+        </FluentLabel>
+    </FluentStack>
+    <br />
+    <FluentDivider />
+    <br />
+</FluentDialogHeader>
 
-            <FluentTextField @bind-Value="Content.CharacterName" Label="Character Name" Required="true" />
-            <br />
-            <FluentTextField @bind-Value="Content.ClassName" Label="Class Name" Required="true" />
-            <br />
-            <FluentTextField @bind-Value="Content.Level" Label="Level" Required="true" Type="number" />
-            <br />
-            <FluentTextField @bind-Value="Content.Background" Label="Background" />
-            <br />
-            <FluentTextField @bind-Value="Content.PlayerName" Label="Player Name" Required="true" />
-            <br />
-            <FluentTextField @bind-Value="Content.Race" Label="Race" Required="true" />
-            <br />
-            <FluentTextField @bind-Value="Content.Attitute" Label="Attitude" />
-            <br />
-            <FluentTextField @bind-Value="Content.Experience" Label="Experience" Required="true" Type="number" />
+<FluentDialogBody>
+    <EditForm EditContext="@_editContext" class="centered-form">
+        <DataAnnotationsValidator />
 
-            <div style="color: var(--error);">
-                <FluentValidationSummary />
-            </div>
-        </EditForm>
-    </FluentDialogBody>
+        <FluentTextField @bind-Value="Content.CharacterName" Label="Character Name" Required="true" />
+        <br />
+        <FluentTextField @bind-Value="Content.ClassName" Label="Class Name" Required="true" />
+        <br />
+        <FluentTextField @bind-Value="Content.Level" Label="Level" Required="true" Type="number" />
+        <br />
+        <FluentTextField @bind-Value="Content.Background" Label="Background" />
+        <br />
+        <FluentTextField @bind-Value="Content.PlayerName" Label="Player Name" Required="true" />
+        <br />
+        <FluentTextField @bind-Value="Content.Race" Label="Race" Required="true" />
+        <br />
+        <FluentTextField @bind-Value="Content.Attitute" Label="Attitude" />
+        <br />
+        <FluentTextField @bind-Value="Content.Experience" Label="Experience" Required="true" Type="number" />
 
-    <FluentDialogFooter>
-        <br />
-        <FluentDivider />
-        <br />
-        <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
-            <FluentButton OnClick="CloseDialogAsync" Appearance="Appearance.Accent" IconStart="(new Icons.Regular.Size20.Send())">Submit</FluentButton>
-        </FluentStack>
-    </FluentDialogFooter>
-</FluentDialog>
+        <div style="color: var(--error);">
+            <FluentValidationSummary />
+        </div>
+    </EditForm>
+</FluentDialogBody>
+
+<FluentDialogFooter>
+    <br />
+    <FluentDivider />
+    <br />
+    <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
+        <FluentButton OnClick="CloseDialogAsync" Appearance="Appearance.Accent" IconStart="(new Icons.Regular.Size20.Send())">Submit</FluentButton>
+    </FluentStack>
+</FluentDialogFooter>
 
 <style>
     .centered-form {
@@ -63,3 +61,4 @@
         }
 
 </style>
+
