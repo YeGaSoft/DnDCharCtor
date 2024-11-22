@@ -23,6 +23,18 @@ public partial class PersonalityViewModel : ObservableValidator
         Experience = personality.Experience.ToString();
     }
 
+    public PersonalityViewModel(PersonalityViewModel personality)
+    {
+        CharacterName = personality.CharacterName;
+        ClassName = personality.ClassName;
+        Level = personality.Level.ToString();
+        Background = personality.Background;
+        PlayerName = personality.PlayerName;
+        Race = personality.Race;
+        Attitute = personality.Attitute;
+        Experience = personality.Experience.ToString();
+    }
+
     [Required]
     [MaxLength(64)]
     public string CharacterName { get; set; }
@@ -52,4 +64,19 @@ public partial class PersonalityViewModel : ObservableValidator
     [Required]
     //[Range(0, int.MaxValue)]
     public string Experience { get; set; }
+
+    public Personality ToPersonality()
+    {
+        return new Personality
+        {
+            CharacterName = CharacterName,
+            ClassName = ClassName,
+            Level = int.Parse(Level),
+            Background = Background,
+            PlayerName = PlayerName,
+            Race = Race,
+            Attitute = Attitute,
+            Experience = int.Parse(Experience),
+        };
+    }
 }

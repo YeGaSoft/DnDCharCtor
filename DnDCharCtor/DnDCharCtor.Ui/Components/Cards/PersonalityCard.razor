@@ -1,30 +1,49 @@
-﻿<FluentCard>
+﻿@inject IDialogService DialogService
+
+<FluentCard>
     <FluentHeader>
-        <h2>@Personality.CharacterName</h2>
+        <h2>@PersonalityViewModel.CharacterName</h2>
     </FluentHeader>
     <FluentBodyContent>
         <div>
-            <strong>Class:</strong> @Personality.ClassName <br />
-            <strong>Level:</strong> @Personality.Level <br />
-            <strong>Background:</strong> @Personality.Background <br />
-            <strong>Player Name:</strong> @Personality.PlayerName <br />
-            <strong>Race:</strong> @Personality.Race <br />
-            <strong>Attitude:</strong> @Personality.Attitute <br />
-            <strong>Experience:</strong> @Personality.Experience <br />
+            <strong>Class:</strong> @PersonalityViewModel.ClassName <br />
+            <strong>Level:</strong> @PersonalityViewModel.Level <br />
+            <strong>Background:</strong> @PersonalityViewModel.Background <br />
+            <strong>Player Name:</strong> @PersonalityViewModel.PlayerName <br />
+            <strong>Race:</strong> @PersonalityViewModel.Race <br />
+            <strong>Attitude:</strong> @PersonalityViewModel.Attitute <br />
+            <strong>Experience:</strong> @PersonalityViewModel.Experience <br />
         </div>
     </FluentBodyContent>
     <FluentFooter>
-        <FluentButton OnClick="EditPersonality">Edit</FluentButton>
+        <FluentButton OnClick="EditPersonalityViewModel">Edit</FluentButton>
     </FluentFooter>
 </FluentCard>
 
 @code {
     [Parameter]
     [EditorRequired]
-    public Personality Personality { get; set; } = default!;
+    public PersonalityViewModel PersonalityViewModel { get; set; } = default!;
 
-    private void EditPersonality()
+    private DialogParameters _dialogParameters = new ()
     {
-        // Logic to open an edit dialog or navigate to an edit page
+        Title = $"Edit Personality",
+        //Width = "500px",
+        PreventDismissOnOverlayClick = true,
+        PreventScroll = true,
+    };
+
+
+    private async void EditPersonalityViewModel()
+    {
+        var data = new PersonalityViewModel(PersonalityViewModel);
+
+        var dialog = await DialogService.ShowDialogAsync<EditPersonalityDialog>(PersonalityViewModel, _dialogParameters);
+        var result = await dialog.Result;
+        if (result.Cancelled is false && result.Data is not null)
+        {
+            PersonalityViewModel = (PersonalityViewModel)result.Data;
+            StateHasChanged();
+        }
     }
 }

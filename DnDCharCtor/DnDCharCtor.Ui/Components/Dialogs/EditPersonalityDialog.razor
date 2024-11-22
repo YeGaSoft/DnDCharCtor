@@ -1,54 +1,46 @@
-﻿<FluentDialog IsOpen="@isDialogOpen" OnDismiss="CloseDialog">
+﻿@implements IDialogContentComponent<PersonalityViewModel>
+
+<FluentDialog ShowDismiss="true" OnDismiss="CloseDialog">
     <FluentStack VerticalAlignment="VerticalAlignment.Center">
         <FluentLabel Typo="Typography.PaneHeader">
-            Edit Character
+            @Dialog.Instance.Parameters.Title
         </FluentLabel>
     </FluentStack>
     <FluentDialogBody>
-        <EditForm Model="@Personality" OnValidSubmit="HandleValidSubmit">
+        <EditForm EditContext="@_editContext">
             <DataAnnotationsValidator />
-            <ValidationSummary />
 
-            <FluentTextField @bind-Value="Personality.CharacterName" Label="Character Name" Required="true" />
-            <FluentTextField @bind-Value="Personality.ClassName" Label="Class Name" Required="true" />
-            <FluentTextField @bind-Value="Personality.Level" Label="Level" Required="true" Type="number" />
-            <FluentTextField @bind-Value="Personality.Background" Label="Background" />
-            <FluentTextField @bind-Value="Personality.PlayerName" Label="Player Name" Required="true" />
-            <FluentTextField @bind-Value="Personality.Race" Label="Race" Required="true" />
-            <FluentTextField @bind-Value="Personality.Attitute" Label="Attitude" />
-            <FluentTextField @bind-Value="Personality.Experience" Label="Experience" Required="true" Type="number" />
+            <FluentTextField @bind-Value="Content.CharacterName" Label="Character Name" Required="true" />
+            <FluentTextField @bind-Value="Content.ClassName" Label="Class Name" Required="true" />
+            <FluentTextField @bind-Value="Content.Level" Label="Level" Required="true" Type="number" />
+            <FluentTextField @bind-Value="Content.Background" Label="Background" />
+            <FluentTextField @bind-Value="Content.PlayerName" Label="Player Name" Required="true" />
+            <FluentTextField @bind-Value="Content.Race" Label="Race" Required="true" />
+            <FluentTextField @bind-Value="Content.Attitute" Label="Attitude" />
+            <FluentTextField @bind-Value="Content.Experience" Label="Experience" Required="true" Type="number" />
 
-            <FluentButton OnClick="CloseDialog">Submit</FluentButton>
+            <div style="color: var(--error);">
+                <FluentValidationSummary />
+            </div>
         </EditForm>
     </FluentDialogBody>
     <FluentDialogFooter>
-        <FluentButton OnClick="CloseDialog">Cancel</FluentButton>
+        <FluentButton OnClick="CloseDialogAsync">Submit</FluentButton>
     </FluentDialogFooter>
 </FluentDialog>
 
 
 @code {
+    [CascadingParameter]
+    public FluentDialog Dialog { get; set; } = default!;
+
     [Parameter]
-    [EditorRequired]
-    public PersonalityViewModel Personality { get; set; } = default!;
+    public PersonalityViewModel Content { get; set; } = default!;
 
-    private bool isDialogOpen = false;
+    private EditContext _editContext = default!;
 
-    private void OpenEditDialog(Character character)
+    private async Task CloseDialogAsync()
     {
-        selectedCharacter = character;
-        isDialogOpen = true;
-    }
-
-    private void CloseDialog()
-    {
-        isDialogOpen = false;
-    }
-
-
-    private void HandleValidSubmit()
-    {
-        // Handle the valid submission logic
-        CloseDialog();
+        await Dialog.CloseAsync(Content);
     }
 }
