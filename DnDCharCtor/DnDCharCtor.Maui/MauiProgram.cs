@@ -1,8 +1,10 @@
 ﻿using DnDCharCtor.Common.Services;
 using DnDCharCtor.Maui.Services;
+using DnDCharCtor.Ui;
 using DnDCharCtor.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Fast.Components.FluentUI;
 using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Maui.Hosting;
 
@@ -20,11 +22,8 @@ namespace DnDCharCtor.Maui
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 });
 
-            // Add device-specific services used by the DnDCharCtor.Maui.Shared project
             builder.Services.AddSingleton<IPlatformService, MauiPlatformService>();
-            builder.Services.AddSingleton<IHybridCacheService, HybridCacheService>();
-            builder.Services.AddSingleton<IJsonSerializer, JsonSerializer>();
-            builder.Services.AddSingleton<MainViewModel>();
+            builder.Services.RegisterServices();
 
 
             builder.Services.AddMauiBlazorWebView();

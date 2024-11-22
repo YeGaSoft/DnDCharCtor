@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="app.css" />
     <link rel="stylesheet" href="DnDCharCtor.Maui.styles.css" />
     <link rel="icon" href="data:,">
+    <link href="_content/Microsoft.FluentUI.AspNetCore.Components/css/reboot.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -25,7 +26,10 @@
         <div class="loading-progress-text"></div>
     </div>
 
+    <script app-name="DnDCharCtor.Maui" src="./_content/Microsoft.FluentUI.AspNetCore.Components/js/initializersLoader.webview.js"></script>
+
     <script src="_framework/blazor.webview.js" autostart="false"></script>
+    <script src="_content/Microsoft.FluentUI.AspNetCore.Components/Microsoft.FluentUI.AspNetCore.Components.lib.module.js" type="module" async></script>
 
 </body>
 
