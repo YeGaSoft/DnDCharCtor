@@ -1,23 +1,33 @@
 ﻿@inject IDialogService DialogService
 
-<FluentCard>
+<FluentCard onclick="@(() => EditPersonality())">
     <FluentHeader>
-        <h2>@_personalityViewModel?.CharacterName</h2>
+        <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
+            <FluentLabel Typo="Typography.PaneHeader">Personality</FluentLabel>
+        </FluentStack>
     </FluentHeader>
+
     <FluentBodyContent>
         <div>
-            <strong>Class:</strong> @_personalityViewModel?.ClassName <br />
-            <strong>Level:</strong> @_personalityViewModel?.Level <br />
-            <strong>Background:</strong> @_personalityViewModel?.Background <br />
-            <strong>Player Name:</strong> @_personalityViewModel?.PlayerName <br />
-            <strong>Race:</strong> @_personalityViewModel?.Race <br />
-            <strong>Attitude:</strong> @_personalityViewModel?.Attitute <br />
-            <strong>Experience:</strong> @_personalityViewModel?.Experience <br />
+            <div><strong>Class:</strong> @_personalityViewModel?.ClassName </div>
+            <br />
+            <div><strong>Level:</strong> @_personalityViewModel?.Level </div>
+            <br />
+            <div><strong>Background:</strong> @_personalityViewModel?.Background </div>
+            <br />
+            <div><strong>Player Name:</strong> @_personalityViewModel?.PlayerName </div>
+            <br />
+            <div><strong>Race:</strong> @_personalityViewModel?.Race </div>
+            <br />
+            <div><strong>Attitude:</strong> @_personalityViewModel?.Attitute </div>
+            <br />
+            <div><strong>Experience:</strong> @_personalityViewModel?.Experience </div>
         </div>
+        <br />
+        <FluentDivider />
+        <br />
+        <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
+            <FluentButton OnClick="EditPersonality" IconStart="@(new Icons.Regular.Size20.Edit())">Edit</FluentButton>
+        </FluentStack>
     </FluentBodyContent>
-    <FluentFooter>
-        <FluentButton OnClick="EditPersonalityViewModel">Edit</FluentButton>
-    </FluentFooter>
 </FluentCard>
-
-

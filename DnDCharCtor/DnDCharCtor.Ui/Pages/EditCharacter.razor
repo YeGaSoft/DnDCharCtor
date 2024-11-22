@@ -5,9 +5,16 @@
 @inject IHybridCacheService HybridCacheService
 
 <CascadingValue Name="@CascadeValueNames.DataContext" Value="@ViewModel">
-
-    <PersonalityCard PersonalityExpression="@(() => ViewModel.CharacterViewModelToEdit.PersonalityViewModel)" />
-
-    <FluentButton OnClick="SaveChanges">Save</FluentButton>
+    <FluentGrid AdaptiveRendering="true" Style="background-color: var(--neutral-layer-3); padding: 4px; ">
+        <FluentGridItem xs="12" sm="6" md="4" lg="3" xl="2">
+            <PersonalityCard PersonalityExpression="@(() => ViewModel.CharacterViewModelToEdit.PersonalityViewModel)" />
+        </FluentGridItem>
+    </FluentGrid>
+    <br />
+    <FluentDivider />
+    <br />
+    <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
+        <FluentButton OnClick="SaveChanges" Appearance="Appearance.Accent" IconStart="@(new Icons.Regular.Size20.Save())">Save</FluentButton>
+    </FluentStack>
 
 </CascadingValue>

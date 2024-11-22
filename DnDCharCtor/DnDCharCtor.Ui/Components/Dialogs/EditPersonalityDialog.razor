@@ -1,22 +1,35 @@
 ﻿@implements IDialogContentComponent<PersonalityViewModel>
 
-<FluentDialog ShowDismiss="true" OnDismiss="CloseDialog">
-    <FluentStack VerticalAlignment="VerticalAlignment.Center">
-        <FluentLabel Typo="Typography.PaneHeader">
-            @Dialog.Instance.Parameters.Title
-        </FluentLabel>
-    </FluentStack>
+<FluentDialog>
+    <FluentDialogHeader ShowDismiss="true">
+        <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
+            <FluentLabel Typo="Typography.PaneHeader">
+                @Dialog.Instance.Parameters.Title
+            </FluentLabel>  
+        </FluentStack>
+        <br />
+        <FluentDivider />
+        <br />
+    </FluentDialogHeader>
+    
     <FluentDialogBody>
-        <EditForm EditContext="@_editContext">
+        <EditForm EditContext="@_editContext" class="centered-form">
             <DataAnnotationsValidator />
 
             <FluentTextField @bind-Value="Content.CharacterName" Label="Character Name" Required="true" />
+            <br />
             <FluentTextField @bind-Value="Content.ClassName" Label="Class Name" Required="true" />
+            <br />
             <FluentTextField @bind-Value="Content.Level" Label="Level" Required="true" Type="number" />
+            <br />
             <FluentTextField @bind-Value="Content.Background" Label="Background" />
+            <br />
             <FluentTextField @bind-Value="Content.PlayerName" Label="Player Name" Required="true" />
+            <br />
             <FluentTextField @bind-Value="Content.Race" Label="Race" Required="true" />
+            <br />
             <FluentTextField @bind-Value="Content.Attitute" Label="Attitude" />
+            <br />
             <FluentTextField @bind-Value="Content.Experience" Label="Experience" Required="true" Type="number" />
 
             <div style="color: var(--error);">
@@ -24,23 +37,29 @@
             </div>
         </EditForm>
     </FluentDialogBody>
+
     <FluentDialogFooter>
-        <FluentButton OnClick="CloseDialogAsync">Submit</FluentButton>
+        <br />
+        <FluentDivider />
+        <br />
+        <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
+            <FluentButton OnClick="CloseDialogAsync" Appearance="Appearance.Accent" IconStart="(new Icons.Regular.Size20.Send())">Submit</FluentButton>
+        </FluentStack>
     </FluentDialogFooter>
 </FluentDialog>
 
-
-@code {
-    [CascadingParameter]
-    public FluentDialog Dialog { get; set; } = default!;
-
-    [Parameter]
-    public PersonalityViewModel Content { get; set; } = default!;
-
-    private EditContext _editContext = default!;
-
-    private async Task CloseDialogAsync()
-    {
-        await Dialog.CloseAsync(Content);
+<style>
+    .centered-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centers items horizontally */
+        justify-content: center; /* Centers items vertically if needed */
+        width: 100%; /* Ensures full width */
     }
-}
+        .centered-form .fluent-text-field {
+            width: 100%; /* Optional: Adjust width of text fields */
+            /*max-width: 400px;*/ /* Set a max width for better appearance */
+            margin-bottom: 16px; /* Space between fields */
+        }
+
+</style>

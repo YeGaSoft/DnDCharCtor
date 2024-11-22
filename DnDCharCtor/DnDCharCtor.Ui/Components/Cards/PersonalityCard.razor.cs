@@ -29,7 +29,7 @@ public partial class PersonalityCard : IDisposable
     };
 
 
-    private async void EditPersonalityViewModel()
+    private async void EditPersonality()
     {
         if (_personalityViewModel is null) return;
 
