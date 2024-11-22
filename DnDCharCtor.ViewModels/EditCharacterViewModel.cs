@@ -22,31 +22,30 @@ public partial class EditCharacterViewModel : ObservableValidator
 
     private CharacterViewModel _characterViewModelBackup = new(Character.Empty);
 
-    [Required]
     [ObservableProperty]
-    public CharacterViewModel _editCharacterViewModel = new(Character.Empty);
+    public CharacterViewModel _characterViewModelToEdit = new(Character.Empty);
 
     public async Task<bool> InitializeAsync(Guid characterId)
     {
         var characters = await _hybridCacheService.GetCharactersAsync();
         var existingCharacter = characters.FirstOrDefault(c => c.Id == characterId);
-        EditCharacterViewModel = new(existingCharacter ?? Character.Empty);
-        _characterViewModelBackup = new(EditCharacterViewModel); 
+        CharacterViewModelToEdit = new(existingCharacter ?? Character.Empty);
+        _characterViewModelBackup = new(CharacterViewModelToEdit); 
         return true;
     }
 
     public bool Initialize(Character character)
     {
-        EditCharacterViewModel = new(character);
-        _characterViewModelBackup = new(EditCharacterViewModel);
+        CharacterViewModelToEdit = new(character);
+        _characterViewModelBackup = new(CharacterViewModelToEdit);
 
         return true;
     }
 
     public bool Initialize(CharacterViewModel characterViewModel)
     {
-        EditCharacterViewModel = characterViewModel;
-        _characterViewModelBackup = new(EditCharacterViewModel);
+        CharacterViewModelToEdit = characterViewModel;
+        _characterViewModelBackup = new(CharacterViewModelToEdit);
 
         return true;
     }

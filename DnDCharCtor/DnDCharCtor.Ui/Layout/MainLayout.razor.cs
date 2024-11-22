@@ -7,6 +7,6 @@ public partial class MainLayout
     protected override async Task OnInitializedAsync()
     {
         await ViewModel.InitializeAsync();
-        return base.OnInitializedAsync();
+        await base.OnInitializedAsync();
     }
 }

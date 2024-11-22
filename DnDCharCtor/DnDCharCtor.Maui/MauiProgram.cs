@@ -1,5 +1,6 @@
-﻿using DnDCharCtor.Maui.Services;
-using DnDCharCtor.Ui.Services;
+﻿using DnDCharCtor.Common.Services;
+using DnDCharCtor.Maui.Services;
+using DnDCharCtor.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Maui.Controls.Hosting;
@@ -21,6 +22,10 @@ namespace DnDCharCtor.Maui
 
             // Add device-specific services used by the DnDCharCtor.Maui.Shared project
             builder.Services.AddSingleton<IPlatformService, MauiPlatformService>();
+            builder.Services.AddSingleton<IHybridCacheService, HybridCacheService>();
+            builder.Services.AddSingleton<IJsonSerializer, JsonSerializer>();
+            builder.Services.AddSingleton<MainViewModel>();
+
 
             builder.Services.AddMauiBlazorWebView();
 
