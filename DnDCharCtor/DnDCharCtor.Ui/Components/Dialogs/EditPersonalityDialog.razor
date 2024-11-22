@@ -15,26 +15,43 @@
     <EditForm EditContext="@_editContext" class="centered-form">
         <DataAnnotationsValidator />
 
-        <FluentTextField @bind-Value="Content.CharacterName" Label="Character Name" Required="true" />
+        <FluentTextField @bind-Value="Content.CharacterName" Label="Character Name" Required="true"/>
+        <ValidationMessage For="@(() => Content.CharacterName)" />
         <br />
+
         <FluentTextField @bind-Value="Content.ClassName" Label="Class Name" Required="true" />
+        <ValidationMessage For="@(() => Content.ClassName)" />
         <br />
-        <FluentTextField @bind-Value="Content.Level" Label="Level" Required="true" Type="number" />
+
+        <FluentNumberField @bind-Value="Content.Level" Label="Level" Required="true" />
+        <ValidationMessage For="@(() => Content.Level)" />
         <br />
+
         <FluentTextField @bind-Value="Content.Background" Label="Background" />
+        <ValidationMessage For="@(() => Content.Background)" />
         <br />
+
         <FluentTextField @bind-Value="Content.PlayerName" Label="Player Name" Required="true" />
+        <ValidationMessage For="@(() => Content.PlayerName)" />
         <br />
+
         <FluentTextField @bind-Value="Content.Race" Label="Race" Required="true" />
+        <ValidationMessage For="@(() => Content.Race)" />
         <br />
+
         <FluentTextField @bind-Value="Content.Attitute" Label="Attitude" />
+        <ValidationMessage For="@(() => Content.Attitute)" />
         <br />
-        <FluentTextField @bind-Value="Content.Experience" Label="Experience" Required="true" Type="number" />
+
+        <FluentNumberField @bind-Value="Content.Experience" Label="Experience" Required="true" />
+        <ValidationMessage For="@(() => Content.Experience)" />
+        <br />
 
         <div style="color: var(--error);">
             <FluentValidationSummary />
         </div>
     </EditForm>
+
 </FluentDialogBody>
 
 <FluentDialogFooter>

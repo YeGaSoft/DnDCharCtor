@@ -15,24 +15,24 @@ public partial class PersonalityViewModel : ObservableValidator
     {
         CharacterName = personality.CharacterName;
         ClassName = personality.ClassName;
-        Level = personality.Level.ToString();
+        Level = personality.Level;
         Background = personality.Background;
         PlayerName = personality.PlayerName;
         Race = personality.Race;
         Attitute = personality.Attitute;
-        Experience = personality.Experience.ToString();
+        Experience = personality.Experience;
     }
 
     public PersonalityViewModel(PersonalityViewModel personalityViewModel)
     {
         CharacterName = personalityViewModel.CharacterName;
         ClassName = personalityViewModel.ClassName;
-        Level = personalityViewModel.Level.ToString();
+        Level = personalityViewModel.Level;
         Background = personalityViewModel.Background;
         PlayerName = personalityViewModel.PlayerName;
         Race = personalityViewModel.Race;
         Attitute = personalityViewModel.Attitute;
-        Experience = personalityViewModel.Experience.ToString();
+        Experience = personalityViewModel.Experience;
     }
 
     [Required]
@@ -44,8 +44,8 @@ public partial class PersonalityViewModel : ObservableValidator
     public string ClassName { get; set; }
 
     [Required]
-    //[Range(1, int.MaxValue)]
-    public string Level { get; set; }
+    [Range(1, int.MaxValue)]
+    public int Level { get; set; }
 
     [MaxLength(1024)]
     public string Background { get; set; }
@@ -62,8 +62,8 @@ public partial class PersonalityViewModel : ObservableValidator
     public string Attitute { get; set; }
 
     [Required]
-    //[Range(0, int.MaxValue)]
-    public string Experience { get; set; }
+    [Range(0, int.MaxValue)]
+    public int Experience { get; set; }
 
     public Personality ToPersonality()
     {
@@ -71,12 +71,12 @@ public partial class PersonalityViewModel : ObservableValidator
         {
             CharacterName = CharacterName,
             ClassName = ClassName,
-            Level = int.Parse(Level),
+            Level = Level,
             Background = Background,
             PlayerName = PlayerName,
             Race = Race,
             Attitute = Attitute,
-            Experience = int.Parse(Experience),
+            Experience = Experience,
         };
     }
 }
