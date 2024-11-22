@@ -15,8 +15,9 @@ public partial class NavMenu : IDisposable
     private string _expressionMemberName = string.Empty;
     [Parameter]
     public Expression<Func<CharacterViewModel>>? CurrentCharacterExpression { get; set; }
-
     private CharacterViewModel? _currentCharacterViewModel;
+
+
 
     protected override void OnInitialized()
     {

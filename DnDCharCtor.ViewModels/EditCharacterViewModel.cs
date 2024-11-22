@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using DnDCharCtor.Common.Services;
 using DnDCharCtor.Models;
+using DnDCharCtor.ViewModels.ModelViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -19,25 +20,33 @@ public partial class EditCharacterViewModel : ObservableValidator
         _hybridCacheService = hybridCacheService;
     }
 
-    private Character _characterBackup = new();
+    private CharacterViewModel _characterViewModelBackup = new(Character.Empty);
 
     [Required]
     [ObservableProperty]
-    public Character _editCharacter = new();
+    public CharacterViewModel _editCharacterViewModel = new(Character.Empty);
 
     public async Task<bool> InitializeAsync(Guid characterId)
     {
         var characters = await _hybridCacheService.GetCharactersAsync();
         var existingCharacter = characters.FirstOrDefault(c => c.Id == characterId);
-        EditCharacter = existingCharacter ?? new();
-        _characterBackup = EditCharacter with { }; 
+        EditCharacterViewModel = new(existingCharacter ?? Character.Empty);
+        _characterViewModelBackup = new(EditCharacterViewModel); 
         return true;
     }
 
     public bool Initialize(Character character)
     {
-        EditCharacter = character;
-        _characterBackup = EditCharacter with { };
+        EditCharacterViewModel = new(character);
+        _characterViewModelBackup = new(EditCharacterViewModel);
+
+        return true;
+    }
+
+    public bool Initialize(CharacterViewModel characterViewModel)
+    {
+        EditCharacterViewModel = characterViewModel;
+        _characterViewModelBackup = new(EditCharacterViewModel);
 
         return true;
     }

@@ -23,16 +23,16 @@ public partial class PersonalityViewModel : ObservableValidator
         Experience = personality.Experience.ToString();
     }
 
-    public PersonalityViewModel(PersonalityViewModel personality)
+    public PersonalityViewModel(PersonalityViewModel personalityViewModel)
     {
-        CharacterName = personality.CharacterName;
-        ClassName = personality.ClassName;
-        Level = personality.Level.ToString();
-        Background = personality.Background;
-        PlayerName = personality.PlayerName;
-        Race = personality.Race;
-        Attitute = personality.Attitute;
-        Experience = personality.Experience.ToString();
+        CharacterName = personalityViewModel.CharacterName;
+        ClassName = personalityViewModel.ClassName;
+        Level = personalityViewModel.Level.ToString();
+        Background = personalityViewModel.Background;
+        PlayerName = personalityViewModel.PlayerName;
+        Race = personalityViewModel.Race;
+        Attitute = personalityViewModel.Attitute;
+        Experience = personalityViewModel.Experience.ToString();
     }
 
     [Required]

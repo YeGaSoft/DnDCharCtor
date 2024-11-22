@@ -16,6 +16,11 @@ public partial class CharacterViewModel : ObservableValidator
         this.PersonalityViewModel = new(character.Personality);
     }
 
+    public CharacterViewModel(CharacterViewModel characterViewModel)
+    {
+        this.PersonalityViewModel = new(characterViewModel.PersonalityViewModel);
+    }
+
     [ObservableProperty]
     public PersonalityViewModel _personalityViewModel;
 

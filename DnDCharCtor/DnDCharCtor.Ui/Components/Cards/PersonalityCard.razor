@@ -2,17 +2,17 @@
 
 <FluentCard>
     <FluentHeader>
-        <h2>@PersonalityViewModel.CharacterName</h2>
+        <h2>@_personalityViewModel?.CharacterName</h2>
     </FluentHeader>
     <FluentBodyContent>
         <div>
-            <strong>Class:</strong> @PersonalityViewModel.ClassName <br />
-            <strong>Level:</strong> @PersonalityViewModel.Level <br />
-            <strong>Background:</strong> @PersonalityViewModel.Background <br />
-            <strong>Player Name:</strong> @PersonalityViewModel.PlayerName <br />
-            <strong>Race:</strong> @PersonalityViewModel.Race <br />
-            <strong>Attitude:</strong> @PersonalityViewModel.Attitute <br />
-            <strong>Experience:</strong> @PersonalityViewModel.Experience <br />
+            <strong>Class:</strong> @_personalityViewModel?.ClassName <br />
+            <strong>Level:</strong> @_personalityViewModel?.Level <br />
+            <strong>Background:</strong> @_personalityViewModel?.Background <br />
+            <strong>Player Name:</strong> @_personalityViewModel?.PlayerName <br />
+            <strong>Race:</strong> @_personalityViewModel?.Race <br />
+            <strong>Attitude:</strong> @_personalityViewModel?.Attitute <br />
+            <strong>Experience:</strong> @_personalityViewModel?.Experience <br />
         </div>
     </FluentBodyContent>
     <FluentFooter>

@@ -5,7 +5,7 @@
 
 <CascadingValue Name="@CascadeValueNames.DataContext" Value="@ViewModel">
 
-    <PersonalityCard />
+    <PersonalityCard PersonalityExpression="@(() => ViewModel.EditCharacterViewModel.PersonalityViewModel)" />
 
     <FluentButton OnClick="SaveChanges">Save</FluentButton>
 
