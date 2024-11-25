@@ -212,5 +212,32 @@ namespace DnDCharCtor.Common.Resources {
                 return ResourceManager.GetString("Page.Settings", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        public static string Settings_Languages_English {
+            get {
+                return ResourceManager.GetString("Settings.Languages.English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deutsch (German).
+        /// </summary>
+        public static string Settings_Languages_German {
+            get {
+                return ResourceManager.GetString("Settings.Languages.German", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select language.
+        /// </summary>
+        public static string Settings_SelectLanguage {
+            get {
+                return ResourceManager.GetString("Settings.SelectLanguage", resourceCulture);
+            }
+        }
     }
 }

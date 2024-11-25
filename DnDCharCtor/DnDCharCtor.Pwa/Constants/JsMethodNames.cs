@@ -6,4 +6,5 @@ internal static class JsMethodNames
     public const string LocalStorageGetItem = $"{LocalStorage}.getItem";
     public const string LocalStorageSetItem = $"{LocalStorage}.setItem";
 
+    public const string GetBrowserLanguage = "getBrowserLanguage";
 }

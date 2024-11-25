@@ -1,7 +1,9 @@
 ﻿using DnDCharCtor.Common.Constants;
+using DnDCharCtor.Common.Resources;
 using DnDCharCtor.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +24,7 @@ public class HybridCacheService : IHybridCacheService
     {
         if (_characters.Count == 0)
         {
-            _characters = await _platformService.GetFromStorageAsync<IReadOnlyList<Character>?>(StorageKeys.Characters) ?? [];
+            _characters = await _platformService.GetFromStorageAsync<IReadOnlyList<Character>?>(StorageKeys.Characters).ConfigureAwait(false) ?? [];
         }
 
         return _characters;
@@ -34,7 +36,7 @@ public class HybridCacheService : IHybridCacheService
     {
         if (_currentCharacter is null)
         {
-            var currentCharacterId = await _platformService.GetFromStorageAsync<string?>(StorageKeys.CurrentCharacterId);
+            var currentCharacterId = await _platformService.GetFromStorageAsync<string?>(StorageKeys.CurrentCharacterId).ConfigureAwait(false);
             if (currentCharacterId is null) return null;
 
             var guid = Guid.Parse(currentCharacterId);
@@ -47,11 +49,11 @@ public class HybridCacheService : IHybridCacheService
     public async Task<bool> SetCurrentCharacterAsync(Character character)
     {
         var characters = _characters.Append(character);
-        var isCharactersUpdated = await _platformService.SetInStorageAsync(StorageKeys.Characters, characters);
+        var isCharactersUpdated = await _platformService.SetInStorageAsync(StorageKeys.Characters, characters).ConfigureAwait(false);
         if (isCharactersUpdated)
         {
             _characters = characters.ToList();
-            var isSaved = await _platformService.SetInStorageAsync(StorageKeys.CurrentCharacterId, character.Id.ToString());
+            var isSaved = await _platformService.SetInStorageAsync(StorageKeys.CurrentCharacterId, character.Id.ToString()).ConfigureAwait(false);
             _currentCharacter = character;
 
             return isSaved;
@@ -60,4 +62,45 @@ public class HybridCacheService : IHybridCacheService
         return false;
     }
 
+
+    private CultureInfo? _selectedLanguage;
+    public async Task<CultureInfo> GetSelectedLanguageAsync()
+    {
+        if (_selectedLanguage is null)
+        {
+            var languageIdentifier = await _platformService.GetFromStorageAsync<string?>(StorageKeys.SelectedLanguageIdentifier).ConfigureAwait(false);
+            if (languageIdentifier is null)
+            {
+                var systemLanguageIdentifier = await _platformService.GetSystemLanguageIdentifierAsync().ConfigureAwait(false);
+                if (Culture.IsLanguageSupported(systemLanguageIdentifier)) await SetSelectedLanguageAsync(new CultureInfo(systemLanguageIdentifier)).ConfigureAwait(false);
+            }
+            else
+            {
+                _selectedLanguage = new CultureInfo(languageIdentifier);
+            } 
+        }
+
+        return _selectedLanguage ?? new CultureInfo(Culture.EnglishCultureIdentifier); // We do not cache to enforce trying to get a supported language later
+    }
+
+    public async Task<bool> SetSelectedLanguageAsync(CultureInfo cultureInfo)
+    {
+        var isLanguageSupported = Culture.IsLanguageSupported(cultureInfo.Name);
+        if (isLanguageSupported is false) return false;
+
+        var isUpdated = await _platformService.SetInStorageAsync(StorageKeys.SelectedLanguageIdentifier, cultureInfo.Name).ConfigureAwait(false);
+        if (isUpdated is false) return false;
+
+        _selectedLanguage = cultureInfo;
+
+        CultureInfo.CurrentCulture = cultureInfo;
+        CultureInfo.CurrentUICulture = cultureInfo;
+        CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+        CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+        Thread.CurrentThread.CurrentCulture = cultureInfo;
+        Thread.CurrentThread.CurrentUICulture = cultureInfo;
+        StringResources.Culture = cultureInfo;
+
+        return true;
+    }
 }

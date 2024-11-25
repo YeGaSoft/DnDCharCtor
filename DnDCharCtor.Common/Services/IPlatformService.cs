@@ -5,6 +5,8 @@ public interface IPlatformService
     ApplicationType GetApplicationType();
     Platform GetPlatform();
 
+    Task<string> GetSystemLanguageIdentifierAsync();
+
     Task<T?> GetFromStorageAsync<T>(string key);
     Task<bool> SetInStorageAsync<T>(string key, T value);
 }

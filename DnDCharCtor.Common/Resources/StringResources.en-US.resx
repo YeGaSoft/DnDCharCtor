@@ -168,4 +168,13 @@
   <data name="Page.Home" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="Settings.SelectLanguage" xml:space="preserve">
+    <value>Select language</value>
+  </data>
+  <data name="Settings.Languages.English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Settings.Languages.German" xml:space="preserve">
+    <value>German</value>
+  </data>
 </root>

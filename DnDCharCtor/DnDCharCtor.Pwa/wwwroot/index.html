@@ -37,6 +37,12 @@
     <script src="_framework/blazor.webassembly.js"></script>
     <script src="_content/Microsoft.FluentUI.AspNetCore.Components/Microsoft.FluentUI.AspNetCore.Components.lib.module.js" type="module" async></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
+
+    <script>
+        window.getBrowserLanguage = function () {
+            return navigator.language || navigator.userLanguage; // For older browsers
+        };
+    </script>
 </body>
 
 </html>

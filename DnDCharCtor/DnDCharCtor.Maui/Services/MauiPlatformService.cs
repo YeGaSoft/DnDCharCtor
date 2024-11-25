@@ -1,6 +1,7 @@
 using DnDCharCtor.Common.Services;
 using DnDCharCtor.Maui.Services;
 using Microsoft.Maui.Devices;
+using System.Globalization;
 using System.Text.Json;
 
 namespace DnDCharCtor.Maui.Services;
@@ -43,10 +44,15 @@ public class MauiPlatformService : IPlatformService
         }
     }
 
+    public Task<string> GetSystemLanguageIdentifierAsync()
+    {
+        return Task.FromResult(CultureInfo.CurrentCulture.Name);
+    }
+
 
     public async Task<T?> GetFromStorageAsync<T>(string key)
     {
-        var value = await SecureStorage.Default.GetAsync(key);
+        var value = await SecureStorage.Default.GetAsync(key).ConfigureAwait(false);
         if (value is null) return default;
         return _serializer.Deserialize<T>(value);
     }
@@ -56,7 +62,7 @@ public class MauiPlatformService : IPlatformService
         var json = _serializer.Serialize(value);
         if (string.IsNullOrWhiteSpace(json)) return false;
         
-        await SecureStorage.Default.SetAsync(key, json);
+        await SecureStorage.Default.SetAsync(key, json).ConfigureAwait(false);
         return true;
     }
 }

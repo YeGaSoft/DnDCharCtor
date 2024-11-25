@@ -1,6 +1,7 @@
 ﻿using DnDCharCtor.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,4 +14,7 @@ public interface IHybridCacheService
 
     Task<Character?> GetCurrentCharacterAsync();
     Task<bool> SetCurrentCharacterAsync(Character character);
+
+    Task<CultureInfo> GetSelectedLanguageAsync();
+    Task<bool> SetSelectedLanguageAsync(CultureInfo cultureInfo);
 }

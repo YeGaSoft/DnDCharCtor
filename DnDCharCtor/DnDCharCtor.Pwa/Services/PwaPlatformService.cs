@@ -2,6 +2,7 @@ using DnDCharCtor.Common.Services;
 using DnDCharCtor.Pwa.Constants;
 using DnDCharCtor.Pwa.Services;
 using Microsoft.JSInterop;
+using System.Globalization;
 
 namespace DnDCharCtor.Pwa.Services;
 
@@ -37,10 +38,16 @@ public class PwaPlatformService : IPlatformService
         };
     }
 
+    public async Task<string> GetSystemLanguageIdentifierAsync()
+    {
+        var languageIdentifier = await _jsRuntime.InvokeAsync<string>(JsMethodNames.GetBrowserLanguage).ConfigureAwait(false);
+        return languageIdentifier;
+    }
+
 
     public async Task<T?> GetFromStorageAsync<T>(string key)
     {
-        var value = await _jsRuntime.InvokeAsync<string?>(JsMethodNames.LocalStorageGetItem, key);
+        var value = await _jsRuntime.InvokeAsync<string?>(JsMethodNames.LocalStorageGetItem, key).ConfigureAwait(false);
         if (value is null) return default;
         return _serializer.Deserialize<T>(value);
     }
@@ -50,7 +57,7 @@ public class PwaPlatformService : IPlatformService
         var json = _serializer.Serialize(value);
         if (string.IsNullOrWhiteSpace(json)) return false;
 
-        await _jsRuntime.InvokeVoidAsync(JsMethodNames.LocalStorageSetItem, key, json);
+        await _jsRuntime.InvokeVoidAsync(JsMethodNames.LocalStorageSetItem, key, json).ConfigureAwait(false);
         return true;
     }
 }

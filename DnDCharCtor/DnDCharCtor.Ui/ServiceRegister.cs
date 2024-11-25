@@ -32,6 +32,7 @@ public static class ServiceRegister
     {
         services.AddSingleton<MainViewModel>();
         services.AddSingleton<EditCharacterViewModel>();
+        services.AddSingleton<SettingsViewModel>();
 
         return services;
     }
