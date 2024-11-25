@@ -1,69 +1,34 @@
 ﻿@implements IDialogContentComponent<PersonalityViewModel>
 
-@inject IServiceProvider ServiceProvider
-
-<FluentDialogHeader>
-    <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
-        <FluentLabel Typo="Typography.PaneHeader">
-            @Dialog.Instance.Parameters.Title
-        </FluentLabel>
-    </FluentStack>
+<DialogBase Content="@Content">
+    <FluentTextField @bind-Value="Content.CharacterName" Label="Character Name" Required="true" />
+    <ValidationMessage For="@(() => Content.CharacterName)" />
     <br />
-    <FluentDivider />
+
+    <FluentTextField @bind-Value="Content.ClassName" Label="Class Name" Required="true" />
+    <ValidationMessage For="@(() => Content.ClassName)" />
     <br />
-</FluentDialogHeader>
 
-<FluentDialogBody>
-    <EditForm EditContext="@_editContext">
-        <DataAnnotationsValidator />
-
-        <FluentStack Orientation="Orientation.Vertical" VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
-            <br />
-            <FluentTextField @bind-Value="Content.CharacterName" Label="Character Name" Required="true" />
-            <ValidationMessage For="@(() => Content.CharacterName)" />
-            <br />
-
-            <FluentTextField @bind-Value="Content.ClassName" Label="Class Name" Required="true" />
-            <ValidationMessage For="@(() => Content.ClassName)" />
-            <br />
-
-            <FluentNumberField @bind-Value="Content.Level" Label="Level" Required="true" />
-            <ValidationMessage For="@(() => Content.Level)" />
-            <br />
-
-            <FluentTextField @bind-Value="Content.Background" Label="Background" />
-            <ValidationMessage For="@(() => Content.Background)" />
-            <br />
-
-            <FluentTextField @bind-Value="Content.PlayerName" Label="Player Name" Required="true" />
-            <ValidationMessage For="@(() => Content.PlayerName)" />
-            <br />
-
-            <FluentTextField @bind-Value="Content.Race" Label="Race" Required="true" />
-            <ValidationMessage For="@(() => Content.Race)" />
-            <br />
-
-            <FluentTextField @bind-Value="Content.Attitute" Label="Attitude" />
-            <ValidationMessage For="@(() => Content.Attitute)" />
-            <br />
-
-            <FluentNumberField @bind-Value="Content.Experience" Label="Experience" Required="true" />
-            <ValidationMessage For="@(() => Content.Experience)" />
-            <br />
-        </FluentStack>
-
-        <div style="color: var(--error);">
-            <FluentValidationSummary />
-        </div>
-    </EditForm>
-
-</FluentDialogBody>
-
-<FluentDialogFooter>
+    <FluentNumberField @bind-Value="Content.Level" Label="Level" Required="true" />
+    <ValidationMessage For="@(() => Content.Level)" />
     <br />
-    <FluentDivider />
+
+    <FluentTextField @bind-Value="Content.Background" Label="Background" />
+    <ValidationMessage For="@(() => Content.Background)" />
     <br />
-    <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
-        <FluentButton OnClick="CloseDialogAsync" Appearance="Appearance.Accent" IconStart="(new Icons.Regular.Size20.Send())">Submit</FluentButton>
-    </FluentStack>
-</FluentDialogFooter>
+
+    <FluentTextField @bind-Value="Content.PlayerName" Label="Player Name" Required="true" />
+    <ValidationMessage For="@(() => Content.PlayerName)" />
+    <br />
+
+    <FluentTextField @bind-Value="Content.Race" Label="Race" Required="true" />
+    <ValidationMessage For="@(() => Content.Race)" />
+    <br />
+
+    <FluentTextField @bind-Value="Content.Attitute" Label="Attitude" />
+    <ValidationMessage For="@(() => Content.Attitute)" />
+    <br />
+
+    <FluentNumberField @bind-Value="Content.Experience" Label="Experience" Required="true" />
+    <ValidationMessage For="@(() => Content.Experience)" />
+</DialogBase>

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DnDCharCtor.ViewModels.ModelViewModels;
 
-public partial class PersonalityViewModel : ObservableValidator
+public partial class PersonalityViewModel : ObservableValidator, IValidateableViewModel
 {
     public PersonalityViewModel(Personality personality)
     {

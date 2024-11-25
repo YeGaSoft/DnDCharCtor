@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DnDCharCtor.ViewModels;
 
-public partial class EditCharacterViewModel : ObservableValidator
+public partial class EditCharacterViewModel : ObservableValidator, IValidateableViewModel
 {
     private readonly IHybridCacheService _hybridCacheService;
 

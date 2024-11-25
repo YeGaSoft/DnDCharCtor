@@ -1,0 +1,42 @@
+﻿@implements IDialogContentComponent<IValidateableViewModel>
+
+@inject IServiceProvider ServiceProvider
+
+<FluentDialogHeader>
+    <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
+        <FluentLabel Typo="Typography.PaneHeader">
+            @Dialog.Instance.Parameters.Title
+        </FluentLabel>
+    </FluentStack>
+    <br />
+    <FluentDivider />
+</FluentDialogHeader>
+
+<FluentDialogBody>
+    <EditForm EditContext="@_editContext">
+        <DataAnnotationsValidator />
+
+        <FluentStack 
+            Orientation="Orientation.Vertical" 
+            VerticalAlignment="VerticalAlignment.Center" 
+            HorizontalAlignment="HorizontalAlignment.Center">
+            @ChildContent
+        </FluentStack>
+
+        <div style="color: var(--error);">
+            <FluentValidationSummary />
+        </div>
+    </EditForm>
+
+</FluentDialogBody>
+
+<FluentDialogFooter>
+    <br />
+    <FluentDivider />
+    <br />
+    <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
+        <FluentButton OnClick="CloseDialogAsync" Appearance="Appearance.Accent" IconStart="(new Icons.Regular.Size20.Send())">@SubmitButtonText</FluentButton>
+    </FluentStack>
+</FluentDialogFooter>
+
+        
