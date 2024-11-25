@@ -4,7 +4,7 @@ using DnDCharCtor.Ui;
 using DnDCharCtor.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Fast.Components.FluentUI;
+using Microsoft.FluentUI.AspNetCore.Components;
 using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Maui.Hosting;
 

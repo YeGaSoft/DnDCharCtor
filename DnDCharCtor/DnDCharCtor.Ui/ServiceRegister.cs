@@ -1,7 +1,7 @@
 ﻿using DnDCharCtor.Common.Services;
 using DnDCharCtor.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Fast.Components.FluentUI;
+using Microsoft.FluentUI.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -3,7 +3,7 @@ using DnDCharCtor.Ui.Components.Dialogs;
 using DnDCharCtor.Ui.Constants;
 using DnDCharCtor.ViewModels.ModelViewModels;
 using Microsoft.AspNetCore.Components;
-using Microsoft.Fast.Components.FluentUI;
+using Microsoft.FluentUI.AspNetCore.Components;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq.Expressions;
