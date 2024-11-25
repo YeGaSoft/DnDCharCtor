@@ -33,37 +33,72 @@ public partial class PersonalityViewModel : ObservableValidator
         Race = personalityViewModel.Race;
         Attitute = personalityViewModel.Attitute;
         Experience = personalityViewModel.Experience;
+
+        HasValidationErrors = personalityViewModel.HasValidationErrors;
+        if (personalityViewModel.HasValidationErrors) Validate();
     }
 
+    [ObservableProperty]
+    [NotifyDataErrorInfo]
     [Required]
     [MaxLength(64)]
-    public string CharacterName { get; set; }
+    private string _characterName;
 
+    [ObservableProperty]
+    [NotifyDataErrorInfo]
     [Required]
     [MaxLength(32)]
-    public string ClassName { get; set; }
+    private string _className;
 
+    [ObservableProperty]
+    [NotifyDataErrorInfo]
     [Required]
     [Range(1, int.MaxValue)]
-    public int Level { get; set; }
+    private int _level;
 
+    [ObservableProperty]
+    [NotifyDataErrorInfo]
     [MaxLength(1024)]
-    public string Background { get; set; }
+    private string _background;
 
+    [ObservableProperty]
+    [NotifyDataErrorInfo]
     [Required]
     [MaxLength(64)]
-    public string PlayerName { get; set; }
+    private string _playerName;
 
+    [ObservableProperty]
+    [NotifyDataErrorInfo]
     [Required]
     [MaxLength(32)]
-    public string Race { get; set; }
+    private string _race;
 
+    [ObservableProperty]
+    [NotifyDataErrorInfo]
     [MaxLength(32)]
-    public string Attitute { get; set; }
+    private string _attitute;
 
+    [ObservableProperty]
+    [NotifyDataErrorInfo]
     [Required]
     [Range(0, int.MaxValue)]
-    public int Experience { get; set; }
+    private int _experience;
+
+    [ObservableProperty]
+    private bool _hasValidationErrors;
+
+    public bool Validate()
+    {
+        ClearErrors(null);
+        ValidateAllProperties();
+
+        var validationContext = new ValidationContext(this);
+        var validationResults = new List<ValidationResult>();
+
+        HasValidationErrors = Validator.TryValidateObject(this, validationContext, validationResults, true) is false;
+        return HasValidationErrors is false;
+    }
+
 
     public Personality ToPersonality()
     {

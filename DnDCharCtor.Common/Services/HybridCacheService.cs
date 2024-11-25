@@ -28,6 +28,7 @@ public class HybridCacheService : IHybridCacheService
         return _characters;
     }
 
+    
     private Character? _currentCharacter;
     public async Task<Character?> GetCurrentCharacterAsync()
     {
@@ -42,4 +43,21 @@ public class HybridCacheService : IHybridCacheService
 
         return _currentCharacter;
     }
+
+    public async Task<bool> SetCurrentCharacterAsync(Character character)
+    {
+        var characters = _characters.Append(character);
+        var isCharactersUpdated = await _platformService.SetInStorageAsync(StorageKeys.Characters, characters);
+        if (isCharactersUpdated)
+        {
+            _characters = characters.ToList();
+            var isSaved = await _platformService.SetInStorageAsync(StorageKeys.CurrentCharacterId, character.Id.ToString());
+            _currentCharacter = character;
+
+            return isSaved;
+        }
+
+        return false;
+    }
+
 }

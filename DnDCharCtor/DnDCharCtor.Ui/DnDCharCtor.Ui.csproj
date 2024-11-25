@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Components\InitialValidator.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Components\InitialValidator.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
 

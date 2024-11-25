@@ -13,16 +13,28 @@ public partial class CharacterViewModel : ObservableValidator
 {
     public CharacterViewModel(Character character)
     {
-        this.PersonalityViewModel = new(character.Personality);
+        PersonalityViewModel = new(character.Personality);
     }
 
     public CharacterViewModel(CharacterViewModel characterViewModel)
     {
-        this.PersonalityViewModel = new(characterViewModel.PersonalityViewModel);
+        PersonalityViewModel = new(characterViewModel.PersonalityViewModel);
     }
 
     [ObservableProperty]
-    public PersonalityViewModel _personalityViewModel;
+    private PersonalityViewModel _personalityViewModel;
+
+    [ObservableProperty]
+    private bool _hasValidationErrors;
+
+
+    public bool Validate()
+    {
+        HasValidationErrors = PersonalityViewModel.Validate();
+
+        return HasValidationErrors is false;
+    }
+
 
     public Character ToCharacter()
     {

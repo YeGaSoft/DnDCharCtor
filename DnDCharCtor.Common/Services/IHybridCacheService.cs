@@ -10,5 +10,7 @@ namespace DnDCharCtor.Common.Services;
 public interface IHybridCacheService
 {
     Task<IReadOnlyList<Character>> GetCharactersAsync();
+
     Task<Character?> GetCurrentCharacterAsync();
+    Task<bool> SetCurrentCharacterAsync(Character character);
 }

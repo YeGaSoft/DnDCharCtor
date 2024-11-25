@@ -1,35 +1,18 @@
 ﻿@inject IDialogService DialogService
 
-<FluentCard onclick="@(() => EditPersonality())">
-    <FluentHeader>
-        <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
-            <FluentLabel Typo="Typography.PaneHeader">Personality</FluentLabel>
-        </FluentStack>
-    </FluentHeader>
-
-    <FluentBodyContent>
-        <FluentStack Orientation="Orientation.Vertical" VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Start">
-            <br />
-            <div><strong>Class:</strong> @_personalityViewModel?.ClassName </div>
-            <br />
-            <div><strong>Level:</strong> @_personalityViewModel?.Level </div>
-            <br />
-            <div><strong>Background:</strong> @_personalityViewModel?.Background </div>
-            <br />
-            <div><strong>Player Name:</strong> @_personalityViewModel?.PlayerName </div>
-            <br />
-            <div><strong>Race:</strong> @_personalityViewModel?.Race </div>
-            <br />
-            <div><strong>Attitude:</strong> @_personalityViewModel?.Attitute </div>
-            <br />
-            <div><strong>Experience:</strong> @_personalityViewModel?.Experience </div>
-        </FluentStack>
-
-        <br />
-        <FluentDivider />
-        <br />
-        <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
-            <FluentButton OnClick="EditPersonality" IconStart="@(new Icons.Regular.Size20.Edit())">Edit</FluentButton>
-        </FluentStack>
-    </FluentBodyContent>
-</FluentCard>
+<CardBase Title="Personality" EditCallback="EditPersonality" HasValidationErrors="@(_personalityViewModel?.HasValidationErrors ?? false)">
+    <br />
+    <div><strong>Class:</strong> @_personalityViewModel?.ClassName </div>
+    <br />
+    <div><strong>Level:</strong> @_personalityViewModel?.Level </div>
+    <br />
+    <div><strong>Background:</strong> @_personalityViewModel?.Background </div>
+    <br />
+    <div><strong>Player Name:</strong> @_personalityViewModel?.PlayerName </div>
+    <br />
+    <div><strong>Race:</strong> @_personalityViewModel?.Race </div>
+    <br />
+    <div><strong>Attitude:</strong> @_personalityViewModel?.Attitute </div>
+    <br />
+    <div><strong>Experience:</strong> @_personalityViewModel?.Experience </div>
+</CardBase>

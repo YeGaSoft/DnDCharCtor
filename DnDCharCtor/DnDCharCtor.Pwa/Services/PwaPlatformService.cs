@@ -1,4 +1,5 @@
 using DnDCharCtor.Common.Services;
+using DnDCharCtor.Pwa.Constants;
 using DnDCharCtor.Pwa.Services;
 using Microsoft.JSInterop;
 
@@ -21,13 +22,6 @@ public class PwaPlatformService : IPlatformService
         return ApplicationType.Pwa;
     }
 
-    public async Task<T?> GetFromStorageAsync<T>(string key)
-    {
-        var value = await _jsRuntime.InvokeAsync<string?>("localStorage.getItem", key);
-        if (value is null) return default;
-        return _serializer.Deserialize<T>(value);
-    }
-
     public Platform GetPlatform()
     {
         return Environment.OSVersion.Platform switch
@@ -41,5 +35,22 @@ public class PwaPlatformService : IPlatformService
             PlatformID.Other => Platform.Other,
             _ => Platform.Mobile,
         };
+    }
+
+
+    public async Task<T?> GetFromStorageAsync<T>(string key)
+    {
+        var value = await _jsRuntime.InvokeAsync<string?>(JsMethodNames.LocalStorageGetItem, key);
+        if (value is null) return default;
+        return _serializer.Deserialize<T>(value);
+    }
+
+    public async Task<bool> SetInStorageAsync<T>(string key, T value)
+    {
+        var json = _serializer.Serialize(value);
+        if (string.IsNullOrWhiteSpace(json)) return false;
+
+        await _jsRuntime.InvokeVoidAsync(JsMethodNames.LocalStorageSetItem, key, json);
+        return true;
     }
 }

@@ -19,13 +19,6 @@ public class MauiPlatformService : IPlatformService
         return ApplicationType.Maui;
     }
 
-    public async Task<T?> GetFromStorageAsync<T>(string key)
-    {
-        var value = await SecureStorage.Default.GetAsync(key);
-        if (value is null) return default;
-        return _serializer.Deserialize<T>(value);
-    }
-
     public Common.Services.Platform GetPlatform()
     {
         if (DeviceInfo.Platform == DevicePlatform.Android)
@@ -48,5 +41,22 @@ public class MauiPlatformService : IPlatformService
         {
             return Common.Services.Platform.Other;
         }
+    }
+
+
+    public async Task<T?> GetFromStorageAsync<T>(string key)
+    {
+        var value = await SecureStorage.Default.GetAsync(key);
+        if (value is null) return default;
+        return _serializer.Deserialize<T>(value);
+    }
+
+    public async Task<bool> SetInStorageAsync<T>(string key, T value)
+    {
+        var json = _serializer.Serialize(value);
+        if (string.IsNullOrWhiteSpace(json)) return false;
+        
+        await SecureStorage.Default.SetAsync(key, json);
+        return true;
     }
 }

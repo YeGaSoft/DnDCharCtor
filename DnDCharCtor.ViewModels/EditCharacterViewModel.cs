@@ -23,7 +23,10 @@ public partial class EditCharacterViewModel : ObservableValidator
     private CharacterViewModel _characterViewModelBackup = new(Character.Empty);
 
     [ObservableProperty]
-    public CharacterViewModel _characterViewModelToEdit = new(Character.Empty);
+    private CharacterViewModel _characterViewModelToEdit = new(Character.Empty);
+
+    [ObservableProperty]
+    private bool _hasValidationErrors;
 
     public async Task<bool> InitializeAsync(Guid characterId)
     {
@@ -48,5 +51,19 @@ public partial class EditCharacterViewModel : ObservableValidator
         _characterViewModelBackup = new(CharacterViewModelToEdit);
 
         return true;
+    }
+
+
+    public bool Validate()
+    {
+        HasValidationErrors = CharacterViewModelToEdit.Validate();
+        return HasValidationErrors is false;
+    }
+
+    public async Task<bool> SaveAsync()
+    {
+        var characterToSave = CharacterViewModelToEdit.ToCharacter();
+        var isSaved = await _hybridCacheService.SetCurrentCharacterAsync(characterToSave);
+        return isSaved;
     }
 }

@@ -2,10 +2,10 @@
 @page "/editCharacter/{id}"
 
 @inject EditCharacterViewModel ViewModel
-@inject IHybridCacheService HybridCacheService
+@inject NavigationManager NavigationManager
 
 <CascadingValue Name="@CascadeValueNames.DataContext" Value="@ViewModel">
-    <FluentGrid AdaptiveRendering="true" Style="background-color: var(--neutral-layer-3); padding: 4px; ">
+    <FluentGrid AdaptiveRendering="true" Style=@($"""background-color: var(--neutral-layer-3); padding: 4px; {(ViewModel.HasValidationErrors ? "border-color: red; border-width: medium;" : "")}""")>
         <FluentGridItem xs="12" sm="6" md="4" lg="3" xl="2">
             <PersonalityCard PersonalityExpression="@(() => ViewModel.CharacterViewModelToEdit.PersonalityViewModel)" />
         </FluentGridItem>

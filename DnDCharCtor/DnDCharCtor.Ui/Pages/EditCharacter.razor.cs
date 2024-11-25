@@ -1,4 +1,5 @@
 using DnDCharCtor.Models;
+using DnDCharCtor.Ui.Constants;
 using Microsoft.AspNetCore.Components;
 
 namespace DnDCharCtor.Ui.Pages;
@@ -25,8 +26,12 @@ public partial class EditCharacter
 
     private async Task SaveChanges()
     {
-        // Trigger validation and save logic here
-        // Validate all characters and show errors if any
-        await Task.Delay(1);
+        var isValid = ViewModel.Validate();
+        if (isValid is false) return;
+
+        var isSaved = await ViewModel.SaveAsync();
+        if (isSaved is false) return;
+
+        NavigationManager.NavigateTo(Routes.CurrentCharacter);
     }
 }
