@@ -196,6 +196,15 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string Page_Home {
+            get {
+                return ResourceManager.GetString("Page.Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         public static string Page_Settings {

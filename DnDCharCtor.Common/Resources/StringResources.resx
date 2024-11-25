@@ -165,4 +165,7 @@
   <data name="Page.Settings" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="Page.Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
 </root>
