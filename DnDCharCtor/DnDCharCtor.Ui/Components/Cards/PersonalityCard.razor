@@ -8,7 +8,8 @@
     </FluentHeader>
 
     <FluentBodyContent>
-        <div>
+        <FluentStack Orientation="Orientation.Vertical" VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Start">
+            <br />
             <div><strong>Class:</strong> @_personalityViewModel?.ClassName </div>
             <br />
             <div><strong>Level:</strong> @_personalityViewModel?.Level </div>
@@ -22,7 +23,8 @@
             <div><strong>Attitude:</strong> @_personalityViewModel?.Attitute </div>
             <br />
             <div><strong>Experience:</strong> @_personalityViewModel?.Experience </div>
-        </div>
+        </FluentStack>
+
         <br />
         <FluentDivider />
         <br />

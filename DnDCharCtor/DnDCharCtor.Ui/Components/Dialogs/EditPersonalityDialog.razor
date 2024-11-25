@@ -12,40 +12,43 @@
 </FluentDialogHeader>
 
 <FluentDialogBody>
-    <EditForm EditContext="@_editContext" class="centered-form">
+    <EditForm EditContext="@_editContext">
         <DataAnnotationsValidator />
 
-        <FluentTextField @bind-Value="Content.CharacterName" Label="Character Name" Required="true"/>
-        <ValidationMessage For="@(() => Content.CharacterName)" />
-        <br />
+        <FluentStack Orientation="Orientation.Vertical" VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
+            <br />
+            <FluentTextField @bind-Value="Content.CharacterName" Label="Character Name" Required="true" />
+            <ValidationMessage For="@(() => Content.CharacterName)" />
+            <br />
 
-        <FluentTextField @bind-Value="Content.ClassName" Label="Class Name" Required="true" />
-        <ValidationMessage For="@(() => Content.ClassName)" />
-        <br />
+            <FluentTextField @bind-Value="Content.ClassName" Label="Class Name" Required="true" />
+            <ValidationMessage For="@(() => Content.ClassName)" />
+            <br />
 
-        <FluentNumberField @bind-Value="Content.Level" Label="Level" Required="true" />
-        <ValidationMessage For="@(() => Content.Level)" />
-        <br />
+            <FluentNumberField @bind-Value="Content.Level" Label="Level" Required="true" />
+            <ValidationMessage For="@(() => Content.Level)" />
+            <br />
 
-        <FluentTextField @bind-Value="Content.Background" Label="Background" />
-        <ValidationMessage For="@(() => Content.Background)" />
-        <br />
+            <FluentTextField @bind-Value="Content.Background" Label="Background" />
+            <ValidationMessage For="@(() => Content.Background)" />
+            <br />
 
-        <FluentTextField @bind-Value="Content.PlayerName" Label="Player Name" Required="true" />
-        <ValidationMessage For="@(() => Content.PlayerName)" />
-        <br />
+            <FluentTextField @bind-Value="Content.PlayerName" Label="Player Name" Required="true" />
+            <ValidationMessage For="@(() => Content.PlayerName)" />
+            <br />
 
-        <FluentTextField @bind-Value="Content.Race" Label="Race" Required="true" />
-        <ValidationMessage For="@(() => Content.Race)" />
-        <br />
+            <FluentTextField @bind-Value="Content.Race" Label="Race" Required="true" />
+            <ValidationMessage For="@(() => Content.Race)" />
+            <br />
 
-        <FluentTextField @bind-Value="Content.Attitute" Label="Attitude" />
-        <ValidationMessage For="@(() => Content.Attitute)" />
-        <br />
+            <FluentTextField @bind-Value="Content.Attitute" Label="Attitude" />
+            <ValidationMessage For="@(() => Content.Attitute)" />
+            <br />
 
-        <FluentNumberField @bind-Value="Content.Experience" Label="Experience" Required="true" />
-        <ValidationMessage For="@(() => Content.Experience)" />
-        <br />
+            <FluentNumberField @bind-Value="Content.Experience" Label="Experience" Required="true" />
+            <ValidationMessage For="@(() => Content.Experience)" />
+            <br />
+        </FluentStack>
 
         <div style="color: var(--error);">
             <FluentValidationSummary />
@@ -62,20 +65,3 @@
         <FluentButton OnClick="CloseDialogAsync" Appearance="Appearance.Accent" IconStart="(new Icons.Regular.Size20.Send())">Submit</FluentButton>
     </FluentStack>
 </FluentDialogFooter>
-
-<style>
-    .centered-form {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centers items horizontally */
-        justify-content: center; /* Centers items vertically if needed */
-        width: 100%; /* Ensures full width */
-    }
-        .centered-form .fluent-text-field {
-            width: 100%; /* Optional: Adjust width of text fields */
-            /*max-width: 400px;*/ /* Set a max width for better appearance */
-            margin-bottom: 16px; /* Space between fields */
-        }
-
-</style>
-
