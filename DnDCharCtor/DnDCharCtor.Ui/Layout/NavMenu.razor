@@ -10,7 +10,7 @@
     <nav class="flex-column">
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+                <FluentIcon Value="@(new Icons.Regular.Size20.Home())" Color="@Color.Neutral" /> <FluentLabel>Home</FluentLabel>
             </NavLink>
         </div>
 
@@ -18,14 +18,14 @@
         {
             <div class="nav-item px-3">
                 <NavLink class="nav-link" href="@Routes.CurrentCharacter">
-                    <span class="bi bi-person-fill" aria-hidden="true"></span> @_currentCharacterViewModel.PersonalityViewModel.CharacterName
+                    <FluentIcon Value="@(new Icons.Regular.Size20.Person())" Color="@Color.Neutral" /> <FluentLabel>@_currentCharacterViewModel.PersonalityViewModel.CharacterName</FluentLabel>
                 </NavLink>
             </div>
         }
 
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="@Routes.Settings">
-                <span class="bi bi-gear-fill" aria-hidden="true"></span> Settings
+                <FluentIcon Value="@(new Icons.Regular.Size20.AppsSettings())" Color="@Color.Neutral" /> <FluentLabel>@StringResources.Page_Settings</FluentLabel>
             </NavLink>
         </div>
     </nav>

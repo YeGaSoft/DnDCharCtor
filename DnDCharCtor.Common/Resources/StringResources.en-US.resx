@@ -162,7 +162,7 @@
   <data name="CharacterEditor.Edit" xml:space="preserve">
     <value>Edit character "{0}"</value>
   </data>
-  <data name="NavMenu.Settings" xml:space="preserve">
+  <data name="Page.Settings" xml:space="preserve">
     <value>Settings</value>
   </data>
 </root>

@@ -198,9 +198,9 @@ namespace DnDCharCtor.Common.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
-        public static string NavMenu_Settings {
+        public static string Page_Settings {
             get {
-                return ResourceManager.GetString("NavMenu.Settings", resourceCulture);
+                return ResourceManager.GetString("Page.Settings", resourceCulture);
             }
         }
     }
