@@ -1,3 +1,4 @@
+using DnDCharCtor.Common.Resources;
 using Microsoft.AspNetCore.Components;
 
 namespace DnDCharCtor.Ui.Components.Cards;
@@ -20,5 +21,5 @@ public partial class CardBase
     public bool HasValidationErrors { get; set; }
 
     [Parameter]
-    public string EditButtonText { get; set; } = "Edit";
+    public string EditButtonText { get; set; } = StringResources.Button_Edit;
 }

@@ -4,6 +4,12 @@
 @inject EditCharacterViewModel ViewModel
 @inject NavigationManager NavigationManager
 
+<FluentHeader>
+    <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
+        <FluentLabel Typo="Typography.PaneHeader">@_title</FluentLabel>
+    </FluentStack>
+</FluentHeader>
+
 <CascadingValue Name="@CascadeValueNames.DataContext" Value="@ViewModel">
     <FluentGrid AdaptiveRendering="true" Style=@($"""background-color: var(--neutral-layer-3); padding: 4px; {(ViewModel.HasValidationErrors ? "border-color: red; border-width: medium;" : "")}""")>
         <FluentGridItem xs="12" sm="6" md="4" lg="3" xl="2">
@@ -11,10 +17,16 @@
         </FluentGridItem>
     </FluentGrid>
     <br />
+</CascadingValue>
+
+<FluentFooter>
+    <br />
     <FluentDivider />
     <br />
     <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
-        <FluentButton OnClick="SaveChanges" Appearance="Appearance.Accent" IconStart="@(new Icons.Regular.Size20.Save())">Save</FluentButton>
+        <FluentButton OnClick="SaveChanges" Appearance="Appearance.Accent" IconStart="@(new Icons.Regular.Size20.Save())">@StringResources.Button_Save</FluentButton>
     </FluentStack>
+</FluentFooter>
 
-</CascadingValue>
+<!--This break ensures that the button is not completely at the end of the page-->
+<br />

@@ -1,34 +1,34 @@
 ﻿@implements IDialogContentComponent<PersonalityViewModel>
 
 <DialogBase Content="@Content">
-    <FluentTextField @bind-Value="Content.CharacterName" Label="Character Name" Required="true" />
+    <FluentTextField @bind-Value="Content.CharacterName" Label="@StringResources.Character_Name" Required="true" />
     <ValidationMessage For="@(() => Content.CharacterName)" />
     <br />
 
-    <FluentTextField @bind-Value="Content.ClassName" Label="Class Name" Required="true" />
+    <FluentTextField @bind-Value="Content.ClassName" Label="@StringResources.Character_Personality_Class" Required="true" />
     <ValidationMessage For="@(() => Content.ClassName)" />
     <br />
 
-    <FluentNumberField @bind-Value="Content.Level" Label="Level" Required="true" />
+    <FluentNumberField @bind-Value="Content.Level" Label="@StringResources.Character_Personality_Level" Required="true" />
     <ValidationMessage For="@(() => Content.Level)" />
     <br />
 
-    <FluentTextField @bind-Value="Content.Background" Label="Background" />
+    <FluentTextField @bind-Value="Content.Background" Label="@StringResources.Character_Personality_Background" />
     <ValidationMessage For="@(() => Content.Background)" />
     <br />
 
-    <FluentTextField @bind-Value="Content.PlayerName" Label="Player Name" Required="true" />
+    <FluentTextField @bind-Value="Content.PlayerName" Label="@StringResources.Character_Personality_PlayerName" Required="true" />
     <ValidationMessage For="@(() => Content.PlayerName)" />
     <br />
 
-    <FluentTextField @bind-Value="Content.Race" Label="Race" Required="true" />
+    <FluentTextField @bind-Value="Content.Race" Label="@StringResources.Character_Personality_Race" Required="true" />
     <ValidationMessage For="@(() => Content.Race)" />
     <br />
 
-    <FluentTextField @bind-Value="Content.Attitute" Label="Attitude" />
+    <FluentTextField @bind-Value="Content.Attitute" Label="@StringResources.Character_Personality_Attitute" />
     <ValidationMessage For="@(() => Content.Attitute)" />
     <br />
 
-    <FluentNumberField @bind-Value="Content.Experience" Label="Experience" Required="true" />
+    <FluentNumberField @bind-Value="Content.Experience" Label="@StringResources.Character_Personality_Experience" Required="true" />
     <ValidationMessage For="@(() => Content.Experience)" />
 </DialogBase>

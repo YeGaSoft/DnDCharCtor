@@ -1,18 +1,20 @@
 ﻿@inject IDialogService DialogService
 
-<CardBase Title="Personality" EditCallback="EditPersonality" HasValidationErrors="@(_personalityViewModel?.HasValidationErrors ?? false)">
+<CardBase Title="@StringResources.Character_Personality" EditCallback="EditPersonality" HasValidationErrors="@(_personalityViewModel?.HasValidationErrors ?? false)">
     <br />
-    <div><strong>Class:</strong> @_personalityViewModel?.ClassName </div>
+    <div><strong>@StringResources.Character_Name:</strong> @_personalityViewModel?.CharacterName </div>
     <br />
-    <div><strong>Level:</strong> @_personalityViewModel?.Level </div>
+    <div><strong>@StringResources.Character_Personality_Class:</strong> @_personalityViewModel?.ClassName </div>
     <br />
-    <div><strong>Background:</strong> @_personalityViewModel?.Background </div>
+    <div><strong>@StringResources.Character_Personality_Level:</strong> @_personalityViewModel?.Level </div>
     <br />
-    <div><strong>Player Name:</strong> @_personalityViewModel?.PlayerName </div>
+    <div><strong>@StringResources.Character_Personality_Background:</strong> @_personalityViewModel?.Background </div>
     <br />
-    <div><strong>Race:</strong> @_personalityViewModel?.Race </div>
+    <div><strong>@StringResources.Character_Personality_PlayerName:</strong> @_personalityViewModel?.PlayerName </div>
     <br />
-    <div><strong>Attitude:</strong> @_personalityViewModel?.Attitute </div>
+    <div><strong>@StringResources.Character_Personality_Race:</strong> @_personalityViewModel?.Race </div>
     <br />
-    <div><strong>Experience:</strong> @_personalityViewModel?.Experience </div>
+    <div><strong>@StringResources.Character_Personality_Attitute:</strong> @_personalityViewModel?.Attitute </div>
+    <br />
+    <div><strong>@StringResources.Character_Personality_Experience:</strong> @_personalityViewModel?.Experience </div>
 </CardBase>

@@ -1,3 +1,4 @@
+using DnDCharCtor.Common.Resources;
 using DnDCharCtor.ViewModels;
 using DnDCharCtor.ViewModels.ModelViewModels;
 using Microsoft.AspNetCore.Components;
@@ -20,7 +21,7 @@ public partial class DialogBase : IDisposable
     public IValidateableViewModel Content { get; set; } = default!;
 
     [Parameter]
-    public string SubmitButtonText { get; set; } = "Submit";
+    public string SubmitButtonText { get; set; } = StringResources.Button_Submit;
 
     private EditContext _editContext = default!;
 

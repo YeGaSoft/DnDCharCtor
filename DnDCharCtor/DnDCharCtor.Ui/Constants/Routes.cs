@@ -10,4 +10,6 @@ public static class Routes
 {
     public const string CurrentCharacter = "/currentCharacter";
     public const string EditCharacter = "/editCharacter";
+
+    public const string Settings = "/settings";
 }
