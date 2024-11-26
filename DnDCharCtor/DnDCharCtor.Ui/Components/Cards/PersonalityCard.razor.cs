@@ -1,4 +1,5 @@
 using DnDCharCtor.Common.Extensions;
+using DnDCharCtor.Common.Resources;
 using DnDCharCtor.Models;
 using DnDCharCtor.Ui.Components.Dialogs;
 using DnDCharCtor.Ui.Constants;
@@ -26,7 +27,7 @@ public partial class PersonalityCard : IDisposable
 
     private readonly DialogParameters _dialogParameters = new()
     {
-        Title = $"Edit Personality",
+        Title = StringResources.CharacterEditor_Personality_Edit,
         //Width = "500px",
         PreventDismissOnOverlayClick = true,
         ShowDismiss = true,

@@ -196,6 +196,15 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Edit personality.
+        /// </summary>
+        public static string CharacterEditor_Personality_Edit {
+            get {
+                return ResourceManager.GetString("CharacterEditor.Personality.Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Home.
         /// </summary>
         public static string Page_Home {

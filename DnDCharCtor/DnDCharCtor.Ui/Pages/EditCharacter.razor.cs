@@ -1,4 +1,6 @@
+using DnDCharCtor.Common.Extensions;
 using DnDCharCtor.Common.Resources;
+using DnDCharCtor.Common.Services;
 using DnDCharCtor.Models;
 using DnDCharCtor.Ui.Constants;
 using DnDCharCtor.ViewModels;
@@ -8,13 +10,16 @@ namespace DnDCharCtor.Ui.Pages;
 
 [Route(Routes.EditCharacter)]
 [Route(Routes.EditCharacterWithParameter)]
-public partial class EditCharacter
+public partial class EditCharacter : IDisposable
 {
     [Inject]
     public EditCharacterViewModel ViewModel { get; set; } = default!;
 
     [Inject]
     public NavigationManager NavigationManager { get; set; } = default!;
+
+    [Inject]
+    public ILocalizationService LocalizationService { get; set; } = default!;
 
     [Parameter]
     public string Id { get; set; } = string.Empty;
@@ -34,7 +39,7 @@ public partial class EditCharacter
 
 
 
-    protected override async void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
         if (string.IsNullOrWhiteSpace(Id) is false)
         {
@@ -49,6 +54,34 @@ public partial class EditCharacter
             _title = StringResources.CharacterEditor_Create;
         }
 
-        base.OnInitialized();
+        LocalizationService.PropertyChanged += LocalizationService_PropertyChanged;
+
+        await base.OnInitializedAsync();
+    }
+
+
+
+    public void Dispose()
+    {
+        GC.SuppressFinalize(this);
+
+        LocalizationService.PropertyChanged -= LocalizationService_PropertyChanged;
+    }
+
+
+
+    private void LocalizationService_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+    {
+        if (string.IsNullOrWhiteSpace(Id) is false)
+        {
+            var characterName = ViewModel.CharacterViewModelToEdit.PersonalityViewModel.CharacterName;
+            _title = string.Format(StringResources.CharacterEditor_Edit, characterName);
+        }
+        else
+        {
+            _title = StringResources.CharacterEditor_Create;
+        }
+
+        InvokeAsync(StateHasChanged).SafeFireAndForget(null);
     }
 }
