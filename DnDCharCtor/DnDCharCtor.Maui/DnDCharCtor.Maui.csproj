@@ -21,6 +21,8 @@
     <EnableDefaultCssItems>false</EnableDefaultCssItems>
     <Nullable>enable</Nullable>
 
+	<BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
+
     <!-- Display name -->
     <ApplicationTitle>DnDCharCtor</ApplicationTitle>
 

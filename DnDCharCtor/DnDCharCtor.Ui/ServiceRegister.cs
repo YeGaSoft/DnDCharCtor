@@ -1,4 +1,5 @@
-﻿using DnDCharCtor.Common.Services;
+﻿using DnDCharCtor.Common.Resources;
+using DnDCharCtor.Common.Services;
 using DnDCharCtor.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.FluentUI.AspNetCore.Components;
@@ -42,6 +43,7 @@ public static class ServiceRegister
     {
         services.AddFluentUIComponents();
         services.AddSingleton<IDialogService, DialogService>();
+        services.AddLocalization(x => x.ResourcesPath = typeof(StringResources).Namespace!);
 
         return services;
     }
