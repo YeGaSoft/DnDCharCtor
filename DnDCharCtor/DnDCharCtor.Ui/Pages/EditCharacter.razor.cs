@@ -1,16 +1,25 @@
 using DnDCharCtor.Common.Resources;
 using DnDCharCtor.Models;
 using DnDCharCtor.Ui.Constants;
+using DnDCharCtor.ViewModels;
 using Microsoft.AspNetCore.Components;
 
 namespace DnDCharCtor.Ui.Pages;
 
+[Route(Routes.EditCharacter)]
+[Route(Routes.EditCharacterWithParameter)]
 public partial class EditCharacter
 {
+    [Inject]
+    public EditCharacterViewModel ViewModel { get; set; } = default!;
+
+    [Inject]
+    public NavigationManager NavigationManager { get; set; } = default!;
+
     [Parameter]
     public string Id { get; set; } = string.Empty;
 
-    private string _title { get; set; }
+    private string _title { get; set; } = string.Empty;
 
     private async Task SaveChanges()
     {

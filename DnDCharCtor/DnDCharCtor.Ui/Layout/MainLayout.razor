@@ -1,7 +1,5 @@
 ﻿@inherits LayoutComponentBase
 
-@inject MainViewModel ViewModel
-
 <CascadingValue Name="@CascadeValueNames.DataContext" Value="@ViewModel">
     <div class="page">
         <div class="sidebar">
@@ -19,5 +17,3 @@
         </main>
     </div>
 </CascadingValue>
-
-

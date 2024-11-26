@@ -1,7 +1,5 @@
 ﻿@implements IDialogContentComponent<IValidateableViewModel>
 
-@inject IServiceProvider ServiceProvider
-
 <FluentDialogHeader>
     <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
         <FluentLabel Typo="Typography.PaneHeader">
@@ -38,5 +36,4 @@
         <FluentButton OnClick="CloseDialogAsync" Appearance="Appearance.Accent" IconStart="(new Icons.Regular.Size20.Send())">@SubmitButtonText</FluentButton>
     </FluentStack>
 </FluentDialogFooter>
-
-        
+    

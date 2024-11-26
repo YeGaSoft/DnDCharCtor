@@ -9,6 +9,9 @@ namespace DnDCharCtor.Ui.Components.Dialogs;
 
 public partial class DialogBase : IDisposable
 {
+    [Inject]
+    public IServiceProvider ServiceProvider { get; set; } = default!;
+
     [CascadingParameter]
     public FluentDialog Dialog { get; set; } = default!;
 

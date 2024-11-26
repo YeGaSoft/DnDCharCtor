@@ -1,3 +1,4 @@
+using DnDCharCtor.Common.Extensions;
 using DnDCharCtor.Models;
 using DnDCharCtor.Ui.Components.Dialogs;
 using DnDCharCtor.Ui.Constants;
@@ -12,6 +13,9 @@ namespace DnDCharCtor.Ui.Components.Cards;
 
 public partial class PersonalityCard : IDisposable
 {
+    [Inject]
+    public IDialogService DialogService { get; set; } = default!;
+
     [CascadingParameter(Name = CascadeValueNames.DataContext)]
     public INotifyPropertyChanged? DataContext { get; set; }
 
@@ -82,6 +86,6 @@ public partial class PersonalityCard : IDisposable
         if (e.PropertyName != _expressionMemberName) return;
 
         _personalityViewModel = PersonalityExpression.Compile().Invoke();
-        InvokeAsync(StateHasChanged);
+        InvokeAsync(StateHasChanged).SafeFireAndForget(null);
     }
 }

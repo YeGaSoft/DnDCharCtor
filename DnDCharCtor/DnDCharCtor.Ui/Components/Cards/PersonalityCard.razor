@@ -1,6 +1,4 @@
-﻿@inject IDialogService DialogService
-
-<CardBase Title="@StringResources.Character_Personality" EditCallback="EditPersonality" HasValidationErrors="@(_personalityViewModel?.HasValidationErrors ?? false)">
+﻿<CardBase Title="@StringResources.Character_Personality" EditCallback="EditPersonality" HasValidationErrors="@(_personalityViewModel?.HasValidationErrors ?? false)">
     <br />
     <div><strong>@StringResources.Character_Name:</strong> @_personalityViewModel?.CharacterName </div>
     <br />

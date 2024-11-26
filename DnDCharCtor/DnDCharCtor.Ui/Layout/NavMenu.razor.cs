@@ -1,3 +1,4 @@
+using DnDCharCtor.Common.Extensions;
 using DnDCharCtor.Models;
 using DnDCharCtor.Ui.Constants;
 using DnDCharCtor.ViewModels.ModelViewModels;
@@ -56,6 +57,6 @@ public partial class NavMenu : IDisposable
         if (e.PropertyName != _expressionMemberName) return;
 
         _currentCharacterViewModel = CurrentCharacterExpression.Compile().Invoke();
-        InvokeAsync(StateHasChanged);
+        InvokeAsync(StateHasChanged).SafeFireAndForget(null);
     }
 }

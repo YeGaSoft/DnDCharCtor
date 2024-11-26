@@ -1,9 +1,16 @@
+using DnDCharCtor.Common.Extensions;
 using DnDCharCtor.ViewModels;
+using Microsoft.AspNetCore.Components;
 
 namespace DnDCharCtor.Ui.Layout;
 
 public partial class MainLayout : IDisposable
 {
+    [Inject]
+    public MainViewModel ViewModel { get; set; } = default!;
+
+
+
     protected override async Task OnInitializedAsync()
     {
         await ViewModel.InitializeAsync();
@@ -25,6 +32,6 @@ public partial class MainLayout : IDisposable
 
     private void ViewModel_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
     {
-        InvokeAsync(StateHasChanged);
+        InvokeAsync(StateHasChanged).SafeFireAndForget(null);
     }
 }

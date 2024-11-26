@@ -5,7 +5,7 @@ using Microsoft.FluentUI.AspNetCore.Components;
 
 namespace DnDCharCtor.Ui.Components.Dialogs;
 
-public partial class EditPersonalityDialog
+public partial class EditPersonalityDialog : IDialogContentComponent<PersonalityViewModel>
 {
     [CascadingParameter]
     public FluentDialog Dialog { get; set; } = default!;
