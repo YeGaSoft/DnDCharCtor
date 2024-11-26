@@ -1,7 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using DnDCharCtor.Common.Constants;
+using DnDCharCtor.Common.Extensions;
 using DnDCharCtor.Common.Resources;
 using DnDCharCtor.Common.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -33,10 +35,16 @@ public partial class SettingsViewModel : ObservableObject
         get => _selectedLanguage;
         set
         {
-            // ToDo: Set Language
+            IsBusy = true;
             SetProperty(ref _selectedLanguage, value);
+            AsyncHelper.RunSync(() => _hybridCacheService.SetSelectedLanguageAsync(_selectedLanguage.Value));
+            IsBusy = false;
         }
     }
+
+    [ObservableProperty]
+    private bool _isBusy;
+
 
 
     public async Task<bool> InitializeAsync()
