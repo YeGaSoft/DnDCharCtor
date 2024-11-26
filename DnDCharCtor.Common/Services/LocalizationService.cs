@@ -34,7 +34,7 @@ public class LocalizationService : ILocalizationService
         
         Thread.CurrentThread.CurrentCulture = cultureInfo;
         Thread.CurrentThread.CurrentUICulture = cultureInfo;
-        
+
         StringResources.Culture = cultureInfo;
         PropertyChanged?.Invoke(this, new(nameof(StringResources.Culture)));
     }
