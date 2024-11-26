@@ -25,21 +25,19 @@ public partial class PersonalityCard : IDisposable
     public Expression<Func<PersonalityViewModel?>>? PersonalityExpression { get; set; }
     private PersonalityViewModel? _personalityViewModel;
 
-    private readonly DialogParameters _dialogParameters = new()
-    {
-        Title = StringResources.CharacterEditor_Personality_Edit,
-        //Width = "500px",
-        PreventDismissOnOverlayClick = true,
-        ShowDismiss = true,
-    };
-
-
     private async Task EditPersonality()
     {
         if (_personalityViewModel is null) return;
 
         var data = new PersonalityViewModel(_personalityViewModel);
-        var dialog = await DialogService.ShowDialogAsync<EditPersonalityDialog>(data, _dialogParameters);
+        var dialogParameters = new DialogParameters()
+        {
+            Title = StringResources.CharacterEditor_Personality_Edit,
+            //Width = "500px",
+            PreventDismissOnOverlayClick = true,
+            ShowDismiss = true,
+        };
+        var dialog = await DialogService.ShowDialogAsync<EditPersonalityDialog>(data, dialogParameters);
         var result = await dialog.Result;
         if (result.Cancelled is false && result.Data is not null)
         {

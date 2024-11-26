@@ -178,6 +178,6 @@
     <value>Deutsch (German)</value>
   </data>
   <data name="CharacterEditor.Personality.Edit" xml:space="preserve">
-    <value>Bearbeite Persöhnlichkeit</value>
+    <value>Edit personality</value>
   </data>
 </root>
