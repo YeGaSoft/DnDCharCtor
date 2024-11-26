@@ -4,7 +4,12 @@
     </FluentStack>
 </FluentHeader>
 
-<FluentProgressRing Visible="@ViewModel.IsBusy" />
+<FluentOverlay Visible="@ViewModel.IsBusy"
+               Opacity="0.4"
+               Alignment="Align.Center"
+               Justification="JustifyContent.Center">
+    <FluentProgressRing Visible="@ViewModel.IsBusy" />
+</FluentOverlay>
 
 <FluentStack 
     Orientation="Orientation.Vertical"

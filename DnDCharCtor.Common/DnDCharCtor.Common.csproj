@@ -24,10 +24,10 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Resources\StringResources.de-DE.resx">
-      <Generator></Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\StringResources.en-US.resx">
-      <Generator></Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\StringResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
