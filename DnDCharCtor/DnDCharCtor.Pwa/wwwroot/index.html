@@ -13,7 +13,12 @@
     <link rel="icon" href="data:,">
     <link href="manifest.webmanifest" rel="manifest" />
     <link href="_content/Microsoft.FluentUI.AspNetCore.Components/css/reboot.css" rel="stylesheet" />
+
+    <!--https://github.com/dotnet/runtime/issues/98415#issuecomment-2031216152-->
     <!--<link href="startup.js" />-->
+    <!--https://github.com/dotnet/runtime/issues/98415#issuecomment-1948572748-->
+    <!--<link href="_framework/en-US/DnDCharCtor.Common.resources.wasm" />
+    <link href="_framework/de-DE/DnDCharCtor.Common.resources.wasm" />-->
 </head>
 
 <body>
@@ -34,8 +39,11 @@
     </div>
 
     <!--<script app-name="DnDCharCtor.Pwa" src="./_content/Microsoft.FluentUI.AspNetCore.Components/js/initializersLoader.webview.js"></script>-->
-    <!--<script src="startup.js"></script>-->
-    <script src="_framework/blazor.webassembly.js"></script>
+    
+    <!--https://github.com/dotnet/runtime/issues/98415#issuecomment-2031216152-->
+    <script src="_framework/blazor.webassembly.js" autostart="false"></script>
+    <script src="startup.js"></script>
+
     <script src="_content/Microsoft.FluentUI.AspNetCore.Components/Microsoft.FluentUI.AspNetCore.Components.lib.module.js" type="module" async></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
 
