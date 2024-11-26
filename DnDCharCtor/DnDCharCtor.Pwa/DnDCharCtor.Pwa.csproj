@@ -9,6 +9,7 @@
 
 	<PropertyGroup>
 		<BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
+		<MonoLinkerI18NAssemblies>all</MonoLinkerI18NAssemblies>
 	</PropertyGroup>
 
   <ItemGroup>

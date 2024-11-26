@@ -22,6 +22,7 @@
     <Nullable>enable</Nullable>
 
 	<BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
+	<MonoLinkerI18NAssemblies>all</MonoLinkerI18NAssemblies>
 
     <!-- Display name -->
     <ApplicationTitle>DnDCharCtor</ApplicationTitle>
