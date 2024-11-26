@@ -1,4 +1,5 @@
 using DnDCharCtor.Common.Extensions;
+using DnDCharCtor.Common.Services;
 using DnDCharCtor.Models;
 using DnDCharCtor.Ui.Constants;
 using DnDCharCtor.ViewModels.ModelViewModels;
@@ -10,6 +11,9 @@ namespace DnDCharCtor.Ui.Layout;
 
 public partial class NavMenu : IDisposable
 {
+    [Inject]
+    public ILocalizationService LocalizationService { get; set; } = default!;
+
     [CascadingParameter(Name = CascadeValueNames.DataContext)]
     public INotifyPropertyChanged? DataContext { get; set; }
 
@@ -34,6 +38,8 @@ public partial class NavMenu : IDisposable
             DataContext.PropertyChanged += DataContext_PropertyChanged;
         }
 
+        LocalizationService.PropertyChanged += LocalizationService_PropertyChanged;
+
         base.OnInitialized();
     }
 
@@ -47,6 +53,8 @@ public partial class NavMenu : IDisposable
         {
             DataContext.PropertyChanged -= DataContext_PropertyChanged;
         }
+
+        LocalizationService.PropertyChanged -= LocalizationService_PropertyChanged;
     }
 
 
@@ -57,6 +65,11 @@ public partial class NavMenu : IDisposable
         if (e.PropertyName != _expressionMemberName) return;
 
         _currentCharacterViewModel = CurrentCharacterExpression.Compile().Invoke();
+        InvokeAsync(StateHasChanged).SafeFireAndForget(null);
+    }
+
+    private void LocalizationService_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+    {
         InvokeAsync(StateHasChanged).SafeFireAndForget(null);
     }
 }
