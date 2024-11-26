@@ -118,63 +118,63 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="App.DnDCharCtor" xml:space="preserve">
-    <value>DnDCharCtor</value>
+    <value>~DnDCharCtor</value>
   </data>
   <data name="Button.Edit" xml:space="preserve">
-    <value>Edit</value>
+    <value>~Edit</value>
   </data>
   <data name="Character.Personality" xml:space="preserve">
-    <value>Personality</value>
+    <value>~Personality</value>
   </data>
   <data name="Button.Save" xml:space="preserve">
-    <value>Save</value>
+    <value>~Save</value>
   </data>
   <data name="Button.Submit" xml:space="preserve">
-    <value>Submit</value>
+    <value>~Submit</value>
   </data>
   <data name="Character.Personality.Class" xml:space="preserve">
-    <value>Class</value>
+    <value>~Class</value>
   </data>
   <data name="Character.Personality.Level" xml:space="preserve">
-    <value>Level</value>
+    <value>~Level</value>
   </data>
   <data name="Character.Personality.Background" xml:space="preserve">
-    <value>Background</value>
+    <value>~Background</value>
   </data>
   <data name="Character.Personality.PlayerName" xml:space="preserve">
-    <value>Player name</value>
+    <value>~Player name</value>
   </data>
   <data name="Character.Personality.Race" xml:space="preserve">
-    <value>Race</value>
+    <value>~Race</value>
   </data>
   <data name="Character.Personality.Attitute" xml:space="preserve">
-    <value>Attitute</value>
+    <value>~Attitute</value>
   </data>
   <data name="Character.Personality.Experience" xml:space="preserve">
-    <value>Experience</value>
+    <value>~Experience</value>
   </data>
   <data name="Character.Name" xml:space="preserve">
-    <value>Character name</value>
+    <value>~Character name</value>
   </data>
   <data name="CharacterEditor.Create" xml:space="preserve">
-    <value>Create character</value>
+    <value>~Create character</value>
   </data>
   <data name="CharacterEditor.Edit" xml:space="preserve">
-    <value>Edit character "{0}"</value>
+    <value>~Edit character "{0}"</value>
   </data>
   <data name="Page.Settings" xml:space="preserve">
-    <value>Settings</value>
+    <value>~Settings</value>
   </data>
   <data name="Page.Home" xml:space="preserve">
-    <value>Home</value>
+    <value>~Home</value>
   </data>
   <data name="Settings.SelectLanguage" xml:space="preserve">
-    <value>Select language</value>
+    <value>~Select language</value>
   </data>
   <data name="Settings.Languages.English" xml:space="preserve">
-    <value>English</value>
+    <value>~English</value>
   </data>
   <data name="Settings.Languages.German" xml:space="preserve">
-    <value>Deutsch (German)</value>
+    <value>~Deutsch (German)</value>
   </data>
 </root>

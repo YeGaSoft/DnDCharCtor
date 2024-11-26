@@ -23,6 +23,7 @@ public static class ServiceRegister
     public static IServiceCollection RegisterServices(this IServiceCollection services)
     {
         services.AddSingleton<IJsonSerializerService, JsonSerializerService>();
+        services.AddSingleton<ILocalizationService, LocalizationService>();
         services.AddSingleton<IHybridCacheService, HybridCacheService>();
 
         return services;

@@ -61,7 +61,7 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DnDCharCtor.
+        ///   Looks up a localized string similar to ~DnDCharCtor.
         /// </summary>
         public static string App_DnDCharCtor {
             get {
@@ -70,7 +70,7 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit.
+        ///   Looks up a localized string similar to ~Edit.
         /// </summary>
         public static string Button_Edit {
             get {
@@ -79,7 +79,7 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Save.
+        ///   Looks up a localized string similar to ~Save.
         /// </summary>
         public static string Button_Save {
             get {
@@ -88,7 +88,7 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Submit.
+        ///   Looks up a localized string similar to ~Submit.
         /// </summary>
         public static string Button_Submit {
             get {
@@ -97,7 +97,7 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Character name.
+        ///   Looks up a localized string similar to ~Character name.
         /// </summary>
         public static string Character_Name {
             get {
@@ -106,7 +106,7 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Personality.
+        ///   Looks up a localized string similar to ~Personality.
         /// </summary>
         public static string Character_Personality {
             get {
@@ -115,7 +115,7 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Attitute.
+        ///   Looks up a localized string similar to ~Attitute.
         /// </summary>
         public static string Character_Personality_Attitute {
             get {
@@ -124,7 +124,7 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Background.
+        ///   Looks up a localized string similar to ~Background.
         /// </summary>
         public static string Character_Personality_Background {
             get {
@@ -133,7 +133,7 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Class.
+        ///   Looks up a localized string similar to ~Class.
         /// </summary>
         public static string Character_Personality_Class {
             get {
@@ -142,7 +142,7 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Experience.
+        ///   Looks up a localized string similar to ~Experience.
         /// </summary>
         public static string Character_Personality_Experience {
             get {
@@ -151,7 +151,7 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Level.
+        ///   Looks up a localized string similar to ~Level.
         /// </summary>
         public static string Character_Personality_Level {
             get {
@@ -160,7 +160,7 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Player name.
+        ///   Looks up a localized string similar to ~Player name.
         /// </summary>
         public static string Character_Personality_PlayerName {
             get {
@@ -169,7 +169,7 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Race.
+        ///   Looks up a localized string similar to ~Race.
         /// </summary>
         public static string Character_Personality_Race {
             get {
@@ -178,7 +178,7 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create character.
+        ///   Looks up a localized string similar to ~Create character.
         /// </summary>
         public static string CharacterEditor_Create {
             get {
@@ -187,7 +187,7 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit character &quot;{0}&quot;.
+        ///   Looks up a localized string similar to ~Edit character &quot;{0}&quot;.
         /// </summary>
         public static string CharacterEditor_Edit {
             get {
@@ -196,7 +196,7 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Home.
+        ///   Looks up a localized string similar to ~Home.
         /// </summary>
         public static string Page_Home {
             get {
@@ -205,7 +205,7 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Settings.
+        ///   Looks up a localized string similar to ~Settings.
         /// </summary>
         public static string Page_Settings {
             get {
@@ -214,7 +214,7 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to English.
+        ///   Looks up a localized string similar to ~English.
         /// </summary>
         public static string Settings_Languages_English {
             get {
@@ -223,7 +223,7 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Deutsch (German).
+        ///   Looks up a localized string similar to ~Deutsch (German).
         /// </summary>
         public static string Settings_Languages_German {
             get {
@@ -232,7 +232,7 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select language.
+        ///   Looks up a localized string similar to ~Select language.
         /// </summary>
         public static string Settings_SelectLanguage {
             get {

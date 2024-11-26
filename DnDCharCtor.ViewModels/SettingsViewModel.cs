@@ -35,15 +35,21 @@ public partial class SettingsViewModel : ObservableObject
         get => _selectedLanguage;
         set
         {
-            IsBusy = true;
-            SetProperty(ref _selectedLanguage, value);
-            AsyncHelper.RunSync(() => _hybridCacheService.SetSelectedLanguageAsync(_selectedLanguage.Value));
-            IsBusy = false;
+            SetSelectedLanguageAsync(value).SafeFireAndForget(null);
         }
     }
 
     [ObservableProperty]
     private bool _isBusy;
+
+
+    private async Task SetSelectedLanguageAsync(KeyValuePair<string, CultureInfo> value)
+    {
+        IsBusy = true;
+        SetProperty(ref _selectedLanguage, value, nameof(SelectedLanguage));
+        await _hybridCacheService.SetSelectedLanguageAsync(_selectedLanguage.Value);
+        IsBusy = false;
+    }
 
 
 

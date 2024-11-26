@@ -13,10 +13,12 @@ namespace DnDCharCtor.Common.Services;
 public class HybridCacheService : IHybridCacheService
 {
     private readonly IPlatformService _platformService;
+    private readonly ILocalizationService _localizationService;
 
-    public HybridCacheService(IPlatformService platformService)
+    public HybridCacheService(IPlatformService platformService, ILocalizationService localizationService)
     {
         _platformService = platformService;
+        _localizationService = localizationService;
     }
 
     private IReadOnlyList<Character> _characters = [];
@@ -72,7 +74,7 @@ public class HybridCacheService : IHybridCacheService
             if (languageIdentifier is null)
             {
                 var systemLanguageIdentifier = await _platformService.GetSystemLanguageIdentifierAsync().ConfigureAwait(false);
-                if (Culture.IsLanguageSupported(systemLanguageIdentifier)) await SetSelectedLanguageAsync(new CultureInfo(systemLanguageIdentifier)).ConfigureAwait(false);
+                if (_localizationService.IsLanguageSupported(systemLanguageIdentifier)) await SetSelectedLanguageAsync(new CultureInfo(systemLanguageIdentifier)).ConfigureAwait(false);
             }
             else
             {
@@ -85,7 +87,7 @@ public class HybridCacheService : IHybridCacheService
 
     public async Task<bool> SetSelectedLanguageAsync(CultureInfo cultureInfo)
     {
-        var isLanguageSupported = Culture.IsLanguageSupported(cultureInfo.Name);
+        var isLanguageSupported = _localizationService.IsLanguageSupported(cultureInfo.Name);
         if (isLanguageSupported is false) return false;
 
         var isUpdated = await _platformService.SetInStorageAsync(StorageKeys.SelectedLanguageIdentifier, cultureInfo.Name).ConfigureAwait(false);
@@ -93,13 +95,7 @@ public class HybridCacheService : IHybridCacheService
 
         _selectedLanguage = cultureInfo;
 
-        CultureInfo.CurrentCulture = cultureInfo;
-        CultureInfo.CurrentUICulture = cultureInfo;
-        CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
-        CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
-        Thread.CurrentThread.CurrentCulture = cultureInfo;
-        Thread.CurrentThread.CurrentUICulture = cultureInfo;
-        StringResources.Culture = cultureInfo;
+        _localizationService.ChangeCulture(cultureInfo);
 
         return true;
     }

@@ -4,19 +4,20 @@
 
 <CascadingValue Name="@CascadeValueNames.DataContext" Value="@ViewModel">
     <div class="page">
-    <div class="sidebar">
-        <NavMenu CurrentCharacterExpression="@(() => ViewModel.CurrentCharacterViewModel)" />
+        <div class="sidebar">
+            <NavMenu CurrentCharacterExpression="@(() => ViewModel.CurrentCharacterViewModel)" />
+        </div>
+
+        <main>
+            <article class="content px-4">
+                <FluentProgressRing Visible="@ViewModel.IsBusy" />
+                @Body
+            </article>
+
+            <FluentDialogProvider />
+            <FluentTooltipProvider />
+        </main>
     </div>
-
-    <main>
-        <article class="content px-4">
-            @Body
-        </article>
-
-        <FluentDialogProvider />
-        <FluentTooltipProvider />
-    </main>
-</div>
 </CascadingValue>
 
 
