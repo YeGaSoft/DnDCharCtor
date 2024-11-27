@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using DnDCharCtor.Common.Constants;
 using DnDCharCtor.Common.Extensions;
-using DnDCharCtor.Common.Resources;
+using DnDCharCtor.Resources;
 using DnDCharCtor.Common.Services;
 using Microsoft.AspNet.Identity;
 using System;

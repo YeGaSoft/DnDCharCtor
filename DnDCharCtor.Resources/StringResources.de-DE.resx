@@ -118,90 +118,93 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="App.DnDCharCtor" xml:space="preserve">
-    <value>~DnDCharCtor</value>
+    <value>DnDCharCtor</value>
   </data>
   <data name="Button.Edit" xml:space="preserve">
-    <value>~Edit</value>
+    <value>Bearbeiten</value>
   </data>
   <data name="Character.Personality" xml:space="preserve">
-    <value>~Personality</value>
+    <value>Persönlichkeit</value>
   </data>
   <data name="Button.Save" xml:space="preserve">
-    <value>~Save</value>
+    <value>Speichern</value>
   </data>
   <data name="Button.Submit" xml:space="preserve">
-    <value>~Submit</value>
+    <value>Übernehmen</value>
   </data>
   <data name="Character.Personality.Class" xml:space="preserve">
-    <value>~Class</value>
+    <value>Klasse</value>
   </data>
   <data name="Character.Personality.Level" xml:space="preserve">
-    <value>~Level</value>
+    <value>Stufe</value>
   </data>
   <data name="Character.Personality.Background" xml:space="preserve">
-    <value>~Background</value>
+    <value>Hintergrund</value>
   </data>
   <data name="Character.Personality.PlayerName" xml:space="preserve">
-    <value>~Player name</value>
+    <value>Name des Spielers</value>
   </data>
   <data name="Character.Personality.Race" xml:space="preserve">
-    <value>~Race</value>
+    <value>Volk</value>
   </data>
   <data name="Character.Personality.Attitute" xml:space="preserve">
-    <value>~Attitute</value>
+    <value>Gesinnung</value>
   </data>
   <data name="Character.Personality.Experience" xml:space="preserve">
-    <value>~Experience</value>
+    <value>Erfahrungspunkte</value>
   </data>
   <data name="Character.Name" xml:space="preserve">
-    <value>~Character name</value>
+    <value>Charaktername</value>
   </data>
   <data name="CharacterEditor.Create" xml:space="preserve">
-    <value>~Create character</value>
+    <value>Erstelle einen Charakter</value>
   </data>
   <data name="CharacterEditor.Edit" xml:space="preserve">
-    <value>~Edit character "{0}"</value>
+    <value>Bearbeite Charakter "{0}"</value>
   </data>
   <data name="Page.Settings" xml:space="preserve">
-    <value>~Settings</value>
+    <value>Einstellungen</value>
   </data>
   <data name="Page.Home" xml:space="preserve">
-    <value>~Home</value>
+    <value>Startseite</value>
   </data>
   <data name="Settings.SelectLanguage" xml:space="preserve">
-    <value>~Select language</value>
+    <value>Sprache auswählen</value>
   </data>
   <data name="Settings.Languages.English" xml:space="preserve">
-    <value>~English</value>
+    <value>English (Englisch)</value>
   </data>
   <data name="Settings.Languages.German" xml:space="preserve">
-    <value>~Deutsch (German)</value>
+    <value>Deutsch</value>
   </data>
   <data name="CharacterEditor.Personality.Edit" xml:space="preserve">
-    <value>~Edit personality</value>
+    <value>Bearbeite Persönlichkeit</value>
   </data>
   <data name="Settings.LanguageSettings" xml:space="preserve">
-    <value>~Language settings</value>
+    <value>Sprach-Einstellungen</value>
   </data>
   <data name="Settings.ThemeSettings" xml:space="preserve">
-    <value>~Theme settings</value>
+    <value>Farb-Thema-Einstellungen</value>
   </data>
   <data name="Settings.SelectTheme" xml:space="preserve">
-    <value>~Select theme</value>
+    <value>Farb-Thema auswählen</value>
   </data>
   <data name="Settings.SelectColor" xml:space="preserve">
-    <value>~Select color</value>
+    <value>Farbe auswählen</value>
   </data>
   <data name="Button.Ok" xml:space="preserve">
-    <value>~Ok</value>
+    <value>Ok</value>
   </data>
   <data name="Validation.ErrorSource" xml:space="preserve">
-    <value>~Card "{0}" has the following validation errors:</value>
+    <value>Karte "{0}" hat folgende Validierungs-Fehler:</value>
   </data>
   <data name="Validation.CannotSave" xml:space="preserve">
-    <value>~Cannot save since some cards and fields have validation errors</value>
+    <value>Speichern nicht möglich da ein paar Karten und Felder Validierungs-Fehler haben</value>
   </data>
   <data name="Validation.CannotSaveTitle" xml:space="preserve">
-    <value>~Cannot save</value>
+    <value>Speichern nicht möglich</value>
+  </data>
+  <data name="Validation.RequiredField" xml:space="preserve">
+    <value>Feld "{0}" ist ein Pflichtfeld</value>
   </data>
 </root>

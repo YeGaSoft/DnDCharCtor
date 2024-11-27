@@ -1,5 +1,5 @@
 using DnDCharCtor.Common.Extensions;
-using DnDCharCtor.Common.Resources;
+using DnDCharCtor.Resources;
 using DnDCharCtor.Common.Services;
 using DnDCharCtor.Models;
 using DnDCharCtor.Ui.Components.Dialogs;

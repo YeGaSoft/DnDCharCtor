@@ -1,4 +1,4 @@
-using DnDCharCtor.Common.Resources;
+using DnDCharCtor.Resources;
 using DnDCharCtor.ViewModels;
 using DnDCharCtor.ViewModels.ModelViewModels;
 using Microsoft.AspNetCore.Components;

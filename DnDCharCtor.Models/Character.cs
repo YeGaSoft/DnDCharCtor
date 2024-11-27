@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DnDCharCtor.Common.Validation.Attributes;
+using DnDCharCtor.Resources;
 
 namespace DnDCharCtor.Models;
 

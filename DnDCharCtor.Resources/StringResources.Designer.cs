@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DnDCharCtor.Common.Resources {
+namespace DnDCharCtor.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace DnDCharCtor.Common.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DnDCharCtor.Common.Resources.StringResources", typeof(StringResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DnDCharCtor.Resources.StringResources", typeof(StringResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -318,6 +318,15 @@ namespace DnDCharCtor.Common.Resources {
         public static string Validation_ErrorSource {
             get {
                 return ResourceManager.GetString("Validation.ErrorSource", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Field &quot;{0}&quot; is required.
+        /// </summary>
+        public static string Validation_RequiredField {
+            get {
+                return ResourceManager.GetString("Validation.RequiredField", resourceCulture);
             }
         }
     }

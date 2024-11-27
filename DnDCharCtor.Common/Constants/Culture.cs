@@ -1,4 +1,4 @@
-﻿using DnDCharCtor.Common.Resources;
+﻿using DnDCharCtor.Resources;
 using System;
 using System.Collections.Generic;
 using System.Globalization;

@@ -1,4 +1,4 @@
-using DnDCharCtor.Common.Resources;
+using DnDCharCtor.Resources;
 using Microsoft.AspNetCore.Components;
 
 namespace DnDCharCtor.Ui.Components.Cards;

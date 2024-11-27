@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using DnDCharCtor.Common.Resources;
+using DnDCharCtor.Resources;
 using DnDCharCtor.Models;
 using System;
 using System.Collections.Generic;

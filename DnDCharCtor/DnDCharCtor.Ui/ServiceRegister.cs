@@ -1,5 +1,5 @@
 ﻿using DnDCharCtor.Common.Constants;
-using DnDCharCtor.Common.Resources;
+using DnDCharCtor.Resources;
 using DnDCharCtor.Common.Services;
 using DnDCharCtor.ViewModels;
 using Microsoft.Extensions.Configuration;

@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DnDCharCtor.Validation\DnDCharCtor.Validation.csproj" />
+  </ItemGroup>
+
 </Project>
