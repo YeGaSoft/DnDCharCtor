@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DnDCharCtor.Common.Validation.Attributes;
 
 namespace DnDCharCtor.ViewModels.ModelViewModels;
 
@@ -41,19 +42,19 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
-    [Required]
+    [LocalizedRequired(nameof(StringResources.Character_Name))]
     [MaxLength(64)]
     private string _characterName;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
-    [Required]
+    [LocalizedRequired(nameof(StringResources.Character_Personality_Class))]
     [MaxLength(32)]
     private string _className;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
-    [Required]
+    [LocalizedRequired(nameof(StringResources.Character_Personality_Level))]
     [Range(1, int.MaxValue)]
     private int _level;
 
@@ -64,13 +65,13 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
-    [Required]
+    [LocalizedRequired(nameof(StringResources.Character_Personality_PlayerName))]
     [MaxLength(64)]
     private string _playerName;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
-    [Required]
+    [LocalizedRequired(nameof(StringResources.Character_Personality_Race))]
     [MaxLength(32)]
     private string _race;
 
@@ -81,7 +82,7 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
-    [Required]
+    [LocalizedRequired(nameof(StringResources.Character_Personality_Experience))]
     [Range(0, int.MaxValue)]
     private int _experience;
 

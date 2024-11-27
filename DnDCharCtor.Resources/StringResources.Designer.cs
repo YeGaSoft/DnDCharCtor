@@ -65,7 +65,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string App_DnDCharCtor {
             get {
-                return ResourceManager.GetString("App.DnDCharCtor", resourceCulture);
+                return ResourceManager.GetString("App_DnDCharCtor", resourceCulture);
             }
         }
         
@@ -74,7 +74,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Button_Edit {
             get {
-                return ResourceManager.GetString("Button.Edit", resourceCulture);
+                return ResourceManager.GetString("Button_Edit", resourceCulture);
             }
         }
         
@@ -83,7 +83,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Button_Ok {
             get {
-                return ResourceManager.GetString("Button.Ok", resourceCulture);
+                return ResourceManager.GetString("Button_Ok", resourceCulture);
             }
         }
         
@@ -92,7 +92,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Button_Save {
             get {
-                return ResourceManager.GetString("Button.Save", resourceCulture);
+                return ResourceManager.GetString("Button_Save", resourceCulture);
             }
         }
         
@@ -101,7 +101,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Button_Submit {
             get {
-                return ResourceManager.GetString("Button.Submit", resourceCulture);
+                return ResourceManager.GetString("Button_Submit", resourceCulture);
             }
         }
         
@@ -110,7 +110,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Character_Name {
             get {
-                return ResourceManager.GetString("Character.Name", resourceCulture);
+                return ResourceManager.GetString("Character_Name", resourceCulture);
             }
         }
         
@@ -119,7 +119,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Character_Personality {
             get {
-                return ResourceManager.GetString("Character.Personality", resourceCulture);
+                return ResourceManager.GetString("Character_Personality", resourceCulture);
             }
         }
         
@@ -128,7 +128,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Character_Personality_Attitute {
             get {
-                return ResourceManager.GetString("Character.Personality.Attitute", resourceCulture);
+                return ResourceManager.GetString("Character_Personality_Attitute", resourceCulture);
             }
         }
         
@@ -137,7 +137,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Character_Personality_Background {
             get {
-                return ResourceManager.GetString("Character.Personality.Background", resourceCulture);
+                return ResourceManager.GetString("Character_Personality_Background", resourceCulture);
             }
         }
         
@@ -146,7 +146,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Character_Personality_Class {
             get {
-                return ResourceManager.GetString("Character.Personality.Class", resourceCulture);
+                return ResourceManager.GetString("Character_Personality_Class", resourceCulture);
             }
         }
         
@@ -155,7 +155,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Character_Personality_Experience {
             get {
-                return ResourceManager.GetString("Character.Personality.Experience", resourceCulture);
+                return ResourceManager.GetString("Character_Personality_Experience", resourceCulture);
             }
         }
         
@@ -164,7 +164,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Character_Personality_Level {
             get {
-                return ResourceManager.GetString("Character.Personality.Level", resourceCulture);
+                return ResourceManager.GetString("Character_Personality_Level", resourceCulture);
             }
         }
         
@@ -173,7 +173,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Character_Personality_PlayerName {
             get {
-                return ResourceManager.GetString("Character.Personality.PlayerName", resourceCulture);
+                return ResourceManager.GetString("Character_Personality_PlayerName", resourceCulture);
             }
         }
         
@@ -182,7 +182,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Character_Personality_Race {
             get {
-                return ResourceManager.GetString("Character.Personality.Race", resourceCulture);
+                return ResourceManager.GetString("Character_Personality_Race", resourceCulture);
             }
         }
         
@@ -191,7 +191,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string CharacterEditor_Create {
             get {
-                return ResourceManager.GetString("CharacterEditor.Create", resourceCulture);
+                return ResourceManager.GetString("CharacterEditor_Create", resourceCulture);
             }
         }
         
@@ -200,7 +200,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string CharacterEditor_Edit {
             get {
-                return ResourceManager.GetString("CharacterEditor.Edit", resourceCulture);
+                return ResourceManager.GetString("CharacterEditor_Edit", resourceCulture);
             }
         }
         
@@ -209,7 +209,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string CharacterEditor_Personality_Edit {
             get {
-                return ResourceManager.GetString("CharacterEditor.Personality.Edit", resourceCulture);
+                return ResourceManager.GetString("CharacterEditor_Personality_Edit", resourceCulture);
             }
         }
         
@@ -218,7 +218,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Page_Home {
             get {
-                return ResourceManager.GetString("Page.Home", resourceCulture);
+                return ResourceManager.GetString("Page_Home", resourceCulture);
             }
         }
         
@@ -227,7 +227,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Page_Settings {
             get {
-                return ResourceManager.GetString("Page.Settings", resourceCulture);
+                return ResourceManager.GetString("Page_Settings", resourceCulture);
             }
         }
         
@@ -236,7 +236,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Settings_Languages_English {
             get {
-                return ResourceManager.GetString("Settings.Languages.English", resourceCulture);
+                return ResourceManager.GetString("Settings_Languages_English", resourceCulture);
             }
         }
         
@@ -245,7 +245,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Settings_Languages_German {
             get {
-                return ResourceManager.GetString("Settings.Languages.German", resourceCulture);
+                return ResourceManager.GetString("Settings_Languages_German", resourceCulture);
             }
         }
         
@@ -254,7 +254,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Settings_LanguageSettings {
             get {
-                return ResourceManager.GetString("Settings.LanguageSettings", resourceCulture);
+                return ResourceManager.GetString("Settings_LanguageSettings", resourceCulture);
             }
         }
         
@@ -263,7 +263,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Settings_SelectColor {
             get {
-                return ResourceManager.GetString("Settings.SelectColor", resourceCulture);
+                return ResourceManager.GetString("Settings_SelectColor", resourceCulture);
             }
         }
         
@@ -272,7 +272,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Settings_SelectLanguage {
             get {
-                return ResourceManager.GetString("Settings.SelectLanguage", resourceCulture);
+                return ResourceManager.GetString("Settings_SelectLanguage", resourceCulture);
             }
         }
         
@@ -281,7 +281,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Settings_SelectTheme {
             get {
-                return ResourceManager.GetString("Settings.SelectTheme", resourceCulture);
+                return ResourceManager.GetString("Settings_SelectTheme", resourceCulture);
             }
         }
         
@@ -290,7 +290,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Settings_ThemeSettings {
             get {
-                return ResourceManager.GetString("Settings.ThemeSettings", resourceCulture);
+                return ResourceManager.GetString("Settings_ThemeSettings", resourceCulture);
             }
         }
         
@@ -299,7 +299,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Validation_CannotSave {
             get {
-                return ResourceManager.GetString("Validation.CannotSave", resourceCulture);
+                return ResourceManager.GetString("Validation_CannotSave", resourceCulture);
             }
         }
         
@@ -308,7 +308,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Validation_CannotSaveTitle {
             get {
-                return ResourceManager.GetString("Validation.CannotSaveTitle", resourceCulture);
+                return ResourceManager.GetString("Validation_CannotSaveTitle", resourceCulture);
             }
         }
         
@@ -317,7 +317,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Validation_ErrorSource {
             get {
-                return ResourceManager.GetString("Validation.ErrorSource", resourceCulture);
+                return ResourceManager.GetString("Validation_ErrorSource", resourceCulture);
             }
         }
         
@@ -326,7 +326,7 @@ namespace DnDCharCtor.Resources {
         /// </summary>
         public static string Validation_RequiredField {
             get {
-                return ResourceManager.GetString("Validation.RequiredField", resourceCulture);
+                return ResourceManager.GetString("Validation_RequiredField", resourceCulture);
             }
         }
     }

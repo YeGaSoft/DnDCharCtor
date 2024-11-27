@@ -117,94 +117,94 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="App.DnDCharCtor" xml:space="preserve">
+  <data name="App_DnDCharCtor" xml:space="preserve">
     <value>DnDCharCtor</value>
   </data>
-  <data name="Button.Edit" xml:space="preserve">
+  <data name="Button_Edit" xml:space="preserve">
     <value>Bearbeiten</value>
   </data>
-  <data name="Character.Personality" xml:space="preserve">
+  <data name="Character_Personality" xml:space="preserve">
     <value>Persönlichkeit</value>
   </data>
-  <data name="Button.Save" xml:space="preserve">
+  <data name="Button_Save" xml:space="preserve">
     <value>Speichern</value>
   </data>
-  <data name="Button.Submit" xml:space="preserve">
+  <data name="Button_Submit" xml:space="preserve">
     <value>Übernehmen</value>
   </data>
-  <data name="Character.Personality.Class" xml:space="preserve">
+  <data name="Character_Personality_Class" xml:space="preserve">
     <value>Klasse</value>
   </data>
-  <data name="Character.Personality.Level" xml:space="preserve">
+  <data name="Character_Personality_Level" xml:space="preserve">
     <value>Stufe</value>
   </data>
-  <data name="Character.Personality.Background" xml:space="preserve">
+  <data name="Character_Personality_Background" xml:space="preserve">
     <value>Hintergrund</value>
   </data>
-  <data name="Character.Personality.PlayerName" xml:space="preserve">
+  <data name="Character_Personality_PlayerName" xml:space="preserve">
     <value>Name des Spielers</value>
   </data>
-  <data name="Character.Personality.Race" xml:space="preserve">
+  <data name="Character_Personality_Race" xml:space="preserve">
     <value>Volk</value>
   </data>
-  <data name="Character.Personality.Attitute" xml:space="preserve">
+  <data name="Character_Personality_Attitute" xml:space="preserve">
     <value>Gesinnung</value>
   </data>
-  <data name="Character.Personality.Experience" xml:space="preserve">
+  <data name="Character_Personality_Experience" xml:space="preserve">
     <value>Erfahrungspunkte</value>
   </data>
-  <data name="Character.Name" xml:space="preserve">
+  <data name="Character_Name" xml:space="preserve">
     <value>Charaktername</value>
   </data>
-  <data name="CharacterEditor.Create" xml:space="preserve">
+  <data name="CharacterEditor_Create" xml:space="preserve">
     <value>Erstelle einen Charakter</value>
   </data>
-  <data name="CharacterEditor.Edit" xml:space="preserve">
+  <data name="CharacterEditor_Edit" xml:space="preserve">
     <value>Bearbeite Charakter "{0}"</value>
   </data>
-  <data name="Page.Settings" xml:space="preserve">
+  <data name="Page_Settings" xml:space="preserve">
     <value>Einstellungen</value>
   </data>
-  <data name="Page.Home" xml:space="preserve">
+  <data name="Page_Home" xml:space="preserve">
     <value>Startseite</value>
   </data>
-  <data name="Settings.SelectLanguage" xml:space="preserve">
+  <data name="Settings_SelectLanguage" xml:space="preserve">
     <value>Sprache auswählen</value>
   </data>
-  <data name="Settings.Languages.English" xml:space="preserve">
+  <data name="Settings_Languages_English" xml:space="preserve">
     <value>English (Englisch)</value>
   </data>
-  <data name="Settings.Languages.German" xml:space="preserve">
+  <data name="Settings_Languages_German" xml:space="preserve">
     <value>Deutsch</value>
   </data>
-  <data name="CharacterEditor.Personality.Edit" xml:space="preserve">
+  <data name="CharacterEditor_Personality_Edit" xml:space="preserve">
     <value>Bearbeite Persönlichkeit</value>
   </data>
-  <data name="Settings.LanguageSettings" xml:space="preserve">
+  <data name="Settings_LanguageSettings" xml:space="preserve">
     <value>Sprach-Einstellungen</value>
   </data>
-  <data name="Settings.ThemeSettings" xml:space="preserve">
+  <data name="Settings_ThemeSettings" xml:space="preserve">
     <value>Farb-Thema-Einstellungen</value>
   </data>
-  <data name="Settings.SelectTheme" xml:space="preserve">
+  <data name="Settings_SelectTheme" xml:space="preserve">
     <value>Farb-Thema auswählen</value>
   </data>
-  <data name="Settings.SelectColor" xml:space="preserve">
+  <data name="Settings_SelectColor" xml:space="preserve">
     <value>Farbe auswählen</value>
   </data>
-  <data name="Button.Ok" xml:space="preserve">
+  <data name="Button_Ok" xml:space="preserve">
     <value>Ok</value>
   </data>
-  <data name="Validation.ErrorSource" xml:space="preserve">
+  <data name="Validation_ErrorSource" xml:space="preserve">
     <value>Karte "{0}" hat folgende Validierungs-Fehler:</value>
   </data>
-  <data name="Validation.CannotSave" xml:space="preserve">
+  <data name="Validation_CannotSave" xml:space="preserve">
     <value>Speichern nicht möglich da ein paar Karten und Felder Validierungs-Fehler haben</value>
   </data>
-  <data name="Validation.CannotSaveTitle" xml:space="preserve">
+  <data name="Validation_CannotSaveTitle" xml:space="preserve">
     <value>Speichern nicht möglich</value>
   </data>
-  <data name="Validation.RequiredField" xml:space="preserve">
+  <data name="Validation_RequiredField" xml:space="preserve">
     <value>Feld "{0}" ist ein Pflichtfeld</value>
   </data>
 </root>

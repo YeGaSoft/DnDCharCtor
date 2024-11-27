@@ -13,7 +13,7 @@ public record Character
 {
     public Guid Id { get; init; } = Guid.NewGuid();
 
-    [Required]
+    [LocalizedRequired(nameof(StringResources.Character_Personality))]
     public required Personality Personality { get; init; } = Personality.Empty;
 
     public static Character Empty => new ()

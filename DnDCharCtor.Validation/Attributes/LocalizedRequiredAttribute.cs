@@ -8,15 +8,16 @@ using System.Threading.Tasks;
 
 namespace DnDCharCtor.Common.Validation.Attributes;
 
-public class LocalizedRequiredAttribute(string fieldName) : RequiredAttribute
+public class LocalizedRequiredAttribute(string fieldNameResourceKey) : RequiredAttribute
 {
-    public string FieldName { get; set; } = fieldName;
+    public string FieldNameResourceKey { get; set; } = fieldNameResourceKey;
 
     protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
     {
         var validationResult = base.IsValid(value, validationContext);
         if (validationResult == ValidationResult.Success) return validationResult;
 
-        return new ValidationResult(string.Format(StringResources.Validation_RequiredField, FieldName));
+        string fieldName = StringResources.ResourceManager.GetString(FieldNameResourceKey) ?? validationContext.MemberName ?? string.Empty;
+        return new ValidationResult(string.Format(StringResources.Validation_RequiredField, fieldName));
     }
 }
