@@ -17,6 +17,7 @@ public partial class NavMenu : IDisposable
     [CascadingParameter(Name = CascadeValueNames.DataContext)]
     public INotifyPropertyChanged? DataContext { get; set; }
 
+    // ToDo: reconsider this approach since its non-conform and makes Two-Way-Binding overcomplicated
     private string _expressionMemberName = string.Empty;
     [Parameter]
     public Expression<Func<CharacterViewModel>>? CurrentCharacterExpression { get; set; }
