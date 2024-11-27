@@ -12,4 +12,6 @@ public static class StorageKeys
     public const string CurrentCharacterId = "currentCharacterId";
 
     public const string SelectedLanguageIdentifier = "selectedLanguage";
+
+    public const string Theme = "theme";
 }

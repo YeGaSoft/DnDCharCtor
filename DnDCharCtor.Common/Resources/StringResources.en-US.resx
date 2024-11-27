@@ -180,4 +180,16 @@
   <data name="CharacterEditor.Personality.Edit" xml:space="preserve">
     <value>Edit personality</value>
   </data>
+  <data name="Settings.LanguageSettings" xml:space="preserve">
+    <value>Language settings</value>
+  </data>
+  <data name="Settings.ThemeSettings" xml:space="preserve">
+    <value>Theme settings</value>
+  </data>
+  <data name="Settings.SelectTheme" xml:space="preserve">
+    <value>Select theme</value>
+  </data>
+  <data name="Settings.SelectColor" xml:space="preserve">
+    <value>Select color</value>
+  </data>
 </root>

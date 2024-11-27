@@ -4,6 +4,7 @@ using DnDCharCtor.Common.Services;
 using DnDCharCtor.Ui.Constants;
 using DnDCharCtor.ViewModels;
 using Microsoft.AspNetCore.Components;
+using Microsoft.FluentUI.AspNetCore.Components;
 
 namespace DnDCharCtor.Ui.Pages;
 
@@ -15,6 +16,11 @@ public partial class Settings : IDisposable
 
     [Inject]
     public ILocalizationService LocalizationService { get; set; } = default!;
+
+    public DesignThemeModes Mode { get; set; }
+    public OfficeColor? OfficeColor { get; set; }
+
+
 
     protected override async Task OnInitializedAsync()
     {

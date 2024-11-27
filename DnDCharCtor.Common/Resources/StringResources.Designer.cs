@@ -241,11 +241,47 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Language settings.
+        /// </summary>
+        public static string Settings_LanguageSettings {
+            get {
+                return ResourceManager.GetString("Settings.LanguageSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Select color.
+        /// </summary>
+        public static string Settings_SelectColor {
+            get {
+                return ResourceManager.GetString("Settings.SelectColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Select language.
         /// </summary>
         public static string Settings_SelectLanguage {
             get {
                 return ResourceManager.GetString("Settings.SelectLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Select theme.
+        /// </summary>
+        public static string Settings_SelectTheme {
+            get {
+                return ResourceManager.GetString("Settings.SelectTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Theme settings.
+        /// </summary>
+        public static string Settings_ThemeSettings {
+            get {
+                return ResourceManager.GetString("Settings.ThemeSettings", resourceCulture);
             }
         }
     }
