@@ -15,7 +15,7 @@ public record Personality
     public required string ClassName { get; init; } = string.Empty;
 
     [LocalizedRequired(nameof(StringResources.Character_Personality_Level))]
-    [Range(1, int.MaxValue)]
+    [LocalizedRange(nameof(StringResources.Character_Personality_Level), 1, int.MaxValue)]
     public required int Level { get; init; }
 
     [LocalizedMaxLength(nameof(StringResources.Character_Personality_Background), 1024)]
@@ -33,7 +33,7 @@ public record Personality
     public required string Attitute { get; init; } = string.Empty;
 
     [LocalizedRequired(nameof(StringResources.Character_Personality_Experience))]
-    [Range(0, int.MaxValue)]
+    [LocalizedRange(nameof(StringResources.Character_Personality_Experience), 0, int.MaxValue)]
     public required int Experience { get; init; }
 
     public static Personality Empty => new()

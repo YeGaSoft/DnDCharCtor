@@ -55,7 +55,7 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
     [ObservableProperty]
     [NotifyDataErrorInfo]
     [LocalizedRequired(nameof(StringResources.Character_Personality_Level))]
-    [Range(1, int.MaxValue)]
+    [LocalizedRange(nameof(StringResources.Character_Personality_Level), 1, int.MaxValue)]
     private int _level;
 
     [ObservableProperty]
@@ -83,7 +83,7 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
     [ObservableProperty]
     [NotifyDataErrorInfo]
     [LocalizedRequired(nameof(StringResources.Character_Personality_Experience))]
-    [Range(0, int.MaxValue)]
+    [LocalizedRange(nameof(StringResources.Character_Personality_Experience), 0, int.MaxValue)]
     private int _experience;
 
     [ObservableProperty]

@@ -210,4 +210,7 @@
   <data name="Validation_MaxLength" xml:space="preserve">
     <value>Text von Feld "{0}" muss weniger oder gleich "{1}" Zeichen enthalten</value>
   </data>
+  <data name="Validation_range" xml:space="preserve">
+    <value>Wert von Feld "{0}" muss zwischen "{1}" und "{2}" liegen</value>
+  </data>
 </root>

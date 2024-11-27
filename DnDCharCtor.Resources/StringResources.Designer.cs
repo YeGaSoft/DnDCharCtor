@@ -331,6 +331,15 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Value of field &quot;{0}&quot; must be between &quot;{1}&quot; and &quot;{2}&quot;.
+        /// </summary>
+        public static string Validation_range {
+            get {
+                return ResourceManager.GetString("Validation_range", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Field &quot;{0}&quot; is required.
         /// </summary>
         public static string Validation_RequiredField {
