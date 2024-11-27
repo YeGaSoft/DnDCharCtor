@@ -1,5 +1,5 @@
-﻿using DnDCharCtor.Common.Validation.Attributes;
-using DnDCharCtor.Resources;
+﻿using DnDCharCtor.Resources;
+using DnDCharCtor.Validation.Attributes;
 using System.ComponentModel.DataAnnotations;
 
 namespace DnDCharCtor.Models;
@@ -7,29 +7,29 @@ namespace DnDCharCtor.Models;
 public record Personality
 {
     [LocalizedRequired(nameof(StringResources.Character_Name))]
-    [MaxLength(64)]
+    [LocalizedMaxLength(nameof(StringResources.Character_Name), 64)]
     public required string CharacterName { get; init; } = string.Empty;
 
     [LocalizedRequired(nameof(StringResources.Character_Personality_Class))]
-    [MaxLength(32)]
+    [LocalizedMaxLength(nameof(StringResources.Character_Personality_Class), 32)]
     public required string ClassName { get; init; } = string.Empty;
 
     [LocalizedRequired(nameof(StringResources.Character_Personality_Level))]
     [Range(1, int.MaxValue)]
     public required int Level { get; init; }
 
-    [MaxLength(1024)]
+    [LocalizedMaxLength(nameof(StringResources.Character_Personality_Background), 1024)]
     public required string Background { get; init; } = string.Empty;
 
     [LocalizedRequired(nameof(StringResources.Character_Personality_PlayerName))]
-    [MaxLength(64)]
+    [LocalizedMaxLength(nameof(StringResources.Character_Personality_PlayerName), 64)]
     public required string PlayerName { get; init; } = string.Empty;
 
     [LocalizedRequired(nameof(StringResources.Character_Personality_Race))]
-    [MaxLength(32)]
+    [LocalizedMaxLength(nameof(StringResources.Character_Personality_Race), 32)]
     public required string Race { get; init; } = string.Empty;
 
-    [MaxLength(32)]
+    [LocalizedMaxLength(nameof(StringResources.Character_Personality_Attitute), 32)]
     public required string Attitute { get; init; } = string.Empty;
 
     [LocalizedRequired(nameof(StringResources.Character_Personality_Experience))]

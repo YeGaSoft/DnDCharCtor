@@ -322,6 +322,15 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Text of field &quot;{0}&quot; must contain less or equal to &quot;{1}&quot; characters.
+        /// </summary>
+        public static string Validation_MaxLength {
+            get {
+                return ResourceManager.GetString("Validation_MaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Field &quot;{0}&quot; is required.
         /// </summary>
         public static string Validation_RequiredField {

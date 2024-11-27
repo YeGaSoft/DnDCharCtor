@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DnDCharCtor.Common.Validation.Attributes;
+using DnDCharCtor.Validation.Attributes;
 
 namespace DnDCharCtor.ViewModels.ModelViewModels;
 
@@ -43,13 +43,13 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
     [ObservableProperty]
     [NotifyDataErrorInfo]
     [LocalizedRequired(nameof(StringResources.Character_Name))]
-    [MaxLength(64)]
+    [LocalizedMaxLength(nameof(StringResources.Character_Name), 64)]
     private string _characterName;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
     [LocalizedRequired(nameof(StringResources.Character_Personality_Class))]
-    [MaxLength(32)]
+    [LocalizedMaxLength(nameof(StringResources.Character_Personality_Class), 32)]
     private string _className;
 
     [ObservableProperty]
@@ -60,24 +60,24 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
-    [MaxLength(1024)]
+    [LocalizedMaxLength(nameof(StringResources.Character_Personality_Background), 1024)]
     private string _background;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
     [LocalizedRequired(nameof(StringResources.Character_Personality_PlayerName))]
-    [MaxLength(64)]
+    [LocalizedMaxLength(nameof(StringResources.Character_Personality_PlayerName), 64)]
     private string _playerName;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
     [LocalizedRequired(nameof(StringResources.Character_Personality_Race))]
-    [MaxLength(32)]
+    [LocalizedMaxLength(nameof(StringResources.Character_Personality_Race), 32)]
     private string _race;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
-    [MaxLength(32)]
+    [LocalizedMaxLength(nameof(StringResources.Character_Personality_Attitute), 32)]
     private string _attitute;
 
     [ObservableProperty]

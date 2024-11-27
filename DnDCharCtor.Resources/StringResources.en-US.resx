@@ -207,4 +207,7 @@
   <data name="Validation_RequiredField" xml:space="preserve">
     <value>Field "{0}" is required</value>
   </data>
+  <data name="Validation_MaxLength" xml:space="preserve">
+    <value>Text of field "{0}" must contain less or equal to "{1}" characters</value>
+  </data>
 </root>

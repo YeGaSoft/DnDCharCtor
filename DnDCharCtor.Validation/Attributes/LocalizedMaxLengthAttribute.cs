@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DnDCharCtor.Validation.Attributes;
 
-public class LocalizedRequiredAttribute(string fieldNameResourceKey) : RequiredAttribute
+public class LocalizedMaxLengthAttribute(string fieldNameResourceKey, int maxLength) : MaxLengthAttribute(maxLength)
 {
     public string FieldNameResourceKey { get; set; } = fieldNameResourceKey;
 
@@ -18,6 +18,6 @@ public class LocalizedRequiredAttribute(string fieldNameResourceKey) : RequiredA
         if (validationResult == ValidationResult.Success) return validationResult;
 
         string fieldName = StringResources.ResourceManager.GetString(FieldNameResourceKey) ?? validationContext.MemberName ?? string.Empty;
-        return new ValidationResult(string.Format(StringResources.Validation_RequiredField, fieldName));
+        return new ValidationResult(string.Format(StringResources.Validation_MaxLength, fieldName, Length));
     }
 }
