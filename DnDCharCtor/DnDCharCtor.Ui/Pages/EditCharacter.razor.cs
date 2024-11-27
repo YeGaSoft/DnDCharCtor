@@ -2,9 +2,12 @@ using DnDCharCtor.Common.Extensions;
 using DnDCharCtor.Common.Resources;
 using DnDCharCtor.Common.Services;
 using DnDCharCtor.Models;
+using DnDCharCtor.Ui.Components.Dialogs;
 using DnDCharCtor.Ui.Constants;
 using DnDCharCtor.ViewModels;
+using DnDCharCtor.ViewModels.ModelViewModels;
 using Microsoft.AspNetCore.Components;
+using Microsoft.FluentUI.AspNetCore.Components;
 
 namespace DnDCharCtor.Ui.Pages;
 
@@ -21,15 +24,28 @@ public partial class EditCharacter : IDisposable
     [Inject]
     public ILocalizationService LocalizationService { get; set; } = default!;
 
+    [Inject]
+    public IDialogService DialogService { get; set; } = default!;
+
     [Parameter]
     public string Id { get; set; } = string.Empty;
 
-    private string _title { get; set; } = string.Empty;
+    public string Title { get; set; } = string.Empty;
 
     private async Task SaveChanges()
     {
         var isValid = ViewModel.Validate();
-        if (isValid is false) return;
+        if (isValid is false)
+        {
+            var dialogParameters = new DialogParameters()
+            {
+                Title = StringResources.Validation_CannotSaveTitle,
+                PreventDismissOnOverlayClick = true,
+                ShowDismiss = true,
+            };
+            await DialogService.ShowDialogAsync<ValidationErrorDialog>(ViewModel, dialogParameters);
+            return;
+        }
 
         var isSaved = await ViewModel.SaveAsync();
         if (isSaved is false) return;
@@ -46,12 +62,12 @@ public partial class EditCharacter : IDisposable
             var guid = Guid.Parse(Id);
             await ViewModel.InitializeAsync(guid);
             var characterName = ViewModel.CharacterViewModelToEdit.PersonalityViewModel.CharacterName;
-            _title = string.Format(StringResources.CharacterEditor_Edit, characterName);
+            Title = string.Format(StringResources.CharacterEditor_Edit, characterName);
         }
         else
         {
             ViewModel.Initialize(Character.Empty);
-            _title = StringResources.CharacterEditor_Create;
+            Title = StringResources.CharacterEditor_Create;
         }
 
         LocalizationService.PropertyChanged += LocalizationService_PropertyChanged;
@@ -75,11 +91,11 @@ public partial class EditCharacter : IDisposable
         if (string.IsNullOrWhiteSpace(Id) is false)
         {
             var characterName = ViewModel.CharacterViewModelToEdit.PersonalityViewModel.CharacterName;
-            _title = string.Format(StringResources.CharacterEditor_Edit, characterName);
+            Title = string.Format(StringResources.CharacterEditor_Edit, characterName);
         }
         else
         {
-            _title = StringResources.CharacterEditor_Create;
+            Title = StringResources.CharacterEditor_Create;
         }
 
         InvokeAsync(StateHasChanged).SafeFireAndForget(null);

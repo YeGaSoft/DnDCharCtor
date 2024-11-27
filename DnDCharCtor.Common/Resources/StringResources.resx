@@ -192,4 +192,16 @@
   <data name="Settings.SelectColor" xml:space="preserve">
     <value>~Select color</value>
   </data>
+  <data name="Button.Ok" xml:space="preserve">
+    <value>~Ok</value>
+  </data>
+  <data name="Validation.ErrorSource" xml:space="preserve">
+    <value>~Card "{0}" has the following validation errors:</value>
+  </data>
+  <data name="Validation.CannotSave" xml:space="preserve">
+    <value>~Cannot save since some cards and fields have validation errors</value>
+  </data>
+  <data name="Validation.CannotSaveTitle" xml:space="preserve">
+    <value>~Cannot save</value>
+  </data>
 </root>

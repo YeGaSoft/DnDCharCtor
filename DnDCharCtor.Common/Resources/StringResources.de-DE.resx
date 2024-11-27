@@ -192,4 +192,16 @@
   <data name="Settings.SelectColor" xml:space="preserve">
     <value>Farbe auswählen</value>
   </data>
+  <data name="Button.Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="Validation.ErrorSource" xml:space="preserve">
+    <value>Karte "{0}" hat folgende Validierungs-Fehler:</value>
+  </data>
+  <data name="Validation.CannotSave" xml:space="preserve">
+    <value>Speichern nicht möglich da ein paar Karten und Felder Validierungs-Fehler haben</value>
+  </data>
+  <data name="Validation.CannotSaveTitle" xml:space="preserve">
+    <value>Speichern nicht möglich</value>
+  </data>
 </root>

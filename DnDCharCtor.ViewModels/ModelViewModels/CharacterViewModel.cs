@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using DnDCharCtor.Common.Resources;
 using DnDCharCtor.Models;
 using System;
 using System.Collections.Generic;
@@ -26,12 +27,14 @@ public partial class CharacterViewModel : ObservableValidator, IValidateableView
 
     [ObservableProperty]
     private bool _hasValidationErrors;
+    public Dictionary<string, IReadOnlyCollection<ValidationResult>> ValidationErrors { get; set; } = [];
+    public string ValidationErrorSource => StringResources.Character_Name;
 
 
     public bool Validate()
     {
         HasValidationErrors = PersonalityViewModel.Validate();
-
+        ValidationErrors = ValidationErrors.Concat(PersonalityViewModel.ValidationErrors).ToDictionary();
         return HasValidationErrors is false;
     }
 

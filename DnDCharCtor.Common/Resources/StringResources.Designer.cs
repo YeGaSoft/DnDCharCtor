@@ -79,6 +79,15 @@ namespace DnDCharCtor.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Ok.
+        /// </summary>
+        public static string Button_Ok {
+            get {
+                return ResourceManager.GetString("Button.Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Save.
         /// </summary>
         public static string Button_Save {
@@ -282,6 +291,33 @@ namespace DnDCharCtor.Common.Resources {
         public static string Settings_ThemeSettings {
             get {
                 return ResourceManager.GetString("Settings.ThemeSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Cannot save since some cards and fields have validation errors.
+        /// </summary>
+        public static string Validation_CannotSave {
+            get {
+                return ResourceManager.GetString("Validation.CannotSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Cannot save.
+        /// </summary>
+        public static string Validation_CannotSaveTitle {
+            get {
+                return ResourceManager.GetString("Validation.CannotSaveTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Card &quot;{0}&quot; has the following validation errors:.
+        /// </summary>
+        public static string Validation_ErrorSource {
+            get {
+                return ResourceManager.GetString("Validation.ErrorSource", resourceCulture);
             }
         }
     }

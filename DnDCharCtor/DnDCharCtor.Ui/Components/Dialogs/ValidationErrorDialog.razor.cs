@@ -1,15 +1,15 @@
+using DnDCharCtor.ViewModels;
 using DnDCharCtor.ViewModels.ModelViewModels;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.FluentUI.AspNetCore.Components;
 
 namespace DnDCharCtor.Ui.Components.Dialogs;
 
-public partial class EditPersonalityDialog
+public partial class ValidationErrorDialog
 {
     [CascadingParameter]
     public FluentDialog Dialog { get; set; } = default!;
 
     [Parameter]
-    public PersonalityViewModel Content { get; set; } = default!;
+    public IValidateableViewModel Content { get; set; } = default!;
 }

@@ -27,6 +27,8 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
 
     [ObservableProperty]
     private bool _hasValidationErrors;
+    public Dictionary<string, IReadOnlyCollection<ValidationResult>> ValidationErrors { get; set; } = [];
+    public string ValidationErrorSource => CharacterViewModelToEdit.ValidationErrorSource;
 
     public async Task<bool> InitializeAsync(Guid characterId)
     {
@@ -57,6 +59,7 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
     public bool Validate()
     {
         HasValidationErrors = CharacterViewModelToEdit.Validate();
+        ValidationErrors = CharacterViewModelToEdit.ValidationErrors;
         return HasValidationErrors is false;
     }
 
