@@ -100,6 +100,7 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
         var validationResults = new List<ValidationResult>();
 
         HasValidationErrors = Validator.TryValidateObject(this, validationContext, validationResults, true) is false;
+        ValidationErrors.Clear();
         ValidationErrors[ValidationErrorSource] = validationResults;
         return HasValidationErrors is false;
     }

@@ -34,6 +34,7 @@ public partial class CharacterViewModel : ObservableValidator, IValidateableView
     public bool Validate()
     {
         HasValidationErrors = PersonalityViewModel.Validate();
+        ValidationErrors.Clear();
         ValidationErrors = ValidationErrors.Concat(PersonalityViewModel.ValidationErrors).ToDictionary();
         return HasValidationErrors is false;
     }
