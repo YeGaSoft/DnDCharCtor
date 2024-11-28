@@ -24,13 +24,33 @@ public partial class FluentIntegerField
 
     public string? InputValue { get; set; }
 
-    private async void InputChanged(string input)
+    private async Task InputChanged(string input)
     {
         if (InputValue == input) return;
+
+        if (string.IsNullOrEmpty(input))
+        {
+            InputValue = string.Empty;
+            if (Value is not 0)
+            {
+                Value = 0;
+                await InvokeAsync(StateHasChanged);
+            }
+
+            return;
+        }
+
+        if (input == "-")
+        {
+            InputValue = input;
+            await InvokeAsync(StateHasChanged);
+            return;
+        }
 
         if (int.TryParse(input, out var value))
         {
             if (Value == value) return;
+            InputValue = value.ToString();
             Value = value;
             await ValueChanged.InvokeAsync(value);
         }
