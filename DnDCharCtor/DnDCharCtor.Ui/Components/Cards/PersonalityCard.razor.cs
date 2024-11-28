@@ -15,7 +15,7 @@ namespace DnDCharCtor.Ui.Components.Cards;
 public partial class PersonalityCard
 {
     [Inject]
-    public IDialogService DialogService { get; set; } = default!;
+    public Microsoft.FluentUI.AspNetCore.Components.IDialogService DialogService { get; set; } = default!;
 
     [Parameter]
     [EditorRequired]
@@ -27,7 +27,7 @@ public partial class PersonalityCard
     private async Task EditPersonality()
     {
         var data = new PersonalityViewModel(ViewModel);
-        var dialogParameters = new DialogParameters()
+        var dialogParameters = new Microsoft.FluentUI.AspNetCore.Components.DialogParameters()
         {
             Title = StringResources.CharacterEditor_Personality_Edit,
             //Width = "500px",

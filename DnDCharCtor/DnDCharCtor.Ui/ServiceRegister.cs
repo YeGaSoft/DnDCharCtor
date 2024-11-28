@@ -29,6 +29,7 @@ public static class ServiceRegister
         services.AddSingleton<IJsonSerializerService, JsonSerializerService>();
         services.AddSingleton<ILocalizationService, LocalizationService>();
         services.AddSingleton<IHybridCacheService, HybridCacheService>();
+        services.AddSingleton<IEventAggregator, EventAggregator>();
 
         return services;
     }
@@ -45,7 +46,7 @@ public static class ServiceRegister
     public static IServiceCollection RegisterUI(this IServiceCollection services)
     {
         services.AddFluentUIComponents();
-        services.AddSingleton<IDialogService, DialogService>();
+        services.AddSingleton<Microsoft.FluentUI.AspNetCore.Components.IDialogService, DialogService>();
 
         return services;
     }

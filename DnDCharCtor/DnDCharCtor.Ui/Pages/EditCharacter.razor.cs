@@ -12,7 +12,6 @@ using Microsoft.FluentUI.AspNetCore.Components;
 namespace DnDCharCtor.Ui.Pages;
 
 [Route(Routes.EditCharacter)]
-[Route(Routes.EditCharacterWithParameter)]
 public partial class EditCharacter : IDisposable
 {
     [Inject]
@@ -25,9 +24,15 @@ public partial class EditCharacter : IDisposable
     public ILocalizationService LocalizationService { get; set; } = default!;
 
     [Inject]
-    public IDialogService DialogService { get; set; } = default!;
+    public Microsoft.FluentUI.AspNetCore.Components.IDialogService DialogService { get; set; } = default!;
+
 
     [Parameter]
+    [SupplyParameterFromQuery(Name = Routes.EditCharacterQueryParameterForceNew)]
+    public bool ForceNew { get; set; } = false;
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = Routes.EditCharacterQueryParameterId)]
     public string Id { get; set; } = string.Empty;
 
     public string Title { get; set; } = string.Empty;
@@ -37,7 +42,7 @@ public partial class EditCharacter : IDisposable
         var isValid = ViewModel.Validate();
         if (isValid is false)
         {
-            var dialogParameters = new DialogParameters()
+            var dialogParameters = new Microsoft.FluentUI.AspNetCore.Components.DialogParameters()
             {
                 Title = StringResources.Validation_CannotSaveTitle,
                 PreventDismissOnOverlayClick = true,
@@ -57,17 +62,20 @@ public partial class EditCharacter : IDisposable
     // ToDo: When switching pages the old EditCharachterViewModel should be loaded
     protected override async Task OnInitializedAsync()
     {
-        if (string.IsNullOrWhiteSpace(Id) is false)
+        if (ForceNew)
         {
-            var guid = Guid.Parse(Id);
-            await ViewModel.InitializeAsync(guid);
-            var characterName = ViewModel.CharacterViewModelToEdit.PersonalityViewModel.CharacterName;
-            Title = string.Format(StringResources.CharacterEditor_Edit, characterName);
-        }
-        else
-        {
-            ViewModel.Initialize(Character.Empty);
-            Title = StringResources.CharacterEditor_Create;
+            if (string.IsNullOrWhiteSpace(Id) is false)
+            {
+                var guid = Guid.Parse(Id);
+                await ViewModel.InitializeAsync(guid);
+                var characterName = ViewModel.CharacterViewModelToEdit.PersonalityViewModel.CharacterName;
+                Title = string.Format(StringResources.CharacterEditor_Edit, characterName);
+            }
+            else
+            {
+                ViewModel.Initialize(Character.Empty);
+                Title = StringResources.CharacterEditor_Create;
+            }
         }
 
         LocalizationService.PropertyChanged += LocalizationService_PropertyChanged;

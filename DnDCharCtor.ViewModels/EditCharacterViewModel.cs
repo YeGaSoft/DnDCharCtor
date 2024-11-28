@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using DnDCharCtor.Common.Events;
 using DnDCharCtor.Common.Services;
 using DnDCharCtor.Models;
 using DnDCharCtor.ViewModels.ModelViewModels;
@@ -14,10 +15,12 @@ namespace DnDCharCtor.ViewModels;
 public partial class EditCharacterViewModel : ObservableValidator, IValidateableViewModel
 {
     private readonly IHybridCacheService _hybridCacheService;
+    private readonly IEventAggregator _eventAggregator;
 
-    public EditCharacterViewModel(IHybridCacheService hybridCacheService)
+    public EditCharacterViewModel(IHybridCacheService hybridCacheService, IEventAggregator eventAggregator)
     {
         _hybridCacheService = hybridCacheService;
+        _eventAggregator = eventAggregator;
     }
 
     private CharacterViewModel _characterViewModelBackup = new(Character.Empty);
@@ -67,6 +70,7 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
     {
         var characterToSave = CharacterViewModelToEdit.ToCharacter();
         var isSaved = await _hybridCacheService.SetCurrentCharacterAsync(characterToSave);
+        if (isSaved) _eventAggregator.GetEvent<CurrentCharacterChangedEvent>().Publish();
         return isSaved;
     }
 }
