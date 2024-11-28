@@ -9,11 +9,11 @@
     <ValidationMessage For="@(() => Content.ClassName)" />
     <br />
 
-    <FluentNumberField @bind-Value="Content.Level" Label="@StringResources.Character_Personality_Level" Immediate="true" Required="true" />
+    <FluentIntegerField @bind-Value="Content.Level" Label="@StringResources.Character_Personality_Level" Immediate="true" Required="true" />
     <ValidationMessage For="@(() => Content.Level)" />
     <br />
 
-    <FluentTextField @bind-Value="Content.Background" Label="@StringResources.Character_Personality_Background" Immediate="true" />
+    <FluentTextArea @bind-Value="Content.Background" Label="@StringResources.Character_Personality_Background" Immediate="true" />
     <ValidationMessage For="@(() => Content.Background)" />
     <br />
 
@@ -29,6 +29,6 @@
     <ValidationMessage For="@(() => Content.Attitute)" />
     <br />
 
-    <FluentNumberField @bind-Value="Content.Experience" Label="@StringResources.Character_Personality_Experience" Immediate="true" Required="true" />
+    <FluentIntegerField @bind-Value="Content.Experience" Label="@StringResources.Character_Personality_Experience" Immediate="true" Required="true" />
     <ValidationMessage For="@(() => Content.Experience)" />
 </DialogBase>

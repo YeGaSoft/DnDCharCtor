@@ -1,0 +1,19 @@
+﻿@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+
+<!--https://stackoverflow.com/questions/66341018/blazor-how-do-you-prevent-non-numeric-characters-in-a-textbox-inputtext-->
+<!--This input element allows only **numeric characters (0-9)** and the **backspace key**. Here's a breakdown of the code:
+
+- `event.charCode != 8`: (charCode 8 is back-space-key) (I don't really understand why `!= 8` and then `== 0`).
+- `event.charCode == 0`: Allows non-character keys (like arrow keys).
+- `(event.charCode >= 48 && event.charCode <= 57)`: Allows numeric characters (charCodes 48 to 57 correspond to '0' to '9').-->
+<FluentTextField 
+    type="number" 
+    onkeypress="return (event.charCode != 8 && event.charCode == 0 || (event.charCode >= 48 && event.charCode <= 57))" 
+    Inputmode="InputMode.Numeric" 
+    Pattern="[0-9]*" 
+    Value="@InputValue" 
+    ValueChanged="InputChanged" 
+    Label="@Label" 
+    Immediate="@Immediate" 
+    Required="@Required" />
