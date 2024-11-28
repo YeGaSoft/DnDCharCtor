@@ -12,25 +12,21 @@ using System.Linq.Expressions;
 
 namespace DnDCharCtor.Ui.Components.Cards;
 
-public partial class PersonalityCard : IDisposable
+public partial class PersonalityCard
 {
     [Inject]
     public IDialogService DialogService { get; set; } = default!;
 
-    [CascadingParameter(Name = CascadeValueNames.DataContext)]
-    public INotifyPropertyChanged? DataContext { get; set; }
-
-    // ToDo: reconsider this approach since its non-conform and makes Two-Way-Binding overcomplicated
-    private string _expressionMemberName = string.Empty;
     [Parameter]
-    public Expression<Func<PersonalityViewModel?>>? PersonalityExpression { get; set; }
-    private PersonalityViewModel? _personalityViewModel;
+    [EditorRequired]
+    public PersonalityViewModel ViewModel { get; set; } = default!;
+
+    [Parameter]
+    public EventCallback<PersonalityViewModel> ViewModelChanged { get; set; }
 
     private async Task EditPersonality()
     {
-        if (_personalityViewModel is null) return;
-
-        var data = new PersonalityViewModel(_personalityViewModel);
+        var data = new PersonalityViewModel(ViewModel);
         var dialogParameters = new DialogParameters()
         {
             Title = StringResources.CharacterEditor_Personality_Edit,
@@ -42,50 +38,9 @@ public partial class PersonalityCard : IDisposable
         var result = await dialog.Result;
         if (result.Cancelled is false && result.Data is not null)
         {
-            _personalityViewModel = (PersonalityViewModel)result.Data;
+            ViewModel = (PersonalityViewModel)result.Data;
+            await ViewModelChanged.InvokeAsync(ViewModel);
             StateHasChanged();
         }
-    }
-
-
-
-    protected override void OnInitialized()
-    {
-        if (PersonalityExpression is not null)
-        {
-            _personalityViewModel = PersonalityExpression.Compile().Invoke();
-            var memberExpression = (MemberExpression)PersonalityExpression.Body;
-            _expressionMemberName = memberExpression.Member.Name;
-        }
-
-        if (DataContext is not null)
-        {
-            DataContext.PropertyChanged += DataContext_PropertyChanged;
-        }
-
-        base.OnInitialized();
-    }
-
-
-
-    public void Dispose()
-    {
-        GC.SuppressFinalize(this);
-
-        if (DataContext is not null)
-        {
-            DataContext.PropertyChanged -= DataContext_PropertyChanged;
-        }
-    }
-
-
-
-    private void DataContext_PropertyChanged(object? sender, PropertyChangedEventArgs e)
-    {
-        if (PersonalityExpression is null) return;
-        if (e.PropertyName != _expressionMemberName) return;
-
-        _personalityViewModel = PersonalityExpression.Compile().Invoke();
-        InvokeAsync(StateHasChanged).SafeFireAndForget(null);
     }
 }

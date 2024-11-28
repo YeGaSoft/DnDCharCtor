@@ -16,30 +16,18 @@ public partial class Home
     [Inject]
     public NavigationManager NavigationManager { get; set; } = default!;
 
-    [CascadingParameter(Name = CascadeValueNames.DataContext)]
-    public INotifyPropertyChanged? DataContext { get; set; }
+    [Inject]
+    public MainViewModel ViewModel { get; set; } = default!;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        if (DataContext is MainViewModel viewModel)
+        var currentCharacterViewModel = ViewModel.CurrentCharacterViewModel;
+        if (string.IsNullOrWhiteSpace(currentCharacterViewModel?.PersonalityViewModel.CharacterName))
         {
-            var currentCharacterViewModel = viewModel.CurrentCharacterViewModel;
-            if (string.IsNullOrWhiteSpace(currentCharacterViewModel?.PersonalityViewModel?.CharacterName))
-            {
-                NavigationManager.NavigateTo(Routes.EditCharacter);
-                return;
-            }
-        }
-        else
-        {
-            var currentCharacter = await HybridCacheService.GetCurrentCharacterAsync();
-            if (string.IsNullOrWhiteSpace(currentCharacter?.Personality?.CharacterName))
-            {
-                NavigationManager.NavigateTo(Routes.EditCharacter);
-                return;
-            }
+            NavigationManager.NavigateTo(Routes.EditCharacter);
+            return;
         }
 
-       NavigationManager.NavigateTo(Routes.CurrentCharacter);
+        NavigationManager.NavigateTo(Routes.CurrentCharacter);
     }
 }

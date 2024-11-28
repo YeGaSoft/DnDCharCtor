@@ -1,9 +1,8 @@
 ﻿@inherits LayoutComponentBase
 
-<CascadingValue Name="@CascadeValueNames.DataContext" Value="@ViewModel">
-    <div class="page">
+<div class="page">
         <div class="sidebar">
-            <NavMenu CurrentCharacterExpression="@(() => ViewModel.CurrentCharacterViewModel)" />
+            <NavMenu ViewModel="@(ViewModel.CurrentCharacterViewModel)" />
         </div>
 
         <main>
@@ -23,4 +22,3 @@
             <FluentTooltipProvider />
         </main>
     </div>
-</CascadingValue>

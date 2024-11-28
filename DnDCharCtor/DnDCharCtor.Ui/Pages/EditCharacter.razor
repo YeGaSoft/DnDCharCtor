@@ -4,14 +4,12 @@
     </FluentStack>
 </FluentHeader>
 
-<CascadingValue Name="@CascadeValueNames.DataContext" Value="@ViewModel">
-    <FluentGrid AdaptiveRendering="true" Style=@($"""background-color: var(--neutral-layer-3); padding: 4px; {(ViewModel.HasValidationErrors ? "border-color: red; border-width: medium;" : "")}""")>
-        <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2">
-            <PersonalityCard PersonalityExpression="@(() => ViewModel.CharacterViewModelToEdit.PersonalityViewModel)" />
-        </FluentGridItem>
-    </FluentGrid>
-    <br />
-</CascadingValue>
+<FluentGrid AdaptiveRendering="true" Style=@($"""background-color: var(--neutral-layer-3); padding: 4px; {(ViewModel.HasValidationErrors ? "border-color: red; border-width: medium;" : "")}""")>
+    <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2">
+        <PersonalityCard @bind-ViewModel="@(ViewModel.CharacterViewModelToEdit.PersonalityViewModel)" />
+    </FluentGridItem>
+</FluentGrid>
+<br />
 
 <FluentFooter>
     <br />

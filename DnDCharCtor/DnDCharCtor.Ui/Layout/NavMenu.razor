@@ -16,13 +16,13 @@
             </NavLink>
         </div>
 
-        @if (string.IsNullOrWhiteSpace(_currentCharacterViewModel?.PersonalityViewModel?.CharacterName) is false)
+        @if (string.IsNullOrWhiteSpace(ViewModel?.PersonalityViewModel.CharacterName) is false)
         {
             <div class="nav-item px-3">
                 <NavLink class="nav-link" style="display: flex; width=100%" href="@Routes.CurrentCharacter">
                     <FluentIcon Value="@(new Icons.Regular.Size20.Person())" Color="Color.Custom" CustomColor="white" />
                     <FluentSpacer Width="10" />
-                    <FluentLabel Color="Color.Custom" CustomColor="white">@_currentCharacterViewModel.PersonalityViewModel.CharacterName</FluentLabel>
+                    <FluentLabel Color="Color.Custom" CustomColor="white">@ViewModel?.PersonalityViewModel.CharacterName</FluentLabel>
                 </NavLink>
             </div>
         }
