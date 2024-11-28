@@ -18,6 +18,6 @@ public class LocalizedMaxLengthAttribute(string fieldNameResourceKey, int maxLen
         if (validationResult == ValidationResult.Success) return validationResult;
 
         string fieldName = StringResources.ResourceManager.GetString(FieldNameResourceKey) ?? validationContext.MemberName ?? string.Empty;
-        return new ValidationResult(string.Format(StringResources.Validation_MaxLength, fieldName, Length));
+        return new ValidationResult(string.Format(StringResources.Validation_MaxLength, fieldName, Length), [validationContext.MemberName ?? string.Empty]);
     }
 }

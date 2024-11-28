@@ -18,6 +18,6 @@ public class LocalizedRequiredAttribute(string fieldNameResourceKey) : RequiredA
         if (validationResult == ValidationResult.Success) return validationResult;
 
         string fieldName = StringResources.ResourceManager.GetString(FieldNameResourceKey) ?? validationContext.MemberName ?? string.Empty;
-        return new ValidationResult(string.Format(StringResources.Validation_RequiredField, fieldName));
+        return new ValidationResult(string.Format(StringResources.Validation_RequiredField, fieldName), [validationContext.MemberName ?? string.Empty]);
     }
 }
