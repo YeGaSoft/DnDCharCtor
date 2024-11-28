@@ -213,4 +213,7 @@
   <data name="Validation_range" xml:space="preserve">
     <value>Value of field "{0}" must be between "{1}" and "{2}"</value>
   </data>
+  <data name="Button_Properties" xml:space="preserve">
+    <value>Properties</value>
+  </data>
 </root>

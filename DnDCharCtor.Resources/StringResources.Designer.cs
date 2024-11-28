@@ -88,6 +88,15 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Properties.
+        /// </summary>
+        public static string Button_Properties {
+            get {
+                return ResourceManager.GetString("Button_Properties", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Save.
         /// </summary>
         public static string Button_Save {
