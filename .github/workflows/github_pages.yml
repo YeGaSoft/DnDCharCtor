@@ -23,17 +23,17 @@ jobs:
     #- name: Install MAUI Workload 
     #  run: dotnet workload install maui --ignore-failed-sources
     - name: Restore dependencies
-      run: dotnet restore DnDCharCtor.Pwa.csproj
+      run: dotnet restore "DnDCharCtor/DnDCharCtor.Pwa/DnDCharCtor.Pwa.csproj"
     - name: Restore Workload
-      run: dotnet workload restore DnDCharCtor.Pwa.csproj
+      run: dotnet workload restore "DnDCharCtor/DnDCharCtor.Pwa/DnDCharCtor.Pwa.csproj"
     - name: Build
-      run: dotnet build DnDCharCtor.Pwa.csproj --no-restore
+      run: dotnet build "DnDCharCtor/DnDCharCtor.Pwa/DnDCharCtor.Pwa.csproj" --no-restore
     #- name: Test
     #  run: dotnet test --no-build --verbosity normal
     # publishes Blazor project to the release-folder
     - name: Publish .NET Project
-      run: dotnet publish DnDCharCtor.Pwa.csproj -c Release -o release --nologo
-    # changes the base-tag in index.html from '/' to 'BlazorGitHubPagesDemo' to match GitHub Pages repository subdirectory
+      run: dotnet publish "DnDCharCtor/DnDCharCtor.Pwa/DnDCharCtor.Pwa.csproj" -c Release -o release --nologo
+    # changes the base-tag in index.html from '/' to 'DnDCharCtor.Pwa' to match GitHub Pages repository subdirectory
     - name: Change base-tag in index.html from / to DnDCharCtor.Pwa
       run: sed -i 's/<base href="\/" \/>/<base href="\/DnDCharCtor.Pwa\/" \/>/g' release/wwwroot/index.html
       # copy index.html to 404.html to serve the same file when a file is not found
