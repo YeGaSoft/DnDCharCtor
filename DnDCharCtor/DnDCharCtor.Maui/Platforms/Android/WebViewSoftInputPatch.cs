@@ -1,18 +1,9 @@
 ﻿using Android.Content.Res;
-using Android.Media;
 using Android.Views;
 using Android.Widget;
 using AndroidX.Core.View;
-using AndroidX.Navigation;
-using DnDCharCtor.Ui;
-using Java.Util.Logging;
-using Javax.Annotation.Meta;
-using System.Runtime.Intrinsics.X86;
 using System.Runtime.Versioning;
-using Xamarin.Google.Crypto.Tink.Shaded.Protobuf;
 using static Android.Resource;
-using static Microsoft.FluentUI.AspNetCore.Components.Emojis.Activities.Color.Default;
-using static Microsoft.FluentUI.AspNetCore.Components.Emojis;
 using Activity = Android.App.Activity;
 using Rect = Android.Graphics.Rect;
 using View = Android.Views.View;
