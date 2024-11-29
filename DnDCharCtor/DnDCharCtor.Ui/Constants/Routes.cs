@@ -10,10 +10,10 @@ public static class Routes
 {
     public const string Home = "/";
 
-    public const string CurrentCharacter = "/currentCharacter";
-    public const string EditCharacter = "/editCharacter";
+    public const string CurrentCharacter = "currentCharacter";
+    public const string EditCharacter = "editCharacter";
     public const string EditCharacterQueryParameterForceNew = "forceNew";
     public const string EditCharacterQueryParameterId = "id";
 
-    public const string Settings = "/settings";
+    public const string Settings = "settings";
 }

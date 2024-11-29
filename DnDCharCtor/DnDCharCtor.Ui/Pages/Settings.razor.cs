@@ -8,7 +8,7 @@ using Microsoft.FluentUI.AspNetCore.Components;
 
 namespace DnDCharCtor.Ui.Pages;
 
-[Route(Routes.Settings)]
+[Route(Routes.Home + Routes.Settings)]
 public partial class Settings : IDisposable
 {
     [Inject]

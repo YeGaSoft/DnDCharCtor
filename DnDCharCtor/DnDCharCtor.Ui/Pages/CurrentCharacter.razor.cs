@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace DnDCharCtor.Ui.Pages;
 
-[Route(Routes.CurrentCharacter)]
+[Route(Routes.Home + Routes.CurrentCharacter)]
 public partial class CurrentCharacter
 {
     [Inject]

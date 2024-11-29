@@ -11,7 +11,7 @@ using Microsoft.FluentUI.AspNetCore.Components;
 
 namespace DnDCharCtor.Ui.Pages;
 
-[Route(Routes.EditCharacter)]
+[Route(Routes.Home + Routes.EditCharacter)]
 public partial class EditCharacter : IDisposable
 {
     [Inject]
