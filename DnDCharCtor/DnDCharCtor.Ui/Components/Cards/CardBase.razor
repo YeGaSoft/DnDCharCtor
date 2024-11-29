@@ -1,0 +1,30 @@
+﻿<FluentCard Style=@($"{(HasValidationErrors ? "border-color: red; border-width: medium;" : "")}")>
+    <FluentHeader>
+        <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
+            <FluentLabel Typo="Typography.PaneHeader">@Title</FluentLabel>
+        </FluentStack>
+    </FluentHeader>
+
+    <FluentBodyContent>
+        <FluentAccordion>
+            <FluentAccordionItem Heading="@StringResources.Button_Properties" Expanded="true">
+                <div style="cursor: pointer;">
+                    <FluentStack Orientation="Orientation.Vertical"
+                                 VerticalAlignment="VerticalAlignment.Center"
+                                 HorizontalAlignment="HorizontalAlignment.Start"
+                                 onclick="@EditCallback">
+                        @ChildContent
+                    </FluentStack>
+                </div>   
+            </FluentAccordionItem>
+        </FluentAccordion>
+        
+        <br />
+        <FluentDivider />
+        <br />
+        <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
+            <FluentButton OnClick="EditCallback" IconStart="@(new Icons.Regular.Size20.Edit())">@EditButtonText</FluentButton>
+        </FluentStack>
+    </FluentBodyContent>
+</FluentCard>
+         

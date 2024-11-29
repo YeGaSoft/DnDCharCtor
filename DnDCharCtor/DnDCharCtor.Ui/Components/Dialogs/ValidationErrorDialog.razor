@@ -1,0 +1,24 @@
+﻿@implements IDialogContentComponent<IValidateableViewModel>
+
+<DialogBase Content="@Content" SubmitButtonText="@StringResources.Button_Ok">
+    <FluentLabel Typo="Typography.PaneHeader" Color="Color.Error">@StringResources.Validation_CannotSave</FluentLabel>
+    <br />
+    <FluentDivider />
+    <br />
+    @foreach (var validationError in Content.ValidationErrors)
+    {
+        <FluentStack Orientation="Orientation.Vertical"
+                     VerticalAlignment="VerticalAlignment.Center"
+                     HorizontalAlignment="HorizontalAlignment.Left">
+            <FluentLabel Typo="Typography.PaneHeader" Color="Color.Error">@(string.Format(StringResources.Validation_ErrorSource, validationError.Key))</FluentLabel>
+            @foreach (var errorMessage in validationError.Value)
+            {
+                <li>@errorMessage</li>
+            }
+        </FluentStack>
+
+        <br />
+        <FluentDivider />
+        <br />
+    }
+</DialogBase>

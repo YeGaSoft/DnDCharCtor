@@ -1,0 +1,24 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page">
+        <div class="sidebar">
+            <NavMenu ViewModel="@(ViewModel.CurrentCharacterViewModel)" />
+        </div>
+
+        <main>
+            <article class="content px-4">
+                <FluentOverlay 
+                    Visible="@ViewModel.IsBusy"
+                    Opacity="0.4"
+                    Alignment="Align.Center"
+                    Justification="JustifyContent.Center">
+                    <FluentProgressRing Visible="@ViewModel.IsBusy" />
+                </FluentOverlay>
+                @Body
+            </article>
+
+            <FluentDesignTheme StorageName="@StorageKeys.Theme" />
+            <FluentDialogProvider />
+            <FluentTooltipProvider />
+        </main>
+    </div>

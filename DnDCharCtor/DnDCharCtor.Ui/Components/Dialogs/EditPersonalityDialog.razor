@@ -1,0 +1,34 @@
+﻿@implements IDialogContentComponent<PersonalityViewModel>
+
+<DialogBase Content="@Content">
+    <FluentTextField @bind-Value="Content.CharacterName" Label="@StringResources.Character_Name" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.CharacterName)" />
+    <br />
+
+    <FluentTextField @bind-Value="Content.ClassName" Label="@StringResources.Character_Personality_Class" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ClassName)" />
+    <br />
+
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Level" Label="@StringResources.Character_Personality_Level" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.Level)" />
+    <br />
+
+    <FluentTextArea @bind-Value="Content.Background" Label="@StringResources.Character_Personality_Background" Immediate="true" />
+    <ValidationMessage For="@(() => Content.Background)" />
+    <br />
+
+    <FluentTextField @bind-Value="Content.PlayerName" Label="@StringResources.Character_Personality_PlayerName" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.PlayerName)" />
+    <br />
+
+    <FluentTextField @bind-Value="Content.Race" Label="@StringResources.Character_Personality_Race" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.Race)" />
+    <br />
+
+    <FluentTextField @bind-Value="Content.Attitute" Label="@StringResources.Character_Personality_Attitute" Immediate="true" />
+    <ValidationMessage For="@(() => Content.Attitute)" />
+    <br />
+
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Experience" Label="@StringResources.Character_Personality_Experience" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.Experience)" />
+</DialogBase>

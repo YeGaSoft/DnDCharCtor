@@ -1,0 +1,61 @@
+﻿<FluentDesignTheme @bind-Mode="@Mode"
+                   @bind-OfficeColor="@OfficeColor"
+                   StorageName="@StorageKeys.Theme" />
+
+<FluentOverlay Visible="@ViewModel.IsBusy"
+               Opacity="0.4"
+               Alignment="Align.Center"
+               Justification="JustifyContent.Center">
+    <FluentProgressRing Visible="@ViewModel.IsBusy" />
+</FluentOverlay>
+
+<FluentHeader>
+    <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
+        <FluentLabel Typo="Typography.PaneHeader">@StringResources.Page_Settings</FluentLabel>
+    </FluentStack>
+</FluentHeader>
+<br />
+<FluentStack Orientation="Orientation.Vertical"
+             VerticalAlignment="VerticalAlignment.Center"
+             HorizontalAlignment="HorizontalAlignment.Center">
+    <FluentLabel Typo="Typography.PaneHeader">@StringResources.Settings_LanguageSettings</FluentLabel>
+    <br />
+    <FluentSelect Label="@StringResources.Settings_SelectLanguage"
+                  TOption="KeyValuePair<string, CultureInfo>"
+                  Items="ViewModel.Languages"
+                  OptionText="@(l => l.Key)"
+                  @bind-SelectedOption="@ViewModel.SelectedLanguage" />
+</FluentStack>
+
+<br />
+<FluentDivider />
+<br />
+
+<FluentStack Orientation="Orientation.Vertical"
+             VerticalAlignment="VerticalAlignment.Center"
+             HorizontalAlignment="HorizontalAlignment.Center">
+    <FluentLabel Typo="Typography.PaneHeader">@StringResources.Settings_ThemeSettings</FluentLabel>
+    <br />
+    <FluentSelect Label="@StringResources.Settings_SelectTheme"
+                  Width="250px"
+                  Items="@(Enum.GetValues<DesignThemeModes>())"
+                  @bind-SelectedOption="@Mode" />
+    <br />
+    <FluentSelect Label="@StringResources.Settings_SelectColor"
+                  Items="@(Enum.GetValues<OfficeColor>().Select(i => (OfficeColor?)i))"
+                  Height="200px"
+                  Width="250px"
+                  @bind-SelectedOption="@OfficeColor">
+        <OptionTemplate>
+            <FluentStack>
+                <FluentIcon Value="@(new Icons.Filled.Size20.RectangleLandscape())"
+                            Color="Color.Custom"
+                            CustomColor="@(@context.ToAttributeValue() != "default" ? context.ToAttributeValue() : "#036ac4" )" />
+                <FluentLabel>@context</FluentLabel>
+            </FluentStack>
+        </OptionTemplate>
+    </FluentSelect>
+</FluentStack>
+
+<!--This break ensures that the select is not completely at the end of the page-->
+<br />
