@@ -365,5 +365,14 @@ namespace DnDCharCtor.Resources {
                 return ResourceManager.GetString("Validation_RequiredParsedInteger", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Field is required.
+        /// </summary>
+        public static string Validation_Tooltip_Required {
+            get {
+                return ResourceManager.GetString("Validation_Tooltip_Required", resourceCulture);
+            }
+        }
     }
 }

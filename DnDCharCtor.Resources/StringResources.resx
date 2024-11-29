@@ -219,4 +219,7 @@
   <data name="Validation_RequiredParsedInteger" xml:space="preserve">
     <value>~Value of field "{0}" must be an integer</value>
   </data>
+  <data name="Validation_Tooltip_Required" xml:space="preserve">
+    <value>~Field is required</value>
+  </data>
 </root>

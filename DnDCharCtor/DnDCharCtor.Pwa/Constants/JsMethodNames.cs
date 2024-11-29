@@ -7,4 +7,6 @@ internal static class JsMethodNames
     public const string LocalStorageSetItem = $"{LocalStorage}.setItem";
 
     public const string GetBrowserLanguage = "getBrowserLanguage";
+
+    public const string ScrollToInput = "scrollToInput";
 }
