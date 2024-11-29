@@ -210,10 +210,13 @@
   <data name="Validation_MaxLength" xml:space="preserve">
     <value>Text of field "{0}" must contain less or equal to "{1}" characters</value>
   </data>
-  <data name="Validation_range" xml:space="preserve">
+  <data name="Validation_Range" xml:space="preserve">
     <value>Value of field "{0}" must be between "{1}" and "{2}"</value>
   </data>
   <data name="Button_Properties" xml:space="preserve">
     <value>Properties</value>
+  </data>
+  <data name="Validation_RequiredParsedInteger" xml:space="preserve">
+    <value>Value of field "{0}" must be an integer</value>
   </data>
 </root>

@@ -210,10 +210,13 @@
   <data name="Validation_MaxLength" xml:space="preserve">
     <value>Text von Feld "{0}" muss weniger oder gleich "{1}" Zeichen enthalten</value>
   </data>
-  <data name="Validation_range" xml:space="preserve">
+  <data name="Validation_Range" xml:space="preserve">
     <value>Wert von Feld "{0}" muss zwischen "{1}" und "{2}" liegen</value>
   </data>
   <data name="Button_Properties" xml:space="preserve">
     <value>Eigenschaften</value>
+  </data>
+  <data name="Validation_RequiredParsedInteger" xml:space="preserve">
+    <value>Wert von Feld "{0}" muss eine Ganz-Zahl sein</value>
   </data>
 </root>

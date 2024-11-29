@@ -17,12 +17,12 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
     {
         CharacterName = personality.CharacterName;
         ClassName = personality.ClassName;
-        Level = personality.Level;
+        Level = personality.Level.ToString();
         Background = personality.Background;
         PlayerName = personality.PlayerName;
         Race = personality.Race;
         Attitute = personality.Attitute;
-        Experience = personality.Experience;
+        Experience = personality.Experience.ToString();
     }
 
     public PersonalityViewModel(PersonalityViewModel personalityViewModel)
@@ -34,7 +34,7 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
         PlayerName = personalityViewModel.PlayerName;
         Race = personalityViewModel.Race;
         Attitute = personalityViewModel.Attitute;
-        Experience = personalityViewModel.Experience;
+        Experience = personalityViewModel.Experience.ToString();
 
         HasValidationErrors = personalityViewModel.HasValidationErrors;
         if (personalityViewModel.HasValidationErrors) Validate();
@@ -54,9 +54,9 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
-    [LocalizedRequired(nameof(StringResources.Character_Personality_Level))]
-    [LocalizedRange(nameof(StringResources.Character_Personality_Level), 1, int.MaxValue)]
-    private int _level;
+    [LocalizedParsedIntegerRequired(nameof(StringResources.Character_Personality_Level))]
+    [LocalizedParsedRange(nameof(StringResources.Character_Personality_Level), 1, int.MaxValue)]
+    private string _level;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
@@ -82,9 +82,9 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
-    [LocalizedRequired(nameof(StringResources.Character_Personality_Experience))]
-    [LocalizedRange(nameof(StringResources.Character_Personality_Experience), 0, int.MaxValue)]
-    private int _experience;
+    [LocalizedParsedIntegerRequired(nameof(StringResources.Character_Personality_Experience))]
+    [LocalizedParsedRange(nameof(StringResources.Character_Personality_Experience), 0, int.MaxValue)]
+    private string _experience;
 
     [ObservableProperty]
     private bool _hasValidationErrors;
@@ -109,16 +109,19 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
 
     public Personality ToPersonality()
     {
+        var hasLevel = int.TryParse(Level, out var level);
+        var hasExperience = int.TryParse(Experience, out var experience);
+
         return new Personality
         {
             CharacterName = CharacterName,
             ClassName = ClassName,
-            Level = Level,
+            Level = hasLevel ? level : 0,
             Background = Background,
             PlayerName = PlayerName,
             Race = Race,
             Attitute = Attitute,
-            Experience = Experience,
+            Experience = hasExperience ? experience : 0,
         };
     }
 }

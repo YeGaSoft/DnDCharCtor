@@ -18,6 +18,6 @@ public class LocalizedRangeAttribute(string fieldNameResourceKey, int minimum, i
         if (validationResult == ValidationResult.Success) return validationResult;
 
         string fieldName = StringResources.ResourceManager.GetString(FieldNameResourceKey) ?? validationContext.MemberName ?? string.Empty;
-        return new ValidationResult(string.Format(StringResources.Validation_range, fieldName, Minimum, Maximum), [validationContext.MemberName ?? string.Empty]);
+        return new ValidationResult(string.Format(StringResources.Validation_Range, fieldName, Minimum, Maximum), [validationContext.MemberName ?? string.Empty]);
     }
 }
