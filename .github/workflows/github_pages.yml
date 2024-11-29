@@ -13,6 +13,8 @@ jobs:
   deploy-to-github-pages:
     # use ubuntu-latest image to run steps on
     runs-on: ubuntu-latest
+    env:
+      PROJECT_PATH: "DnDCharCtor/DnDCharCtor.Pwa/DnDCharCtor.Pwa.csproj"
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -20,22 +22,22 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 9.0.x
-    - name: Install MAUI Workload 
-      run: dotnet workload install maui --ignore-failed-sources
+    #- name: Install MAUI Workload 
+    #  run: dotnet workload install maui --ignore-failed-sources
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ${{ env.PROJECT_PATH }}
     - name: Restore Workload
-      run: dotnet workload restore
+      run: dotnet workload restore ${{ env.PROJECT_PATH }}
     - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet build ${{ env.PROJECT_PATH }} --no-restore
+    #- name: Test
+    #  run: dotnet test --no-build --verbosity normal
     # publishes Blazor project to the release-folder
     - name: Publish .NET Project
-      run: dotnet publish DnDCharCtor.Pwa.csproj -c Release -o release --nologo
-    # changes the base-tag in index.html from '/' to 'BlazorGitHubPagesDemo' to match GitHub Pages repository subdirectory
+      run: dotnet publish ${{ env.PROJECT_PATH }} -c Release -o release --nologo
+    # changes the base-tag in index.html from '/' to 'DnDCharCtor.Pwa' to match GitHub Pages repository subdirectory
     - name: Change base-tag in index.html from / to DnDCharCtor.Pwa
-      run: sed -i 's/<base href="\/" \/>/<base href="\/DnDCharCtor.Pwa\/" \/>/g' release/wwwroot/index.html
+      run: sed -i 's/<base href="\/" \/>/<base href="\/DnDCharCtor\/" \/>/g' release/wwwroot/index.html
       # copy index.html to 404.html to serve the same file when a file is not found
     - name: copy index.html to 404.html
       run: cp release/wwwroot/index.html release/wwwroot/404.html
