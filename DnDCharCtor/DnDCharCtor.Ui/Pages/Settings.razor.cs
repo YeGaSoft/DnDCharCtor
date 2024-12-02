@@ -29,6 +29,8 @@ public partial class Settings : IDisposable
         LocalizationService.PropertyChanged += PropertyChanged; 
 
         await base.OnInitializedAsync();
+
+        await InvokeAsync(StateHasChanged);
     }
 
 

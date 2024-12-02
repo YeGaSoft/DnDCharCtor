@@ -23,6 +23,8 @@ public partial class MainLayout : IDisposable
             $"but these errors only occur when there is no internet connection.{Environment.NewLine}" +
             $"This is NOT a problem, since the components are already loaded.{Environment.NewLine}" +
             $"It only tries to load newer files.");
+
+        await InvokeAsync(StateHasChanged);
     }
 
 

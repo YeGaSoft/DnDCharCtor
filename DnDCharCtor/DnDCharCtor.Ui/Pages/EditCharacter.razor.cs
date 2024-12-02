@@ -66,7 +66,6 @@ public partial class EditCharacter : IDisposable
             {
                 var guid = Guid.Parse(Id);
                 await ViewModel.InitializeAsync(guid);
-                var characterName = ViewModel.CharacterViewModelToEdit.PersonalityViewModel.CharacterName;
             }
             else
             {
@@ -77,6 +76,8 @@ public partial class EditCharacter : IDisposable
         LocalizationService.PropertyChanged += LocalizationService_PropertyChanged;
 
         await base.OnInitializedAsync();
+
+        await InvokeAsync(StateHasChanged);
     }
 
 
