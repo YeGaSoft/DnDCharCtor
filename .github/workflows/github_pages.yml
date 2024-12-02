@@ -40,7 +40,7 @@ jobs:
 
     # Publish
     - name: Publish .NET Project
-      run: dotnet publish ${{ env.PROJECT_PATH }} -c Release -o release -p:GHPages=true --nologo
+      run: dotnet publish ${{ env.PROJECT_PATH }} -c:Release -o:publsh -p:GHPages=true --nologo
    
     # Deploy the site
     - name: Deploy
