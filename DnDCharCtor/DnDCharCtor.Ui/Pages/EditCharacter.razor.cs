@@ -69,7 +69,7 @@ public partial class EditCharacter : IDisposable
             }
             else
             {
-                ViewModel.Initialize(Character.Empty);
+                ViewModel.Initialize(Character.Empty, EditMode.Create);
             }
         }
 

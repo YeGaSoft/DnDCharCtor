@@ -34,7 +34,8 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
     private CharacterViewModel _characterViewModelToEdit = new(Character.Empty);
 
     [ObservableProperty]
-    private string _title = string.Empty;
+    private string _title = StringResources.CharacterEditor_Create;
+    public EditMode EditMode { get; private set; } = EditMode.Create;
 
     [ObservableProperty]
     private bool _hasValidationErrors;
@@ -46,19 +47,21 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
         var characters = await _hybridCacheService.GetCharactersAsync();
         var existingCharacter = characters.FirstOrDefault(c => c.Id == characterId);
         var characterToEdit = new CharacterViewModel(existingCharacter ?? Character.Empty);
-        return Initialize(characterToEdit);
+        return Initialize(characterToEdit, EditMode.Edit);
     }
 
-    public bool Initialize(Character character)
+    public bool Initialize(Character character, EditMode editMode = EditMode.Edit)
     {
         var characterToEdit = new CharacterViewModel(character);
-        return Initialize(characterToEdit);
+        return Initialize(characterToEdit, editMode);
     }
 
-    public bool Initialize(CharacterViewModel characterViewModel)
+    public bool Initialize(CharacterViewModel characterViewModel, EditMode editMode = EditMode.Edit)
     {
         CharacterViewModelToEdit = characterViewModel;
         _characterViewModelBackup = new(CharacterViewModelToEdit);
+
+        EditMode = editMode;
 
         UpdateTitle();
         
@@ -67,6 +70,12 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
 
     private void UpdateTitle()
     {
+        if (EditMode is EditMode.Create)
+        {
+            Title = StringResources.CharacterEditor_Create;
+            return;
+        }
+
         var characterName = CharacterViewModelToEdit.PersonalityViewModel.CharacterName;
         var hasName = string.IsNullOrWhiteSpace(characterName) is false;
         Title = hasName ? string.Format(StringResources.CharacterEditor_Edit, characterName) : StringResources.CharacterEditor_Create;
@@ -103,4 +112,10 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
     {
         UpdateTitle();
     }
+}
+
+public enum EditMode
+{
+    Create,
+    Edit,
 }

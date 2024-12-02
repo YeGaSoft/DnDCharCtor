@@ -25,16 +25,11 @@ public partial class Home
         var currentCharacterViewModel = ViewModel.CurrentCharacterViewModel;
         if (string.IsNullOrWhiteSpace(currentCharacterViewModel?.PersonalityViewModel.CharacterName))
         {
-            var uri = NavigationManager.ToAbsoluteUri(Routes.EditCharacter);
-            var query = new Dictionary<string, string?>
-            {
-                { Routes.EditCharacterQueryParameterForceNew, true.ToString() },
-            };
-            var newUri = QueryHelpers.AddQueryString(uri.ToString(), query);
-            NavigationManager.NavigateTo(newUri);
-            //NavigationManager.NavigateTo(Routes.EditCharacter);
+            NavigationManager.NavigateTo(Routes.EditCharacter);
             return;
         }
+
+        base.OnInitialized();
 
         NavigationManager.NavigateTo(Routes.CurrentCharacter);
     }
