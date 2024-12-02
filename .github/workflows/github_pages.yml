@@ -2,6 +2,7 @@
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 # https://swimburger.net/blog/dotnet/how-to-deploy-aspnet-blazor-webassembly-to-github-pages
 # https://github.com/TenaciousDev/BlazorGitHubPagesDemo
+# https://github.com/jsakamoto/PublishSPAforGitHubPages.Build
 name: Deploy to GitHub Pages
 
 # Run workflow on every push to the master branch
@@ -16,14 +17,17 @@ jobs:
     env:
       PROJECT_PATH: "DnDCharCtor/DnDCharCtor.Pwa/DnDCharCtor.Pwa.csproj"
     steps:
+    # Checkout
     - name: Checkout
       uses: actions/checkout@v4
+
+    # Setup
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 9.0.x
-    #- name: Install MAUI Workload 
-    #  run: dotnet workload install maui --ignore-failed-sources
+    - name: Install .NET WebAssembly Tools
+      run: dotnet workload install wasm-tools
     - name: Restore dependencies
       run: dotnet restore ${{ env.PROJECT_PATH }}
     - name: Restore Workload
@@ -33,21 +37,15 @@ jobs:
     #- name: Test
     #  run: dotnet test --no-build --verbosity normal
     # publishes Blazor project to the release-folder
+
+    # Publish
     - name: Publish .NET Project
-      run: dotnet publish ${{ env.PROJECT_PATH }} -c Release -o release --nologo
-    # changes the base-tag in index.html from '/' to 'DnDCharCtor.Pwa' to match GitHub Pages repository subdirectory
-    - name: Change base-tag in index.html from / to DnDCharCtor.Pwa
-      run: sed -i 's/<base href="\/" \/>/<base href="\/DnDCharCtor\/" \/>/g' release/wwwroot/index.html
-      # copy index.html to 404.html to serve the same file when a file is not found
-    - name: copy index.html to 404.html
-      run: cp release/wwwroot/index.html release/wwwroot/404.html
-      # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
-    - name: Add .nojekyll file
-      run: touch release/wwwroot/.nojekyll
-    # publishes wwwroot directory to GitHub Pages
-    - name: Commit wwwroot to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@4.1.5
+      run: dotnet publish ${{ env.PROJECT_PATH }} -c Release -o release -p:GHPages=true --nologo
+   
+    # Deploy the site
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v4
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        branch: gh-pages # The branch the action should deploy to.
-        folder: release/wwwroot # The folder the action should deploy.
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: publish/wwwroot
+          force_orphan: true
