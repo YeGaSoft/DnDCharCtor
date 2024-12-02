@@ -25,7 +25,7 @@ public partial class Home
         var currentCharacterViewModel = ViewModel.CurrentCharacterViewModel;
         if (string.IsNullOrWhiteSpace(currentCharacterViewModel?.PersonalityViewModel.CharacterName))
         {
-            NavigationManager.NavigateTo(Routes.EditCharacter);
+            NavigationManager.NavigateTo(Routes.CreateCharacter);
             return;
         }
 
