@@ -22,15 +22,12 @@
             <FluentTooltipProvider />
         </main>
 
-        @{
-            # if DEBUG   
-            {
-                <div id="blazor-error-ui">
-                    An unhandled error has occurred.
-                    <a href="." class="reload">Reload</a>
-                    <span class="dismiss">🗙</span>
-                </div>
-            }     
-            #endif
+        @if(ReleaseMode.IsDebug())
+        {
+            <div id="blazor-error-ui">
+                An unhandled error has occurred.
+                <a href="." class="reload">Reload</a>
+                <span class="dismiss">🗙</span>
+            </div>
         }
 </div>
