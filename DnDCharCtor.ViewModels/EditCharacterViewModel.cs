@@ -2,9 +2,11 @@
 using DnDCharCtor.Common.Events;
 using DnDCharCtor.Common.Services;
 using DnDCharCtor.Models;
+using DnDCharCtor.Resources;
 using DnDCharCtor.ViewModels.ModelViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -12,21 +14,27 @@ using System.Threading.Tasks;
 
 namespace DnDCharCtor.ViewModels;
 
-public partial class EditCharacterViewModel : ObservableValidator, IValidateableViewModel
+public partial class EditCharacterViewModel : ObservableValidator, IValidateableViewModel, IDisposable
 {
     private readonly IHybridCacheService _hybridCacheService;
     private readonly IEventAggregator _eventAggregator;
+    private readonly ILocalizationService _localizationService;
 
-    public EditCharacterViewModel(IHybridCacheService hybridCacheService, IEventAggregator eventAggregator)
+    public EditCharacterViewModel(IHybridCacheService hybridCacheService, IEventAggregator eventAggregator, ILocalizationService localizationService)
     {
         _hybridCacheService = hybridCacheService;
         _eventAggregator = eventAggregator;
+        _localizationService = localizationService;
+        _localizationService.PropertyChanged += LocalizationService_OnPropertyChanged;
     }
 
     private CharacterViewModel _characterViewModelBackup = new(Character.Empty);
 
     [ObservableProperty]
     private CharacterViewModel _characterViewModelToEdit = new(Character.Empty);
+
+    [ObservableProperty]
+    private string _title = string.Empty;
 
     [ObservableProperty]
     private bool _hasValidationErrors;
@@ -37,17 +45,14 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
     {
         var characters = await _hybridCacheService.GetCharactersAsync();
         var existingCharacter = characters.FirstOrDefault(c => c.Id == characterId);
-        CharacterViewModelToEdit = new(existingCharacter ?? Character.Empty);
-        _characterViewModelBackup = new(CharacterViewModelToEdit); 
-        return true;
+        var characterToEdit = new CharacterViewModel(existingCharacter ?? Character.Empty);
+        return Initialize(characterToEdit);
     }
 
     public bool Initialize(Character character)
     {
-        CharacterViewModelToEdit = new(character);
-        _characterViewModelBackup = new(CharacterViewModelToEdit);
-
-        return true;
+        var characterToEdit = new CharacterViewModel(character);
+        return Initialize(characterToEdit);
     }
 
     public bool Initialize(CharacterViewModel characterViewModel)
@@ -55,7 +60,16 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
         CharacterViewModelToEdit = characterViewModel;
         _characterViewModelBackup = new(CharacterViewModelToEdit);
 
+        UpdateTitle();
+        
         return true;
+    }
+
+    private void UpdateTitle()
+    {
+        var characterName = CharacterViewModelToEdit.PersonalityViewModel.CharacterName;
+        var hasName = string.IsNullOrWhiteSpace(characterName) is false;
+        Title = hasName ? string.Format(StringResources.CharacterEditor_Edit, characterName) : StringResources.CharacterEditor_Create;
     }
 
 
@@ -72,5 +86,21 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
         var isSaved = await _hybridCacheService.SetCurrentCharacterAsync(characterToSave);
         if (isSaved) _eventAggregator.GetEvent<CurrentCharacterChangedEvent>().Publish();
         return isSaved;
+    }
+
+
+
+    public void Dispose()
+    {
+        GC.SuppressFinalize(this);
+
+        _localizationService.PropertyChanged -= LocalizationService_OnPropertyChanged;
+    }
+
+
+
+    private void LocalizationService_OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
+    {
+        UpdateTitle();
     }
 }
