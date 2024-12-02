@@ -3,7 +3,6 @@ using DnDCharCtor.Common.Constants;
 using DnDCharCtor.Common.Extensions;
 using DnDCharCtor.Resources;
 using DnDCharCtor.Common.Services;
-using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Globalization;

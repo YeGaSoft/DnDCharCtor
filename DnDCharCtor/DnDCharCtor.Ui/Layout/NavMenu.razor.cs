@@ -2,6 +2,7 @@ using DnDCharCtor.Common.Extensions;
 using DnDCharCtor.Common.Services;
 using DnDCharCtor.Models;
 using DnDCharCtor.Ui.Constants;
+using DnDCharCtor.ViewModels;
 using DnDCharCtor.ViewModels.ModelViewModels;
 using Microsoft.AspNetCore.Components;
 using System.ComponentModel;
@@ -13,6 +14,10 @@ public partial class NavMenu : IDisposable
 {
     [Inject]
     public ILocalizationService LocalizationService { get; set; } = default!;
+
+    [Inject]
+    public EditCharacterViewModel EditCharacterViewModel { get; set; } = default!;
+
     [Parameter]
     [EditorRequired]
     public CharacterViewModel? ViewModel { get; set; }

@@ -35,8 +35,6 @@ public partial class EditCharacter : IDisposable
     [SupplyParameterFromQuery(Name = Routes.EditCharacterQueryParameterId)]
     public string Id { get; set; } = string.Empty;
 
-    public string Title { get; set; } = string.Empty;
-
     private async Task SaveChanges()
     {
         var isValid = ViewModel.Validate();
@@ -68,19 +66,18 @@ public partial class EditCharacter : IDisposable
             {
                 var guid = Guid.Parse(Id);
                 await ViewModel.InitializeAsync(guid);
-                var characterName = ViewModel.CharacterViewModelToEdit.PersonalityViewModel.CharacterName;
-                Title = string.Format(StringResources.CharacterEditor_Edit, characterName);
             }
             else
             {
-                ViewModel.Initialize(Character.Empty);
-                Title = StringResources.CharacterEditor_Create;
+                ViewModel.Initialize(Character.Empty, EditMode.Create);
             }
         }
 
         LocalizationService.PropertyChanged += LocalizationService_PropertyChanged;
 
         await base.OnInitializedAsync();
+
+        await InvokeAsync(StateHasChanged);
     }
 
 
@@ -96,16 +93,6 @@ public partial class EditCharacter : IDisposable
 
     private void LocalizationService_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
     {
-        if (string.IsNullOrWhiteSpace(Id) is false)
-        {
-            var characterName = ViewModel.CharacterViewModelToEdit.PersonalityViewModel.CharacterName;
-            Title = string.Format(StringResources.CharacterEditor_Edit, characterName);
-        }
-        else
-        {
-            Title = StringResources.CharacterEditor_Create;
-        }
-
         InvokeAsync(StateHasChanged).SafeFireAndForget(null);
     }
 }

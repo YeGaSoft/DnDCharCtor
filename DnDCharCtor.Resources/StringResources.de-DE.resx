@@ -222,4 +222,10 @@
   <data name="Validation_Tooltip_Required" xml:space="preserve">
     <value>Pflichtfeld</value>
   </data>
+  <data name="Page_Create" xml:space="preserve">
+    <value>Charakter-Erstellung</value>
+  </data>
+  <data name="Page_Edit" xml:space="preserve">
+    <value>Charackter-Bearbeitung</value>
+  </data>
 </root>

@@ -3,6 +3,7 @@ using DnDCharCtor.Models;
 using DnDCharCtor.Ui.Constants;
 using DnDCharCtor.ViewModels;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.WebUtilities;
 using System.ComponentModel;
 
 namespace DnDCharCtor.Ui.Pages;
@@ -24,9 +25,11 @@ public partial class Home
         var currentCharacterViewModel = ViewModel.CurrentCharacterViewModel;
         if (string.IsNullOrWhiteSpace(currentCharacterViewModel?.PersonalityViewModel.CharacterName))
         {
-            NavigationManager.NavigateTo(Routes.EditCharacter);
+            NavigationManager.NavigateTo(Routes.CreateCharacter);
             return;
         }
+
+        base.OnInitialized();
 
         NavigationManager.NavigateTo(Routes.CurrentCharacter);
     }

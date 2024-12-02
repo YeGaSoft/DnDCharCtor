@@ -223,6 +223,24 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Create character.
+        /// </summary>
+        public static string Page_Create {
+            get {
+                return ResourceManager.GetString("Page_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Edit character.
+        /// </summary>
+        public static string Page_Edit {
+            get {
+                return ResourceManager.GetString("Page_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Home.
         /// </summary>
         public static string Page_Home {
