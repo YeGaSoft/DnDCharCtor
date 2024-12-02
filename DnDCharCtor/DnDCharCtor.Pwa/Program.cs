@@ -18,8 +18,3 @@ builder.Services.RegisterAll();
 await WebAssemblyCultureProviderInterop.LoadSatelliteAssemblies(new string[] { Culture.EnglishCultureIdentifier, Culture.GermanCultureIdentifier, });
 
 await builder.Build().RunAsync();
-
-Console.WriteLine($"In the Logs you might see errors like 'Failed to fetch'{Environment.NewLine}" +
-    $"but these errors only occur when there is no internet connection.{Environment.NewLine}" +
-    $"This is NOT a problem, since the components are already loaded.{Environment.NewLine}" +
-    $"It only tries to load newer files.");
