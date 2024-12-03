@@ -37,6 +37,8 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
     private string _title = StringResources.CharacterEditor_Create;
     public EditMode EditMode { get; private set; } = EditMode.Create;
 
+    public bool IsSaved { get; private set; } = false;
+
     [ObservableProperty]
     private bool _hasValidationErrors;
     public Dictionary<string, IReadOnlyCollection<ValidationResult>> ValidationErrors { get; set; } = [];
@@ -62,6 +64,7 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
         _characterViewModelBackup = new(CharacterViewModelToEdit);
 
         EditMode = editMode;
+        IsSaved = false;
 
         UpdateTitle();
         
@@ -92,9 +95,9 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
     public async Task<bool> SaveAsync()
     {
         var characterToSave = CharacterViewModelToEdit.ToCharacter();
-        var isSaved = await _hybridCacheService.SetCurrentCharacterAsync(characterToSave);
-        if (isSaved) _eventAggregator.GetEvent<CurrentCharacterChangedEvent>().Publish();
-        return isSaved;
+        IsSaved = await _hybridCacheService.SetCurrentCharacterAsync(characterToSave);
+        if (IsSaved) _eventAggregator.GetEvent<CurrentCharacterChangedEvent>().Publish();
+        return IsSaved;
     }
 
 

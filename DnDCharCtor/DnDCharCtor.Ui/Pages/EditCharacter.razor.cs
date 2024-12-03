@@ -57,10 +57,10 @@ public partial class EditCharacter : IDisposable
     }
 
 
-    // ToDo: When switching pages the old EditCharachterViewModel should be loaded
+
     protected override async Task OnInitializedAsync()
     {
-        if (ForceNew)
+        if (ForceNew || ViewModel.IsSaved)
         {
             if (string.IsNullOrWhiteSpace(Id) is false)
             {
