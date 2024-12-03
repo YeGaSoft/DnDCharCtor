@@ -74,7 +74,6 @@ public partial class EditCharacter : IDisposable
             var result = await dialog.Result;
             if (result.Cancelled)
             {
-                await base.OnInitializedAsync();
                 return;
             }
         }
@@ -91,8 +90,6 @@ public partial class EditCharacter : IDisposable
                 ViewModel.Initialize(Character.Empty, EditMode.Create);
             }
         }
-
-        await base.OnInitializedAsync();
 
         await InvokeAsync(StateHasChanged);
     }

@@ -20,6 +20,8 @@ public partial class Home
     [Inject]
     public MainViewModel ViewModel { get; set; } = default!;
 
+
+
     protected override void OnInitialized()
     {
         var currentCharacterViewModel = ViewModel.CurrentCharacterViewModel;
@@ -28,8 +30,6 @@ public partial class Home
             NavigationManager.NavigateTo(Routes.CreateCharacter);
             return;
         }
-
-        base.OnInitialized();
 
         NavigationManager.NavigateTo(Routes.CurrentCharacter);
     }

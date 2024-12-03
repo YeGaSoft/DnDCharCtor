@@ -16,8 +16,6 @@ public partial class MainLayout : IDisposable
         await ViewModel.InitializeAsync();
         ViewModel.PropertyChanged += ViewModel_PropertyChanged;
         
-        await base.OnInitializedAsync();
-
         // We do the Log here since in Program.cs it seems the log won't be applied.
         Console.WriteLine($"In the Logs you might see errors like 'Failed to fetch'{Environment.NewLine}" +
             $"but these errors only occur when there is no internet connection.{Environment.NewLine}" +
