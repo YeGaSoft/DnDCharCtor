@@ -70,8 +70,9 @@ public partial class EditCharacter : IDisposable
                 PreventDismissOnOverlayClick = true,
                 ShowDismiss = false,
             };
-            var result = await DialogService.ShowDialogAsync<UnsavedChangedDialog>(dialogParameters);
-            if (result.Result.IsCanceled)
+            var dialog = await DialogService.ShowDialogAsync<UnsavedChangedDialog>(dialogParameters);
+            var result = await dialog.Result;
+            if (result.Cancelled)
             {
                 await base.OnInitializedAsync();
                 return;

@@ -241,6 +241,6 @@
     <value>Änderungen verwerfen?</value>
   </data>
   <data name="Dialog_DiscardText" xml:space="preserve">
-    <value>Es gibt ungespeicherte Änderungen. Sollen diese verforfen werden?</value>
+    <value>Es gibt ungespeicherte Änderungen. Sollen diese verworfen werden?</value>
   </data>
 </root>
