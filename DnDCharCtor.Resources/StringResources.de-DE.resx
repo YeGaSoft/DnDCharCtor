@@ -228,4 +228,19 @@
   <data name="Page_Edit" xml:space="preserve">
     <value>Charackter-Bearbeitung</value>
   </data>
+  <data name="Button_Cancel" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="Button_Delete" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="Button_Discard" xml:space="preserve">
+    <value>Änderungen verwerfen</value>
+  </data>
+  <data name="Dialog_DiscardTitle" xml:space="preserve">
+    <value>Änderungen verwerfen?</value>
+  </data>
+  <data name="Dialog_DiscardText" xml:space="preserve">
+    <value>Es gibt ungespeicherte Änderungen. Sollen diese verforfen werden?</value>
+  </data>
 </root>

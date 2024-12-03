@@ -60,6 +60,24 @@ public partial class EditCharacter : IDisposable
 
     protected override async Task OnInitializedAsync()
     {
+        LocalizationService.PropertyChanged += LocalizationService_PropertyChanged;
+
+        if (ForceNew && ViewModel.HasUnsavedChanges())
+        {
+            var dialogParameters = new Microsoft.FluentUI.AspNetCore.Components.DialogParameters()
+            {
+                Title = StringResources.Dialog_DiscardTitle,
+                PreventDismissOnOverlayClick = true,
+                ShowDismiss = false,
+            };
+            var result = await DialogService.ShowDialogAsync<UnsavedChangedDialog>(dialogParameters);
+            if (result.Result.IsCanceled)
+            {
+                await base.OnInitializedAsync();
+                return;
+            }
+        }
+
         if (ForceNew || ViewModel.IsSaved)
         {
             if (string.IsNullOrWhiteSpace(Id) is false)
@@ -72,8 +90,6 @@ public partial class EditCharacter : IDisposable
                 ViewModel.Initialize(Character.Empty, EditMode.Create);
             }
         }
-
-        LocalizationService.PropertyChanged += LocalizationService_PropertyChanged;
 
         await base.OnInitializedAsync();
 
