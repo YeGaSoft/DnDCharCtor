@@ -16,9 +16,4 @@ public partial class EditPersonalityDialog
 
     [Parameter]
     public PersonalityViewModel Content { get; set; } = default!;
-
-    private async Task HandleFocus()
-    {
-        await JSRuntime.InvokeVoidAsync("scrollToInput");
-    }
 }
