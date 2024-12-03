@@ -22,8 +22,9 @@ public partial class Home
 
 
 
-    protected override void OnInitialized()
+    protected override async void OnInitialized()
     {
+        await ViewModel.InitializationTask;
         var currentCharacterViewModel = ViewModel.CurrentCharacterViewModel;
         if (string.IsNullOrWhiteSpace(currentCharacterViewModel?.PersonalityViewModel.CharacterName))
         {
