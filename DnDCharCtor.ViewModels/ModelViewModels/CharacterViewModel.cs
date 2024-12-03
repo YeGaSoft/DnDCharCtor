@@ -14,13 +14,17 @@ public partial class CharacterViewModel : ObservableValidator, IValidateableView
 {
     public CharacterViewModel(Character character)
     {
+        CharacterId = character.Id;
         PersonalityViewModel = new(character.Personality);
     }
 
     public CharacterViewModel(CharacterViewModel characterViewModel)
     {
+        CharacterId = characterViewModel.CharacterId;
         PersonalityViewModel = new(characterViewModel.PersonalityViewModel);
     }
+
+    public Guid CharacterId { get; set; }
 
     [ObservableProperty]
     private PersonalityViewModel _personalityViewModel;
@@ -44,6 +48,7 @@ public partial class CharacterViewModel : ObservableValidator, IValidateableView
     {
         return new Character
         {
+            Id = CharacterId,
             Personality = PersonalityViewModel.ToPersonality(),
         };
     }

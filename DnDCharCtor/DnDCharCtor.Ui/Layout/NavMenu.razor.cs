@@ -27,8 +27,6 @@ public partial class NavMenu : IDisposable
     protected override void OnInitialized()
     {
         LocalizationService.PropertyChanged += LocalizationService_PropertyChanged;
-
-        base.OnInitialized();
     }
 
 

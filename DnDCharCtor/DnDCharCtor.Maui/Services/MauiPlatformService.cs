@@ -6,13 +6,13 @@ using System.Text.Json;
 
 namespace DnDCharCtor.Maui.Services;
 
-public class MauiPlatformService : IPlatformService
+internal class MauiPlatformService : IPlatformService
 {
-    private readonly IJsonSerializerService _serializer;
+    private readonly IDatabaseService _databaseService;
 
-    public MauiPlatformService(IJsonSerializerService serializer)
+    public MauiPlatformService(IDatabaseService databaseService)
     {
-        _serializer = serializer;
+        _databaseService = databaseService;
     }
 
     public ApplicationType GetApplicationType()
@@ -52,17 +52,12 @@ public class MauiPlatformService : IPlatformService
 
     public async Task<T?> GetFromStorageAsync<T>(string key)
     {
-        var value = await SecureStorage.Default.GetAsync(key).ConfigureAwait(false);
-        if (value is null) return default;
-        return _serializer.Deserialize<T>(value);
+        return await _databaseService.GetItemAsync<T>(key);
     }
 
     public async Task<bool> SetInStorageAsync<T>(string key, T value)
     {
-        var json = _serializer.Serialize(value);
-        if (string.IsNullOrWhiteSpace(json)) return false;
-        
-        await SecureStorage.Default.SetAsync(key, json).ConfigureAwait(false);
-        return true;
+        var changesCount = await _databaseService.SaveItemAsync(key, value);
+        return changesCount > 0;
     }
 }

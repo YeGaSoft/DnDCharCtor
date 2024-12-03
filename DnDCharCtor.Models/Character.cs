@@ -11,13 +11,14 @@ namespace DnDCharCtor.Models;
 
 public record Character
 {
-    public Guid Id { get; init; } = Guid.NewGuid();
+    public required Guid Id { get; init; } = Guid.Empty;
 
     [LocalizedRequired(nameof(StringResources.Character_Personality))]
     public required Personality Personality { get; init; } = Personality.Empty;
 
     public static Character Empty => new ()
     {
+        Id = Guid.Empty,
         Personality = Personality.Empty,
     };
 }

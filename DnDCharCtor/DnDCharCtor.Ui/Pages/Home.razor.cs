@@ -20,16 +20,17 @@ public partial class Home
     [Inject]
     public MainViewModel ViewModel { get; set; } = default!;
 
-    protected override void OnInitialized()
+
+
+    protected override async void OnInitialized()
     {
+        await ViewModel.InitializationTask;
         var currentCharacterViewModel = ViewModel.CurrentCharacterViewModel;
         if (string.IsNullOrWhiteSpace(currentCharacterViewModel?.PersonalityViewModel.CharacterName))
         {
             NavigationManager.NavigateTo(Routes.CreateCharacter);
             return;
         }
-
-        base.OnInitialized();
 
         NavigationManager.NavigateTo(Routes.CurrentCharacter);
     }

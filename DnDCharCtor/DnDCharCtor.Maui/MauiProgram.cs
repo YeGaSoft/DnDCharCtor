@@ -23,6 +23,7 @@ namespace DnDCharCtor.Maui
                 });
 
             builder.Services.AddSingleton<IPlatformService, MauiPlatformService>();
+            builder.Services.AddSingleton<IDatabaseService, DatabaseService>();
             builder.Services.RegisterAll();
 
 

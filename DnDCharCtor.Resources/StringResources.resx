@@ -228,4 +228,19 @@
   <data name="Page_Edit" xml:space="preserve">
     <value>~Edit character</value>
   </data>
+  <data name="Button_Cancel" xml:space="preserve">
+    <value>~Cancel</value>
+  </data>
+  <data name="Button_Delete" xml:space="preserve">
+    <value>~Delete</value>
+  </data>
+  <data name="Button_Discard" xml:space="preserve">
+    <value>~Discard changes</value>
+  </data>
+  <data name="Dialog_DiscardTitle" xml:space="preserve">
+    <value>~Discard changes?</value>
+  </data>
+  <data name="Dialog_DiscardText" xml:space="preserve">
+    <value>~There are unsaved changes. Discard changes?</value>
+  </data>
 </root>

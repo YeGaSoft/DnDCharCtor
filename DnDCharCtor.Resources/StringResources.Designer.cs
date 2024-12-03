@@ -70,6 +70,33 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Cancel.
+        /// </summary>
+        public static string Button_Cancel {
+            get {
+                return ResourceManager.GetString("Button_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Delete.
+        /// </summary>
+        public static string Button_Delete {
+            get {
+                return ResourceManager.GetString("Button_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Discard changes.
+        /// </summary>
+        public static string Button_Discard {
+            get {
+                return ResourceManager.GetString("Button_Discard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Edit.
         /// </summary>
         public static string Button_Edit {
@@ -219,6 +246,24 @@ namespace DnDCharCtor.Resources {
         public static string CharacterEditor_Personality_Edit {
             get {
                 return ResourceManager.GetString("CharacterEditor_Personality_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~There are unsaved changes. Discard changes?.
+        /// </summary>
+        public static string Dialog_DiscardText {
+            get {
+                return ResourceManager.GetString("Dialog_DiscardText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Discard changes?.
+        /// </summary>
+        public static string Dialog_DiscardTitle {
+            get {
+                return ResourceManager.GetString("Dialog_DiscardTitle", resourceCulture);
             }
         }
         

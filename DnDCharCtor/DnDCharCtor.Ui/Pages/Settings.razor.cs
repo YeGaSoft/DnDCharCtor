@@ -28,8 +28,6 @@ public partial class Settings : IDisposable
         ViewModel.PropertyChanged += PropertyChanged;
         LocalizationService.PropertyChanged += PropertyChanged; 
 
-        await base.OnInitializedAsync();
-
         await InvokeAsync(StateHasChanged);
     }
 

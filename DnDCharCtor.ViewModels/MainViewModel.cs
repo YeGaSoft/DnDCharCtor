@@ -27,7 +27,7 @@ public partial class MainViewModel : ObservableObject, IDisposable
         _hybridCacheService = hybridCacheService;
         _localizationService = localizationService;
         _eventAggregator = eventAggregator;
-        _eventSubscription = _eventAggregator.GetEvent<CurrentCharacterChangedEvent>().Subscribe(() => ReLoadCurrentCharacterAsync().SafeFireAndForget(null));
+        _eventSubscription = _eventAggregator.GetEvent<CurrentCharacterChangedEvent>().Subscribe(() => ReloadCurrentCharacterAsync().SafeFireAndForget(null));
     }
 
     [ObservableProperty]
@@ -36,26 +36,29 @@ public partial class MainViewModel : ObservableObject, IDisposable
     [ObservableProperty]
     private bool _isBusy;
 
+    private readonly TaskCompletionSource<bool> _initializationTcs = new();
+    public Task InitializationTask => _initializationTcs.Task;
     public async Task<bool> InitializeAsync()
     {
         IsBusy = true;
         var selectedLanguage = await _hybridCacheService.GetSelectedLanguageAsync();
         _localizationService.ChangeCulture(selectedLanguage);
 
-        await ReLoadCurrentCharacterAsync(true);
+        await ReloadCurrentCharacterAsync(true);
         
         IsBusy = false;
         return true;
     }
 
-    public async Task<bool> ReLoadCurrentCharacterAsync(bool ignoreIsBusy = false)
+    public async Task<bool> ReloadCurrentCharacterAsync(bool ignoreIsBusy = false)
     {
         if (ignoreIsBusy) IsBusy = true;
         var currentCharacter = await _hybridCacheService.GetCurrentCharacterAsync();
         CurrentCharacterViewModel = new(currentCharacter ?? Character.Empty);
         if (ignoreIsBusy) IsBusy = false;
 
-        return true;
+        _initializationTcs.SetResult(true);
+        return await _initializationTcs.Task;
     }
 
 

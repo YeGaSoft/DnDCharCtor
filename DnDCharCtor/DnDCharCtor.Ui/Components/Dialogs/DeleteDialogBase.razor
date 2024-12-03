@@ -1,0 +1,25 @@
+﻿@implements IDialogContentComponent
+
+<FluentDialogHeader>
+    <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
+        <FluentLabel Typo="Typography.PaneHeader" Color="Color.Error">
+            @Dialog.Instance.Parameters.Title
+        </FluentLabel>
+    </FluentStack>
+    <br />
+    <FluentDivider />
+</FluentDialogHeader>
+
+<FluentDialogBody>
+    @ChildContent
+</FluentDialogBody>
+
+<FluentDialogFooter>
+    <FluentButton OnClick="ConfirmDeleteAsync" Appearance="Appearance.Neutral" BackgroundColor="var(--error)">
+        <FluentIcon Value="@(new Icons.Regular.Size20.Delete())" Color="@Color.Neutral" Slot="start" />
+        @DeleteButtonText
+    </FluentButton>
+    <FluentButton OnClick="CancelAsync" Appearance="Appearance.Accent" IconStart="@(new Icons.Regular.Size20.Dismiss())">@CancelButtonText</FluentButton>
+</FluentDialogFooter>
+
+

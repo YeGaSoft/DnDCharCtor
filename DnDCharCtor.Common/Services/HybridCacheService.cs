@@ -42,6 +42,8 @@ public class HybridCacheService : IHybridCacheService
             if (currentCharacterId is null) return null;
 
             var guid = Guid.Parse(currentCharacterId);
+
+            if (_characters.Count is 0) await GetCharactersAsync();
             _currentCharacter = _characters.FirstOrDefault(c => c.Id == guid);
         }
 
