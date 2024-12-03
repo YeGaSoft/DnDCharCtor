@@ -38,12 +38,6 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
     public EditMode EditMode { get; private set; } = EditMode.Create;
     public bool IsSaved { get; private set; } = false;
 
-    /// <summary>
-    /// This property is set to <see langword="true"/> 
-    /// when there are validation errors after calling the <see cref="Validate"/> method. 
-    /// We subscribe to the <see cref="ObservableValidator.ErrorsChanged"/> event to monitor changes in validation errors. 
-    /// This ensures that we only highlight validation errors when the user has finished editing and explicitly called <see cref="Validate"/>.
-    /// </summary>
     [ObservableProperty]
     private bool _hasValidationErrors;
     public Dictionary<string, IReadOnlyCollection<ValidationResult>> ValidationErrors { get; set; } = [];
@@ -95,12 +89,6 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
         HasValidationErrors = CharacterViewModelToEdit.Validate();
         ValidationErrors = CharacterViewModelToEdit.ValidationErrors;
 
-        if (HasValidationErrors) 
-        {
-            CharacterViewModelToEdit.ErrorsChanged -= CharacterViewModelToEdit_ErrorsChanged;
-            CharacterViewModelToEdit.ErrorsChanged += CharacterViewModelToEdit_ErrorsChanged; 
-        }
-
         return HasValidationErrors is false;
     }
 
@@ -128,7 +116,6 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
         GC.SuppressFinalize(this);
 
         _localizationService.PropertyChanged -= LocalizationService_OnPropertyChanged;
-        CharacterViewModelToEdit.ErrorsChanged -= CharacterViewModelToEdit_ErrorsChanged;
     }
 
 
@@ -136,22 +123,6 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
     private void LocalizationService_OnPropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
         UpdateTitle();
-    }
-
-    /// <summary>
-    /// This event handler is triggered when there are changes in validation errors. 
-    /// If there are no more validation errors (<see cref="ObservableValidator.HasErrors"/> is <see langword="false"/>), 
-    /// we set <see cref="HasValidationErrors"/> to <see langword="false"/> and unsubscribe from the <see cref="ObservableValidator.ErrorsChanged"/> event. 
-    /// This prevents the user from being constantly confronted with error borders during regular editing, 
-    /// reducing annoyance and improving the user experience.
-    /// </summary>
-    private void CharacterViewModelToEdit_ErrorsChanged(object? sender, DataErrorsChangedEventArgs e) 
-    { 
-        if (CharacterViewModelToEdit.HasErrors is false) 
-        { 
-            HasValidationErrors = false; 
-            CharacterViewModelToEdit.ErrorsChanged -= CharacterViewModelToEdit_ErrorsChanged; 
-        } 
     }
 }
 
