@@ -39,6 +39,12 @@ public partial class PersonalityCard
         if (result.Cancelled is false && result.Data is not null)
         {
             ViewModel = (PersonalityViewModel)result.Data;
+            // When we started Editing with Validation-Errors (because the user tried to Save before):
+            // we want to re-validate after submit to set `HasValidationErrors` to false when all errors were resolved.
+            if (ViewModel.HasValidationErrors)
+            {
+                ViewModel.Validate();
+            }
             await ViewModelChanged.InvokeAsync(ViewModel);
             StateHasChanged();
         }

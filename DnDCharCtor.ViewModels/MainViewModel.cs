@@ -36,10 +36,12 @@ public partial class MainViewModel : ObservableObject, IDisposable
     [ObservableProperty]
     private bool _isBusy;
 
-    private readonly TaskCompletionSource<bool> _initializationTcs = new();
-    public Task InitializationTask => _initializationTcs.Task;
+    private TaskCompletionSource<bool> _initializationTcs = new();
+    public Task<bool> InitializationTask => _initializationTcs.Task;
     public async Task<bool> InitializeAsync()
     {
+        _initializationTcs = new();
+
         IsBusy = true;
         var selectedLanguage = await _hybridCacheService.GetSelectedLanguageAsync();
         _localizationService.ChangeCulture(selectedLanguage);
@@ -47,7 +49,9 @@ public partial class MainViewModel : ObservableObject, IDisposable
         await ReloadCurrentCharacterAsync(true);
         
         IsBusy = false;
-        return true;
+
+        _initializationTcs.SetResult(true);
+        return await _initializationTcs.Task;
     }
 
     public async Task<bool> ReloadCurrentCharacterAsync(bool ignoreIsBusy = false)
@@ -57,8 +61,7 @@ public partial class MainViewModel : ObservableObject, IDisposable
         CurrentCharacterViewModel = new(currentCharacter ?? Character.Empty);
         if (ignoreIsBusy) IsBusy = false;
 
-        _initializationTcs.SetResult(true);
-        return await _initializationTcs.Task;
+        return true;
     }
 
 
