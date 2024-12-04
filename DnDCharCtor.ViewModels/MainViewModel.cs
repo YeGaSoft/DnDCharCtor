@@ -36,22 +36,36 @@ public partial class MainViewModel : ObservableObject, IDisposable
     [ObservableProperty]
     private bool _isBusy;
 
+    private SemaphoreSlim _initializationSemaphore = new SemaphoreSlim(1);
     private TaskCompletionSource<bool> _initializationTcs = new();
     public Task<bool> InitializationTask => _initializationTcs.Task;
     public async Task<bool> InitializeAsync()
     {
-        _initializationTcs = new();
+        try
+        {
+            await _initializationSemaphore.WaitAsync();
+            _initializationTcs = new();
 
-        IsBusy = true;
-        var selectedLanguage = await _hybridCacheService.GetSelectedLanguageAsync();
-        _localizationService.ChangeCulture(selectedLanguage);
+            IsBusy = true;
+            var selectedLanguage = await _hybridCacheService.GetSelectedLanguageAsync();
+            _localizationService.ChangeCulture(selectedLanguage);
 
-        await ReloadCurrentCharacterAsync(true);
-        
-        IsBusy = false;
+            await ReloadCurrentCharacterAsync(true);
 
-        _initializationTcs.SetResult(true);
-        return await _initializationTcs.Task;
+            _initializationTcs.SetResult(true);
+            return await _initializationTcs.Task;
+        }
+        catch
+        {
+            _initializationTcs.SetResult(false);
+            return await _initializationTcs.Task;
+        }
+        finally
+        {
+            IsBusy = false;
+
+            _initializationSemaphore.Release();
+        }
     }
 
     public async Task<bool> ReloadCurrentCharacterAsync(bool ignoreIsBusy = false)
