@@ -25,6 +25,7 @@ public partial class Home
     protected override async void OnInitialized()
     {
         await ViewModel.InitializationTask;
+        await InvokeAsync(StateHasChanged);
         var currentCharacterViewModel = ViewModel.CurrentCharacterViewModel;
         if (string.IsNullOrWhiteSpace(currentCharacterViewModel?.PersonalityViewModel.CharacterName))
         {

@@ -27,6 +27,8 @@ internal class DatabaseService : IDisposable, IDatabaseService
 
     public async Task<T?> GetItemAsync<T>(string primaryKey)
     {
+        await CreateTableAsync();
+
         var entity = await _database.FindAsync<Entity>(primaryKey);
         if (entity is null) return default;
         return _serializer.Deserialize<T>(entity.JsonValue);

@@ -1,6 +1,7 @@
 ﻿<FluentOverlay
     Opacity="0.4"
     Alignment="Align.Center"
-    Justification="JustifyContent.Center">
-    <FluentProgressRing />
+    Justification="JustifyContent.Center"
+    Visible="@ViewModel.IsBusy">
+    <FluentProgressRing Visible="@ViewModel.IsBusy" />
 </FluentOverlay>
