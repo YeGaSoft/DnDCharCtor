@@ -22,7 +22,7 @@ internal class DatabaseService : IDisposable, IDatabaseService
 
     public async Task CreateTableAsync()
     {
-        await _database.CreateTableAsync<Entity>();
+        await _database.CreateTableAsync<Entity>().ConfigureAwait(false);
     }
 
     public async Task<T?> GetItemAsync<T>(string primaryKey)
@@ -40,7 +40,7 @@ internal class DatabaseService : IDisposable, IDatabaseService
 
         var jsonValue = _serializer.Serialize(item);
         var entity = new Entity() { Key = primaryKey, JsonValue = jsonValue };
-        return await _database.InsertOrReplaceAsync(entity);
+        return await _database.InsertOrReplaceAsync(entity).ConfigureAwait(false);
     }
 
 
@@ -48,7 +48,7 @@ internal class DatabaseService : IDisposable, IDatabaseService
     {
         GC.SuppressFinalize(this);
 
-        _database.CloseAsync().SafeFireAndForget(null);
+        _database.CloseAsync().ConfigureAwait(false).SafeFireAndForget(null);
     }
 }
 

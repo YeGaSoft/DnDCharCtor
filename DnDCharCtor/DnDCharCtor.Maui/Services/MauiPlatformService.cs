@@ -52,12 +52,12 @@ internal class MauiPlatformService : IPlatformService
 
     public async Task<T?> GetFromStorageAsync<T>(string key)
     {
-        return await _databaseService.GetItemAsync<T>(key);
+        return await _databaseService.GetItemAsync<T>(key).ConfigureAwait(false);
     }
 
     public async Task<bool> SetInStorageAsync<T>(string key, T value)
     {
-        var changesCount = await _databaseService.SaveItemAsync(key, value);
+        var changesCount = await _databaseService.SaveItemAsync(key, value).ConfigureAwait(false);
         return changesCount > 0;
     }
 }
