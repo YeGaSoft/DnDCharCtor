@@ -80,6 +80,8 @@ public partial class MainViewModel : ObservableObject, IDisposable
 
 
 
+    ~MainViewModel() => Dispose();
+
     public void Dispose()
     {
         GC.SuppressFinalize(this);
