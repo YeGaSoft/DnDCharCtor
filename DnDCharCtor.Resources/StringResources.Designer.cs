@@ -322,6 +322,42 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Cancelled.
+        /// </summary>
+        public static string FileUpload_Cancelled {
+            get {
+                return ResourceManager.GetString("FileUpload_Cancelled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Completed.
+        /// </summary>
+        public static string FileUpload_Completed {
+            get {
+                return ResourceManager.GetString("FileUpload_Completed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Loading {0}/{1} - {2}.
+        /// </summary>
+        public static string FileUpload_InProgress {
+            get {
+                return ResourceManager.GetString("FileUpload_InProgress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Loading....
+        /// </summary>
+        public static string FileUpload_Loading {
+            get {
+                return ResourceManager.GetString("FileUpload_Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Create character.
         /// </summary>
         public static string Page_Create {

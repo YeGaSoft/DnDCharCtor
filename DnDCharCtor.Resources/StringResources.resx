@@ -264,4 +264,16 @@
   <data name="CharacterEditor_UploadImage" xml:space="preserve">
     <value>~Drag or click here to upload an image</value>
   </data>
+  <data name="FileUpload_Loading" xml:space="preserve">
+    <value>~Loading...</value>
+  </data>
+  <data name="FileUpload_Completed" xml:space="preserve">
+    <value>~Completed</value>
+  </data>
+  <data name="FileUpload_Cancelled" xml:space="preserve">
+    <value>~Cancelled</value>
+  </data>
+  <data name="FileUpload_InProgress" xml:space="preserve">
+    <value>~Loading {0}/{1} - {2}</value>
+  </data>
 </root>
