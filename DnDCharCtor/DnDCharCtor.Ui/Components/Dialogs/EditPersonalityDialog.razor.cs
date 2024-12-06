@@ -1,3 +1,4 @@
+using DnDCharCtor.Common.Utils;
 using DnDCharCtor.ViewModels.ModelViewModels;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
@@ -16,4 +17,13 @@ public partial class EditPersonalityDialog
 
     [Parameter]
     public PersonalityViewModel Content { get; set; } = default!;
+
+    private async Task OnFileUploadedAsync(FluentInputFileEventArgs file)
+    {
+        if (file.Stream is null) return;
+        Content.Base64EncodedImage = await ImageCompressor.CompressImageAndEncodeToBase64Async(file.Stream);
+        await file.Stream!.DisposeAsync();
+
+        await InvokeAsync(StateHasChanged);
+    }
 }

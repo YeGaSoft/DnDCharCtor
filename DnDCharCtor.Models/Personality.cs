@@ -10,6 +10,8 @@ public record Personality
     [LocalizedMaxLength(nameof(StringResources.Character_Name), 64)]
     public required string CharacterName { get; init; } = string.Empty;
 
+    public string? Base64EncodedImage { get; init; }
+
     [LocalizedRequired(nameof(StringResources.Character_Personality_Class))]
     [LocalizedMaxLength(nameof(StringResources.Character_Personality_Class), 32)]
     public required string ClassName { get; init; } = string.Empty;

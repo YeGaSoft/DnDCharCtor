@@ -295,6 +295,15 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Drag or click here to upload an image.
+        /// </summary>
+        public static string CharacterEditor_UploadImage {
+            get {
+                return ResourceManager.GetString("CharacterEditor_UploadImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~There are unsaved changes. Discard changes?.
         /// </summary>
         public static string Dialog_DiscardText {

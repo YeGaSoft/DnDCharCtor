@@ -261,4 +261,7 @@
   <data name="App_TransitiveExternalLibraries" xml:space="preserve">
     <value>Transitive external libraries</value>
   </data>
+  <data name="CharacterEditor_UploadImage" xml:space="preserve">
+    <value>Drag or click here to upload an image</value>
+  </data>
 </root>
