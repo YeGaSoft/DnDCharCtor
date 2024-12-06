@@ -243,4 +243,22 @@
   <data name="Dialog_DiscardText" xml:space="preserve">
     <value>Es gibt ungespeicherte Änderungen. Sollen diese verworfen werden?</value>
   </data>
+  <data name="Page_Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="App_Info" xml:space="preserve">
+    <value>App Info</value>
+  </data>
+  <data name="App_Version" xml:space="preserve">
+    <value>App Version</value>
+  </data>
+  <data name="App_ExternalLibraries" xml:space="preserve">
+    <value>Externe Bibliotheken</value>
+  </data>
+  <data name="App_Library" xml:space="preserve">
+    <value>Bibliothek</value>
+  </data>
+  <data name="App_TransitiveExternalLibraries" xml:space="preserve">
+    <value>Transitive externe Bibliotheken</value>
+  </data>
 </root>

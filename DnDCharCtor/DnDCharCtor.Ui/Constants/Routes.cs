@@ -18,4 +18,5 @@ public static class Routes
     public const string CreateCharacter = $"{EditCharacter}?{EditCharacterQueryParameterForceNew}=True";
 
     public const string Settings = "settings";
+    public const string Info = "info";
 }

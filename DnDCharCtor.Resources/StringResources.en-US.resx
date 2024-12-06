@@ -243,4 +243,22 @@
   <data name="Dialog_DiscardText" xml:space="preserve">
     <value>There are unsaved changes. Discard changes?</value>
   </data>
+  <data name="Page_Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="App_Info" xml:space="preserve">
+    <value>App info</value>
+  </data>
+  <data name="App_Version" xml:space="preserve">
+    <value>App version</value>
+  </data>
+  <data name="App_ExternalLibraries" xml:space="preserve">
+    <value>External libraries</value>
+  </data>
+  <data name="App_Library" xml:space="preserve">
+    <value>Library</value>
+  </data>
+  <data name="App_TransitiveExternalLibraries" xml:space="preserve">
+    <value>Transitive external libraries</value>
+  </data>
 </root>
