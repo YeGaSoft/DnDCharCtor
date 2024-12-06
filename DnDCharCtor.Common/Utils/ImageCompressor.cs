@@ -8,7 +8,7 @@ namespace DnDCharCtor.Common.Utils;
 
 public static class ImageCompressor
 {
-    public const int ImageDimension = 100;
+    public const int ImageDimension = 200;
 
     public static async Task<string> CompressImageAndEncodeToBase64Async(Stream imageStream)
     {
