@@ -22,8 +22,8 @@
             @if (string.IsNullOrWhiteSpace(Content.Base64EncodedImage) is false)
             {
                 <img src="data:image/jpeg;base64,@Content.Base64EncodedImage" style="height: 100px; width: 100px;" alt="Base64 Image" />
+                <br />
             }
-            <br />
         </ChildContent>
         
     </FluentInputFile>
