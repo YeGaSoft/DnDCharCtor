@@ -23,6 +23,9 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.0" PrivateAssets="all" />
 	<!--https://github.com/jsakamoto/PublishSPAforGitHubPages.Build-->
     <PackageReference Include="PublishSPAforGitHubPages.Build" Version="3.0.0" />
+	<!--https://stackoverflow.com/questions/75415086/unable-to-load-shared-library-libskiasharp-or-one-of-its-dependencies-on-linux-->
+	<!--We need this package since we build/deploy on a Linux-Server-->
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="3.116.1" />
 	<!--https://learn.microsoft.com/en-us/aspnet/core/blazor/webassembly-native-dependencies?view=aspnetcore-9.0#skiasharp-example-library-use-->
     <PackageReference Include="SkiaSharp.Views.Blazor" Version="3.116.1" />
     <PackageReference Include="System.Text.Json" Version="9.0.0" />
