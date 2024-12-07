@@ -70,6 +70,51 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~External libraries.
+        /// </summary>
+        public static string App_ExternalLibraries {
+            get {
+                return ResourceManager.GetString("App_ExternalLibraries", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~App info.
+        /// </summary>
+        public static string App_Info {
+            get {
+                return ResourceManager.GetString("App_Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Library.
+        /// </summary>
+        public static string App_Library {
+            get {
+                return ResourceManager.GetString("App_Library", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Transitive external libraries.
+        /// </summary>
+        public static string App_TransitiveExternalLibraries {
+            get {
+                return ResourceManager.GetString("App_TransitiveExternalLibraries", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~App version.
+        /// </summary>
+        public static string App_Version {
+            get {
+                return ResourceManager.GetString("App_Version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Cancel.
         /// </summary>
         public static string Button_Cancel {
@@ -291,6 +336,15 @@ namespace DnDCharCtor.Resources {
         public static string Page_Home {
             get {
                 return ResourceManager.GetString("Page_Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Info.
+        /// </summary>
+        public static string Page_Info {
+            get {
+                return ResourceManager.GetString("Page_Info", resourceCulture);
             }
         }
         
