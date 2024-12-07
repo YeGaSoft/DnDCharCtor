@@ -16,11 +16,11 @@
                 <FluentIcon Value="@(new @Icons.Regular.Size24.ArrowUpload())" />
             </label>
             <label for="my-file-uploader">@StringResources.CharacterEditor_UploadImage</label>
-            <br />
-            <FluentDivider />
-            <br />
             @if (string.IsNullOrWhiteSpace(Content.Base64EncodedImage) is false)
             {
+                <br />
+                <FluentDivider />
+                <br />
                 <img src="data:image/jpeg;base64,@Content.Base64EncodedImage" style="height: 100px; width: 100px;" alt="Base64 Image" />
                 <br />
             }
