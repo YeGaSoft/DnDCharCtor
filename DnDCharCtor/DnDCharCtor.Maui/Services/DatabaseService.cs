@@ -44,6 +44,8 @@ internal class DatabaseService : IDisposable, IDatabaseService
     }
 
 
+    ~DatabaseService() => Dispose();
+
     public void Dispose()
     {
         GC.SuppressFinalize(this);

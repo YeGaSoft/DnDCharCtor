@@ -111,6 +111,8 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
 
 
 
+    ~EditCharacterViewModel() => Dispose();
+
     public void Dispose()
     {
         GC.SuppressFinalize(this);
