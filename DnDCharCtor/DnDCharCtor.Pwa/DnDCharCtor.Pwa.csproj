@@ -23,6 +23,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.0" PrivateAssets="all" />
 	<!--https://github.com/jsakamoto/PublishSPAforGitHubPages.Build-->
     <PackageReference Include="PublishSPAforGitHubPages.Build" Version="3.0.0" />
+	<!--https://learn.microsoft.com/en-us/aspnet/core/blazor/webassembly-native-dependencies?view=aspnetcore-9.0#skiasharp-example-library-use-->
+    <PackageReference Include="SkiaSharp.Views.Blazor" Version="3.116.1" />
     <PackageReference Include="System.Text.Json" Version="9.0.0" />
   </ItemGroup>
 

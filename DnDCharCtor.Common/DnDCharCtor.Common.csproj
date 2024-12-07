@@ -6,6 +6,7 @@
 	<!--We wanted the QueryHelpers from WebUtils but they do NOT work with MAUI so we copied the QueryHelpers from WebUtils in our project-->
     <PackageReference Include="Microsoft.Extensions.Primitives" Version="9.0.0" />
     <PackageReference Include="Prism.Core" Version="9.0.537" />
+    <PackageReference Include="SkiaSharp" Version="3.116.1" />
   </ItemGroup>
 
   <ItemGroup>

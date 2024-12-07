@@ -16,6 +16,7 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
     public PersonalityViewModel(Personality personality)
     {
         CharacterName = personality.CharacterName;
+        Base64EncodedImage = personality.Base64EncodedImage;
         ClassName = personality.ClassName;
         Level = personality.Level.ToString();
         Background = personality.Background;
@@ -28,6 +29,7 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
     public PersonalityViewModel(PersonalityViewModel personalityViewModel)
     {
         CharacterName = personalityViewModel.CharacterName;
+        Base64EncodedImage = personalityViewModel.Base64EncodedImage;
         ClassName = personalityViewModel.ClassName;
         Level = personalityViewModel.Level;
         Background = personalityViewModel.Background;
@@ -45,6 +47,9 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
     [LocalizedRequired(nameof(StringResources.Character_Name))]
     [LocalizedMaxLength(nameof(StringResources.Character_Name), 64)]
     private string _characterName;
+
+    [ObservableProperty]
+    private string? _base64EncodedImage;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
@@ -115,6 +120,7 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
         return new Personality
         {
             CharacterName = CharacterName,
+            Base64EncodedImage = Base64EncodedImage,
             ClassName = ClassName,
             Level = hasLevel ? level : 0,
             Background = Background,

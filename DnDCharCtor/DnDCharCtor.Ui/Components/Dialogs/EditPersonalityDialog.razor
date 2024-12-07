@@ -5,6 +5,30 @@
     <ValidationMessage For="@(() => Content.CharacterName)" />
     <br />
 
+    <FluentInputFile Id="my-file-uploader"
+                    DragDropZoneVisible="true"
+                    Mode="InputFileMode.Stream"
+                    Accept="image/*"
+                    OnFileUploaded="@OnFileUploadedAsync"
+                    Style="height: 250px; width: 250px;">
+        <ChildContent>
+            <label for="my-file-uploader">
+                <FluentIcon Value="@(new @Icons.Regular.Size24.ArrowUpload())" />
+            </label>
+            <label for="my-file-uploader">@StringResources.CharacterEditor_UploadImage</label>
+            @if (string.IsNullOrWhiteSpace(Content.Base64EncodedImage) is false)
+            {
+                <br />
+                <FluentDivider />
+                <br />
+                <img src="data:image/jpeg;base64,@Content.Base64EncodedImage" style="height: 100px; width: 100px;" alt="Base64 Image" />
+                <br />
+            }
+        </ChildContent>
+        
+    </FluentInputFile>
+    <br />
+
     <FluentTextField @bind-Value="Content.ClassName" Label="@StringResources.Character_Personality_Class" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.ClassName)" />
     <br />

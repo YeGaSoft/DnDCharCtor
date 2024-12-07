@@ -295,6 +295,15 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Drag or click here to upload an image.
+        /// </summary>
+        public static string CharacterEditor_UploadImage {
+            get {
+                return ResourceManager.GetString("CharacterEditor_UploadImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~There are unsaved changes. Discard changes?.
         /// </summary>
         public static string Dialog_DiscardText {
@@ -309,6 +318,42 @@ namespace DnDCharCtor.Resources {
         public static string Dialog_DiscardTitle {
             get {
                 return ResourceManager.GetString("Dialog_DiscardTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Cancelled.
+        /// </summary>
+        public static string FileUpload_Cancelled {
+            get {
+                return ResourceManager.GetString("FileUpload_Cancelled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Completed.
+        /// </summary>
+        public static string FileUpload_Completed {
+            get {
+                return ResourceManager.GetString("FileUpload_Completed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Loading {0}/{1} - {2}.
+        /// </summary>
+        public static string FileUpload_InProgress {
+            get {
+                return ResourceManager.GetString("FileUpload_InProgress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Loading....
+        /// </summary>
+        public static string FileUpload_Loading {
+            get {
+                return ResourceManager.GetString("FileUpload_Loading", resourceCulture);
             }
         }
         

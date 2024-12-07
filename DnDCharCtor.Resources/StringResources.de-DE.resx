@@ -261,4 +261,19 @@
   <data name="App_TransitiveExternalLibraries" xml:space="preserve">
     <value>Transitive externe Bibliotheken</value>
   </data>
+  <data name="CharacterEditor_UploadImage" xml:space="preserve">
+    <value>Verschiebe oder klicke hier um ein Bild hochzuladen</value>
+  </data>
+  <data name="FileUpload_Loading" xml:space="preserve">
+    <value>Lade...</value>
+  </data>
+  <data name="FileUpload_Completed" xml:space="preserve">
+    <value>Abgeschlossen</value>
+  </data>
+  <data name="FileUpload_Cancelled" xml:space="preserve">
+    <value>Abgebrochen</value>
+  </data>
+  <data name="FileUpload_InProgress" xml:space="preserve">
+    <value>Lade {0}/{1} - {2}</value>
+  </data>
 </root>
