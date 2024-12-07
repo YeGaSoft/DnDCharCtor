@@ -5,8 +5,8 @@
     @if (string.IsNullOrWhiteSpace(ViewModel.Base64EncodedImage) is false)
     {
         <img src="data:image/jpeg;base64,@ViewModel.Base64EncodedImage" style="height: 200px; width: 200px;" alt="Base64 Image" />
+        <br />
     }
-    <br />
     <div><strong>@StringResources.Character_Personality_Class:</strong> @ViewModel.ClassName </div>
     <br />
     <div><strong>@StringResources.Character_Personality_Level:</strong> @ViewModel.Level </div>
