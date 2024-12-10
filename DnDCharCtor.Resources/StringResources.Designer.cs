@@ -376,6 +376,15 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Characters.
+        /// </summary>
+        public static string Page_Characters {
+            get {
+                return ResourceManager.GetString("Page_Characters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Create character.
         /// </summary>
         public static string Page_Create {

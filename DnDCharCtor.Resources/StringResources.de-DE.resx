@@ -282,4 +282,7 @@
   <data name="Button_Reset" xml:space="preserve">
     <value>Zurücksetzen</value>
   </data>
+  <data name="Page_Characters" xml:space="preserve">
+    <value>Charaktere</value>
+  </data>
 </root>

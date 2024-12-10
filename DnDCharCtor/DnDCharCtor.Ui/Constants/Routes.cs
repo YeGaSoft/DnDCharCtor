@@ -16,6 +16,8 @@ public static class Routes
     public const string EditCharacterQueryParameterForceNew = "forceNew";
     public const string EditCharacterQueryParameterId = "id";
 
+    public const string Characters = "characters";
+
     public const string EditCharacterWithForceNew = $"{EditCharacter}?{EditCharacterQueryParameterForceNew}=True";
 
     public const string Settings = "settings";
