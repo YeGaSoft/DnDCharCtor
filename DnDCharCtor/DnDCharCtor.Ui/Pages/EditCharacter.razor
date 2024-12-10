@@ -15,9 +15,17 @@
     <br />
     <FluentDivider />
     <br />
-    <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
-        <FluentButton OnClick="SaveChanges" Appearance="Appearance.Accent" IconStart="@(new Icons.Regular.Size20.Save())">@StringResources.Button_Save</FluentButton>
-    </FluentStack>
+    <FluentGrid Justify="JustifyContent.SpaceBetween" Style="width: 100%;">
+        <FluentGridItem xs="3">
+            <FluentButton OnClick="Reset" IconStart="@(new Icons.Regular.Size20.ArrowReset())">@StringResources.Button_Reset</FluentButton>
+        </FluentGridItem>
+         <FluentGridItem xs="3">
+            <FluentButton OnClick="SaveChanges" Appearance="Appearance.Accent" IconStart="@(new Icons.Regular.Size20.Save())">@StringResources.Button_Save</FluentButton>
+        </FluentGridItem>
+        <FluentGridItem xs="3">
+            <FluentSpacer />
+        </FluentGridItem>
+    </FluentGrid>
 </FluentFooter>
 
 <!--This break ensures that the button is not completely at the end of the page-->

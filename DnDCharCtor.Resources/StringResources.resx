@@ -276,4 +276,13 @@
   <data name="FileUpload_InProgress" xml:space="preserve">
     <value>~Loading {0}/{1} - {2}</value>
   </data>
+  <data name="Button_EditCharacter" xml:space="preserve">
+    <value>~Edit character</value>
+  </data>
+  <data name="Button_Reset" xml:space="preserve">
+    <value>~Reset</value>
+  </data>
+  <data name="Page_Characters" xml:space="preserve">
+    <value>~Characters</value>
+  </data>
 </root>

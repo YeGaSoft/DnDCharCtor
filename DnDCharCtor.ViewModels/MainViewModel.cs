@@ -8,6 +8,7 @@ using DnDCharCtor.ViewModels.ModelViewModels;
 using Prism.Events;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,9 +35,12 @@ public partial class MainViewModel : ObservableObject, IDisposable
     private CharacterViewModel? _currentCharacterViewModel;
 
     [ObservableProperty]
+    private IReadOnlyList<CharacterViewModel> _characters = [];
+
+    [ObservableProperty]
     private bool _isBusy;
 
-    private SemaphoreSlim _initializationSemaphore = new SemaphoreSlim(1);
+    private readonly SemaphoreSlim _initializationSemaphore = new(1);
     private TaskCompletionSource<bool> _initializationTcs = new();
     public Task<bool> InitializationTask => _initializationTcs.Task;
     public async Task<bool> InitializeAsync()
@@ -73,6 +77,17 @@ public partial class MainViewModel : ObservableObject, IDisposable
         if (ignoreIsBusy) IsBusy = true;
         var currentCharacter = await _hybridCacheService.GetCurrentCharacterAsync();
         CurrentCharacterViewModel = new(currentCharacter ?? Character.Empty);
+        await ReloadCharactersAsync(ignoreIsBusy);
+        if (ignoreIsBusy) IsBusy = false;
+
+        return true;
+    }
+
+    public async Task<bool> ReloadCharactersAsync(bool ignoreIsBusy = false)
+    {
+        if (ignoreIsBusy) IsBusy = true;
+        var characters = await _hybridCacheService.GetCharactersAsync();
+        Characters = characters.Select(character => new CharacterViewModel(character)).ToList();
         if (ignoreIsBusy) IsBusy = false;
 
         return true;

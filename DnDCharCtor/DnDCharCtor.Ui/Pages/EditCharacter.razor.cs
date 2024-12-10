@@ -35,6 +35,11 @@ public partial class EditCharacter : IDisposable
     [SupplyParameterFromQuery(Name = Routes.EditCharacterQueryParameterId)]
     public string Id { get; set; } = string.Empty;
 
+    private void Reset()
+    {
+        ViewModel.Reset();
+    }
+
     private async Task SaveChanges()
     {
         var isValid = ViewModel.Validate();
@@ -78,7 +83,7 @@ public partial class EditCharacter : IDisposable
             }
         }
 
-        if (ForceNew || ViewModel.IsSaved)
+        if (ForceNew || ViewModel.IsSaved || ViewModel.IsDefault() || ViewModel.HasChanges() is false)
         {
             if (string.IsNullOrWhiteSpace(Id) is false)
             {

@@ -1,3 +1,24 @@
-﻿<PersonalityCard ViewModel="@ViewModel.CurrentCharacterViewModel!.PersonalityViewModel"/>
+﻿<FluentHeader>
+    <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
+        <FluentLabel Typo="Typography.PaneHeader">@ViewModel.CurrentCharacterViewModel!.PersonalityViewModel.CharacterName</FluentLabel>
+    </FluentStack>
+</FluentHeader>
 
+<FluentGrid AdaptiveRendering="true" Style=@($"""background-color: var(--neutral-layer-3); padding: 4px;""")>
+    <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2">
+        <PersonalityCard @bind-ViewModel="@(ViewModel.CurrentCharacterViewModel!.PersonalityViewModel)" />
+    </FluentGridItem>
+</FluentGrid>
+<br />
 
+<FluentFooter>
+    <br />
+    <FluentDivider />
+    <br />
+    <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
+        <FluentButton OnClick="EditCharacter" Appearance="Appearance.Accent" IconStart="@(new Icons.Regular.Size20.EditPerson())">@StringResources.Button_EditCharacter</FluentButton>
+    </FluentStack>
+</FluentFooter>
+
+<!--This break ensures that the button is not completely at the end of the page-->
+<br />

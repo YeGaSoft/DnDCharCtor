@@ -22,7 +22,7 @@ public partial class Home
 
 
 
-    protected override async void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
         await ViewModel.InitializationTask;
         await InvokeAsync(StateHasChanged);

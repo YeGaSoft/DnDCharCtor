@@ -18,15 +18,15 @@ public partial class NavMenu : IDisposable
     [Inject]
     public EditCharacterViewModel EditCharacterViewModel { get; set; } = default!;
 
-    [Parameter]
-    [EditorRequired]
-    public CharacterViewModel? ViewModel { get; set; }
+    [Inject]
+    public MainViewModel ViewModel { get; set; } = default!;
 
 
 
     protected override void OnInitialized()
     {
-        LocalizationService.PropertyChanged += LocalizationService_PropertyChanged;
+        LocalizationService.PropertyChanged += PropertyChanged;
+        ViewModel.PropertyChanged += PropertyChanged;
     }
 
 
@@ -35,12 +35,13 @@ public partial class NavMenu : IDisposable
     {
         GC.SuppressFinalize(this);
 
-        LocalizationService.PropertyChanged -= LocalizationService_PropertyChanged;
+        LocalizationService.PropertyChanged -= PropertyChanged;
+        ViewModel.PropertyChanged -= PropertyChanged;
     }
 
 
 
-    private void LocalizationService_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+    private void PropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
         InvokeAsync(StateHasChanged).SafeFireAndForget(null);
     }

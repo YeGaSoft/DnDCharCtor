@@ -151,6 +151,15 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Edit character.
+        /// </summary>
+        public static string Button_EditCharacter {
+            get {
+                return ResourceManager.GetString("Button_EditCharacter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Ok.
         /// </summary>
         public static string Button_Ok {
@@ -165,6 +174,15 @@ namespace DnDCharCtor.Resources {
         public static string Button_Properties {
             get {
                 return ResourceManager.GetString("Button_Properties", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Reset.
+        /// </summary>
+        public static string Button_Reset {
+            get {
+                return ResourceManager.GetString("Button_Reset", resourceCulture);
             }
         }
         
@@ -354,6 +372,15 @@ namespace DnDCharCtor.Resources {
         public static string FileUpload_Loading {
             get {
                 return ResourceManager.GetString("FileUpload_Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Characters.
+        /// </summary>
+        public static string Page_Characters {
+            get {
+                return ResourceManager.GetString("Page_Characters", resourceCulture);
             }
         }
         

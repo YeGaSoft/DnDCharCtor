@@ -24,7 +24,7 @@ public class HybridCacheService : IHybridCacheService
     private IReadOnlyList<Character> _characters = [];
     public async Task<IReadOnlyList<Character>> GetCharactersAsync()
     {
-        if (_characters.Count == 0)
+        if (_characters.Count is 0)
         {
             _characters = await _platformService.GetFromStorageAsync<IReadOnlyList<Character>?>(StorageKeys.Characters).ConfigureAwait(false) ?? [];
         }
@@ -52,7 +52,7 @@ public class HybridCacheService : IHybridCacheService
 
     public async Task<bool> SetCurrentCharacterAsync(Character character)
     {
-        var characters = _characters.Append(character);
+        var characters = _characters.Where(c => c.Id != character.Id).Append(character);
         var isCharactersUpdated = await _platformService.SetInStorageAsync(StorageKeys.Characters, characters).ConfigureAwait(false);
         if (isCharactersUpdated)
         {
