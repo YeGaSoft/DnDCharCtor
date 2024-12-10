@@ -94,10 +94,22 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
 
     public bool HasUnsavedChanges()
     {
-        var character = CharacterViewModelToEdit.ToCharacter();
-        var hasChanges = character != Character.Empty;
+        var hasChanges = IsDefault() is false && HasChanges();
         var isUnsaved = IsSaved is false;
         return hasChanges && isUnsaved;
+    }
+
+    public bool IsDefault()
+    {
+        var character = CharacterViewModelToEdit.ToCharacter();
+        var isDefault = character == Character.Empty;
+        return isDefault;
+    }
+
+    public bool HasChanges()
+    {
+        var isChanged = CharacterViewModelToEdit.ToCharacter() != _characterViewModelBackup.ToCharacter();
+        return isChanged;
     }
 
     public async Task<bool> SaveAsync()

@@ -27,7 +27,7 @@
             </div>
         }
 
-        @if (EditCharacterViewModel.EditMode is EditMode.Edit)
+        @if (EditCharacterViewModel.EditMode is EditMode.Edit && EditCharacterViewModel.IsSaved is false)
         {
             <div class="nav-item px-3">
                 <NavLink class="nav-link" style="display: flex; width=100%" href="@Routes.EditCharacter">

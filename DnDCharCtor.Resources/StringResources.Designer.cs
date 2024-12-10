@@ -151,6 +151,15 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Edit character.
+        /// </summary>
+        public static string Button_EditCharacter {
+            get {
+                return ResourceManager.GetString("Button_EditCharacter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Ok.
         /// </summary>
         public static string Button_Ok {

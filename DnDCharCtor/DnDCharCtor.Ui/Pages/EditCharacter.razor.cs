@@ -78,7 +78,7 @@ public partial class EditCharacter : IDisposable
             }
         }
 
-        if (ForceNew || ViewModel.IsSaved)
+        if (ForceNew || ViewModel.IsSaved || ViewModel.IsDefault() || ViewModel.HasChanges() is false)
         {
             if (string.IsNullOrWhiteSpace(Id) is false)
             {

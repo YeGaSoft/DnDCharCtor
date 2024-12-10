@@ -52,7 +52,7 @@ public class HybridCacheService : IHybridCacheService
 
     public async Task<bool> SetCurrentCharacterAsync(Character character)
     {
-        var characters = _characters.Append(character);
+        var characters = _characters.Where(c => c.Id != character.Id).Append(character);
         var isCharactersUpdated = await _platformService.SetInStorageAsync(StorageKeys.Characters, characters).ConfigureAwait(false);
         if (isCharactersUpdated)
         {
