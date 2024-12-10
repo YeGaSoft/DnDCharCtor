@@ -279,4 +279,7 @@
   <data name="Button_EditCharacter" xml:space="preserve">
     <value>Charakter-Bearbeitung</value>
   </data>
+  <data name="Button_Reset" xml:space="preserve">
+    <value>Zurücksetzen</value>
+  </data>
 </root>

@@ -178,6 +178,15 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Reset.
+        /// </summary>
+        public static string Button_Reset {
+            get {
+                return ResourceManager.GetString("Button_Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Save.
         /// </summary>
         public static string Button_Save {

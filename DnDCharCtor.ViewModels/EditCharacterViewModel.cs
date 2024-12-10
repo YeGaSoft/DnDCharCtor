@@ -112,6 +112,12 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
         return isChanged;
     }
 
+    public bool Reset()
+    {
+        CharacterViewModelToEdit = new(_characterViewModelBackup);
+        return true;
+    }
+
     public async Task<bool> SaveAsync()
     {
         if (EditMode is EditMode.Create) CharacterViewModelToEdit.CharacterId = Guid.NewGuid();
