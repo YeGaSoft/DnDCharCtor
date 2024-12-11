@@ -62,11 +62,13 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
         CharacterViewModelToEdit = characterViewModel;
         _characterViewModelBackup = new(CharacterViewModelToEdit);
 
-        EditMode = editMode;
         IsSaved = false;
 
         UpdateTitle();
-        
+
+        EditMode = editMode;
+        _eventAggregator.GetEvent<EditModeChangedEvent>().Publish();
+
         return true;
     }
 

@@ -1,3 +1,4 @@
+using DnDCharCtor.Common.Events;
 using DnDCharCtor.Common.Extensions;
 using DnDCharCtor.ViewModels;
 using Microsoft.AspNetCore.Components;
@@ -14,7 +15,7 @@ public partial class MainLayout : IDisposable
     protected override async Task OnInitializedAsync()
     {
         await ViewModel.InitializeAsync();
-        ViewModel.PropertyChanged += ViewModel_PropertyChanged;
+        ViewModel.PropertyChanged += PropertyChanged;
         
         // We do the Log here since in Program.cs it seems the log won't be applied.
         Console.WriteLine($"In the Logs you might see errors like 'Failed to fetch'{Environment.NewLine}" +
@@ -31,12 +32,12 @@ public partial class MainLayout : IDisposable
     {
         GC.SuppressFinalize(this);
 
-        ViewModel.PropertyChanged -= ViewModel_PropertyChanged;
+        ViewModel.PropertyChanged -= PropertyChanged;
     }
 
 
 
-    private void ViewModel_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+    private void PropertyChanged(object? sender, EventArgs e)
     {
         InvokeAsync(StateHasChanged).SafeFireAndForget(null);
     }
