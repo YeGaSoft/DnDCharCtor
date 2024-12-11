@@ -1,8 +1,8 @@
 ﻿<CardBase 
     Title="@ViewModel.PersonalityViewModel.CharacterName" 
     EditButtonCallback="EditCharacter"
-    CardClickCallback="SelectCharacter"
-    ShowPrimaryButton="true" PrimaryButtonCallback="SelectCharacter"
+    CardClickCallback="SelectCharacterAsync"
+    ShowPrimaryButton="true" PrimaryButtonCallback="SelectCharacterAsync"
     ShowDeleteButton="true" DeleteButtonCallback="DeleteCharacterAsync">
     <br />
     @if (string.IsNullOrWhiteSpace(ViewModel.PersonalityViewModel.Base64EncodedImage) is false)

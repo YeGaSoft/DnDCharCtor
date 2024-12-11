@@ -46,9 +46,9 @@ public partial class CharacterCard
         NavigationManager.NavigateTo(newUri);
     }
 
-    private void SelectCharacter()
+    private async Task SelectCharacterAsync()
     {
-        HybridCacheService.SetCurrentCharacterAsync(ViewModel.ToCharacter());
+        await HybridCacheService.SetCurrentCharacterAsync(ViewModel.ToCharacter());
         EventAggregator.GetEvent<CurrentCharacterChangedEvent>().Publish();
         NavigationManager.NavigateTo(Routes.CurrentCharacter);
     }
