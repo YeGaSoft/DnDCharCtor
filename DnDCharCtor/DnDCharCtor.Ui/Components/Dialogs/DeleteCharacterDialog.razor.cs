@@ -10,5 +10,5 @@ public partial class DeleteCharacterDialog
     public FluentDialog Dialog { get; set; } = default!;
 
     [Parameter]
-    public CharacterViewModel Character { get; set; } = default!;
+    public CharacterViewModel Content { get; set; } = default!;
 }
