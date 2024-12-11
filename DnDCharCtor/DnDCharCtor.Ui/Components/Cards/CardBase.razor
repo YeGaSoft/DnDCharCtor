@@ -12,7 +12,7 @@
                     <FluentStack Orientation="Orientation.Vertical"
                                  VerticalAlignment="VerticalAlignment.Center"
                                  HorizontalAlignment="HorizontalAlignment.Start"
-                                 onclick="@EditCallback">
+                                 onclick="@EditButtonCallback">
                         @ChildContent
                     </FluentStack>
                 </div>   
@@ -22,9 +22,38 @@
         <br />
         <FluentDivider />
         <br />
-        <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
-            <FluentButton OnClick="EditCallback" IconStart="@(new Icons.Regular.Size20.Edit())">@EditButtonText</FluentButton>
-        </FluentStack>
+        <FluentGrid Justify="JustifyContent.SpaceBetween" Style="width: 100%;">
+            <FluentGridItem xs="3">
+                @{
+                    if (ShowDeleteButton)
+                    {
+                        <FluentButton OnClick="DeleteButtonCallback" Appearance="Appearance.Neutral" BackgroundColor="var(--error)">
+                            <FluentIcon Value="@(new Icons.Regular.Size20.Delete())" Color="@Color.Neutral" Slot="start" />
+                            @DeleteButtonText
+                        </FluentButton>
+                    }
+                    else
+                    {
+                        <FluentSpacer />
+                    }
+                }
+            </FluentGridItem>
+            <FluentGridItem xs="3">
+                <FluentButton OnClick="EditButtonCallback" IconStart="@(new Icons.Regular.Size20.Edit())">@EditButtonText</FluentButton>
+            </FluentGridItem>
+            <FluentGridItem xs="3">
+                @{
+                    if (ShowPrimaryButton)
+                    {
+                        <FluentButton OnClick="PrimaryButtonCallback" Appearance="Appearance.Accent" IconStart="@PrimaryButtonIcon">@PrimaryButtonText</FluentButton>
+                    }
+                    else
+                    {
+                        <FluentSpacer />
+                    }
+                }
+            </FluentGridItem>
+        </FluentGrid>
     </FluentBodyContent>
 </FluentCard>
          

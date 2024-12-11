@@ -1,0 +1,9 @@
+﻿@implements IDialogContentComponent<CharacterViewModel>
+
+<DeleteDialogBase DeleteButtonText="@StringResources.Button_Delete" CancelButtonText="@StringResources.Button_Cancel">
+    <FluentLabel Typo="Typography.PaneHeader" Color="Color.Error">@StringResources.Dialog_DeleteCharacterText</FluentLabel>
+    <br />
+    <CharacterCard ViewModel="Character" />
+</DeleteDialogBase>
+
+

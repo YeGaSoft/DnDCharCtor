@@ -196,6 +196,15 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Select.
+        /// </summary>
+        public static string Button_Select {
+            get {
+                return ResourceManager.GetString("Button_Select", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Submit.
         /// </summary>
         public static string Button_Submit {
@@ -318,6 +327,24 @@ namespace DnDCharCtor.Resources {
         public static string CharacterEditor_UploadImage {
             get {
                 return ResourceManager.GetString("CharacterEditor_UploadImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~You are about to delete the following character:.
+        /// </summary>
+        public static string Dialog_DeleteCharacterText {
+            get {
+                return ResourceManager.GetString("Dialog_DeleteCharacterText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Delete character?.
+        /// </summary>
+        public static string Dialog_DeleteCharacterTitle {
+            get {
+                return ResourceManager.GetString("Dialog_DeleteCharacterTitle", resourceCulture);
             }
         }
         
