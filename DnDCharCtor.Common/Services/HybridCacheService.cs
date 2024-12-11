@@ -71,7 +71,7 @@ public class HybridCacheService : IHybridCacheService
         var currentCharacter = await GetCurrentCharacterAsync().ConfigureAwait(false);
         if (currentCharacter?.Id == characterId)
         {
-            var isIdRemoved = await _platformService.RemoveFromStorageAsync(StorageKeys.CurrentCharacterId);
+            var isIdRemoved = await _platformService.RemoveFromStorageAsync(StorageKeys.CurrentCharacterId).ConfigureAwait(false);
             if (isIdRemoved) _currentCharacter = null;
         }
 
