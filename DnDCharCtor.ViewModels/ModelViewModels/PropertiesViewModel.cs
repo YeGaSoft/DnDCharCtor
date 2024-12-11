@@ -100,7 +100,7 @@ public partial class PropertiesViewModel : ObservableValidator, IValidateableVie
     [ObservableProperty]
     private bool _hasValidationErrors;
     public Dictionary<string, IReadOnlyCollection<ValidationResult>> ValidationErrors { get; set; } = [];
-    public string ValidationErrorSource => StringResources.Character_Personality;
+    public string ValidationErrorSource => StringResources.Character_Properties;
 
 
     public bool Validate()
