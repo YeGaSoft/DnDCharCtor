@@ -13,10 +13,10 @@ public partial class PropertiesCard
 
     [Parameter]
     [EditorRequired]
-    public PersonalityViewModel ViewModel { get; set; } = default!;
+    public PropertiesViewModel ViewModel { get; set; } = default!;
 
     [Parameter]
-    public EventCallback<PersonalityViewModel> ViewModelChanged { get; set; }
+    public EventCallback<PropertiesViewModel> ViewModelChanged { get; set; }
 
     [Parameter]
     public string EditButtonText { get; set; } = StringResources.Button_Edit;
@@ -24,21 +24,21 @@ public partial class PropertiesCard
     [Parameter]
     public Icon EditButtonIcon { get; set; } = new Icons.Regular.Size20.Edit();
 
-    private async Task EditPersonality()
+    private async Task EditProperties()
     {
-        var data = new PersonalityViewModel(ViewModel);
+        var data = new PropertiesViewModel(ViewModel);
         var dialogParameters = new Microsoft.FluentUI.AspNetCore.Components.DialogParameters()
         {
-            Title = StringResources.CharacterEditor_Personality_Edit,
+            Title = StringResources.CharacterEditor_Properties_Edit,
             //Width = "500px",
             PreventDismissOnOverlayClick = true,
             ShowDismiss = true,
         };
-        var dialog = await DialogService.ShowDialogAsync<EditPersonalityDialog>(data, dialogParameters);
+        var dialog = await DialogService.ShowDialogAsync<EditPropertiesDialog>(data, dialogParameters);
         var result = await dialog.Result;
         if (result.Cancelled is false && result.Data is not null)
         {
-            ViewModel = (PersonalityViewModel)result.Data;
+            ViewModel = (PropertiesViewModel)result.Data;
             // When we started Editing with Validation-Errors (because the user tried to Save before):
             // we want to re-validate after submit to set `HasValidationErrors` to false when all errors were resolved.
             if (ViewModel.HasValidationErrors)

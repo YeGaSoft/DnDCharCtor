@@ -324,4 +324,10 @@
   <data name="Character_Properties_PassiveWisdomRecognition" xml:space="preserve">
     <value>Passive Wisdom (Recognition)</value>
   </data>
+  <data name="CharacterEditor_Properties_Edit" xml:space="preserve">
+    <value>Edit properties</value>
+  </data>
+  <data name="Character_Properties" xml:space="preserve">
+    <value>Properties</value>
+  </data>
 </root>

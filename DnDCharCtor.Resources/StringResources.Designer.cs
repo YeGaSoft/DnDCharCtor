@@ -304,6 +304,15 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Properties.
+        /// </summary>
+        public static string Character_Properties {
+            get {
+                return ResourceManager.GetString("Character_Properties", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Charisma.
         /// </summary>
         public static string Character_Properties_Charisma {
@@ -408,6 +417,15 @@ namespace DnDCharCtor.Resources {
         public static string CharacterEditor_Personality_Edit {
             get {
                 return ResourceManager.GetString("CharacterEditor_Personality_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Edit properties.
+        /// </summary>
+        public static string CharacterEditor_Properties_Edit {
+            get {
+                return ResourceManager.GetString("CharacterEditor_Properties_Edit", resourceCulture);
             }
         }
         
