@@ -37,7 +37,7 @@ public static class WebViewSoftInputPatch
 
     // The PossiblyResizeChildOfContent method is called whenever the global layout changes.
     // It calculates the usable height of the content view and adjusts its height based on whether the keyboard is visible or not.
-    // If the height difference(indicating the keyboard is visible) is significant, it resizes the content view to fit the remaining space.
+    // If the height difference (indicating the keyboard is visible) is significant, it resizes the content view to fit the remaining space.
     private static void PossiblyResizeChildOfContent()
     {
         var usableHeightNow = ComputeUsableHeight();

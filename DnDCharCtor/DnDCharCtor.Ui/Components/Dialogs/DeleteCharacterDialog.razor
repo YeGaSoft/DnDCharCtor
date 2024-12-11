@@ -1,0 +1,22 @@
+﻿@implements IDialogContentComponent<CharacterViewModel>
+
+<DeleteDialogBase DeleteButtonText="@StringResources.Button_Delete" CancelButtonText="@StringResources.Button_Cancel">
+    <FluentLabel Typo="Typography.PaneHeader" Color="Color.Error">@StringResources.Dialog_DeleteCharacterText</FluentLabel>
+    <br />
+    <FluentLabel Typo="Typography.PaneHeader" Color="Color.Error">@Content.PersonalityViewModel.CharacterName</FluentLabel>
+    <br />
+    @if (string.IsNullOrWhiteSpace(Content.PersonalityViewModel.Base64EncodedImage) is false)
+    {
+        <img src="data:image/jpeg;base64,@Content.PersonalityViewModel.Base64EncodedImage" style="height: 200px; width: 200px;" alt="Base64 Image" />
+        <br />
+    }
+    <div><strong>@StringResources.Character_Personality_Class:</strong> @Content.PersonalityViewModel.ClassName </div>
+    <br />
+    <div><strong>@StringResources.Character_Personality_Level:</strong> @Content.PersonalityViewModel.Level </div>
+    <br />
+    <div><strong>@StringResources.Character_Personality_Race:</strong> @Content.PersonalityViewModel.Race </div>
+    <br />
+    <div><strong>@StringResources.Character_Personality_Attitute:</strong> @Content.PersonalityViewModel.Attitute </div>
+</DeleteDialogBase>
+
+

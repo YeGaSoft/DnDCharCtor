@@ -60,4 +60,10 @@ internal class MauiPlatformService : IPlatformService
         var changesCount = await _databaseService.SaveItemAsync(key, value).ConfigureAwait(false);
         return changesCount > 0;
     }
+
+    public async Task<bool> RemoveFromStorageAsync(string key)
+    {
+        var changesCount = await _databaseService.DeleteItemAsync(key).ConfigureAwait(false);
+        return changesCount > 0;
+    }
 }

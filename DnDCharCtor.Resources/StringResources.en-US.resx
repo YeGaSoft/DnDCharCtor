@@ -285,4 +285,16 @@
   <data name="Page_Characters" xml:space="preserve">
     <value>Characters</value>
   </data>
+  <data name="Button_Select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="Dialog_DeleteCharacterTitle" xml:space="preserve">
+    <value>Delete character?</value>
+  </data>
+  <data name="Dialog_DeleteCharacterText" xml:space="preserve">
+    <value>You are about to delete the following character:</value>
+  </data>
+  <data name="Button_Adapt" xml:space="preserve">
+    <value>Adapt</value>
+  </data>
 </root>

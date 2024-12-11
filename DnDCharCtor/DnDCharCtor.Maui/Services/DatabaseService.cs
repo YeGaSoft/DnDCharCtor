@@ -27,21 +27,31 @@ internal class DatabaseService : IDisposable, IDatabaseService
 
     public async Task<T?> GetItemAsync<T>(string primaryKey)
     {
-        await CreateTableAsync();
+        await CreateTableAsync().ConfigureAwait(false);
 
-        var entity = await _database.FindAsync<Entity>(primaryKey);
+        var entity = await _database.FindAsync<Entity>(primaryKey).ConfigureAwait(false);
         if (entity is null) return default;
         return _serializer.Deserialize<T>(entity.JsonValue);
     }
 
     public async Task<int> SaveItemAsync<T>(string primaryKey, T item)
     {
-        await CreateTableAsync();
+        await CreateTableAsync().ConfigureAwait(false);
 
         var jsonValue = _serializer.Serialize(item);
         var entity = new Entity() { Key = primaryKey, JsonValue = jsonValue };
         return await _database.InsertOrReplaceAsync(entity).ConfigureAwait(false);
     }
+
+    public async Task<int> DeleteItemAsync(string primaryKey)
+    {
+        await CreateTableAsync().ConfigureAwait(false);
+
+        var entity = await _database.FindAsync<Entity>(primaryKey).ConfigureAwait(false);
+        if (entity is null) return 0;
+        return await _database.DeleteAsync(primaryKey).ConfigureAwait(false);
+    }
+
 
 
     ~DatabaseService() => Dispose();

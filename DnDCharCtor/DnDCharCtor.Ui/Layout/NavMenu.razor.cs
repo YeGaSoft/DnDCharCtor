@@ -1,3 +1,4 @@
+using DnDCharCtor.Common.Events;
 using DnDCharCtor.Common.Extensions;
 using DnDCharCtor.Common.Services;
 using DnDCharCtor.Models;
@@ -21,12 +22,19 @@ public partial class NavMenu : IDisposable
     [Inject]
     public MainViewModel ViewModel { get; set; } = default!;
 
+    [Inject]
+    public IEventAggregator EventAggregator { get; set; } = default!;
+
+    private SubscriptionToken? _eventSubscription;
+
 
 
     protected override void OnInitialized()
     {
         LocalizationService.PropertyChanged += PropertyChanged;
         ViewModel.PropertyChanged += PropertyChanged;
+        _eventSubscription = EventAggregator.GetEvent<EditModeChangedEvent>().Subscribe(() => PropertyChanged(EventAggregator, EventArgs.Empty));
+
     }
 
 
@@ -37,11 +45,12 @@ public partial class NavMenu : IDisposable
 
         LocalizationService.PropertyChanged -= PropertyChanged;
         ViewModel.PropertyChanged -= PropertyChanged;
+        _eventSubscription?.Dispose();
     }
 
 
 
-    private void PropertyChanged(object? sender, PropertyChangedEventArgs e)
+    private void PropertyChanged(object? sender, EventArgs e)
     {
         InvokeAsync(StateHasChanged).SafeFireAndForget(null);
     }

@@ -66,6 +66,24 @@ public class HybridCacheService : IHybridCacheService
         return false;
     }
 
+    public async Task<bool> DeleteCharacterAsync(Guid characterId)
+    {
+        var currentCharacter = await GetCurrentCharacterAsync().ConfigureAwait(false);
+        if (currentCharacter?.Id == characterId)
+        {
+            var isIdRemoved = await _platformService.RemoveFromStorageAsync(StorageKeys.CurrentCharacterId).ConfigureAwait(false);
+            if (isIdRemoved) _currentCharacter = null;
+        }
+
+        var characters = await GetCharactersAsync().ConfigureAwait(false);
+        characters = characters.Where(character => character.Id != characterId).ToList();
+
+        var isCharacterRemoved = await _platformService.SetInStorageAsync(StorageKeys.Characters, characters).ConfigureAwait(false);
+        if (isCharacterRemoved) _characters = characters;
+
+        return isCharacterRemoved;
+    }
+
 
     private CultureInfo? _selectedLanguage;
     public async Task<CultureInfo> GetSelectedLanguageAsync()

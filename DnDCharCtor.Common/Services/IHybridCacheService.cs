@@ -14,6 +14,7 @@ public interface IHybridCacheService
 
     Task<Character?> GetCurrentCharacterAsync();
     Task<bool> SetCurrentCharacterAsync(Character character);
+    Task<bool> DeleteCharacterAsync(Guid characterId);
 
     Task<CultureInfo> GetSelectedLanguageAsync();
     Task<bool> SetSelectedLanguageAsync(CultureInfo cultureInfo);

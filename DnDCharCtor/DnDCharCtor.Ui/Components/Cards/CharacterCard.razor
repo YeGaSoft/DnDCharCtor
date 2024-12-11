@@ -1,0 +1,28 @@
+﻿<CardBase 
+    Title="@ViewModel.PersonalityViewModel.CharacterName" 
+    EditButtonCallback="EditCharacter"
+    CardClickCallback="SelectCharacterAsync"
+    ShowPrimaryButton="true" PrimaryButtonCallback="SelectCharacterAsync"
+    ShowDeleteButton="true" DeleteButtonCallback="DeleteCharacterAsync">
+    <br />
+    @if (string.IsNullOrWhiteSpace(ViewModel.PersonalityViewModel.Base64EncodedImage) is false)
+    {
+        <img src="data:image/jpeg;base64,@ViewModel.PersonalityViewModel.Base64EncodedImage" style="height: 200px; width: 200px;" alt="Base64 Image" />
+        <br />
+    }
+    <div><strong>@StringResources.Character_Personality_Class:</strong> @ViewModel.PersonalityViewModel.ClassName </div>
+    <br />
+    <div><strong>@StringResources.Character_Personality_Level:</strong> @ViewModel.PersonalityViewModel.Level </div>
+    <br />
+    <div><strong>@StringResources.Character_Personality_Race:</strong> @ViewModel.PersonalityViewModel.Race </div>
+    <br />
+    <div><strong>@StringResources.Character_Personality_Attitute:</strong> @ViewModel.PersonalityViewModel.Attitute </div>
+
+    <!--Spacer in case there is no image-->
+    @if (string.IsNullOrWhiteSpace(ViewModel.PersonalityViewModel.Base64EncodedImage))
+    {
+        <div style="height: 200px; width: 200px;" />
+        <br />
+    }
+</CardBase>
+

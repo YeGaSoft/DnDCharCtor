@@ -9,6 +9,7 @@ public interface IPlatformService
 
     Task<T?> GetFromStorageAsync<T>(string key);
     Task<bool> SetInStorageAsync<T>(string key, T value);
+    Task<bool> RemoveFromStorageAsync(string key);
 }
 
 public enum ApplicationType

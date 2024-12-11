@@ -19,6 +19,7 @@ public partial class CurrentCharacter
         var uri = NavigationManager.ToAbsoluteUri(Routes.EditCharacter);
         var query = new Dictionary<string, string?>
         {
+            { Routes.EditCharacterQueryParameterForceNew, true.ToString() },
             { Routes.EditCharacterQueryParameterId, ViewModel.CurrentCharacterViewModel!.CharacterId.ToString() },
         };
         var newUri = QueryHelpers.AddQueryString(uri.ToString(), query);
