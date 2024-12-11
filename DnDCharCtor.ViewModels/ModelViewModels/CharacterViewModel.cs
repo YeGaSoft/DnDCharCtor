@@ -16,18 +16,23 @@ public partial class CharacterViewModel : ObservableValidator, IValidateableView
     {
         CharacterId = character.Id;
         PersonalityViewModel = new(character.Personality);
+        PropertiesViewModel = new(character.Properties);
     }
 
     public CharacterViewModel(CharacterViewModel characterViewModel)
     {
         CharacterId = characterViewModel.CharacterId;
         PersonalityViewModel = new(characterViewModel.PersonalityViewModel);
+        PropertiesViewModel = new(characterViewModel.PropertiesViewModel);
     }
 
     public Guid CharacterId { get; set; }
 
     [ObservableProperty]
     private PersonalityViewModel _personalityViewModel;
+
+    [ObservableProperty]
+    private PropertiesViewModel _propertiesViewModel;
 
     [ObservableProperty]
     private bool _hasValidationErrors;
@@ -37,9 +42,15 @@ public partial class CharacterViewModel : ObservableValidator, IValidateableView
 
     public bool Validate()
     {
-        HasValidationErrors = PersonalityViewModel.Validate();
+        HasValidationErrors = 
+            PersonalityViewModel.Validate() 
+            && PropertiesViewModel.Validate();
         ValidationErrors.Clear();
-        ValidationErrors = ValidationErrors.Concat(PersonalityViewModel.ValidationErrors).ToDictionary();
+        ValidationErrors = 
+            ValidationErrors
+            .Concat(PersonalityViewModel.ValidationErrors)
+            .Concat(PropertiesViewModel.ValidationErrors)
+            .ToDictionary();
         return HasValidationErrors is false;
     }
 
@@ -50,6 +61,7 @@ public partial class CharacterViewModel : ObservableValidator, IValidateableView
         {
             Id = CharacterId,
             Personality = PersonalityViewModel.ToPersonality(),
+            Properties = PropertiesViewModel.ToProperties(),
         };
     }
 }
