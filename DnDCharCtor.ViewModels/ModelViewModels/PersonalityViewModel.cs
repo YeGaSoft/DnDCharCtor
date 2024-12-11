@@ -36,7 +36,7 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
         PlayerName = personalityViewModel.PlayerName;
         Race = personalityViewModel.Race;
         Attitude = personalityViewModel.Attitude;
-        Experience = personalityViewModel.Experience.ToString();
+        Experience = personalityViewModel.Experience;
 
         HasValidationErrors = personalityViewModel.HasValidationErrors;
         if (personalityViewModel.HasValidationErrors) Validate();
@@ -90,6 +90,7 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
     [LocalizedParsedIntegerRequired(nameof(StringResources.Character_Personality_Experience))]
     [LocalizedParsedRange(nameof(StringResources.Character_Personality_Experience), 0, int.MaxValue)]
     private string _experience;
+
 
     [ObservableProperty]
     private bool _hasValidationErrors;
