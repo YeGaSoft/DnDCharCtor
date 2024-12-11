@@ -60,4 +60,10 @@ public class PwaPlatformService : IPlatformService
         await _jsRuntime.InvokeVoidAsync(JsMethodNames.LocalStorageSetItem, key, json).ConfigureAwait(false);
         return true;
     }
+
+    public async Task<bool> RemoveFromStorageAsync(string key)
+    {
+        await _jsRuntime.InvokeVoidAsync(JsMethodNames.LocalStorageRemoveItem, key).ConfigureAwait(false);
+        return true;
+    }
 }

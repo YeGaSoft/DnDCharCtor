@@ -1,3 +1,5 @@
+using DnDCharCtor.Common.Events;
+using DnDCharCtor.Common.Services;
 using DnDCharCtor.Resources;
 using DnDCharCtor.Ui.Components.Dialogs;
 using DnDCharCtor.Ui.Constants;
@@ -18,6 +20,12 @@ public partial class CharacterCard
 
     [Inject]
     public MainViewModel MainViewModel { get; set; } = default!;
+
+    [Inject]
+    public IHybridCacheService HybridCacheService { get; set; } = default!;
+
+    [Inject]
+    public IEventAggregator EventAggregator { get; set; } = default!;
 
     [Parameter]
     [EditorRequired]
@@ -58,5 +66,9 @@ public partial class CharacterCard
         {
             return;
         }
+
+        await HybridCacheService.DeleteCharacterAsync(ViewModel.CharacterId);
+        EventAggregator.GetEvent<CharactersChangedEvent>().Publish();
+        await ViewModelChanged.InvokeAsync();
     }
 }
