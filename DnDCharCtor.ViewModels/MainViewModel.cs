@@ -56,6 +56,7 @@ public partial class MainViewModel : ObservableObject, IDisposable
             var selectedLanguage = await _hybridCacheService.GetSelectedLanguageAsync();
             _localizationService.ChangeCulture(selectedLanguage);
 
+            await ReloadCharactersAsync(true);
             await ReloadCurrentCharacterAsync(true);
 
             _initializationTcs.SetResult(true);
@@ -79,7 +80,10 @@ public partial class MainViewModel : ObservableObject, IDisposable
         if (ignoreIsBusy) IsBusy = true;
         var currentCharacter = await _hybridCacheService.GetCurrentCharacterAsync();
         CurrentCharacterViewModel = new(currentCharacter ?? Character.Empty);
+
+        // ReloadCurrentCharacterAsync is also called when the current character was removed or a new one was added - thus, the number of characters changed.
         await ReloadCharactersAsync(ignoreIsBusy);
+
         if (ignoreIsBusy) IsBusy = false;
 
         return true;

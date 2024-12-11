@@ -69,6 +69,8 @@ public partial class CharacterCard
 
         await HybridCacheService.DeleteCharacterAsync(ViewModel.CharacterId);
         EventAggregator.GetEvent<CharactersChangedEvent>().Publish();
+
+        if (MainViewModel.CurrentCharacterViewModel?.CharacterId == ViewModel.CharacterId) EventAggregator.GetEvent<CurrentCharacterChangedEvent>().Publish();
         await ViewModelChanged.InvokeAsync();
     }
 }
