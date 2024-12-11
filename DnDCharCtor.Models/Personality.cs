@@ -31,8 +31,8 @@ public record Personality
     [LocalizedMaxLength(nameof(StringResources.Character_Personality_Race), 32)]
     public required string Race { get; init; } = string.Empty;
 
-    [LocalizedMaxLength(nameof(StringResources.Character_Personality_Attitute), 32)]
-    public required string Attitute { get; init; } = string.Empty;
+    [LocalizedMaxLength(nameof(StringResources.Character_Personality_Attitude), 32)]
+    public required string Attitude { get; init; } = string.Empty;
 
     [LocalizedRequired(nameof(StringResources.Character_Personality_Experience))]
     [LocalizedRange(nameof(StringResources.Character_Personality_Experience), 0, int.MaxValue)]
@@ -46,7 +46,7 @@ public record Personality
         Background = string.Empty,
         PlayerName = string.Empty,
         Race = string.Empty,
-        Attitute = string.Empty,
+        Attitude = string.Empty,
         Experience = 0,
     };
 }

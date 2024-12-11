@@ -147,7 +147,7 @@
   <data name="Character_Personality_Race" xml:space="preserve">
     <value>Volk</value>
   </data>
-  <data name="Character_Personality_Attitute" xml:space="preserve">
+  <data name="Character_Personality_Attitude" xml:space="preserve">
     <value>Gesinnung</value>
   </data>
   <data name="Character_Personality_Experience" xml:space="preserve">
@@ -296,5 +296,32 @@
   </data>
   <data name="Button_Adapt" xml:space="preserve">
     <value>Anpassen</value>
+  </data>
+  <data name="Character_Properties_Strength" xml:space="preserve">
+    <value>Stärke</value>
+  </data>
+  <data name="Character_Properties_Skill" xml:space="preserve">
+    <value>Geschicklichkeit</value>
+  </data>
+  <data name="Character_Properties_Constitution" xml:space="preserve">
+    <value>Konstitution</value>
+  </data>
+  <data name="Character_Properties_Intelligence" xml:space="preserve">
+    <value>Intelligenz</value>
+  </data>
+  <data name="Character_Properties_Wisdom" xml:space="preserve">
+    <value>Weisheit</value>
+  </data>
+  <data name="Character_Properties_Charisma" xml:space="preserve">
+    <value>Charisma</value>
+  </data>
+  <data name="Character_Properties_Inspiration" xml:space="preserve">
+    <value>Inspiration</value>
+  </data>
+  <data name="Character_Properties_TrainingBonus" xml:space="preserve">
+    <value>Übungsbonus</value>
+  </data>
+  <data name="Character_Properties_PassiveWisdomRecognition" xml:space="preserve">
+    <value>Passive Weisheit (Wahrnehmung)</value>
   </data>
 </root>

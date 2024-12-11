@@ -22,7 +22,7 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
         Background = personality.Background;
         PlayerName = personality.PlayerName;
         Race = personality.Race;
-        Attitute = personality.Attitute;
+        Attitude = personality.Attitude;
         Experience = personality.Experience.ToString();
     }
 
@@ -35,7 +35,7 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
         Background = personalityViewModel.Background;
         PlayerName = personalityViewModel.PlayerName;
         Race = personalityViewModel.Race;
-        Attitute = personalityViewModel.Attitute;
+        Attitude = personalityViewModel.Attitude;
         Experience = personalityViewModel.Experience.ToString();
 
         HasValidationErrors = personalityViewModel.HasValidationErrors;
@@ -82,8 +82,8 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
-    [LocalizedMaxLength(nameof(StringResources.Character_Personality_Attitute), 32)]
-    private string _attitute;
+    [LocalizedMaxLength(nameof(StringResources.Character_Personality_Attitude), 32)]
+    private string _Attitude;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
@@ -126,7 +126,7 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
             Background = Background,
             PlayerName = PlayerName,
             Race = Race,
-            Attitute = Attitute,
+            Attitude = Attitude,
             Experience = hasExperience ? experience : 0,
         };
     }
