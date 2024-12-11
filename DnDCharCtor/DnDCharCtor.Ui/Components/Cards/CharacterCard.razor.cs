@@ -48,7 +48,8 @@ public partial class CharacterCard
 
     private void SelectCharacter()
     {
-        MainViewModel.CurrentCharacterViewModel = ViewModel;
+        HybridCacheService.SetCurrentCharacterAsync(ViewModel.ToCharacter());
+        EventAggregator.GetEvent<CurrentCharacterChangedEvent>().Publish();
         NavigationManager.NavigateTo(Routes.CurrentCharacter);
     }
 
