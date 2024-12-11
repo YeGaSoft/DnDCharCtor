@@ -25,8 +25,12 @@ public partial class CardBase
     [Parameter]
     public bool HasValidationErrors { get; set; }
 
+
     [Parameter]
     public string EditButtonText { get; set; } = StringResources.Button_Edit;
+
+    [Parameter]
+    public Icon EditButtonIcon { get; set; } = new Icons.Regular.Size20.Edit();
 
 
     [Parameter]

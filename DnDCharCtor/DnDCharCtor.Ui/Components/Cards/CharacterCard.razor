@@ -17,5 +17,12 @@
     <div><strong>@StringResources.Character_Personality_Race:</strong> @ViewModel.PersonalityViewModel.Race </div>
     <br />
     <div><strong>@StringResources.Character_Personality_Attitute:</strong> @ViewModel.PersonalityViewModel.Attitute </div>
+
+    <!--Spacer in case there is no image-->
+    @if (string.IsNullOrWhiteSpace(ViewModel.PersonalityViewModel.Base64EncodedImage))
+    {
+        <div style="height: 200px; width: 200px;" />
+        <br />
+    }
 </CardBase>
 

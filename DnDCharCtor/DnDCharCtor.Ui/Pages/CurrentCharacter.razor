@@ -6,7 +6,7 @@
 
 <FluentGrid AdaptiveRendering="true" Style=@($"""background-color: var(--neutral-layer-3); padding: 4px;""")>
     <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2">
-        <PersonalityCard @bind-ViewModel="@(ViewModel.CurrentCharacterViewModel!.PersonalityViewModel)" />
+        <PersonalityCard @bind-ViewModel="@(ViewModel.CurrentCharacterViewModel!.PersonalityViewModel)" EditButtonText="@StringResources.Button_Adapt" EditButtonIcon="@(new Icons.Regular.Size20.NoteEdit())" />
     </FluentGridItem>
 </FluentGrid>
 <br />
@@ -16,7 +16,7 @@
     <FluentDivider />
     <br />
     <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
-        <FluentButton OnClick="EditCharacter" Appearance="Appearance.Accent" IconStart="@(new Icons.Regular.Size20.EditPerson())">@StringResources.Button_EditCharacter</FluentButton>
+        <FluentButton OnClick="EditCharacter" Appearance="Appearance.Accent" IconStart="@(new Icons.Regular.Size20.EditPerson())">@StringResources.Button_Edit</FluentButton>
     </FluentStack>
 </FluentFooter>
 

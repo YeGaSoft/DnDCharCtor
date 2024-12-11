@@ -294,4 +294,7 @@
   <data name="Dialog_DeleteCharacterText" xml:space="preserve">
     <value>Du bist dabei den folgenden Character zu löschen:</value>
   </data>
+  <data name="Button_Adapt" xml:space="preserve">
+    <value>Anpassen</value>
+  </data>
 </root>

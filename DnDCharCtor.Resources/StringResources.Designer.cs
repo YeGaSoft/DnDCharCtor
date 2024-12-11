@@ -115,6 +115,15 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Adapt.
+        /// </summary>
+        public static string Button_Adapt {
+            get {
+                return ResourceManager.GetString("Button_Adapt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Cancel.
         /// </summary>
         public static string Button_Cancel {

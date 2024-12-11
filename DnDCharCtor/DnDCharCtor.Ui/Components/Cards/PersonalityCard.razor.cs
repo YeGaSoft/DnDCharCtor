@@ -24,6 +24,12 @@ public partial class PersonalityCard
     [Parameter]
     public EventCallback<PersonalityViewModel> ViewModelChanged { get; set; }
 
+    [Parameter]
+    public string EditButtonText { get; set; } = StringResources.Button_Edit;
+
+    [Parameter]
+    public Icon EditButtonIcon { get; set; } = new Icons.Regular.Size20.Edit();
+
     private async Task EditPersonality()
     {
         var data = new PersonalityViewModel(ViewModel);
