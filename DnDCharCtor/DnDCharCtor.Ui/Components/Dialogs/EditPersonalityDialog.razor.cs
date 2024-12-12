@@ -10,9 +10,6 @@ namespace DnDCharCtor.Ui.Components.Dialogs;
 
 public partial class EditPersonalityDialog
 {
-    [Inject]
-    public IJSRuntime JSRuntime { get; set; } = default!;
-
     [CascadingParameter]
     public FluentDialog Dialog { get; set; } = default!;
 

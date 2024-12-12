@@ -16,9 +16,13 @@ public record Character
     [LocalizedRequired(nameof(StringResources.Character_Personality))]
     public required Personality Personality { get; init; } = Personality.Empty;
 
+    [LocalizedRequired(nameof(StringResources.Character_Properties))]
+    public required Properties Properties { get; init; } = Properties.Empty;
+
     public static Character Empty => new ()
     {
         Id = Guid.Empty,
         Personality = Personality.Empty,
+        Properties = Properties.Empty
     };
 }
