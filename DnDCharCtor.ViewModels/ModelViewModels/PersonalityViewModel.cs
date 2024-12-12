@@ -11,7 +11,7 @@ using DnDCharCtor.Validation.Attributes;
 
 namespace DnDCharCtor.ViewModels.ModelViewModels;
 
-public partial class PersonalityViewModel : ObservableValidator, IValidateableViewModel
+public partial class PersonalityViewModel : ObservableValidator, IValidateableViewModel<PersonalityViewModel>
 {
     public PersonalityViewModel(Personality personality)
     {
@@ -110,6 +110,11 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateableVi
         ValidationErrors.Clear();
         ValidationErrors[ValidationErrorSource] = validationResults;
         return HasValidationErrors is false;
+    }
+
+    public PersonalityViewModel CreateShallowCopy()
+    {
+        return new PersonalityViewModel(this);
     }
 
 

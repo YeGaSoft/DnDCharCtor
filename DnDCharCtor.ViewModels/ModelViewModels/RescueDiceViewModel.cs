@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DnDCharCtor.ViewModels.ModelViewModels;
 
-public partial class RescueDicesViewModel : ObservableValidator, IValidateableViewModel
+public partial class RescueDicesViewModel : ObservableValidator, IValidateableViewModel<RescueDicesViewModel>
 {
     public RescueDicesViewModel(RescueDices rescueDices)
     {
@@ -91,6 +91,11 @@ public partial class RescueDicesViewModel : ObservableValidator, IValidateableVi
         ValidationErrors.Clear();
         ValidationErrors[ValidationErrorSource] = validationResults;
         return HasValidationErrors is false;
+    }
+
+    public RescueDicesViewModel CreateShallowCopy()
+    {
+        return new RescueDicesViewModel(this);
     }
 
 

@@ -1,4 +1,5 @@
-﻿@implements IDialogContentComponent<IValidateableViewModel>
+﻿@typeparam TViewModel
+@implements IDialogContentComponent<IValidateableViewModel<TViewModel>>
 
 <FluentDialogHeader>
     <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">

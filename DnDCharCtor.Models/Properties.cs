@@ -56,5 +56,6 @@ public record Properties
         Charisma = 0, 
         Inspiration = 0, 
         TrainingBonus = 0, 
-        PassiveWisdomRecognition = 0 };
+        PassiveWisdomRecognition = 0 
+    };
 }

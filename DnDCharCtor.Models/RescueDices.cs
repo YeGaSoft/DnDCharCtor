@@ -33,4 +33,14 @@ public record RescueDices
     [LocalizedRequired(nameof(StringResources.Character_Charisma))]
     [LocalizedRange(nameof(StringResources.Character_Charisma), 1, int.MaxValue)]
     public required int Charisma { get; init; }
+
+    public static RescueDices Empty => new()
+    {
+        Strength = 0,
+        Skill = 0,
+        Constitution = 0,
+        Intelligence = 0,
+        Wisdom = 0,
+        Charisma = 0,
+    };
 }

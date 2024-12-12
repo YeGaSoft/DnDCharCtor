@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DnDCharCtor.ViewModels.ModelViewModels;
 
-public partial class PropertiesViewModel : ObservableValidator, IValidateableViewModel
+public partial class PropertiesViewModel : ObservableValidator, IValidateableViewModel<PropertiesViewModel>
 {
     public PropertiesViewModel(Properties properties)
     {
@@ -115,6 +115,11 @@ public partial class PropertiesViewModel : ObservableValidator, IValidateableVie
         ValidationErrors.Clear();
         ValidationErrors[ValidationErrorSource] = validationResults;
         return HasValidationErrors is false;
+    }
+
+    public PropertiesViewModel CreateShallowCopy()
+    {
+        return new PropertiesViewModel(this);
     }
 
 

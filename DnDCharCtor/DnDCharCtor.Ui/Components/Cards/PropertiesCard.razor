@@ -1,4 +1,6 @@
-﻿<CardBase Title="@StringResources.Character_Properties" EditButtonText="@EditButtonText" EditButtonIcon="@EditButtonIcon" EditButtonCallback="EditProperties" CardClickCallback="EditProperties" HasValidationErrors="@(ViewModel.HasValidationErrors)">
+﻿@inherits GenericCard<PropertiesViewModel, EditPropertiesDialog>
+
+<CardBase Title="@StringResources.Character_Properties" EditButtonText="@EditButtonText" EditButtonIcon="@EditButtonIcon" EditButtonCallback="EditAsync" CardClickCallback="EditAsync" HasValidationErrors="@(ViewModel.HasValidationErrors)">
     <br />
     <div><strong>@StringResources.Character_Strength:</strong> @ViewModel.Strength </div>
     <br />

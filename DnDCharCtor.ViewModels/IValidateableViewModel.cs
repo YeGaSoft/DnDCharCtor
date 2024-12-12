@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DnDCharCtor.ViewModels;
 
-public interface IValidateableViewModel : INotifyPropertyChanged
+public interface IValidateableViewModel<TViewModel> : IShallowCopyable<TViewModel>, INotifyPropertyChanged
 {
     bool HasValidationErrors { get; set; }
 
