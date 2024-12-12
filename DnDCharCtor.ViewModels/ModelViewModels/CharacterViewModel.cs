@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DnDCharCtor.ViewModels.ModelViewModels;
 
-public partial class CharacterViewModel : ObservableValidator, IValidateAndCopyableViewModel<CharacterViewModel>
+public partial class CharacterViewModel : ObservableValidator, IViewModelBase<CharacterViewModel>
 {
     public CharacterViewModel(Character character)
     {
@@ -65,6 +65,11 @@ public partial class CharacterViewModel : ObservableValidator, IValidateAndCopya
     public CharacterViewModel CreateShallowCopy()
     {
         return new CharacterViewModel(this);
+    }
+
+    public bool Search(string searchText)
+    {
+
     }
 
 

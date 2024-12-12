@@ -11,7 +11,7 @@ using DnDCharCtor.Validation.Attributes;
 
 namespace DnDCharCtor.ViewModels.ModelViewModels;
 
-public partial class PersonalityViewModel : ObservableValidator, IValidateAndCopyableViewModel<PersonalityViewModel>
+public partial class PersonalityViewModel : ObservableValidator, IViewModelBase<PersonalityViewModel>
 {
     public PersonalityViewModel(Personality personality)
     {
@@ -115,6 +115,11 @@ public partial class PersonalityViewModel : ObservableValidator, IValidateAndCop
     public PersonalityViewModel CreateShallowCopy()
     {
         return new PersonalityViewModel(this);
+    }
+
+    public bool Search(string searchText)
+    {
+        // ToDo: Check if seachText is matched by text in string-properties or from any used String-Resource in this ViewModel, so the user can search for properties, fields and values.
     }
 
 

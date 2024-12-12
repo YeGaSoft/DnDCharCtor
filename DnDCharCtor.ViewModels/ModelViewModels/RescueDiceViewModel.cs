@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DnDCharCtor.ViewModels.ModelViewModels;
 
-public partial class RescueDicesViewModel : ObservableValidator, IValidateAndCopyableViewModel<RescueDicesViewModel>
+public partial class RescueDicesViewModel : ObservableValidator, IViewModelBase<RescueDicesViewModel>
 {
     public RescueDicesViewModel(RescueDices rescueDices)
     {

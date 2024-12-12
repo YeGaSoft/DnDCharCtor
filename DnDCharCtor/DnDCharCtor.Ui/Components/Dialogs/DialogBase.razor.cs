@@ -21,7 +21,7 @@ public partial class DialogBase : ComponentBase, IDisposable
 
     [Parameter]
     [EditorRequired]
-    public IValidateableViewModel Content { get; set; } = default!;
+    public IValidateable Content { get; set; } = default!;
 
     [Parameter]
     public string SubmitButtonText { get; set; } = StringResources.Button_Submit;
