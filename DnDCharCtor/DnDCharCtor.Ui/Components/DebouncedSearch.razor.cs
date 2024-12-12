@@ -63,7 +63,7 @@ public partial class DebouncedSearch
 
         DisposeTimer();
         SearchText = _immediateSearchText ?? string.Empty;
-        await SearchTextChanged.InvokeAsync(SearchText);
+        await InvokeAsync(async () => await SearchTextChanged.InvokeAsync(SearchText));
     }
     private void DisposeTimer()
     {
