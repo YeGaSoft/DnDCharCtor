@@ -583,7 +583,7 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ~Search card by properties and values.
+        ///   Looks up a localized string similar to ~Search card by property or value.
         /// </summary>
         public static string Search_CardsPlaceholder {
             get {
@@ -601,7 +601,7 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ~Search character by property-values.
+        ///   Looks up a localized string similar to ~Search character by property-value.
         /// </summary>
         public static string Search_CharacterPlaceholder {
             get {

@@ -1,11 +1,11 @@
-﻿<FluentLayout Style="background-color: red; height: 100vh">
+﻿<FluentLayout Id="currentCharacterFluentLayout" Style="height: 90vh">
     <FluentHeader>
         <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
             <FluentLabel Typo="Typography.PaneHeader">@ViewModel.CurrentCharacterViewModel!.PersonalityViewModel.CharacterName</FluentLabel>
         </FluentStack>
     </FluentHeader>
 
-    <FluentBodyContent Style=" height: 80vh;">
+    <FluentBodyContent Style=" height: 85vh;">
         <FluentGrid Style="background-color: var(--neutral-layer-3); padding: 4px;">
             <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2" HiddenWhen="@(ViewModel.CurrentCharacterViewModel!.PersonalityViewModel.Search(SearchText ?? string.Empty, true) ? GridItemHidden.None : GridItemHidden.XsAndUp)">
                 <PersonalityCard @bind-ViewModel="@(ViewModel.CurrentCharacterViewModel!.PersonalityViewModel)" EditButtonText="@StringResources.Button_Adapt" EditButtonIcon="@(new Icons.Regular.Size20.NoteEdit())" />
@@ -20,13 +20,9 @@
     </FluentBodyContent>
 
     <FluentFooter>
-        <br />
-        <FluentDivider />
-        <br />
         <FluentStack Orientation="Orientation.Vertical" VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
             <br />
             <FluentButton OnClick="EditCharacter" Appearance="Appearance.Accent" IconStart="@(new Icons.Regular.Size20.EditPerson())">@StringResources.Button_Edit</FluentButton>
-            <br />
             <DebouncedSearch @bind-SearchText="@SearchText" PlaceHolder="@StringResources.Search_CardsPlaceholder" Style="width: 100%" />
         </FluentStack>
     </FluentFooter>

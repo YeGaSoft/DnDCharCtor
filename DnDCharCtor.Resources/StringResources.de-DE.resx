@@ -331,7 +331,7 @@
     <value>Rettungswürfe</value>
   </data>
   <data name="Search_CharacterPlaceholder" xml:space="preserve">
-    <value>Suche Charakter nach Eigenschafts-Werten</value>
+    <value>Suche Charakter nach Eigenschafts-Wert</value>
   </data>
   <data name="Search_CharacterLabel" xml:space="preserve">
     <value>Suche Charakter</value>
@@ -343,6 +343,6 @@
     <value>Bearbeite Charakter "{0}"</value>
   </data>
   <data name="Search_CardsPlaceholder" xml:space="preserve">
-    <value>Suche Karte nach Eigenschaften und Werten</value>
+    <value>Suche Karte nach Eigenschaft oder Wert</value>
   </data>
 </root>

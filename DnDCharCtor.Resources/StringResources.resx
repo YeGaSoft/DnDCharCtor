@@ -331,7 +331,7 @@
     <value>~Rescue dices</value>
   </data>
   <data name="Search_CharacterPlaceholder" xml:space="preserve">
-    <value>~Search character by property-values</value>
+    <value>~Search character by property-value</value>
   </data>
   <data name="Search_CharacterLabel" xml:space="preserve">
     <value>~Search character</value>
@@ -343,6 +343,6 @@
     <value>~Edit character "{0}"</value>
   </data>
   <data name="Search_CardsPlaceholder" xml:space="preserve">
-    <value>~Search card by properties and values</value>
+    <value>~Search card by property or value</value>
   </data>
 </root>
