@@ -1,38 +1,42 @@
-﻿<FluentHeader>
-    <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
-        <FluentLabel Typo="Typography.PaneHeader">@ViewModel.Title</FluentLabel>
-    </FluentStack>
-</FluentHeader>
+﻿<FluentLayout>
+    <FluentHeader>
+        <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
+            <FluentLabel Typo="Typography.PaneHeader">@ViewModel.Title</FluentLabel>
+        </FluentStack>
+    </FluentHeader>
 
-<FluentGrid AdaptiveRendering="true" Style=@($"""background-color: var(--neutral-layer-3); padding: 4px; {(ViewModel.HasValidationErrors ? "border-color: red; border-width: medium;" : "")}""")>
-    <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2">
-        <PersonalityCard @bind-ViewModel="@(ViewModel.CharacterViewModelToEdit.PersonalityViewModel)" />
-    </FluentGridItem>
-    <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2">
-        <PropertiesCard @bind-ViewModel="@(ViewModel.CharacterViewModelToEdit.PropertiesViewModel)" />
-    </FluentGridItem>
-    <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2">
-        <RescueDicesCard @bind-ViewModel="@(ViewModel.CharacterViewModelToEdit.RescueDicesViewModel)" />
-    </FluentGridItem>
-</FluentGrid>
-<br />
-
-<FluentFooter>
-    <br />
-    <FluentDivider />
-    <br />
-    <FluentGrid Justify="JustifyContent.SpaceBetween" Style="width: 100%;">
-        <FluentGridItem xs="3">
-            <FluentButton OnClick="Reset" IconStart="@(new Icons.Regular.Size20.ArrowReset())">@StringResources.Button_Reset</FluentButton>
-        </FluentGridItem>
-         <FluentGridItem xs="3">
-            <FluentButton OnClick="SaveChanges" Appearance="Appearance.Accent" IconStart="@(new Icons.Regular.Size20.Save())">@StringResources.Button_Save</FluentButton>
-        </FluentGridItem>
-        <FluentGridItem xs="3">
-            <FluentSpacer />
-        </FluentGridItem>
-    </FluentGrid>
-</FluentFooter>
+    <FluentBodyContent>
+        <FluentGrid AdaptiveRendering="true" Style=@($"""background-color: var(--neutral-layer-3); padding: 4px; {(ViewModel.HasValidationErrors ? "border-color: red; border-width: medium;" : "")}""")>
+            <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2">
+                <PersonalityCard @bind-ViewModel="@(ViewModel.CharacterViewModelToEdit.PersonalityViewModel)" />
+            </FluentGridItem>
+            <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2">
+                <PropertiesCard @bind-ViewModel="@(ViewModel.CharacterViewModelToEdit.PropertiesViewModel)" />
+            </FluentGridItem>
+            <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2">
+                <RescueDicesCard @bind-ViewModel="@(ViewModel.CharacterViewModelToEdit.RescueDicesViewModel)" />
+            </FluentGridItem>
+        </FluentGrid>
+        <br />
+    </FluentBodyContent>
+    
+    <FluentFooter>
+        <br />
+        <FluentDivider />
+        <br />
+        <FluentGrid Justify="JustifyContent.SpaceBetween" Style="width: 100%;">
+            <FluentGridItem xs="3">
+                <FluentButton OnClick="Reset" IconStart="@(new Icons.Regular.Size20.ArrowReset())">@StringResources.Button_Reset</FluentButton>
+            </FluentGridItem>
+            <FluentGridItem xs="3">
+                <FluentButton OnClick="SaveChanges" Appearance="Appearance.Accent" IconStart="@(new Icons.Regular.Size20.Save())">@StringResources.Button_Save</FluentButton>
+            </FluentGridItem>
+            <FluentGridItem xs="3">
+                <FluentSpacer />
+            </FluentGridItem>
+        </FluentGrid>
+    </FluentFooter>
+</FluentLayout>
 
 <!--This break ensures that the button is not completely at the end of the page-->
 <br />
