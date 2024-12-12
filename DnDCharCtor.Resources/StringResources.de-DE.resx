@@ -342,4 +342,7 @@
   <data name="CharacterEditor_Edit" xml:space="preserve">
     <value>Bearbeite Charakter "{0}"</value>
   </data>
+  <data name="Search_CardsPlaceholder" xml:space="preserve">
+    <value>Suche Karte nach Eigenschaften und Werten</value>
+  </data>
 </root>

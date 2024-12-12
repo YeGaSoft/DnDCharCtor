@@ -6,14 +6,14 @@
     </FluentHeader>
 
     <FluentBodyContent>
-        <FluentGrid AdaptiveRendering="true" Style=@($"""background-color: var(--neutral-layer-3); padding: 4px;""")>
-            <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2">
+        <FluentGrid Style=@($"""background-color: var(--neutral-layer-3); padding: 4px;""")>
+            <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2" HiddenWhen="@(ViewModel.CurrentCharacterViewModel!.PersonalityViewModel.Search(SearchText ?? string.Empty, true) ? GridItemHidden.None : GridItemHidden.XsAndUp)">
                 <PersonalityCard @bind-ViewModel="@(ViewModel.CurrentCharacterViewModel!.PersonalityViewModel)" EditButtonText="@StringResources.Button_Adapt" EditButtonIcon="@(new Icons.Regular.Size20.NoteEdit())" />
             </FluentGridItem>
-            <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2">
+            <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2" HiddenWhen="@(ViewModel.CurrentCharacterViewModel!.PropertiesViewModel.Search(SearchText ?? string.Empty, true) ? GridItemHidden.None : GridItemHidden.XsAndUp)">
                 <PropertiesCard @bind-ViewModel="@(ViewModel.CurrentCharacterViewModel!.PropertiesViewModel)" EditButtonText="@StringResources.Button_Adapt" EditButtonIcon="@(new Icons.Regular.Size20.NoteEdit())" />
             </FluentGridItem>
-            <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2">
+            <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2" HiddenWhen="@(ViewModel.CurrentCharacterViewModel!.RescueDicesViewModel.Search(SearchText ?? string.Empty, true) ? GridItemHidden.None : GridItemHidden.XsAndUp)">
                 <RescueDicesCard @bind-ViewModel="@(ViewModel.CurrentCharacterViewModel!.RescueDicesViewModel)" EditButtonText="@StringResources.Button_Adapt" EditButtonIcon="@(new Icons.Regular.Size20.NoteEdit())" />
             </FluentGridItem>
         </FluentGrid>
@@ -24,11 +24,13 @@
         <br />
         <FluentDivider />
         <br />
-        <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
+        <FluentStack Orientation="Orientation.Vertical" VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
             <FluentButton OnClick="EditCharacter" Appearance="Appearance.Accent" IconStart="@(new Icons.Regular.Size20.EditPerson())">@StringResources.Button_Edit</FluentButton>
+            <br />
+            <DebouncedSearch @bind-SearchText="@SearchText" PlaceHolder="@StringResources.Search_CardsPlaceholder" Style="width: 100%" />
         </FluentStack>
     </FluentFooter>
 </FluentLayout>
 
-<!--This break ensures that the button is not completely at the end of the page-->
+<!--This break ensures that the search-bar is not completely at the end of the page-->
 <br />
