@@ -4,11 +4,24 @@
     </FluentStack>
 </FluentHeader>
 
-<FluentGrid AdaptiveRendering="true" Style=@($"""background-color: var(--neutral-layer-3); padding: 4px;""")>
+<FluentGrid Style=@($"""background-color: var(--neutral-layer-3); padding: 4px;""")>
     @foreach (var character in ViewModel.Characters)
     {
-        <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2">
+        <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2" HiddenWhen="@(character.Search(SearchText ?? string.Empty, false) ? GridItemHidden.None : GridItemHidden.XsAndUp)">
             <CharacterCard ViewModel="character" ViewModelChanged="PropertyChangedAsync" />
         </FluentGridItem>
     }  
 </FluentGrid>
+<br />
+
+<FluentFooter>
+    <br />
+    <FluentDivider />
+    <br />
+    <DebouncedSearch @bind-SearchText="@SearchText" PlaceHolder="@StringResources.Search_CharacterPlaceholder" Style="width: 100%" />
+    <br />
+</FluentFooter>
+
+
+<!--This break ensures that the search-bar is not completely at the end of the page-->
+<br />

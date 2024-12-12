@@ -14,5 +14,5 @@ namespace DnDCharCtor.Ui.Components.Cards;
 
 public partial class PersonalityCard : GenericCard<PersonalityViewModel, EditPersonalityDialog>
 {
-
+    public override string DialogTitle => StringResources.CharacterEditor_Personality_Edit;
 }

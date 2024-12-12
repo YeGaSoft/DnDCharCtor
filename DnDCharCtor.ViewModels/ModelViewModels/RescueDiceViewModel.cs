@@ -98,6 +98,41 @@ public partial class RescueDicesViewModel : ObservableValidator, IViewModelBase<
         return new RescueDicesViewModel(this);
     }
 
+    public bool Search(string searchText, bool includePropertyNames)
+    {
+        if (string.IsNullOrWhiteSpace(searchText))
+        {
+            return true;
+        }
+
+        // Check string properties
+        if (Strength.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            Skill.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            Constitution.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            Intelligence.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            Wisdom.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            Charisma.Contains(searchText, StringComparison.OrdinalIgnoreCase))
+        {
+            return true;
+        }
+
+        if (includePropertyNames is false) return false;
+
+        // Check string resources
+        if (StringResources.Character_RescueDices.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_Strength.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_Skill.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_Constitution.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_Intelligence.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_Wisdom.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_Charisma.Contains(searchText, StringComparison.OrdinalIgnoreCase))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
 
     public RescueDices ToRescueDices()
     {

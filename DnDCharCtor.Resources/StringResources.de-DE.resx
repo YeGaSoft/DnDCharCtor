@@ -159,7 +159,7 @@
   <data name="CharacterEditor_Create" xml:space="preserve">
     <value>Erstelle einen Charakter</value>
   </data>
-  <data name="CharacterEditor_Edit" xml:space="preserve">
+  <data name="CharacterEditor_Properties_Edit" xml:space="preserve">
     <value>Bearbeite Eigenschaften</value>
   </data>
   <data name="Page_Settings" xml:space="preserve">
@@ -329,5 +329,17 @@
   </data>
   <data name="Character_RescueDices" xml:space="preserve">
     <value>Rettungswürfe</value>
+  </data>
+  <data name="Search_CharacterPlaceholder" xml:space="preserve">
+    <value>Suche Charakter nach Eigenschafts-Werten</value>
+  </data>
+  <data name="Search_CharacterLabel" xml:space="preserve">
+    <value>Suche Charakter</value>
+  </data>
+  <data name="CharacterEditor_RescueDices_Edit" xml:space="preserve">
+    <value>Bearbeite Rettungswürfel</value>
+  </data>
+  <data name="CharacterEditor_Edit" xml:space="preserve">
+    <value>Bearbeite Charakter "{0}"</value>
   </data>
 </root>

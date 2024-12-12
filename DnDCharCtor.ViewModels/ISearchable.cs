@@ -8,5 +8,5 @@ namespace DnDCharCtor.ViewModels;
 
 public interface ISearchable
 {
-    bool Search(string searchText);
+    bool Search(string searchText, bool includePropertyNames);
 }

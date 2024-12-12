@@ -67,9 +67,11 @@ public partial class CharacterViewModel : ObservableValidator, IViewModelBase<Ch
         return new CharacterViewModel(this);
     }
 
-    public bool Search(string searchText)
+    public bool Search(string searchText, bool includePropertyNames)
     {
-
+        return PersonalityViewModel.Search(searchText, includePropertyNames) ||
+            PropertiesViewModel.Search(searchText, includePropertyNames) ||
+            RescueDicesViewModel.Search(searchText, includePropertyNames);
     }
 
 

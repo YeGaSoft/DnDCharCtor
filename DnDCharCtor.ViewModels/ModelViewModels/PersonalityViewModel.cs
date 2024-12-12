@@ -117,10 +117,45 @@ public partial class PersonalityViewModel : ObservableValidator, IViewModelBase<
         return new PersonalityViewModel(this);
     }
 
-    public bool Search(string searchText)
+    public bool Search(string searchText, bool includePropertyNames)
     {
-        // ToDo: Check if seachText is matched by text in string-properties or from any used String-Resource in this ViewModel, so the user can search for properties, fields and values.
+        if (string.IsNullOrWhiteSpace(searchText))
+        {
+            return true;
+        }
+
+        // Check string properties
+        if (CharacterName.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            ClassName.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            Level.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            Background.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            PlayerName.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            Race.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            Attitude.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            Experience.Contains(searchText, StringComparison.OrdinalIgnoreCase))
+        {
+            return true;
+        }
+
+        if (includePropertyNames is false) return false;
+
+        // Check string resources
+        if (StringResources.Character_Name.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_Personality.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_Personality_Class.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_Personality_Level.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_Personality_Background.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_Personality_PlayerName.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_Personality_Race.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_Personality_Attitude.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_Personality_Experience.Contains(searchText, StringComparison.OrdinalIgnoreCase))
+        {
+            return true;
+        }
+
+        return false;
     }
+
 
 
     public Personality ToPersonality()

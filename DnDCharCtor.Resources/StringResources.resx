@@ -159,7 +159,7 @@
   <data name="CharacterEditor_Create" xml:space="preserve">
     <value>~Create character</value>
   </data>
-  <data name="CharacterEditor_Edit" xml:space="preserve">
+  <data name="CharacterEditor_Properties_Edit" xml:space="preserve">
     <value>~Edit properties</value>
   </data>
   <data name="Page_Settings" xml:space="preserve">
@@ -329,5 +329,17 @@
   </data>
   <data name="Character_RescueDices" xml:space="preserve">
     <value>~Rescue dices</value>
+  </data>
+  <data name="Search_CharacterPlaceholder" xml:space="preserve">
+    <value>~Search character by property-values</value>
+  </data>
+  <data name="Search_CharacterLabel" xml:space="preserve">
+    <value>~Search character</value>
+  </data>
+  <data name="CharacterEditor_RescueDices_Edit" xml:space="preserve">
+    <value>~Edit rescue dices</value>
+  </data>
+  <data name="CharacterEditor_Edit" xml:space="preserve">
+    <value>~Edit character "{0}"</value>
   </data>
 </root>
