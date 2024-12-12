@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DnDCharCtor.ViewModels.ModelViewModels;
 
-public partial class CharacterViewModel : ObservableValidator, IValidateableViewModel<CharacterViewModel>
+public partial class CharacterViewModel : ObservableValidator, IValidateAndCopyableViewModel<CharacterViewModel>
 {
     public CharacterViewModel(Character character)
     {

@@ -11,7 +11,7 @@ using DnDCharCtor.Validation.Attributes;
 
 namespace DnDCharCtor.ViewModels.ModelViewModels;
 
-public partial class PersonalityViewModel : ObservableValidator, IValidateableViewModel<PersonalityViewModel>
+public partial class PersonalityViewModel : ObservableValidator, IValidateAndCopyableViewModel<PersonalityViewModel>
 {
     public PersonalityViewModel(Personality personality)
     {

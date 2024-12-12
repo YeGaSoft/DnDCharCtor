@@ -17,7 +17,7 @@ namespace DnDCharCtor.Ui.Components.Cards;
 /// otherwise there is an error that the partial classes inherit from different base classes.
 /// </summary>
 public abstract partial class GenericCard<TViewModel, TDialog> : ComponentBase
-    where TViewModel : IValidateableViewModel<TViewModel>
+    where TViewModel : IValidateAndCopyableViewModel<TViewModel>
     where TDialog : IDialogContentComponent<TViewModel>
 {
     [Inject]

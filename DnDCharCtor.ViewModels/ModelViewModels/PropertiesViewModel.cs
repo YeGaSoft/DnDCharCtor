@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DnDCharCtor.ViewModels.ModelViewModels;
 
-public partial class PropertiesViewModel : ObservableValidator, IValidateableViewModel<PropertiesViewModel>
+public partial class PropertiesViewModel : ObservableValidator, IValidateAndCopyableViewModel<PropertiesViewModel>
 {
     public PropertiesViewModel(Properties properties)
     {
