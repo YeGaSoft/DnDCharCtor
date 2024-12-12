@@ -1,6 +1,6 @@
 ﻿@implements IDialogContentComponent<RescueDicesViewModel>
 
-<DialogBase TViewModel="RescueDicesViewModel" Content="@Content">
+<DialogBase Content="@Content">
     <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Strength" Label="@StringResources.Character_Strength" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.Strength)" />
     <br />

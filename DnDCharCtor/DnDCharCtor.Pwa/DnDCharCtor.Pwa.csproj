@@ -11,6 +11,8 @@
 		<AssemblyVersion>0.2.*</AssemblyVersion>
 		<!--https://stackoverflow.com/questions/53782085/assemblyversion-using-fails-with-error-wildcards-which-are-not-compatible-wi/58101474#58101474-->
 		<Deterministic>false</Deterministic>
+		<!--The specified version string '0.x.*' does not conform to the recommended format - major.minor.build.revision-->
+		<NoWarn>$(NoWarn);7035</NoWarn>
 		
 		<!--https://github.com/dotnet/aspnetcore/issues/50361#issuecomment-1699512477-->
 		<!--https://github.com/dotnet/runtime/issues/98415#issuecomment-1945859860-->

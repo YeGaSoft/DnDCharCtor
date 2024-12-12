@@ -1,6 +1,6 @@
 ﻿@implements IDialogContentComponent<PersonalityViewModel>
 
-<DialogBase TViewModel="PersonalityViewModel" Content="@Content">
+<DialogBase Content="@Content">
     <FluentTextField @bind-Value="Content.CharacterName" Label="@StringResources.Character_Name" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.CharacterName)" />
     <br />

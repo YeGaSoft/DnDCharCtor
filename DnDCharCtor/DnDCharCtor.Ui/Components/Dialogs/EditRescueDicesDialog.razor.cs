@@ -4,7 +4,7 @@ using Microsoft.FluentUI.AspNetCore.Components;
 
 namespace DnDCharCtor.Ui.Components.Dialogs;
 
-public partial class EditRescueDices
+public partial class EditRescueDicesDialog
 {
     [CascadingParameter]
     public FluentDialog Dialog { get; set; } = default!;

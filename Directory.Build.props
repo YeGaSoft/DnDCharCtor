@@ -4,6 +4,9 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+
+	 <!--The specified version string '0.x.*' does not conform to the recommended format - major.minor.build.revision-->
+	 <NoWarn>$(NoWarn);7035</NoWarn>
   </PropertyGroup>
 
 </Project>

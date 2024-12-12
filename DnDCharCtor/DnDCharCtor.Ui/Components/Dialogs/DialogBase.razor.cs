@@ -7,7 +7,7 @@ using Microsoft.FluentUI.AspNetCore.Components;
 
 namespace DnDCharCtor.Ui.Components.Dialogs;
 
-public partial class DialogBase<TViewModel> : ComponentBase, IDisposable
+public partial class DialogBase : ComponentBase, IDisposable
 {
     [Inject]
     public IServiceProvider ServiceProvider { get; set; } = default!;
@@ -21,7 +21,7 @@ public partial class DialogBase<TViewModel> : ComponentBase, IDisposable
 
     [Parameter]
     [EditorRequired]
-    public IValidateAndCopyableViewModel<TViewModel> Content { get; set; } = default!;
+    public IValidateableViewModel Content { get; set; } = default!;
 
     [Parameter]
     public string SubmitButtonText { get; set; } = StringResources.Button_Submit;
