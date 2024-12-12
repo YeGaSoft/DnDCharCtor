@@ -29,7 +29,7 @@ public partial class PropertiesCard
         var data = new PropertiesViewModel(ViewModel);
         var dialogParameters = new Microsoft.FluentUI.AspNetCore.Components.DialogParameters()
         {
-            Title = StringResources.CharacterEditor_Properties_Edit,
+            Title = StringResources.CharacterEditor_Edit,
             //Width = "500px",
             PreventDismissOnOverlayClick = true,
             ShowDismiss = true,

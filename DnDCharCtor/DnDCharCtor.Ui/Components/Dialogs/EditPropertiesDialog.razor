@@ -1,39 +1,39 @@
 ﻿@implements IDialogContentComponent<PropertiesViewModel>
 
 <DialogBase Content="@Content">
-    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Strength" Label="@StringResources.Character_Properties_Strength" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Strength" Label="@StringResources.Character_Strength" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.Strength)" />
     <br />
 
-    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Skill" Label="@StringResources.Character_Properties_Skill" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Skill" Label="@StringResources.Character_Skill" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.Skill)" />
     <br />
 
-    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Constitution" Label="@StringResources.Character_Properties_Constitution" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Constitution" Label="@StringResources.Character_Constitution" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.Constitution)" />
     <br />
 
-    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Intelligence" Label="@StringResources.Character_Properties_Intelligence" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Intelligence" Label="@StringResources.Character_Intelligence" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.Intelligence)" />
     <br />
 
-    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Wisdom" Label="@StringResources.Character_Properties_Wisdom" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Wisdom" Label="@StringResources.Character_Wisdom" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.Wisdom)" />
     <br />
 
-    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Charisma" Label="@StringResources.Character_Properties_Charisma" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Charisma" Label="@StringResources.Character_Charisma" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.Charisma)" />
     <br />
 
-    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Inspiration" Label="@StringResources.Character_Properties_Inspiration" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Inspiration" Label="@StringResources.Character_Inspiration" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.Inspiration)" />
     <br />
 
-    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.TrainingBonus" Label="@StringResources.Character_Properties_TrainingBonus" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.TrainingBonus" Label="@StringResources.Character_TrainingBonus" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.TrainingBonus)" />
     <br />
 
-    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.PassiveWisdomRecognition" Label="@StringResources.Character_Properties_PassiveWisdomRecognition" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.PassiveWisdomRecognition" Label="@StringResources.Character_PassiveWisdomRecognition" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.PassiveWisdomRecognition)" />
 </DialogBase>
 

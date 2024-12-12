@@ -160,7 +160,7 @@
     <value>Create character</value>
   </data>
   <data name="CharacterEditor_Edit" xml:space="preserve">
-    <value>Edit character "{0}"</value>
+    <value>Edit properties</value>
   </data>
   <data name="Page_Settings" xml:space="preserve">
     <value>Settings</value>
@@ -297,37 +297,37 @@
   <data name="Button_Adapt" xml:space="preserve">
     <value>Adapt</value>
   </data>
-  <data name="Character_Properties_Strength" xml:space="preserve">
-    <value>Strength</value>
-  </data>
-  <data name="Character_Properties_Skill" xml:space="preserve">
-    <value>Skill</value>
-  </data>
-  <data name="Character_Properties_Constitution" xml:space="preserve">
-    <value>Constitution</value>
-  </data>
-  <data name="Character_Properties_Intelligence" xml:space="preserve">
-    <value>Intelligence</value>
-  </data>
-  <data name="Character_Properties_Wisdom" xml:space="preserve">
-    <value>Wisdom</value>
-  </data>
-  <data name="Character_Properties_Charisma" xml:space="preserve">
-    <value>Charisma</value>
-  </data>
-  <data name="Character_Properties_Inspiration" xml:space="preserve">
-    <value>Inspiration</value>
-  </data>
-  <data name="Character_Properties_TrainingBonus" xml:space="preserve">
-    <value>Training bonus</value>
-  </data>
-  <data name="Character_Properties_PassiveWisdomRecognition" xml:space="preserve">
-    <value>Passive Wisdom (Recognition)</value>
-  </data>
-  <data name="CharacterEditor_Properties_Edit" xml:space="preserve">
-    <value>Edit properties</value>
-  </data>
   <data name="Character_Properties" xml:space="preserve">
     <value>Properties</value>
+  </data>
+  <data name="Character_Strength" xml:space="preserve">
+    <value>Strength</value>
+  </data>
+  <data name="Character_Skill" xml:space="preserve">
+    <value>Skill</value>
+  </data>
+  <data name="Character_Constitution" xml:space="preserve">
+    <value>Constitution</value>
+  </data>
+  <data name="Character_Intelligence" xml:space="preserve">
+    <value>Intelligence</value>
+  </data>
+  <data name="Character_Wisdom" xml:space="preserve">
+    <value>Wisdom</value>
+  </data>
+  <data name="Character_Charisma" xml:space="preserve">
+    <value>Charisma</value>
+  </data>
+  <data name="Character_Inspiration" xml:space="preserve">
+    <value>Inspiration</value>
+  </data>
+  <data name="Character_TrainingBonus" xml:space="preserve">
+    <value>Training bonus</value>
+  </data>
+  <data name="Character_PassiveWisdomRecognition" xml:space="preserve">
+    <value>Passive Wisdom (Recognition)</value>
+  </data>
+  <data name="Character_RescueDices" xml:space="preserve">
+    <value>Rescue dices</value>
   </data>
 </root>

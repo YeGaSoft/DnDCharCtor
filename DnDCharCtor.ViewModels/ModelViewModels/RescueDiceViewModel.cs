@@ -11,35 +11,29 @@ using System.Threading.Tasks;
 
 namespace DnDCharCtor.ViewModels.ModelViewModels;
 
-public partial class PropertiesViewModel : ObservableValidator, IValidateableViewModel
+public partial class RescueDicesViewModel : ObservableValidator, IValidateableViewModel
 {
-    public PropertiesViewModel(Properties properties)
+    public RescueDicesViewModel(RescueDices rescueDices)
     {
-        Strength = properties.Strength.ToString();
-        Skill = properties.Skill.ToString();
-        Constitution = properties.Constitution.ToString();
-        Intelligence = properties.Intelligence.ToString();
-        Wisdom = properties.Wisdom.ToString();
-        Charisma = properties.Charisma.ToString();
-        Inspiration = properties.Inspiration.ToString();
-        TrainingBonus = properties.TrainingBonus.ToString();
-        PassiveWisdomRecognition = properties.PassiveWisdomRecognition.ToString();
+        Strength = rescueDices.Strength.ToString();
+        Skill = rescueDices.Skill.ToString();
+        Constitution = rescueDices.Constitution.ToString();
+        Intelligence = rescueDices.Intelligence.ToString();
+        Wisdom = rescueDices.Wisdom.ToString();
+        Charisma = rescueDices.Charisma.ToString();
     }
 
-    public PropertiesViewModel(PropertiesViewModel propertiesViewModel)
+    public RescueDicesViewModel(RescueDicesViewModel rescueDicesViewModel)
     {
-        Strength = propertiesViewModel.Strength;
-        Skill = propertiesViewModel.Skill;
-        Constitution = propertiesViewModel.Constitution;
-        Intelligence = propertiesViewModel.Intelligence;
-        Wisdom = propertiesViewModel.Wisdom;
-        Charisma = propertiesViewModel.Charisma;
-        Inspiration = propertiesViewModel.Inspiration;
-        TrainingBonus = propertiesViewModel.TrainingBonus;
-        PassiveWisdomRecognition = propertiesViewModel.PassiveWisdomRecognition;
+        Strength = rescueDicesViewModel.Strength;
+        Skill = rescueDicesViewModel.Skill;
+        Constitution = rescueDicesViewModel.Constitution;
+        Intelligence = rescueDicesViewModel.Intelligence;
+        Wisdom = rescueDicesViewModel.Wisdom;
+        Charisma = rescueDicesViewModel.Charisma;
 
-        HasValidationErrors = propertiesViewModel.HasValidationErrors;
-        if (propertiesViewModel.HasValidationErrors) Validate();
+        HasValidationErrors = rescueDicesViewModel.HasValidationErrors;
+        if (rescueDicesViewModel.HasValidationErrors) Validate();
     }
 
     [ObservableProperty]
@@ -78,29 +72,11 @@ public partial class PropertiesViewModel : ObservableValidator, IValidateableVie
     [LocalizedParsedRange(nameof(StringResources.Character_Charisma), 1, int.MaxValue)]
     private string _charisma;
 
-    [ObservableProperty]
-    [NotifyDataErrorInfo]
-    [LocalizedParsedIntegerRequired(nameof(StringResources.Character_Inspiration))]
-    [LocalizedParsedRange(nameof(StringResources.Character_Inspiration), 1, int.MaxValue)]
-    private string _inspiration;
-
-    [ObservableProperty]
-    [NotifyDataErrorInfo]
-    [LocalizedParsedIntegerRequired(nameof(StringResources.Character_TrainingBonus))]
-    [LocalizedParsedRange(nameof(StringResources.Character_TrainingBonus), 1, int.MaxValue)]
-    private string _trainingBonus;
-
-    [ObservableProperty]
-    [NotifyDataErrorInfo]
-    [LocalizedParsedIntegerRequired(nameof(StringResources.Character_PassiveWisdomRecognition))]
-    [LocalizedParsedRange(nameof(StringResources.Character_PassiveWisdomRecognition), 1, int.MaxValue)]
-    private string _passiveWisdomRecognition;
-
 
     [ObservableProperty]
     private bool _hasValidationErrors;
     public Dictionary<string, IReadOnlyCollection<ValidationResult>> ValidationErrors { get; set; } = [];
-    public string ValidationErrorSource => StringResources.Character_Properties;
+    public string ValidationErrorSource => StringResources.Character_RescueDices;
 
 
     public bool Validate()
@@ -118,7 +94,7 @@ public partial class PropertiesViewModel : ObservableValidator, IValidateableVie
     }
 
 
-    public Properties ToProperties()
+    public RescueDices ToRescueDices()
     {
         var hasStrength = int.TryParse(Strength, out var strength);
         var hasSkill = int.TryParse(Skill, out var skill);
@@ -126,11 +102,8 @@ public partial class PropertiesViewModel : ObservableValidator, IValidateableVie
         var hasIntelligence = int.TryParse(Intelligence, out var intelligence);
         var hasWisdom = int.TryParse(Wisdom, out var wisdom);
         var hasCharisma = int.TryParse(Charisma, out var charisma);
-        var hasInspiration = int.TryParse(Inspiration, out var inspiration);
-        var hasTrainingBonus = int.TryParse(TrainingBonus, out var trainingBonus);
-        var hasPassiveWisdomRecognition = int.TryParse(PassiveWisdomRecognition, out var passiveWisdomRecognition);
 
-        return new Properties
+        return new RescueDices
         {
             Strength = hasStrength ? strength : 0,
             Skill = hasSkill ? skill : 0,
@@ -138,9 +111,6 @@ public partial class PropertiesViewModel : ObservableValidator, IValidateableVie
             Intelligence = hasIntelligence ? intelligence : 0,
             Wisdom = hasWisdom ? wisdom : 0,
             Charisma = hasCharisma ? charisma : 0,
-            Inspiration = hasInspiration ? inspiration : 0,
-            TrainingBonus = hasTrainingBonus ? trainingBonus : 0,
-            PassiveWisdomRecognition = hasPassiveWisdomRecognition ? passiveWisdomRecognition : 0,
         };
     }
 }
