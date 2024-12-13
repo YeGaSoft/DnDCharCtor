@@ -1,4 +1,4 @@
-﻿<FluentLayout>
+﻿<FluentLayout Style="height: 90vh">
     <FluentHeader>
         <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
             <FluentLabel Typo="Typography.PaneHeader">@ViewModel.Title</FluentLabel>
@@ -6,14 +6,14 @@
     </FluentHeader>
 
     <FluentBodyContent>
-        <FluentGrid AdaptiveRendering="true" Style=@($"""background-color: var(--neutral-layer-3); padding: 4px; {(ViewModel.HasValidationErrors ? "border-color: red; border-width: medium;" : "")}""")>
-            <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2">
+        <FluentGrid Style=@($"""background-color: var(--neutral-layer-3); padding: 4px; {(ViewModel.HasValidationErrors ? "border-color: red; border-width: medium;" : "")}""")>
+            <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2" HiddenWhen="@(ViewModel.CharacterViewModelToEdit!.PersonalityViewModel.Search(SearchText ?? string.Empty, true) ? GridItemHidden.None : GridItemHidden.XsAndUp)">
                 <PersonalityCard @bind-ViewModel="@(ViewModel.CharacterViewModelToEdit.PersonalityViewModel)" />
             </FluentGridItem>
-            <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2">
+            <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2" HiddenWhen="@(ViewModel.CharacterViewModelToEdit!.PropertiesViewModel.Search(SearchText ?? string.Empty, true) ? GridItemHidden.None : GridItemHidden.XsAndUp)">
                 <PropertiesCard @bind-ViewModel="@(ViewModel.CharacterViewModelToEdit.PropertiesViewModel)" />
             </FluentGridItem>
-            <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2">
+            <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2" HiddenWhen="@(ViewModel.CharacterViewModelToEdit!.RescueDicesViewModel.Search(SearchText ?? string.Empty, true) ? GridItemHidden.None : GridItemHidden.XsAndUp)">
                 <RescueDicesCard @bind-ViewModel="@(ViewModel.CharacterViewModelToEdit.RescueDicesViewModel)" />
             </FluentGridItem>
         </FluentGrid>
@@ -21,18 +21,18 @@
     </FluentBodyContent>
     
     <FluentFooter>
-        <br />
-        <FluentDivider />
-        <br />
         <FluentGrid Justify="JustifyContent.SpaceBetween" Style="width: 100%;">
-            <FluentGridItem xs="3">
-                <FluentButton OnClick="Reset" IconStart="@(new Icons.Regular.Size20.ArrowReset())">@StringResources.Button_Reset</FluentButton>
-            </FluentGridItem>
-            <FluentGridItem xs="3">
-                <FluentButton OnClick="SaveChanges" Appearance="Appearance.Accent" IconStart="@(new Icons.Regular.Size20.Save())">@StringResources.Button_Save</FluentButton>
-            </FluentGridItem>
-            <FluentGridItem xs="3">
+            <FluentGridItem xs="12">
                 <FluentSpacer />
+            </FluentGridItem>
+            <FluentGridItem xs="6" md="3">
+                <FluentButton Style="width: 100%;" OnClick="Reset" IconStart="@(new Icons.Regular.Size20.ArrowReset())">@StringResources.Button_Reset</FluentButton>
+            </FluentGridItem>
+            <FluentGridItem xs="6" md="3">
+                <FluentButton Style="width: 100%;" OnClick="SaveChanges" Appearance="Appearance.Accent" IconStart="@(new Icons.Regular.Size20.Save())">@StringResources.Button_Save</FluentButton>
+            </FluentGridItem>
+            <FluentGridItem xs="12" md="6">
+                <DebouncedSearch @bind-SearchText="@SearchText" PlaceHolder="@StringResources.Search_CardsPlaceholder" Style="width: 100%" />
             </FluentGridItem>
         </FluentGrid>
     </FluentFooter>
