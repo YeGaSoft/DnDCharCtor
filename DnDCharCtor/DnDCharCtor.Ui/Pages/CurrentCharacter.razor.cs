@@ -16,9 +16,6 @@ public partial class CurrentCharacter
     [Inject]
     public NavigationManager NavigationManager { get; set; } = default!;
 
-    [Inject]
-    public IJSRuntime JsRuntime { get; set; } = default!;
-
     private string? _searchText = string.Empty;
     private string? SearchText
     {
@@ -27,16 +24,6 @@ public partial class CurrentCharacter
         {
             _searchText = value;
             InvokeAsync(StateHasChanged).SafeFireAndForget(null);
-        }
-    }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            var module = await JsRuntime.InvokeAsync<IJSObjectReference>("import", "./_content/DnDCharCtor.Ui/addOpacityToBackground.js");
-            await module.InvokeVoidAsync("addOpacityToBackground", "currentCharacterFluentLayout", 0.5);
-            //await JsRuntime.InvokeVoidAsync("_content/DnDCharCtor.Ui/addOpacityToBackground.js", "currentCharacterFluentLayout", 0.5);
         }
     }
 
