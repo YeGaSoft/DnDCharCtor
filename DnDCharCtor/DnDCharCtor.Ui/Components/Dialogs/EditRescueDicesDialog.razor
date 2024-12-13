@@ -1,4 +1,4 @@
-﻿@implements IDialogContentComponent<PropertiesViewModel>
+﻿@implements IDialogContentComponent<RescueDicesViewModel>
 
 <DialogBase Content="@Content">
     <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Strength" Label="@StringResources.Character_Strength" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
@@ -24,15 +24,4 @@
     <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Charisma" Label="@StringResources.Character_Charisma" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.Charisma)" />
     <br />
-
-    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Inspiration" Label="@StringResources.Character_Inspiration" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
-    <ValidationMessage For="@(() => Content.Inspiration)" />
-    <br />
-
-    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.TrainingBonus" Label="@StringResources.Character_TrainingBonus" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
-    <ValidationMessage For="@(() => Content.TrainingBonus)" />
-    <br />
-
-    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.PassiveWisdomRecognition" Label="@StringResources.Character_PassiveWisdomRecognition" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
-    <ValidationMessage For="@(() => Content.PassiveWisdomRecognition)" />
 </DialogBase>

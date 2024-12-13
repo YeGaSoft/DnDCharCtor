@@ -11,6 +11,9 @@
     <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2">
         <PropertiesCard @bind-ViewModel="@(ViewModel.CurrentCharacterViewModel!.PropertiesViewModel)" EditButtonText="@StringResources.Button_Adapt" EditButtonIcon="@(new Icons.Regular.Size20.NoteEdit())" />
     </FluentGridItem>
+    <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2">
+        <RescueDicesCard @bind-ViewModel="@(ViewModel.CurrentCharacterViewModel!.RescueDicesViewModel)" EditButtonText="@StringResources.Button_Adapt" EditButtonIcon="@(new Icons.Regular.Size20.NoteEdit())" />
+    </FluentGridItem>
 </FluentGrid>
 <br />
 

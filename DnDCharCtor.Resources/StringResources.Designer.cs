@@ -223,11 +223,56 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Charisma.
+        /// </summary>
+        public static string Character_Charisma {
+            get {
+                return ResourceManager.GetString("Character_Charisma", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Constitution.
+        /// </summary>
+        public static string Character_Constitution {
+            get {
+                return ResourceManager.GetString("Character_Constitution", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Inspiration.
+        /// </summary>
+        public static string Character_Inspiration {
+            get {
+                return ResourceManager.GetString("Character_Inspiration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Intelligence.
+        /// </summary>
+        public static string Character_Intelligence {
+            get {
+                return ResourceManager.GetString("Character_Intelligence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Character name.
         /// </summary>
         public static string Character_Name {
             get {
                 return ResourceManager.GetString("Character_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Passive Wisdom (Recognition).
+        /// </summary>
+        public static string Character_PassiveWisdomRecognition {
+            get {
+                return ResourceManager.GetString("Character_PassiveWisdomRecognition", resourceCulture);
             }
         }
         
@@ -313,83 +358,47 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ~Charisma.
+        ///   Looks up a localized string similar to ~Rescue dices.
         /// </summary>
-        public static string Character_Properties_Charisma {
+        public static string Character_RescueDices {
             get {
-                return ResourceManager.GetString("Character_Properties_Charisma", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ~Constitution.
-        /// </summary>
-        public static string Character_Properties_Constitution {
-            get {
-                return ResourceManager.GetString("Character_Properties_Constitution", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ~Inspiration.
-        /// </summary>
-        public static string Character_Properties_Inspiration {
-            get {
-                return ResourceManager.GetString("Character_Properties_Inspiration", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ~Intelligence.
-        /// </summary>
-        public static string Character_Properties_Intelligence {
-            get {
-                return ResourceManager.GetString("Character_Properties_Intelligence", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ~Passive Wisdom (Recognition).
-        /// </summary>
-        public static string Character_Properties_PassiveWisdomRecognition {
-            get {
-                return ResourceManager.GetString("Character_Properties_PassiveWisdomRecognition", resourceCulture);
+                return ResourceManager.GetString("Character_RescueDices", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to ~Skill.
         /// </summary>
-        public static string Character_Properties_Skill {
+        public static string Character_Skill {
             get {
-                return ResourceManager.GetString("Character_Properties_Skill", resourceCulture);
+                return ResourceManager.GetString("Character_Skill", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to ~Strength.
         /// </summary>
-        public static string Character_Properties_Strength {
+        public static string Character_Strength {
             get {
-                return ResourceManager.GetString("Character_Properties_Strength", resourceCulture);
+                return ResourceManager.GetString("Character_Strength", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to ~Training bonus.
         /// </summary>
-        public static string Character_Properties_TrainingBonus {
+        public static string Character_TrainingBonus {
             get {
-                return ResourceManager.GetString("Character_Properties_TrainingBonus", resourceCulture);
+                return ResourceManager.GetString("Character_TrainingBonus", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to ~Wisdom.
         /// </summary>
-        public static string Character_Properties_Wisdom {
+        public static string Character_Wisdom {
             get {
-                return ResourceManager.GetString("Character_Properties_Wisdom", resourceCulture);
+                return ResourceManager.GetString("Character_Wisdom", resourceCulture);
             }
         }
         
@@ -403,7 +412,7 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ~Edit character &quot;{0}&quot;.
+        ///   Looks up a localized string similar to ~Edit properties.
         /// </summary>
         public static string CharacterEditor_Edit {
             get {
@@ -417,15 +426,6 @@ namespace DnDCharCtor.Resources {
         public static string CharacterEditor_Personality_Edit {
             get {
                 return ResourceManager.GetString("CharacterEditor_Personality_Edit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ~Edit properties.
-        /// </summary>
-        public static string CharacterEditor_Properties_Edit {
-            get {
-                return ResourceManager.GetString("CharacterEditor_Properties_Edit", resourceCulture);
             }
         }
         

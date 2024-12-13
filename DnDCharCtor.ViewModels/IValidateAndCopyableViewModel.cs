@@ -8,6 +8,15 @@ using System.Threading.Tasks;
 
 namespace DnDCharCtor.ViewModels;
 
+/// <summary>
+/// This interface is only a wrapper for <see cref="IValidateableViewModel"/> and <see cref="IShallowCopyable{T}"/>.
+/// It is intended for generic components that require these functionalities.
+/// </summary>
+/// <typeparam name="TViewModel">Type for <see cref="IShallowCopyable{T}"/> to create copies.</typeparam>
+public interface IValidateAndCopyableViewModel<TViewModel> : IValidateableViewModel, IShallowCopyable<TViewModel>
+{
+}
+
 public interface IValidateableViewModel : INotifyPropertyChanged
 {
     bool HasValidationErrors { get; set; }

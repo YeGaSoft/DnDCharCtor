@@ -1,0 +1,18 @@
+﻿@inherits GenericCard<RescueDicesViewModel, EditRescueDicesDialog>
+
+<CardBase Title="@StringResources.Character_RescueDices" EditButtonText="@EditButtonText" EditButtonIcon="@EditButtonIcon" EditButtonCallback="EditAsync" CardClickCallback="EditAsync" HasValidationErrors="@(ViewModel.HasValidationErrors)">
+    <br />
+    <div><strong>@StringResources.Character_Strength:</strong> @ViewModel.Strength </div>
+    <br />
+    <div><strong>@StringResources.Character_Skill:</strong> @ViewModel.Skill </div>
+    <br />
+    <div><strong>@StringResources.Character_Constitution:</strong> @ViewModel.Constitution </div>
+    <br />
+    <div><strong>@StringResources.Character_Intelligence:</strong> @ViewModel.Intelligence </div>
+    <br />
+    <div><strong>@StringResources.Character_Wisdom:</strong> @ViewModel.Wisdom </div>
+    <br />
+    <div><strong>@StringResources.Character_Charisma:</strong> @ViewModel.Charisma </div>
+</CardBase>
+
+

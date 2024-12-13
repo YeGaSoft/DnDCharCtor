@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DnDCharCtor.Models;
 
-public record Properties
+public record RescueDices
 {
     [LocalizedRequired(nameof(StringResources.Character_Strength))]
     [LocalizedRange(nameof(StringResources.Character_Strength), 1, int.MaxValue)]
@@ -34,28 +34,13 @@ public record Properties
     [LocalizedRange(nameof(StringResources.Character_Charisma), 1, int.MaxValue)]
     public required int Charisma { get; init; }
 
-    [LocalizedRequired(nameof(StringResources.Character_Inspiration))]
-    [LocalizedRange(nameof(StringResources.Character_Inspiration), 1, int.MaxValue)]
-    public required int Inspiration { get; init; }
-
-    [LocalizedRequired(nameof(StringResources.Character_TrainingBonus))]
-    [LocalizedRange(nameof(StringResources.Character_TrainingBonus), 1, int.MaxValue)]
-    public required int TrainingBonus { get; init; }
-
-    [LocalizedRequired(nameof(StringResources.Character_PassiveWisdomRecognition))]
-    [LocalizedRange(nameof(StringResources.Character_PassiveWisdomRecognition), 1, int.MaxValue)]
-    public required int PassiveWisdomRecognition { get; init; }
-
-    public static Properties Empty => new()
-    { 
+    public static RescueDices Empty => new()
+    {
         Strength = 0,
         Skill = 0,
         Constitution = 0,
         Intelligence = 0,
         Wisdom = 0,
-        Charisma = 0, 
-        Inspiration = 0, 
-        TrainingBonus = 0, 
-        PassiveWisdomRecognition = 0 
+        Charisma = 0,
     };
 }
