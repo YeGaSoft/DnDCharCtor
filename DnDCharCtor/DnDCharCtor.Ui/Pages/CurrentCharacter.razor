@@ -24,10 +24,10 @@
             <FluentGridItem xs="12">
                 <FluentSpacer />
             </FluentGridItem>
-            <FluentGridItem xs="6">
+            <FluentGridItem xs="6" sm="3" md="6">
                 <FluentButton Style="width: 100%;" OnClick="EditCharacter" Appearance="Appearance.Accent" IconStart="@(new Icons.Regular.Size20.EditPerson())">@StringResources.Button_Edit</FluentButton>
             </FluentGridItem>
-            <FluentGridItem xs="12" sm="6">
+            <FluentGridItem xs="12" sm="9" md="6">
                 <DebouncedSearch @bind-SearchText="@SearchText" PlaceHolder="@StringResources.Search_CardsPlaceholder" Style="width: 100%" />
             </FluentGridItem>
         </FluentGrid>
