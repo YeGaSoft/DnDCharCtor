@@ -35,6 +35,19 @@ public partial class EditCharacter : IDisposable
     [SupplyParameterFromQuery(Name = Routes.EditCharacterQueryParameterId)]
     public string Id { get; set; } = string.Empty;
 
+
+    private string? _searchText = string.Empty;
+    private string? SearchText
+    {
+        get => _searchText;
+        set
+        {
+            _searchText = value;
+            InvokeAsync(StateHasChanged).SafeFireAndForget(null);
+        }
+    }
+
+
     private void Reset()
     {
         ViewModel.Reset();

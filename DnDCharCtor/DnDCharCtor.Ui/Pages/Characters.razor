@@ -1,14 +1,33 @@
-﻿<FluentHeader>
-    <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
-        <FluentLabel Typo="Typography.PaneHeader">@StringResources.Page_Characters</FluentLabel>
-    </FluentStack>
-</FluentHeader>
+﻿<FluentLayout Style="height: 90vh">
+    <FluentHeader>
+        <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
+            <FluentLabel Typo="Typography.PaneHeader">@StringResources.Page_Characters</FluentLabel>
+        </FluentStack>
+    </FluentHeader>
 
-<FluentGrid AdaptiveRendering="true" Style=@($"""background-color: var(--neutral-layer-3); padding: 4px;""")>
-    @foreach (var character in ViewModel.Characters)
-    {
-        <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2">
-            <CharacterCard ViewModel="character" ViewModelChanged="PropertyChangedAsync" />
-        </FluentGridItem>
-    }  
-</FluentGrid>
+    <FluentBodyContent>
+        <FluentGrid Style=@($"""background-color: var(--neutral-layer-3); padding: 4px;""")>
+            @foreach (var character in ViewModel.Characters)
+            {
+                <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2" HiddenWhen="@(character.Search(SearchText ?? string.Empty, false) ? GridItemHidden.None : GridItemHidden.XsAndUp)">
+                    <CharacterCard ViewModel="character" ViewModelChanged="PropertyChangedAsync" />
+                </FluentGridItem>
+            }
+        </FluentGrid>
+        <br />
+    </FluentBodyContent>
+
+    <FluentFooter>
+        <FluentGrid Justify="JustifyContent.SpaceAround" Style="width: 100%;">
+            <FluentGridItem xs="12">
+                <FluentSpacer />
+            </FluentGridItem>
+            <FluentGridItem xs="12">
+                <DebouncedSearch @bind-SearchText="@SearchText" PlaceHolder="@StringResources.Search_CharacterPlaceholder" Style="width: 100%" />
+            </FluentGridItem>
+        </FluentGrid>
+    </FluentFooter>
+</FluentLayout>
+
+<!--This break ensures that the search-bar is not completely at the end of the page-->
+<br />

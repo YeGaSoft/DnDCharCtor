@@ -2,6 +2,7 @@ using DnDCharCtor.Common.Extensions;
 using DnDCharCtor.Ui.Constants;
 using DnDCharCtor.ViewModels;
 using Microsoft.AspNetCore.Components;
+using System.Buffers;
 using System.ComponentModel;
 
 namespace DnDCharCtor.Ui.Pages;
@@ -15,7 +16,16 @@ public partial class Characters : IDisposable
     [Inject]
     public NavigationManager NavigationManager { get; set; } = default!;
 
-
+    private string? _searchText = string.Empty;
+    private string? SearchText
+    {
+        get => _searchText;
+        set
+        {
+            _searchText = value;
+            PropertyChanged(this, EventArgs.Empty);
+        }
+    }
 
     protected override void OnInitialized()
     {

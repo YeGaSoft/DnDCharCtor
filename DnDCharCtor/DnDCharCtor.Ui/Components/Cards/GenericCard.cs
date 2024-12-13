@@ -17,7 +17,7 @@ namespace DnDCharCtor.Ui.Components.Cards;
 /// otherwise there is an error that the partial classes inherit from different base classes.
 /// </summary>
 public abstract partial class GenericCard<TViewModel, TDialog> : ComponentBase
-    where TViewModel : IValidateAndCopyableViewModel<TViewModel>
+    where TViewModel : IViewModelBase<TViewModel>
     where TDialog : IDialogContentComponent<TViewModel>
 {
     [Inject]
@@ -36,12 +36,14 @@ public abstract partial class GenericCard<TViewModel, TDialog> : ComponentBase
     [Parameter]
     public Icon EditButtonIcon { get; set; } = new Icons.Regular.Size20.Edit();
 
+    public abstract string DialogTitle { get; }
+
     public async Task EditAsync()
     {
         var data = ViewModel.CreateShallowCopy();
         var dialogParameters = new Microsoft.FluentUI.AspNetCore.Components.DialogParameters()
         {
-            Title = StringResources.CharacterEditor_Edit,
+            Title = DialogTitle,
             //Width = "500px",
             PreventDismissOnOverlayClick = true,
             ShowDismiss = true,

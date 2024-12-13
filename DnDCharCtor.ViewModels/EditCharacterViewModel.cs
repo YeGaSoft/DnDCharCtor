@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace DnDCharCtor.ViewModels;
 
-public partial class EditCharacterViewModel : ObservableValidator, IValidateableViewModel, IDisposable
+public partial class EditCharacterViewModel : ObservableValidator, IValidateable, IDisposable
 {
     private readonly IHybridCacheService _hybridCacheService;
     private readonly IEventAggregator _eventAggregator;

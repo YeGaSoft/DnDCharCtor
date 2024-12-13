@@ -5,13 +5,15 @@ using DnDCharCtor.Validation.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DnDCharCtor.ViewModels.ModelViewModels;
 
-public partial class PropertiesViewModel : ObservableValidator, IValidateAndCopyableViewModel<PropertiesViewModel>
+public partial class PropertiesViewModel : ObservableValidator, IViewModelBase<PropertiesViewModel>
 {
     public PropertiesViewModel(Properties properties)
     {
@@ -120,6 +122,47 @@ public partial class PropertiesViewModel : ObservableValidator, IValidateAndCopy
     public PropertiesViewModel CreateShallowCopy()
     {
         return new PropertiesViewModel(this);
+    }
+
+    public bool Search(string searchText, bool includePropertyNames)
+    {
+        if (string.IsNullOrWhiteSpace(searchText))
+        {
+            return true;
+        }
+
+        // Check string properties
+        if (Strength.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            Skill.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            Constitution.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            Intelligence.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            Wisdom.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            Charisma.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            Inspiration.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            TrainingBonus.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            PassiveWisdomRecognition.Contains(searchText, StringComparison.OrdinalIgnoreCase))
+        {
+            return true;
+        }
+
+        if (includePropertyNames is false) return false;
+
+        // Check string resources
+        if (StringResources.Character_Properties.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_Strength.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_Skill.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_Constitution.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_Intelligence.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_Wisdom.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_Charisma.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_Inspiration.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_TrainingBonus.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_PassiveWisdomRecognition.Contains(searchText, StringComparison.OrdinalIgnoreCase))
+        {
+            return true;
+        }
+
+        return false;
     }
 
 

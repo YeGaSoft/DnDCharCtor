@@ -11,5 +11,5 @@ public partial class ValidationErrorDialog
     public FluentDialog Dialog { get; set; } = default!;
 
     [Parameter]
-    public IValidateableViewModel Content { get; set; } = default!;
+    public IValidateable Content { get; set; } = default!;
 }

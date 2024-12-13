@@ -412,7 +412,7 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ~Edit properties.
+        ///   Looks up a localized string similar to ~Edit character &quot;{0}&quot;.
         /// </summary>
         public static string CharacterEditor_Edit {
             get {
@@ -426,6 +426,24 @@ namespace DnDCharCtor.Resources {
         public static string CharacterEditor_Personality_Edit {
             get {
                 return ResourceManager.GetString("CharacterEditor_Personality_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Edit properties.
+        /// </summary>
+        public static string CharacterEditor_Properties_Edit {
+            get {
+                return ResourceManager.GetString("CharacterEditor_Properties_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Edit rescue dices.
+        /// </summary>
+        public static string CharacterEditor_RescueDices_Edit {
+            get {
+                return ResourceManager.GetString("CharacterEditor_RescueDices_Edit", resourceCulture);
             }
         }
         
@@ -561,6 +579,33 @@ namespace DnDCharCtor.Resources {
         public static string Page_Settings {
             get {
                 return ResourceManager.GetString("Page_Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Search card by property or value.
+        /// </summary>
+        public static string Search_CardsPlaceholder {
+            get {
+                return ResourceManager.GetString("Search_CardsPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Search character.
+        /// </summary>
+        public static string Search_CharacterLabel {
+            get {
+                return ResourceManager.GetString("Search_CharacterLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Search character by property-value.
+        /// </summary>
+        public static string Search_CharacterPlaceholder {
+            get {
+                return ResourceManager.GetString("Search_CharacterPlaceholder", resourceCulture);
             }
         }
         

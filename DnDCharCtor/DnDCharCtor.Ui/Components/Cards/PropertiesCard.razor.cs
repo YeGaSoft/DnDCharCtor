@@ -8,5 +8,5 @@ namespace DnDCharCtor.Ui.Components.Cards;
 
 public partial class PropertiesCard : GenericCard<PropertiesViewModel, EditPropertiesDialog>
 {
-    
+    public override string DialogTitle => StringResources.CharacterEditor_Properties_Edit;
 }

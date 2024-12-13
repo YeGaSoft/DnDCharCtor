@@ -1,47 +1,49 @@
 ﻿<FluentCard Style=@($"{(HasValidationErrors ? "border-color: red; border-width: medium;" : "")}")>
-    <FluentHeader>
-        <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
-            <FluentLabel Typo="Typography.PaneHeader">@Title</FluentLabel>
-        </FluentStack>
-    </FluentHeader>
+    <FluentLayout>
+        <FluentHeader>
+            <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
+                <FluentLabel Typo="Typography.PaneHeader">@Title</FluentLabel>
+            </FluentStack>
+        </FluentHeader>
 
-    <FluentBodyContent>
-        <FluentAccordion>
-            <FluentAccordionItem Heading="@StringResources.Button_Properties" Expanded="true">
-                <div style="cursor: pointer;">
-                    <FluentStack Orientation="Orientation.Vertical"
-                                 VerticalAlignment="VerticalAlignment.Center"
-                                 HorizontalAlignment="HorizontalAlignment.Start"
-                                 onclick="@EditButtonCallback">
-                        @ChildContent
-                    </FluentStack>
-                </div>   
-            </FluentAccordionItem>
-        </FluentAccordion>
-        
-        <br />
-        <FluentDivider />
-        <br />
-        <FluentGrid Justify="JustifyContent.SpaceAround" Style="width: 100%;">
-            @if (ShowDeleteButton)
-            {
+        <FluentBodyContent Style="overflow:hidden">
+            <FluentAccordion>
+                <FluentAccordionItem Heading="@StringResources.Button_Properties" Expanded="true">
+                    <div style="cursor: pointer;">
+                        <FluentStack Orientation="Orientation.Vertical"
+                                     VerticalAlignment="VerticalAlignment.Center"
+                                     HorizontalAlignment="HorizontalAlignment.Start"
+                                     onclick="@EditButtonCallback">
+                            @ChildContent
+                        </FluentStack>
+                    </div>
+                </FluentAccordionItem>
+            </FluentAccordion>
+
+            <br />
+            <FluentDivider />
+            <br />
+            <FluentGrid Justify="JustifyContent.SpaceAround" Style="width: 100%;">
+                @if (ShowDeleteButton)
+                {
+                    <FluentGridItem xs="6">
+                        <FluentButton Style="width: 100%;" OnClick="DeleteButtonCallback" Appearance="Appearance.Neutral" BackgroundColor="var(--error)">
+                            <FluentIcon Value="@(new Icons.Regular.Size20.Delete())" Color="@Color.Neutral" Slot="start" />
+                            @DeleteButtonText
+                        </FluentButton>
+                    </FluentGridItem>
+                }
                 <FluentGridItem xs="6">
-                    <FluentButton Style="width: 100%;" OnClick="DeleteButtonCallback" Appearance="Appearance.Neutral" BackgroundColor="var(--error)">
-                        <FluentIcon Value="@(new Icons.Regular.Size20.Delete())" Color="@Color.Neutral" Slot="start" />
-                        @DeleteButtonText
-                    </FluentButton>
+                    <FluentButton Style="width: 100%;" OnClick="EditButtonCallback" IconStart="@EditButtonIcon">@EditButtonText</FluentButton>
                 </FluentGridItem>
-            }
-            <FluentGridItem xs="6">
-                <FluentButton Style="width: 100%;" OnClick="EditButtonCallback" IconStart="@EditButtonIcon">@EditButtonText</FluentButton>
-            </FluentGridItem>
-            @if (ShowPrimaryButton)
-            {
-                <FluentGridItem xs="6">
-                    <FluentButton Style="width: 100%;" OnClick="PrimaryButtonCallback" Appearance="Appearance.Accent" IconStart="@PrimaryButtonIcon">@PrimaryButtonText</FluentButton>
-                </FluentGridItem>
-            }
-        </FluentGrid>
-    </FluentBodyContent>
+                @if (ShowPrimaryButton)
+                {
+                    <FluentGridItem xs="6">
+                        <FluentButton Style="width: 100%;" OnClick="PrimaryButtonCallback" Appearance="Appearance.Accent" IconStart="@PrimaryButtonIcon">@PrimaryButtonText</FluentButton>
+                    </FluentGridItem>
+                }
+            </FluentGrid>
+        </FluentBodyContent>
+    </FluentLayout> 
 </FluentCard>
          
