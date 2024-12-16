@@ -1,6 +1,6 @@
 ﻿@implements IDialogContentComponent<PersonalityViewModel>
 
-<DialogBase Content="@Content">
+<ValidationDialogBase Content="@Content">
     <FluentTextField @bind-Value="Content.CharacterName" Label="@StringResources.Character_Name" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.CharacterName)" />
     <br />
@@ -55,4 +55,4 @@
 
     <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Experience" Label="@StringResources.Character_Personality_Experience" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.Experience)" />
-</DialogBase>
+</ValidationDialogBase>

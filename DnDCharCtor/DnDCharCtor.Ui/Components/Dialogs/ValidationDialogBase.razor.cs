@@ -7,7 +7,7 @@ using Microsoft.FluentUI.AspNetCore.Components;
 
 namespace DnDCharCtor.Ui.Components.Dialogs;
 
-public partial class DialogBase : ComponentBase, IDisposable
+public partial class ValidationDialogBase : ComponentBase, IDisposable
 {
     [Inject]
     public IServiceProvider ServiceProvider { get; set; } = default!;

@@ -1,6 +1,6 @@
 ﻿@implements IDialogContentComponent<RescueDicesViewModel>
 
-<DialogBase Content="@Content">
+<ValidationDialogBase Content="@Content">
     <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Strength" Label="@StringResources.Character_Strength" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.Strength)" />
     <br />
@@ -24,4 +24,4 @@
     <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Charisma" Label="@StringResources.Character_Charisma" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.Charisma)" />
     <br />
-</DialogBase>
+</ValidationDialogBase>
