@@ -8,13 +8,16 @@
     <FluentBodyContent>
         <FluentGrid Style=@($"""background-color: var(--neutral-layer-3); padding: 4px; {(ViewModel.HasValidationErrors ? "border-color: red; border-width: medium;" : "")}""")>
             <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2" HiddenWhen="@(ViewModel.CharacterViewModelToEdit!.PersonalityViewModel.Search(SearchText ?? string.Empty, true) ? GridItemHidden.None : GridItemHidden.XsAndUp)">
-                <PersonalityCard @bind-ViewModel="@(ViewModel.CharacterViewModelToEdit.PersonalityViewModel)" />
+                <PersonalityCard @ref="personalityCardRef" @bind-ViewModel="@(ViewModel.CharacterViewModelToEdit.PersonalityViewModel)"
+                                 PreviousCard="@rescueDiceCardRef" NextCard="@propertiesCardRef" />
             </FluentGridItem>
             <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2" HiddenWhen="@(ViewModel.CharacterViewModelToEdit!.PropertiesViewModel.Search(SearchText ?? string.Empty, true) ? GridItemHidden.None : GridItemHidden.XsAndUp)">
-                <PropertiesCard @bind-ViewModel="@(ViewModel.CharacterViewModelToEdit.PropertiesViewModel)" />
+                <PropertiesCard @ref="propertiesCardRef" @bind-ViewModel="@(ViewModel.CharacterViewModelToEdit.PropertiesViewModel)"
+                                PreviousCard="@personalityCardRef" NextCard="@rescueDiceCardRef" />
             </FluentGridItem>
             <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2" HiddenWhen="@(ViewModel.CharacterViewModelToEdit!.RescueDicesViewModel.Search(SearchText ?? string.Empty, true) ? GridItemHidden.None : GridItemHidden.XsAndUp)">
-                <RescueDicesCard @bind-ViewModel="@(ViewModel.CharacterViewModelToEdit.RescueDicesViewModel)" />
+                <RescueDicesCard @ref="rescueDiceCardRef" @bind-ViewModel="@(ViewModel.CharacterViewModelToEdit.RescueDicesViewModel)"
+                                 PreviousCard="@propertiesCardRef" NextCard="@personalityCardRef" />
             </FluentGridItem>
         </FluentGrid>
         <br />

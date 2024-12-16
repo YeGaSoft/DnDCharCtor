@@ -8,6 +8,7 @@ using DnDCharCtor.ViewModels;
 using DnDCharCtor.ViewModels.ModelViewModels;
 using Microsoft.AspNetCore.Components;
 using Microsoft.FluentUI.AspNetCore.Components;
+using DnDCharCtor.Ui.Components.Cards;
 
 namespace DnDCharCtor.Ui.Pages;
 
@@ -35,6 +36,9 @@ public partial class EditCharacter : IDisposable
     [SupplyParameterFromQuery(Name = Routes.EditCharacterQueryParameterId)]
     public string Id { get; set; } = string.Empty;
 
+    private IEditableCard personalityCardRef = default!;
+    private IEditableCard propertiesCardRef = default!;
+    private IEditableCard rescueDiceCardRef = default!;
 
     private string? _searchText = string.Empty;
     private string? SearchText
