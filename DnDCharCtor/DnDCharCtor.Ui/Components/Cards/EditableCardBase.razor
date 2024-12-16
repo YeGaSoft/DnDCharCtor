@@ -19,11 +19,13 @@
                     </div>
                 </FluentAccordionItem>
             </FluentAccordion>
+        </FluentBodyContent>
 
-            <br />
-            <FluentDivider />
-            <br />
+        <FluentFooter>
             <FluentGrid Justify="JustifyContent.SpaceAround" Style="width: 100%;">
+                <FluentGridItem xs="12">
+                    <FluentSpacer />
+                </FluentGridItem>
                 @if (ShowDeleteButton)
                 {
                     <FluentGridItem xs="6">
@@ -43,7 +45,7 @@
                     </FluentGridItem>
                 }
             </FluentGrid>
-        </FluentBodyContent>
+        </FluentFooter>
     </FluentLayout> 
 </FluentCard>
          

@@ -14,7 +14,7 @@ public partial class EditPersonalityDialog
     public FluentDialog Dialog { get; set; } = default!;
 
     [Parameter]
-    public PersonalityViewModel Content { get; set; } = default!;
+    public EditDialogParameter<PersonalityViewModel> Content { get; set; } = default!;
 
     protected override void OnInitialized()
     {
@@ -32,7 +32,7 @@ public partial class EditPersonalityDialog
     private async Task OnFileUploadedAsync(FluentInputFileEventArgs file)
     {
         if (file.Stream is null) return;
-        Content.Base64EncodedImage = await ImageCompressor.CompressImageAndEncodeToBase64Async(file.Stream);
+        Content.ViewModel.Base64EncodedImage = await ImageCompressor.CompressImageAndEncodeToBase64Async(file.Stream);
         await file.Stream!.DisposeAsync();
 
         await InvokeAsync(StateHasChanged);

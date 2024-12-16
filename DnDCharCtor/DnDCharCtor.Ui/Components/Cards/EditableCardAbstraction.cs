@@ -46,7 +46,12 @@ public abstract partial class EditableCardAbstraction<TViewModel, TDialog> : Com
 
     public async Task EditAsync()
     {
-        var data = ViewModel.CreateShallowCopy();
+        var data = new EditDialogParameter<TViewModel>()
+        {
+            PreviousCard = PreviousCard,
+            ViewModel = ViewModel.CreateShallowCopy(),
+            NextCard = NextCard,
+        };
         var dialogParameters = new Microsoft.FluentUI.AspNetCore.Components.DialogParameters()
         {
             Title = DialogTitle,

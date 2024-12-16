@@ -1,4 +1,5 @@
-﻿@implements IDialogContentComponent<IValidateable>
+﻿@typeparam TValidateable where TValidateable : IValidateable
+@implements IDialogContentComponent<EditDialogParameter<TValidateable>>
 
 <FluentDialogHeader>
     <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
@@ -28,11 +29,25 @@
 </FluentDialogBody>
 
 <FluentDialogFooter>
-    <br />
-    <FluentDivider />
-    <br />
-    <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
-        <FluentButton OnClick="CloseDialogAsync" Appearance="Appearance.Accent" IconStart="(new Icons.Regular.Size20.Send())">@SubmitButtonText</FluentButton>
-    </FluentStack>
+    <FluentGrid Justify="JustifyContent.SpaceAround" Style="width: 100%;">
+        <FluentGridItem xs="12">
+            <FluentSpacer />
+        </FluentGridItem>
+        <FluentGridItem xs="12" md="4">
+            <FluentButton Style="width: 100%;" OnClick="CloseDialogAsync" Appearance="Appearance.Accent" IconStart="(new Icons.Regular.Size20.Send())">@SubmitButtonText</FluentButton>
+        </FluentGridItem>
+        @if (Content.PreviousCard is not null)
+        {
+            <FluentGridItem xs="6" md="4">
+                <FluentButton Style="width: 100%;" OnClick="CloseDialogAndEditPreviousAsync" IconStart="(new Icons.Regular.Size20.ArrowLeft())">@Content.PreviousCard.DialogTitle</FluentButton>
+            </FluentGridItem>
+        }
+        @if (Content.NextCard is not null)
+        {
+            <FluentGridItem xs="6" md="4">
+                <FluentButton Style="width: 100%;" OnClick="CloseDialogAndEditNextAsync" IconEnd="(new Icons.Regular.Size20.ArrowRight())">@Content.NextCard.DialogTitle</FluentButton>
+            </FluentGridItem>
+        }
+    </FluentGrid>
 </FluentDialogFooter>
     

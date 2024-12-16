@@ -10,5 +10,5 @@ public partial class EditRescueDicesDialog
     public FluentDialog Dialog { get; set; } = default!;
 
     [Parameter]
-    public RescueDicesViewModel Content { get; set; } = default!;
+    public EditDialogParameter<RescueDicesViewModel> Content { get; set; } = default!;
 }
