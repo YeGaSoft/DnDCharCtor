@@ -15,10 +15,12 @@
 </FluentDialogBody>
 
 <FluentDialogFooter>
-    <br />
-    <FluentDivider />
-    <br />
-    <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
-        <FluentButton OnClick="CloseDialogAsync" Appearance="Appearance.Accent" IconStart="(new Icons.Regular.Size20.Send())">@CloseButtonText</FluentButton>
-    </FluentStack>
+    <FluentGrid Justify="JustifyContent.SpaceAround" Style="width: 100%;">
+        <FluentGridItem xs="12">
+            <FluentSpacer />
+        </FluentGridItem>
+        <FluentGridItem xs="12">
+            <FluentButton Style="width: 100%;" OnClick="CloseDialogAsync" Appearance="Appearance.Accent" IconStart="(new Icons.Regular.Size20.Send())">@CloseButtonText</FluentButton>
+        </FluentGridItem>
+    </FluentGrid>
 </FluentDialogFooter>
