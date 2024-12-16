@@ -1,4 +1,4 @@
-﻿@inherits GenericCard<PropertiesViewModel, EditPropertiesDialog>
+﻿@inherits EditCardAbstraction<PropertiesViewModel, EditPropertiesDialog>
 
 <CardBase Title="@StringResources.Character_Properties" EditButtonText="@EditButtonText" EditButtonIcon="@EditButtonIcon" EditButtonCallback="EditAsync" CardClickCallback="EditAsync" HasValidationErrors="@(ViewModel.HasValidationErrors)">
     <br />
