@@ -1,0 +1,24 @@
+﻿@implements IDialogContentComponent<IValidateable>
+
+<FluentDialogHeader>
+    <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
+        <FluentLabel Typo="Typography.PaneHeader">
+            @Dialog.Instance.Parameters.Title
+        </FluentLabel>
+    </FluentStack>
+    <br />
+    <FluentDivider />
+</FluentDialogHeader>
+
+<FluentDialogBody>
+    @ChildContent
+</FluentDialogBody>
+
+<FluentDialogFooter>
+    <br />
+    <FluentDivider />
+    <br />
+    <FluentStack VerticalAlignment="VerticalAlignment.Center" HorizontalAlignment="HorizontalAlignment.Center">
+        <FluentButton OnClick="CloseDialogAsync" Appearance="Appearance.Accent" IconStart="(new Icons.Regular.Size20.Send())">@CloseButtonText</FluentButton>
+    </FluentStack>
+</FluentDialogFooter>

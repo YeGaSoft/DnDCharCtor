@@ -1,6 +1,6 @@
 ﻿@implements IDialogContentComponent<PropertiesViewModel>
 
-<ValidationDialogBase Content="@Content">
+<EditDialogBase Content="@Content">
     <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Strength" Label="@StringResources.Character_Strength" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.Strength)" />
     <br />
@@ -35,4 +35,4 @@
 
     <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.PassiveWisdomRecognition" Label="@StringResources.Character_PassiveWisdomRecognition" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.PassiveWisdomRecognition)" />
-</ValidationDialogBase>
+</EditDialogBase>
