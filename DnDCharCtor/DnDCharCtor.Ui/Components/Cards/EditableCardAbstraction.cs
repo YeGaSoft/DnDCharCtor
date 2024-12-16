@@ -63,7 +63,8 @@ public abstract partial class EditableCardAbstraction<TViewModel, TDialog> : Com
         var result = await dialog.Result;
         if (result.Cancelled is false && result.Data is not null)
         {
-            ViewModel = (TViewModel)result.Data;
+            var resultData = (EditDialogParameter<TViewModel>)result.Data;
+            ViewModel = resultData.ViewModel;
             // When we started Editing with Validation-Errors (because the user tried to Save before):
             // we want to re-validate after submit to set `HasValidationErrors` to false when all errors were resolved.
             if (ViewModel.HasValidationErrors)

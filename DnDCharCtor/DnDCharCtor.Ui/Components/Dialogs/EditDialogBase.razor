@@ -33,18 +33,18 @@
         <FluentGridItem xs="12">
             <FluentSpacer />
         </FluentGridItem>
-        <FluentGridItem xs="12" md="4">
+        <FluentGridItem xs="12">
             <FluentButton Style="width: 100%;" OnClick="CloseDialogAsync" Appearance="Appearance.Accent" IconStart="(new Icons.Regular.Size20.Send())">@SubmitButtonText</FluentButton>
         </FluentGridItem>
         @if (Content.PreviousCard is not null)
         {
-            <FluentGridItem xs="6" md="4">
+            <FluentGridItem xs="6">
                 <FluentButton Style="width: 100%;" OnClick="CloseDialogAndEditPreviousAsync" IconStart="(new Icons.Regular.Size20.ArrowLeft())">@Content.PreviousCard.DialogTitle</FluentButton>
             </FluentGridItem>
         }
         @if (Content.NextCard is not null)
         {
-            <FluentGridItem xs="6" md="4">
+            <FluentGridItem xs="6">
                 <FluentButton Style="width: 100%;" OnClick="CloseDialogAndEditNextAsync" IconEnd="(new Icons.Regular.Size20.ArrowRight())">@Content.NextCard.DialogTitle</FluentButton>
             </FluentGridItem>
         }
