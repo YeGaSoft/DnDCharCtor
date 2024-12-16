@@ -1,6 +1,6 @@
 ﻿@inherits EditCardAbstraction<PropertiesViewModel, EditPropertiesDialog>
 
-<CardBase Title="@StringResources.Character_Properties" EditButtonText="@EditButtonText" EditButtonIcon="@EditButtonIcon" EditButtonCallback="EditAsync" CardClickCallback="EditAsync" HasValidationErrors="@(ViewModel.HasValidationErrors)">
+<EditableCardBase Title="@StringResources.Character_Properties" EditButtonText="@EditButtonText" EditButtonIcon="@EditButtonIcon" EditButtonCallback="EditAsync" CardClickCallback="EditAsync" HasValidationErrors="@(ViewModel.HasValidationErrors)">
     <br />
     <div><strong>@StringResources.Character_Strength:</strong> @ViewModel.Strength </div>
     <br />
@@ -19,6 +19,6 @@
     <div><strong>@StringResources.Character_TrainingBonus:</strong> @ViewModel.TrainingBonus </div>
     <br />
     <div><strong>@StringResources.Character_PassiveWisdomRecognition:</strong> @ViewModel.PassiveWisdomRecognition </div>
-</CardBase>
+</EditableCardBase>
 
 
