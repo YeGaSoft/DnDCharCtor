@@ -1,27 +1,27 @@
-﻿@implements IDialogContentComponent<RescueDicesViewModel>
+﻿@implements IDialogContentComponent<EditDialogParameter<RescueDicesViewModel>>
 
-<DialogBase Content="@Content">
-    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Strength" Label="@StringResources.Character_Strength" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
-    <ValidationMessage For="@(() => Content.Strength)" />
+<EditDialogBase Content="@Content">
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.Strength" Label="@StringResources.Character_Strength" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.Strength)" />
     <br />
 
-    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Skill" Label="@StringResources.Character_Skill" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
-    <ValidationMessage For="@(() => Content.Skill)" />
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.Skill" Label="@StringResources.Character_Skill" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.Skill)" />
     <br />
 
-    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Constitution" Label="@StringResources.Character_Constitution" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
-    <ValidationMessage For="@(() => Content.Constitution)" />
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.Constitution" Label="@StringResources.Character_Constitution" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.Constitution)" />
     <br />
 
-    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Intelligence" Label="@StringResources.Character_Intelligence" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
-    <ValidationMessage For="@(() => Content.Intelligence)" />
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.Intelligence" Label="@StringResources.Character_Intelligence" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.Intelligence)" />
     <br />
 
-    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Wisdom" Label="@StringResources.Character_Wisdom" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
-    <ValidationMessage For="@(() => Content.Wisdom)" />
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.Wisdom" Label="@StringResources.Character_Wisdom" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.Wisdom)" />
     <br />
 
-    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Charisma" Label="@StringResources.Character_Charisma" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
-    <ValidationMessage For="@(() => Content.Charisma)" />
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.Charisma" Label="@StringResources.Character_Charisma" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.Charisma)" />
     <br />
-</DialogBase>
+</EditDialogBase>

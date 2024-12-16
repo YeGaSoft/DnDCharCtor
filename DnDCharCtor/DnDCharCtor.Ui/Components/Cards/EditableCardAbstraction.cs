@@ -16,9 +16,8 @@ namespace DnDCharCtor.Ui.Components.Cards;
 /// When using this Base-Class, the razor-file must use '@inherits GenericCard&lt;TViewModel, TDialog&gt;' -
 /// otherwise there is an error that the partial classes inherit from different base classes.
 /// </summary>
-public abstract partial class GenericCard<TViewModel, TDialog> : ComponentBase
-    where TViewModel : IViewModelBase<TViewModel>
-    where TDialog : IDialogContentComponent<TViewModel>
+public abstract partial class EditableCardAbstraction<TViewModel, TDialog> : ComponentBase, IEditableCard where TViewModel : IViewModelBase<TViewModel>
+    where TDialog : IDialogContentComponent<EditDialogParameter<TViewModel>>
 {
     [Inject]
     public Microsoft.FluentUI.AspNetCore.Components.IDialogService DialogService { get; set; } = default!;
@@ -36,11 +35,23 @@ public abstract partial class GenericCard<TViewModel, TDialog> : ComponentBase
     [Parameter]
     public Icon EditButtonIcon { get; set; } = new Icons.Regular.Size20.Edit();
 
+    [Parameter]
+    public IEditableCard? PreviousCard { get; set; }
+
+    [Parameter]
+    public IEditableCard? NextCard { get; set; }
+
+
     public abstract string DialogTitle { get; }
 
     public async Task EditAsync()
     {
-        var data = ViewModel.CreateShallowCopy();
+        var data = new EditDialogParameter<TViewModel>()
+        {
+            PreviousCard = PreviousCard,
+            ViewModel = ViewModel.CreateShallowCopy(),
+            NextCard = NextCard,
+        };
         var dialogParameters = new Microsoft.FluentUI.AspNetCore.Components.DialogParameters()
         {
             Title = DialogTitle,
@@ -52,7 +63,8 @@ public abstract partial class GenericCard<TViewModel, TDialog> : ComponentBase
         var result = await dialog.Result;
         if (result.Cancelled is false && result.Data is not null)
         {
-            ViewModel = (TViewModel)result.Data;
+            var resultData = (EditDialogParameter<TViewModel>)result.Data;
+            ViewModel = resultData.ViewModel;
             // When we started Editing with Validation-Errors (because the user tried to Save before):
             // we want to re-validate after submit to set `HasValidationErrors` to false when all errors were resolved.
             if (ViewModel.HasValidationErrors)

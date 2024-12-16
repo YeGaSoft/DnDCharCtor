@@ -47,10 +47,11 @@ public partial class CharacterViewModel : ObservableValidator, IViewModelBase<Ch
 
     public bool Validate()
     {
-        HasValidationErrors =
-            PersonalityViewModel.Validate()
-            && PropertiesViewModel.Validate()
-            && RescueDicesViewModel.Validate();
+        bool personalityValid = PersonalityViewModel.Validate();
+        bool propertiesValid = PropertiesViewModel.Validate();
+        bool rescueDicesValid = RescueDicesViewModel.Validate();
+
+        HasValidationErrors = personalityValid && propertiesValid && rescueDicesValid;
         ValidationErrors.Clear();
         ValidationErrors = 
             ValidationErrors

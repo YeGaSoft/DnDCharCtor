@@ -6,7 +6,7 @@ using Microsoft.FluentUI.AspNetCore.Components;
 
 namespace DnDCharCtor.Ui.Components.Cards;
 
-public partial class PropertiesCard : GenericCard<PropertiesViewModel, EditPropertiesDialog>
+public partial class PropertiesCard : EditableCardAbstraction<PropertiesViewModel, EditPropertiesDialog>
 {
     public override string DialogTitle => StringResources.CharacterEditor_Properties_Edit;
 }

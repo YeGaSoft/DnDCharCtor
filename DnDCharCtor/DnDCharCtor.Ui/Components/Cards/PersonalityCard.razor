@@ -1,6 +1,6 @@
-﻿@inherits GenericCard<PersonalityViewModel, EditPersonalityDialog>
+﻿@inherits EditableCardAbstraction<PersonalityViewModel, EditPersonalityDialog>
 
-<CardBase Title="@StringResources.Character_Personality" EditButtonText="@EditButtonText" EditButtonIcon="@EditButtonIcon" EditButtonCallback="EditAsync" CardClickCallback="EditAsync" HasValidationErrors="@(ViewModel.HasValidationErrors)">
+<EditableCardBase Title="@StringResources.Character_Personality" EditButtonText="@EditButtonText" EditButtonIcon="@EditButtonIcon" EditButtonCallback="EditAsync" CardClickCallback="EditAsync" HasValidationErrors="@(ViewModel.HasValidationErrors)">
     <br />
     <div><strong>@StringResources.Character_Name:</strong> @ViewModel.CharacterName </div>
     <br />
@@ -29,4 +29,4 @@
         <div style="height: 200px; width: 200px;" />
         <br />
     }
-</CardBase>
+</EditableCardBase>

@@ -22,7 +22,7 @@
 	<BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
 	<MonoLinkerI18NAssemblies>all</MonoLinkerI18NAssemblies>
 	<!--https://stackoverflow.com/questions/826777/how-to-have-an-auto-incrementing-version-number-visual-studio-->
-	<AssemblyVersion>0.2.*</AssemblyVersion>
+	<AssemblyVersion>0.5.*</AssemblyVersion>
 	<!--https://stackoverflow.com/questions/53782085/assemblyversion-using-fails-with-error-wildcards-which-are-not-compatible-wi/58101474#58101474-->
 	<Deterministic>false</Deterministic>
 	 <!--The specified version string '0.x.*' does not conform to the recommended format - major.minor.build.revision-->

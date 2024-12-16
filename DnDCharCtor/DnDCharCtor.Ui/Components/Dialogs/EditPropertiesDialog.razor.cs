@@ -10,5 +10,5 @@ public partial class EditPropertiesDialog
     public FluentDialog Dialog { get; set; } = default!;
 
     [Parameter]
-    public PropertiesViewModel Content { get; set; } = default!;
+    public EditDialogParameter<PropertiesViewModel> Content { get; set; } = default!;
 }

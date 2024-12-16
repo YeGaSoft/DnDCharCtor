@@ -4,7 +4,7 @@ using Microsoft.FluentUI.AspNetCore.Components;
 
 namespace DnDCharCtor.Ui.Components.Cards;
 
-public partial class CardBase
+public partial class EditableCardBase
 {
     [Parameter]
     [EditorRequired]

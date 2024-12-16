@@ -1,8 +1,8 @@
-﻿@implements IDialogContentComponent<PersonalityViewModel>
+﻿@implements IDialogContentComponent<EditDialogParameter<PersonalityViewModel>>
 
-<DialogBase Content="@Content">
-    <FluentTextField @bind-Value="Content.CharacterName" Label="@StringResources.Character_Name" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
-    <ValidationMessage For="@(() => Content.CharacterName)" />
+<EditDialogBase Content="@Content">
+    <FluentTextField @bind-Value="Content.ViewModel.CharacterName" Label="@StringResources.Character_Name" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.CharacterName)" />
     <br />
 
     <FluentInputFile Id="my-file-uploader"
@@ -16,12 +16,12 @@
                 <FluentIcon Value="@(new @Icons.Regular.Size24.ArrowUpload())" />
             </label>
             <label for="my-file-uploader">@StringResources.CharacterEditor_UploadImage</label>
-            @if (string.IsNullOrWhiteSpace(Content.Base64EncodedImage) is false)
+            @if (string.IsNullOrWhiteSpace(Content.ViewModel.Base64EncodedImage) is false)
             {
                 <br />
                 <FluentDivider />
                 <br />
-                <img src="data:image/jpeg;base64,@Content.Base64EncodedImage" style="height: 100px; width: 100px;" alt="Base64 Image" />
+                <img src="data:image/jpeg;base64,@Content.ViewModel.Base64EncodedImage" style="height: 100px; width: 100px;" alt="Base64 Image" />
                 <br />
             }
         </ChildContent>
@@ -29,30 +29,30 @@
     </FluentInputFile>
     <br />
 
-    <FluentTextField @bind-Value="Content.ClassName" Label="@StringResources.Character_Personality_Class" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
-    <ValidationMessage For="@(() => Content.ClassName)" />
+    <FluentTextField @bind-Value="Content.ViewModel.ClassName" Label="@StringResources.Character_Personality_Class" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.ClassName)" />
     <br />
 
-    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Level" Label="@StringResources.Character_Personality_Level" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
-    <ValidationMessage For="@(() => Content.Level)" />
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.Level" Label="@StringResources.Character_Personality_Level" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.Level)" />
     <br />
 
-    <FluentTextArea @bind-Value="Content.Background" Label="@StringResources.Character_Personality_Background" Immediate="true" />
-    <ValidationMessage For="@(() => Content.Background)" />
+    <FluentTextArea @bind-Value="Content.ViewModel.Background" Label="@StringResources.Character_Personality_Background" Immediate="true" />
+    <ValidationMessage For="@(() => Content.ViewModel.Background)" />
     <br />
 
-    <FluentTextField @bind-Value="Content.PlayerName" Label="@StringResources.Character_Personality_PlayerName" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
-    <ValidationMessage For="@(() => Content.PlayerName)" />
+    <FluentTextField @bind-Value="Content.ViewModel.PlayerName" Label="@StringResources.Character_Personality_PlayerName" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.PlayerName)" />
     <br />
 
-    <FluentTextField @bind-Value="Content.Race" Label="@StringResources.Character_Personality_Race" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
-    <ValidationMessage For="@(() => Content.Race)" />
+    <FluentTextField @bind-Value="Content.ViewModel.Race" Label="@StringResources.Character_Personality_Race" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.Race)" />
     <br />
 
-    <FluentTextField @bind-Value="Content.Attitude" Label="@StringResources.Character_Personality_Attitude" Immediate="true" />
-    <ValidationMessage For="@(() => Content.Attitude)" />
+    <FluentTextField @bind-Value="Content.ViewModel.Attitude" Label="@StringResources.Character_Personality_Attitude" Immediate="true" />
+    <ValidationMessage For="@(() => Content.ViewModel.Attitude)" />
     <br />
 
-    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.Experience" Label="@StringResources.Character_Personality_Experience" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
-    <ValidationMessage For="@(() => Content.Experience)" />
-</DialogBase>
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.Experience" Label="@StringResources.Character_Personality_Experience" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.Experience)" />
+</EditDialogBase>
