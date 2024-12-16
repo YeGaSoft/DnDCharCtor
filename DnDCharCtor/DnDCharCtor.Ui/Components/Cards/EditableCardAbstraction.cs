@@ -17,7 +17,7 @@ namespace DnDCharCtor.Ui.Components.Cards;
 /// otherwise there is an error that the partial classes inherit from different base classes.
 /// </summary>
 public abstract partial class EditableCardAbstraction<TViewModel, TDialog> : ComponentBase, IEditableCard where TViewModel : IViewModelBase<TViewModel>
-    where TDialog : IDialogContentComponent<TViewModel>
+    where TDialog : IDialogContentComponent<EditDialogParameter<TViewModel>>
 {
     [Inject]
     public Microsoft.FluentUI.AspNetCore.Components.IDialogService DialogService { get; set; } = default!;
