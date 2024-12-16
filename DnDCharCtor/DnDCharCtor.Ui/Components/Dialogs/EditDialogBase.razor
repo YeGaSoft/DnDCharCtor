@@ -38,13 +38,13 @@
         </FluentGridItem>
         @if (Content.PreviousCard is not null)
         {
-            <FluentGridItem xs="6">
+            <FluentGridItem xs="8" sm="6">
                 <FluentButton Style="width: 100%;" OnClick="CloseDialogAndEditPreviousAsync" IconStart="(new Icons.Regular.Size20.ArrowLeft())">@Content.PreviousCard.DialogTitle</FluentButton>
             </FluentGridItem>
         }
         @if (Content.NextCard is not null)
         {
-            <FluentGridItem xs="6">
+            <FluentGridItem xs="8" sm="6">
                 <FluentButton Style="width: 100%;" OnClick="CloseDialogAndEditNextAsync" IconEnd="(new Icons.Regular.Size20.ArrowRight())">@Content.NextCard.DialogTitle</FluentButton>
             </FluentGridItem>
         }
