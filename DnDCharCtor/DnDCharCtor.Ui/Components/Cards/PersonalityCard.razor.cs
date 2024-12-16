@@ -12,7 +12,7 @@ using System.Linq.Expressions;
 
 namespace DnDCharCtor.Ui.Components.Cards;
 
-public partial class PersonalityCard : EditCardAbstraction<PersonalityViewModel, EditPersonalityDialog>
+public partial class PersonalityCard : EditableCardAbstraction<PersonalityViewModel, EditPersonalityDialog>
 {
     public override string DialogTitle => StringResources.CharacterEditor_Personality_Edit;
 }

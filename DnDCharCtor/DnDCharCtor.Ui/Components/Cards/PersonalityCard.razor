@@ -1,4 +1,4 @@
-﻿@inherits EditCardAbstraction<PersonalityViewModel, EditPersonalityDialog>
+﻿@inherits EditableCardAbstraction<PersonalityViewModel, EditPersonalityDialog>
 
 <EditableCardBase Title="@StringResources.Character_Personality" EditButtonText="@EditButtonText" EditButtonIcon="@EditButtonIcon" EditButtonCallback="EditAsync" CardClickCallback="EditAsync" HasValidationErrors="@(ViewModel.HasValidationErrors)">
     <br />
