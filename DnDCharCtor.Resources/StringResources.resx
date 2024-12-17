@@ -345,4 +345,49 @@
   <data name="Search_CardsPlaceholder" xml:space="preserve">
     <value>~Search card by property or value</value>
   </data>
+  <data name="Character_Skills_AcrobaticSkillfulness" xml:space="preserve">
+    <value>~Acrobatic (Skillfulness)</value>
+  </data>
+  <data name="Character_Skills_ArcanLoreIntelligence" xml:space="preserve">
+    <value>~Arcan lore (Intelligence)</value>
+  </data>
+  <data name="Character_Skills_AthleticStrength" xml:space="preserve">
+    <value>~Athletic (Strength)</value>
+  </data>
+  <data name="Character_Skills_AppearCharisma" xml:space="preserve">
+    <value>~Appear (Charisma)</value>
+  </data>
+  <data name="Character_Skills_IntimidateCharisma" xml:space="preserve">
+    <value>~Intimidate (Charisma)</value>
+  </data>
+  <data name="Character_Skills_DexteritySkillfulness" xml:space="preserve">
+    <value>~Dexterity (Skillfulness)</value>
+  </data>
+  <data name="Character_Skills_HistoryIntelligence" xml:space="preserve">
+    <value>~History (Intelligence)</value>
+  </data>
+  <data name="Character_Skills_MedicineWisdom" xml:space="preserve">
+    <value>~Medicine (Wisdom)</value>
+  </data>
+  <data name="Character_Skills_AnimalHandlingWisdom" xml:space="preserve">
+    <value>~Animal handling (Wisdom)</value>
+  </data>
+  <data name="Character_Skills_StealthSkillfulness" xml:space="preserve">
+    <value>~Stealth (Skillfulness)</value>
+  </data>
+  <data name="Character_Skills_MotiveRecognitionWisdom" xml:space="preserve">
+    <value>~Motive recognition (Wisdom)</value>
+  </data>
+  <data name="Character_Skills_ResearchIntelligence" xml:space="preserve">
+    <value>~Research (Intelligence)</value>
+  </data>
+  <data name="Character_Skills_NaturalHistoryIntelligence" xml:space="preserve">
+    <value>~Natural history (Intelligence)</value>
+  </data>
+  <data name="Character_Skills_ReligionIntelligence" xml:space="preserve">
+    <value>~Religion (Intelligence)</value>
+  </data>
+  <data name="Character_Skills_DeceiveCharisma" xml:space="preserve">
+    <value>~Deceive (Charisma)</value>
+  </data>
 </root>
