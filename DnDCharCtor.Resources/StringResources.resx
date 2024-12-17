@@ -303,8 +303,8 @@
   <data name="Character_Strength" xml:space="preserve">
     <value>~Strength</value>
   </data>
-  <data name="Character_Skill" xml:space="preserve">
-    <value>~Skill</value>
+  <data name="Character_Skillfulness" xml:space="preserve">
+    <value>~Skillfulness</value>
   </data>
   <data name="Character_Constitution" xml:space="preserve">
     <value>~Constitution</value>

@@ -367,11 +367,11 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ~Skill.
+        ///   Looks up a localized string similar to ~Skillfulness.
         /// </summary>
-        public static string Character_Skill {
+        public static string Character_Skillfulness {
             get {
-                return ResourceManager.GetString("Character_Skill", resourceCulture);
+                return ResourceManager.GetString("Character_Skillfulness", resourceCulture);
             }
         }
         
