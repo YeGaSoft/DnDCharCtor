@@ -70,6 +70,18 @@ public record Skills
     [LocalizedRange(nameof(StringResources.Character_Skills_DeceiveCharisma), 1, int.MaxValue)]
     public required int DeceiveCharisma { get; init; }
 
+    [LocalizedRequired(nameof(StringResources.Character_Skills_SurvivalSkillWisdom))]
+    [LocalizedRange(nameof(StringResources.Character_Skills_SurvivalSkillWisdom), 1, int.MaxValue)]
+    public required int SurvivalSkillWisdom { get; init; }
+
+    [LocalizedRequired(nameof(StringResources.Character_Skills_ConvinceCharisma))]
+    [LocalizedRange(nameof(StringResources.Character_Skills_ConvinceCharisma), 1, int.MaxValue)]
+    public required int ConvinceCharisma { get; init; }
+
+    [LocalizedRequired(nameof(StringResources.Character_Skills_PerceptionWisdom))]
+    [LocalizedRange(nameof(StringResources.Character_Skills_PerceptionWisdom), 1, int.MaxValue)]
+    public required int PerceptionWisdom { get; init; }
+
     public static Skills Empty => new()
     {
         AcrobaticSkillfulness = 0,
@@ -87,5 +99,8 @@ public record Skills
         NaturalHistoryIntelligence = 0,
         ReligionIntelligence = 0,
         DeceiveCharisma = 0,
+        SurvivalSkillWisdom = 0,
+        ConvinceCharisma = 0,
+        PerceptionWisdom = 0,
     };
 }

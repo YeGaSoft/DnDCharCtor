@@ -421,6 +421,15 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Convince (Charisma).
+        /// </summary>
+        public static string Character_Skills_ConvinceCharisma {
+            get {
+                return ResourceManager.GetString("Character_Skills_ConvinceCharisma", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Deceive (Charisma).
         /// </summary>
         public static string Character_Skills_DeceiveCharisma {
@@ -484,6 +493,15 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Perception (Wisdom).
+        /// </summary>
+        public static string Character_Skills_PerceptionWisdom {
+            get {
+                return ResourceManager.GetString("Character_Skills_PerceptionWisdom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Religion (Intelligence).
         /// </summary>
         public static string Character_Skills_ReligionIntelligence {
@@ -507,6 +525,15 @@ namespace DnDCharCtor.Resources {
         public static string Character_Skills_StealthSkillfulness {
             get {
                 return ResourceManager.GetString("Character_Skills_StealthSkillfulness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Survival skill (Wisdom).
+        /// </summary>
+        public static string Character_Skills_SurvivalSkillWisdom {
+            get {
+                return ResourceManager.GetString("Character_Skills_SurvivalSkillWisdom", resourceCulture);
             }
         }
         

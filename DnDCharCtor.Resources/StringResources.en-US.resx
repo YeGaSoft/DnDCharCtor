@@ -390,4 +390,13 @@
   <data name="Character_Skills_DeceiveCharisma" xml:space="preserve">
     <value>Deceive (Charisma)</value>
   </data>
+  <data name="Character_Skills_SurvivalSkillWisdom" xml:space="preserve">
+    <value>Survival skill (Wisdom)</value>
+  </data>
+  <data name="Character_Skills_ConvinceCharisma" xml:space="preserve">
+    <value>Convince (Charisma)</value>
+  </data>
+  <data name="Character_Skills_PerceptionWisdom" xml:space="preserve">
+    <value>Perception (Wisdom)</value>
+  </data>
 </root>

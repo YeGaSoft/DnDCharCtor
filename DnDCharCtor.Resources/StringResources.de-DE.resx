@@ -390,4 +390,13 @@
   <data name="Character_Skills_DeceiveCharisma" xml:space="preserve">
     <value>Täuschen (Charisma)</value>
   </data>
+  <data name="Character_Skills_SurvivalSkillWisdom" xml:space="preserve">
+    <value>Überlebenskunst (Weisheit)</value>
+  </data>
+  <data name="Character_Skills_ConvinceCharisma" xml:space="preserve">
+    <value>Überzeugen (Charisma)</value>
+  </data>
+  <data name="Character_Skills_PerceptionWisdom" xml:space="preserve">
+    <value>Wahrnehmung (Weisheit)</value>
+  </data>
 </root>
