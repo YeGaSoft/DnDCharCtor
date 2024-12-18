@@ -619,6 +619,15 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Edit skills.
+        /// </summary>
+        public static string CharacterEditor_Skills_Edit {
+            get {
+                return ResourceManager.GetString("CharacterEditor_Skills_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Drag or click here to upload an image.
         /// </summary>
         public static string CharacterEditor_UploadImage {

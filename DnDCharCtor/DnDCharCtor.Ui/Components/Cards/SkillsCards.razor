@@ -1,0 +1,40 @@
+﻿@inherits EditableCardAbstraction<SkillsViewModel, EditSkillsDialog>
+
+<EditableCardBase Title="@StringResources.Character_Skills" EditButtonText="@EditButtonText" EditButtonIcon="@EditButtonIcon" EditButtonCallback="EditAsync" CardClickCallback="EditAsync" HasValidationErrors="@(ViewModel.HasValidationErrors)">
+    <br />
+    <div><strong>@StringResources.Character_Skills_AcrobaticSkillfulness:</strong> @ViewModel.AcrobaticSkillfulness </div>
+    <br />
+    <div><strong>@StringResources.Character_Skills_ArcaneLoreIntelligence:</strong> @ViewModel.ArcaneLoreIntelligence </div>
+    <br />
+    <div><strong>@StringResources.Character_Skills_AthleticStrength:</strong> @ViewModel.AthleticStrength </div>
+    <br />
+    <div><strong>@StringResources.Character_Skills_AppearCharisma:</strong> @ViewModel.AppearCharisma </div>
+    <br />
+    <div><strong>@StringResources.Character_Skills_IntimidateCharisma:</strong> @ViewModel.IntimidateCharisma </div>
+    <br />
+    <div><strong>@StringResources.Character_Skills_DexteritySkillfulness:</strong> @ViewModel.DexteritySkillfulness </div>
+    <br />
+    <div><strong>@StringResources.Character_Skills_HistoryIntelligence:</strong> @ViewModel.HistoryIntelligence </div>
+    <br />
+    <div><strong>@StringResources.Character_Skills_MedicineWisdom:</strong> @ViewModel.MedicineWisdom </div>
+    <br />
+    <div><strong>@StringResources.Character_Skills_StealthSkillfulness:</strong> @ViewModel.StealthSkillfulness </div>
+    <br />
+    <div><strong>@StringResources.Character_Skills_AnimalHandlingWisdom:</strong> @ViewModel.AnimalHandlingWisdom </div>
+    <br />
+    <div><strong>@StringResources.Character_Skills_MotiveRecognitionWisdom:</strong> @ViewModel.MotiveRecognitionWisdom </div>
+    <br />
+    <div><strong>@StringResources.Character_Skills_ResearchIntelligence:</strong> @ViewModel.ResearchIntelligence </div>
+    <br />
+    <div><strong>@StringResources.Character_Skills_NaturalHistoryIntelligence:</strong> @ViewModel.NaturalHistoryIntelligence </div>
+    <br />
+    <div><strong>@StringResources.Character_Skills_ReligionIntelligence:</strong> @ViewModel.ReligionIntelligence </div>
+    <br />
+    <div><strong>@StringResources.Character_Skills_DeceiveCharisma:</strong> @ViewModel.DeceiveCharisma </div>
+    <br />
+    <div><strong>@StringResources.Character_Skills_SurvivalSkillWisdom:</strong> @ViewModel.SurvivalSkillWisdom </div>
+    <br />
+    <div><strong>@StringResources.Character_Skills_ConvinceCharisma:</strong> @ViewModel.ConvinceCharisma </div>
+    <br />
+    <div><strong>@StringResources.Character_Skills_PerceptionWisdom:</strong> @ViewModel.PerceptionWisdom </div>
+</EditableCardBase>

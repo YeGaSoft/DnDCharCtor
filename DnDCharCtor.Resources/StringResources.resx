@@ -402,4 +402,7 @@
   <data name="Character_Skills" xml:space="preserve">
     <value>~Skills</value>
   </data>
+  <data name="CharacterEditor_Skills_Edit" xml:space="preserve">
+    <value>~Edit skills</value>
+  </data>
 </root>
