@@ -399,4 +399,7 @@
   <data name="Character_Skills_PerceptionWisdom" xml:space="preserve">
     <value>Wahrnehmung (Weisheit)</value>
   </data>
+  <data name="Character_Skills" xml:space="preserve">
+    <value>Ferigkeiten</value>
+  </data>
 </root>

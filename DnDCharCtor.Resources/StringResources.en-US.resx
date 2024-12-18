@@ -399,4 +399,7 @@
   <data name="Character_Skills_PerceptionWisdom" xml:space="preserve">
     <value>Perception (Wisdom)</value>
   </data>
+  <data name="Character_Skills" xml:space="preserve">
+    <value>Skills</value>
+  </data>
 </root>

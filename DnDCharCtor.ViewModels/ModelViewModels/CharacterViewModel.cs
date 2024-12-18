@@ -18,6 +18,7 @@ public partial class CharacterViewModel : ObservableValidator, IViewModelBase<Ch
         PersonalityViewModel = new(character.Personality);
         PropertiesViewModel = new(character.Properties);
         RescueDicesViewModel = new(character.RescueDices);
+        SkillViewModel = new SkillsViewModel(character.Skills);
     }
 
     public CharacterViewModel(CharacterViewModel characterViewModel)
@@ -26,6 +27,7 @@ public partial class CharacterViewModel : ObservableValidator, IViewModelBase<Ch
         PersonalityViewModel = new(characterViewModel.PersonalityViewModel);
         PropertiesViewModel = new(characterViewModel.PropertiesViewModel);
         RescueDicesViewModel = new(characterViewModel.RescueDicesViewModel);
+        SkillViewModel = new(characterViewModel.SkillViewModel);
     }
 
     public Guid CharacterId { get; set; }
@@ -40,6 +42,9 @@ public partial class CharacterViewModel : ObservableValidator, IViewModelBase<Ch
     private RescueDicesViewModel _rescueDicesViewModel;
 
     [ObservableProperty]
+    private SkillsViewModel _skillViewModel;
+
+    [ObservableProperty]
     private bool _hasValidationErrors;
     public Dictionary<string, IReadOnlyCollection<ValidationResult>> ValidationErrors { get; set; } = [];
     public string ValidationErrorSource => StringResources.Character_Name;
@@ -50,6 +55,7 @@ public partial class CharacterViewModel : ObservableValidator, IViewModelBase<Ch
         bool personalityValid = PersonalityViewModel.Validate();
         bool propertiesValid = PropertiesViewModel.Validate();
         bool rescueDicesValid = RescueDicesViewModel.Validate();
+        bool skillsValid = SkillsViewModel.Validate();
 
         HasValidationErrors = personalityValid && propertiesValid && rescueDicesValid;
         ValidationErrors.Clear();
@@ -58,6 +64,7 @@ public partial class CharacterViewModel : ObservableValidator, IViewModelBase<Ch
             .Concat(PersonalityViewModel.ValidationErrors)
             .Concat(PropertiesViewModel.ValidationErrors)
             .Concat(RescueDicesViewModel.ValidationErrors)
+            .Concat(SkillsViewModel.ValidationErrors)
             .Where(validationErrorSource => validationErrorSource.Value.Count > 0)
             .ToDictionary();
         return HasValidationErrors is false;
@@ -72,7 +79,8 @@ public partial class CharacterViewModel : ObservableValidator, IViewModelBase<Ch
     {
         return PersonalityViewModel.Search(searchText, includePropertyNames) ||
             PropertiesViewModel.Search(searchText, includePropertyNames) ||
-            RescueDicesViewModel.Search(searchText, includePropertyNames);
+            RescueDicesViewModel.Search(searchText, includePropertyNames) ||
+            SkillsViewModel.Search(searchText, includePropertyNames);
     }
 
 
@@ -84,6 +92,7 @@ public partial class CharacterViewModel : ObservableValidator, IViewModelBase<Ch
             Personality = PersonalityViewModel.ToPersonality(),
             Properties = PropertiesViewModel.ToProperties(),
             RescueDices = RescueDicesViewModel.ToRescueDices(),
+            Skills = SkillViewModel.ToSkills(),
         };
     }
 }

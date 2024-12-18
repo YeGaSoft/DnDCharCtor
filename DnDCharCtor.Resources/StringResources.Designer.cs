@@ -376,6 +376,15 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Skills.
+        /// </summary>
+        public static string Character_Skills {
+            get {
+                return ResourceManager.GetString("Character_Skills", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Acrobatic (Skillfulness).
         /// </summary>
         public static string Character_Skills_AcrobaticSkillfulness {
