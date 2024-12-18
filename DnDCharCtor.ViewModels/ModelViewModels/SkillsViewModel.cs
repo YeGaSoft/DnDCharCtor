@@ -170,7 +170,7 @@ public partial class SkillsViewModel : ObservableValidator, IViewModelBase<Skill
     [ObservableProperty]
     private bool _hasValidationErrors;
     public Dictionary<string, IReadOnlyCollection<ValidationResult>> ValidationErrors { get; set; } = [];
-    public string ValidationErrorSource => StringResources.Character_RescueDices;
+    public string ValidationErrorSource => StringResources.Character_Skills;
 
 
     public bool Validate()
