@@ -348,8 +348,8 @@
   <data name="Character_Skills_AcrobaticSkillfulness" xml:space="preserve">
     <value>~Acrobatic (Skillfulness)</value>
   </data>
-  <data name="Character_Skills_ArcanLoreIntelligence" xml:space="preserve">
-    <value>~Arcan lore (Intelligence)</value>
+  <data name="Character_Skills_ArcaneLoreIntelligence" xml:space="preserve">
+    <value>~Arcane lore (Intelligence)</value>
   </data>
   <data name="Character_Skills_AthleticStrength" xml:space="preserve">
     <value>~Athletic (Strength)</value>

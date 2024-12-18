@@ -14,9 +14,9 @@ public record Skills
     [LocalizedRange(nameof(StringResources.Character_Skills_AcrobaticSkillfulness), 1, int.MaxValue)]
     public required int AcrobaticSkillfulness { get; init; }
 
-    [LocalizedRequired(nameof(StringResources.Character_Skills_ArcanLoreIntelligence))]
-    [LocalizedRange(nameof(StringResources.Character_Skills_ArcanLoreIntelligence), 1, int.MaxValue)]
-    public required int ArcanLoreIntelligence { get; init; }
+    [LocalizedRequired(nameof(StringResources.Character_Skills_ArcaneLoreIntelligence))]
+    [LocalizedRange(nameof(StringResources.Character_Skills_ArcaneLoreIntelligence), 1, int.MaxValue)]
+    public required int ArcaneLoreIntelligence { get; init; }
 
     [LocalizedRequired(nameof(StringResources.Character_Skills_AthleticStrength))]
     [LocalizedRange(nameof(StringResources.Character_Skills_AthleticStrength), 1, int.MaxValue)]
@@ -85,7 +85,7 @@ public record Skills
     public static Skills Empty => new()
     {
         AcrobaticSkillfulness = 0,
-        ArcanLoreIntelligence = 0,
+        ArcaneLoreIntelligence = 0,
         AthleticStrength = 0,
         AppearCharisma = 0,
         IntimidateCharisma = 0,

@@ -403,11 +403,11 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ~Arcan lore (Intelligence).
+        ///   Looks up a localized string similar to ~Arcane lore (Intelligence).
         /// </summary>
-        public static string Character_Skills_ArcanLoreIntelligence {
+        public static string Character_Skills_ArcaneLoreIntelligence {
             get {
-                return ResourceManager.GetString("Character_Skills_ArcanLoreIntelligence", resourceCulture);
+                return ResourceManager.GetString("Character_Skills_ArcaneLoreIntelligence", resourceCulture);
             }
         }
         
