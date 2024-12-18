@@ -18,7 +18,7 @@ public partial class CharacterViewModel : ObservableValidator, IViewModelBase<Ch
         PersonalityViewModel = new(character.Personality);
         PropertiesViewModel = new(character.Properties);
         RescueDicesViewModel = new(character.RescueDices);
-        SkillViewModel = new SkillsViewModel(character.Skills);
+        SkillsViewModel = new SkillsViewModel(character.Skills);
     }
 
     public CharacterViewModel(CharacterViewModel characterViewModel)
@@ -27,7 +27,7 @@ public partial class CharacterViewModel : ObservableValidator, IViewModelBase<Ch
         PersonalityViewModel = new(characterViewModel.PersonalityViewModel);
         PropertiesViewModel = new(characterViewModel.PropertiesViewModel);
         RescueDicesViewModel = new(characterViewModel.RescueDicesViewModel);
-        SkillViewModel = new(characterViewModel.SkillViewModel);
+        SkillsViewModel = new(characterViewModel.SkillsViewModel);
     }
 
     public Guid CharacterId { get; set; }
@@ -42,7 +42,7 @@ public partial class CharacterViewModel : ObservableValidator, IViewModelBase<Ch
     private RescueDicesViewModel _rescueDicesViewModel;
 
     [ObservableProperty]
-    private SkillsViewModel _skillViewModel;
+    private SkillsViewModel _skillsViewModel;
 
     [ObservableProperty]
     private bool _hasValidationErrors;
@@ -92,7 +92,7 @@ public partial class CharacterViewModel : ObservableValidator, IViewModelBase<Ch
             Personality = PersonalityViewModel.ToPersonality(),
             Properties = PropertiesViewModel.ToProperties(),
             RescueDices = RescueDicesViewModel.ToRescueDices(),
-            Skills = SkillViewModel.ToSkills(),
+            Skills = SkillsViewModel.ToSkills(),
         };
     }
 }

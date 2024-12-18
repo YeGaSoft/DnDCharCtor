@@ -16,6 +16,9 @@
             <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2" HiddenWhen="@(ViewModel.CurrentCharacterViewModel!.RescueDicesViewModel.Search(SearchText ?? string.Empty, true) ? GridItemHidden.None : GridItemHidden.XsAndUp)">
                 <RescueDicesCard @bind-ViewModel="@(ViewModel.CurrentCharacterViewModel!.RescueDicesViewModel)" EditButtonText="@StringResources.Button_Adapt" EditButtonIcon="@(new Icons.Regular.Size20.NoteEdit())" />
             </FluentGridItem>
+            <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2" HiddenWhen="@(ViewModel.CurrentCharacterViewModel!.RescueDicesViewModel.Search(SearchText ?? string.Empty, true) ? GridItemHidden.None : GridItemHidden.XsAndUp)">
+                <SkillsCard @bind-ViewModel="@(ViewModel.CurrentCharacterViewModel!.SkillsViewModel)" EditButtonText="@StringResources.Button_Adapt" EditButtonIcon="@(new Icons.Regular.Size20.NoteEdit())" />
+            </FluentGridItem>
         </FluentGrid>
     </FluentBodyContent>
 

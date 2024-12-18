@@ -17,7 +17,11 @@
             </FluentGridItem>
             <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2" HiddenWhen="@(ViewModel.CharacterViewModelToEdit!.RescueDicesViewModel.Search(SearchText ?? string.Empty, true) ? GridItemHidden.None : GridItemHidden.XsAndUp)">
                 <RescueDicesCard @ref="rescueDiceCardRef" @bind-ViewModel="@(ViewModel.CharacterViewModelToEdit.RescueDicesViewModel)"
-                                 PreviousCard="@propertiesCardRef" NextCard="@personalityCardRef" />
+                                 PreviousCard="@propertiesCardRef" NextCard="@skillsCardRef" />
+            </FluentGridItem>
+            <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2" HiddenWhen="@(ViewModel.CharacterViewModelToEdit!.RescueDicesViewModel.Search(SearchText ?? string.Empty, true) ? GridItemHidden.None : GridItemHidden.XsAndUp)">
+                <SkillsCard @ref="skillsCardRef" @bind-ViewModel="@(ViewModel.CharacterViewModelToEdit.SkillsViewModel)"
+                            PreviousCard="@rescueDiceCardRef" NextCard="@personalityCardRef" />
             </FluentGridItem>
         </FluentGrid>
         <br />
