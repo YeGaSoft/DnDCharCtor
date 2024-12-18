@@ -303,7 +303,7 @@
   <data name="Character_Strength" xml:space="preserve">
     <value>Stärke</value>
   </data>
-  <data name="Character_Skill" xml:space="preserve">
+  <data name="Character_Skillfulness" xml:space="preserve">
     <value>Geschicklichkeit</value>
   </data>
   <data name="Character_Constitution" xml:space="preserve">
@@ -344,5 +344,65 @@
   </data>
   <data name="Search_CardsPlaceholder" xml:space="preserve">
     <value>Suche Karte nach Eigenschaft oder Wert</value>
+  </data>
+  <data name="Character_Skills_AcrobaticSkillfulness" xml:space="preserve">
+    <value>Akrobatik (Geschicklichkeit)</value>
+  </data>
+  <data name="Character_Skills_ArcaneLoreIntelligence" xml:space="preserve">
+    <value>Arkane Kunde (Intelligenz)</value>
+  </data>
+  <data name="Character_Skills_AthleticStrength" xml:space="preserve">
+    <value>Athletik (Stärke)</value>
+  </data>
+  <data name="Character_Skills_AppearCharisma" xml:space="preserve">
+    <value>Auftreten (Charisma)</value>
+  </data>
+  <data name="Character_Skills_IntimidateCharisma" xml:space="preserve">
+    <value>Einschüchtern (Charisma)</value>
+  </data>
+  <data name="Character_Skills_DexteritySkillfulness" xml:space="preserve">
+    <value>Fingerfertigkeit (Geschicklichkeit)</value>
+  </data>
+  <data name="Character_Skills_HistoryIntelligence" xml:space="preserve">
+    <value>Geschichte (Intelligenz)</value>
+  </data>
+  <data name="Character_Skills_MedicineWisdom" xml:space="preserve">
+    <value>Heilkunde (Weisheit)</value>
+  </data>
+  <data name="Character_Skills_AnimalHandlingWisdom" xml:space="preserve">
+    <value>Mit Tieren umgehen (Weisheit)</value>
+  </data>
+  <data name="Character_Skills_StealthSkillfulness" xml:space="preserve">
+    <value>Heimlichkeit (Geschicllichkeit)</value>
+  </data>
+  <data name="Character_Skills_MotiveRecognitionWisdom" xml:space="preserve">
+    <value>Motiv erkennen (Weisheit)</value>
+  </data>
+  <data name="Character_Skills_ResearchIntelligence" xml:space="preserve">
+    <value>Nachforschungen (Intelligenz)</value>
+  </data>
+  <data name="Character_Skills_NaturalHistoryIntelligence" xml:space="preserve">
+    <value>Naturkunde (Intelligenz)</value>
+  </data>
+  <data name="Character_Skills_ReligionIntelligence" xml:space="preserve">
+    <value>Religion (Intelligenz)</value>
+  </data>
+  <data name="Character_Skills_DeceiveCharisma" xml:space="preserve">
+    <value>Täuschen (Charisma)</value>
+  </data>
+  <data name="Character_Skills_SurvivalSkillWisdom" xml:space="preserve">
+    <value>Überlebenskunst (Weisheit)</value>
+  </data>
+  <data name="Character_Skills_ConvinceCharisma" xml:space="preserve">
+    <value>Überzeugen (Charisma)</value>
+  </data>
+  <data name="Character_Skills_PerceptionWisdom" xml:space="preserve">
+    <value>Wahrnehmung (Weisheit)</value>
+  </data>
+  <data name="Character_Skills" xml:space="preserve">
+    <value>Fertigkeiten</value>
+  </data>
+  <data name="CharacterEditor_Skills_Edit" xml:space="preserve">
+    <value>Bearbeite Fertigkeiten</value>
   </data>
 </root>

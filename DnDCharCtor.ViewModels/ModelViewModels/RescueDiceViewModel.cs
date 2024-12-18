@@ -16,7 +16,7 @@ public partial class RescueDicesViewModel : ObservableValidator, IViewModelBase<
     public RescueDicesViewModel(RescueDices rescueDices)
     {
         Strength = rescueDices.Strength.ToString();
-        Skill = rescueDices.Skill.ToString();
+        Skillfulness = rescueDices.Skillfulness.ToString();
         Constitution = rescueDices.Constitution.ToString();
         Intelligence = rescueDices.Intelligence.ToString();
         Wisdom = rescueDices.Wisdom.ToString();
@@ -26,7 +26,7 @@ public partial class RescueDicesViewModel : ObservableValidator, IViewModelBase<
     public RescueDicesViewModel(RescueDicesViewModel rescueDicesViewModel)
     {
         Strength = rescueDicesViewModel.Strength;
-        Skill = rescueDicesViewModel.Skill;
+        Skillfulness = rescueDicesViewModel.Skillfulness;
         Constitution = rescueDicesViewModel.Constitution;
         Intelligence = rescueDicesViewModel.Intelligence;
         Wisdom = rescueDicesViewModel.Wisdom;
@@ -44,9 +44,9 @@ public partial class RescueDicesViewModel : ObservableValidator, IViewModelBase<
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
-    [LocalizedParsedIntegerRequired(nameof(StringResources.Character_Skill))]
-    [LocalizedParsedRange(nameof(StringResources.Character_Skill), 1, int.MaxValue)]
-    private string _skill;
+    [LocalizedParsedIntegerRequired(nameof(StringResources.Character_Skillfulness))]
+    [LocalizedParsedRange(nameof(StringResources.Character_Skillfulness), 1, int.MaxValue)]
+    private string _skillfulness;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
@@ -107,7 +107,7 @@ public partial class RescueDicesViewModel : ObservableValidator, IViewModelBase<
 
         // Check string properties
         if (Strength.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-            Skill.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            Skillfulness.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
             Constitution.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
             Intelligence.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
             Wisdom.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
@@ -121,7 +121,7 @@ public partial class RescueDicesViewModel : ObservableValidator, IViewModelBase<
         // Check string resources
         if (StringResources.Character_RescueDices.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
             StringResources.Character_Strength.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-            StringResources.Character_Skill.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            StringResources.Character_Skillfulness.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
             StringResources.Character_Constitution.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
             StringResources.Character_Intelligence.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
             StringResources.Character_Wisdom.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
@@ -137,7 +137,7 @@ public partial class RescueDicesViewModel : ObservableValidator, IViewModelBase<
     public RescueDices ToRescueDices()
     {
         var hasStrength = int.TryParse(Strength, out var strength);
-        var hasSkill = int.TryParse(Skill, out var skill);
+        var hasSkillfulness = int.TryParse(Skillfulness, out var skillfulness);
         var hasConstitution = int.TryParse(Constitution, out var constitution);
         var hasIntelligence = int.TryParse(Intelligence, out var intelligence);
         var hasWisdom = int.TryParse(Wisdom, out var wisdom);
@@ -146,7 +146,7 @@ public partial class RescueDicesViewModel : ObservableValidator, IViewModelBase<
         return new RescueDices
         {
             Strength = hasStrength ? strength : 0,
-            Skill = hasSkill ? skill : 0,
+            Skillfulness = hasSkillfulness ? skillfulness : 0,
             Constitution = hasConstitution ? constitution : 0,
             Intelligence = hasIntelligence ? intelligence : 0,
             Wisdom = hasWisdom ? wisdom : 0,

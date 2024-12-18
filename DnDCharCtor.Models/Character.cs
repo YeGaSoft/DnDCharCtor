@@ -19,14 +19,18 @@ public record Character
     [LocalizedRequired(nameof(StringResources.Character_Properties))]
     public required Properties Properties { get; init; } = Properties.Empty;
 
-    [LocalizedRequired(nameof(StringResources.Character_Properties))]
+    [LocalizedRequired(nameof(StringResources.Character_RescueDices))]
     public required RescueDices RescueDices { get; init; } = RescueDices.Empty;
+
+    [LocalizedRequired(nameof(StringResources.Character_Skills))]
+    public required Skills Skills { get; init; } = Skills.Empty;
 
     public static Character Empty => new ()
     {
         Id = Guid.Empty,
         Personality = Personality.Empty,
         Properties = Properties.Empty,
-        RescueDices = RescueDices.Empty
+        RescueDices = RescueDices.Empty,
+        Skills = Skills.Empty
     };
 }

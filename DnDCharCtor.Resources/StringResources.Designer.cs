@@ -367,11 +367,182 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ~Skill.
+        ///   Looks up a localized string similar to ~Skillfulness.
         /// </summary>
-        public static string Character_Skill {
+        public static string Character_Skillfulness {
             get {
-                return ResourceManager.GetString("Character_Skill", resourceCulture);
+                return ResourceManager.GetString("Character_Skillfulness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Skills.
+        /// </summary>
+        public static string Character_Skills {
+            get {
+                return ResourceManager.GetString("Character_Skills", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Acrobatic (Skillfulness).
+        /// </summary>
+        public static string Character_Skills_AcrobaticSkillfulness {
+            get {
+                return ResourceManager.GetString("Character_Skills_AcrobaticSkillfulness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Animal handling (Wisdom).
+        /// </summary>
+        public static string Character_Skills_AnimalHandlingWisdom {
+            get {
+                return ResourceManager.GetString("Character_Skills_AnimalHandlingWisdom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Appear (Charisma).
+        /// </summary>
+        public static string Character_Skills_AppearCharisma {
+            get {
+                return ResourceManager.GetString("Character_Skills_AppearCharisma", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Arcane lore (Intelligence).
+        /// </summary>
+        public static string Character_Skills_ArcaneLoreIntelligence {
+            get {
+                return ResourceManager.GetString("Character_Skills_ArcaneLoreIntelligence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Athletic (Strength).
+        /// </summary>
+        public static string Character_Skills_AthleticStrength {
+            get {
+                return ResourceManager.GetString("Character_Skills_AthleticStrength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Convince (Charisma).
+        /// </summary>
+        public static string Character_Skills_ConvinceCharisma {
+            get {
+                return ResourceManager.GetString("Character_Skills_ConvinceCharisma", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Deceive (Charisma).
+        /// </summary>
+        public static string Character_Skills_DeceiveCharisma {
+            get {
+                return ResourceManager.GetString("Character_Skills_DeceiveCharisma", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Dexterity (Skillfulness).
+        /// </summary>
+        public static string Character_Skills_DexteritySkillfulness {
+            get {
+                return ResourceManager.GetString("Character_Skills_DexteritySkillfulness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~History (Intelligence).
+        /// </summary>
+        public static string Character_Skills_HistoryIntelligence {
+            get {
+                return ResourceManager.GetString("Character_Skills_HistoryIntelligence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Intimidate (Charisma).
+        /// </summary>
+        public static string Character_Skills_IntimidateCharisma {
+            get {
+                return ResourceManager.GetString("Character_Skills_IntimidateCharisma", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Medicine (Wisdom).
+        /// </summary>
+        public static string Character_Skills_MedicineWisdom {
+            get {
+                return ResourceManager.GetString("Character_Skills_MedicineWisdom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Motive recognition (Wisdom).
+        /// </summary>
+        public static string Character_Skills_MotiveRecognitionWisdom {
+            get {
+                return ResourceManager.GetString("Character_Skills_MotiveRecognitionWisdom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Natural history (Intelligence).
+        /// </summary>
+        public static string Character_Skills_NaturalHistoryIntelligence {
+            get {
+                return ResourceManager.GetString("Character_Skills_NaturalHistoryIntelligence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Perception (Wisdom).
+        /// </summary>
+        public static string Character_Skills_PerceptionWisdom {
+            get {
+                return ResourceManager.GetString("Character_Skills_PerceptionWisdom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Religion (Intelligence).
+        /// </summary>
+        public static string Character_Skills_ReligionIntelligence {
+            get {
+                return ResourceManager.GetString("Character_Skills_ReligionIntelligence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Research (Intelligence).
+        /// </summary>
+        public static string Character_Skills_ResearchIntelligence {
+            get {
+                return ResourceManager.GetString("Character_Skills_ResearchIntelligence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Stealth (Skillfulness).
+        /// </summary>
+        public static string Character_Skills_StealthSkillfulness {
+            get {
+                return ResourceManager.GetString("Character_Skills_StealthSkillfulness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Survival skill (Wisdom).
+        /// </summary>
+        public static string Character_Skills_SurvivalSkillWisdom {
+            get {
+                return ResourceManager.GetString("Character_Skills_SurvivalSkillWisdom", resourceCulture);
             }
         }
         
@@ -444,6 +615,15 @@ namespace DnDCharCtor.Resources {
         public static string CharacterEditor_RescueDices_Edit {
             get {
                 return ResourceManager.GetString("CharacterEditor_RescueDices_Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Edit skills.
+        /// </summary>
+        public static string CharacterEditor_Skills_Edit {
+            get {
+                return ResourceManager.GetString("CharacterEditor_Skills_Edit", resourceCulture);
             }
         }
         

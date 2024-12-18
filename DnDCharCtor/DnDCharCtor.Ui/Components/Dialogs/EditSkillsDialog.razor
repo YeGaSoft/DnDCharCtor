@@ -1,0 +1,76 @@
+﻿@implements IDialogContentComponent<EditDialogParameter<SkillsViewModel>>
+
+<EditDialogBase Content="@Content">
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.AcrobaticSkillfulness" Label="@StringResources.Character_Skills_AcrobaticSkillfulness" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.AcrobaticSkillfulness)" />
+    <br />
+
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.ArcaneLoreIntelligence" Label="@StringResources.Character_Skills_ArcaneLoreIntelligence" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.ArcaneLoreIntelligence)" />
+    <br />
+
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.AthleticStrength" Label="@StringResources.Character_Skills_AthleticStrength" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.AthleticStrength)" />
+    <br />
+
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.AppearCharisma" Label="@StringResources.Character_Skills_AppearCharisma" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.AppearCharisma)" />
+    <br />
+
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.IntimidateCharisma" Label="@StringResources.Character_Skills_IntimidateCharisma" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.IntimidateCharisma)" />
+    <br />
+
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.DexteritySkillfulness" Label="@StringResources.Character_Skills_DexteritySkillfulness" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.DexteritySkillfulness)" />
+    <br />
+
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.HistoryIntelligence" Label="@StringResources.Character_Skills_HistoryIntelligence" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.HistoryIntelligence)" />
+    <br />
+
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.MedicineWisdom" Label="@StringResources.Character_Skills_MedicineWisdom" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.MedicineWisdom)" />
+    <br />
+
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.StealthSkillfulness" Label="@StringResources.Character_Skills_StealthSkillfulness" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.StealthSkillfulness)" />
+    <br />
+
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.AnimalHandlingWisdom" Label="@StringResources.Character_Skills_AnimalHandlingWisdom" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.AnimalHandlingWisdom)" />
+    <br />
+
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.MotiveRecognitionWisdom" Label="@StringResources.Character_Skills_MotiveRecognitionWisdom" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.MotiveRecognitionWisdom)" />
+    <br />
+
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.ResearchIntelligence" Label="@StringResources.Character_Skills_ResearchIntelligence" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.ResearchIntelligence)" />
+    <br />
+
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.NaturalHistoryIntelligence" Label="@StringResources.Character_Skills_NaturalHistoryIntelligence" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.NaturalHistoryIntelligence)" />
+    <br />
+
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.ReligionIntelligence" Label="@StringResources.Character_Skills_ReligionIntelligence" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.ReligionIntelligence)" />
+    <br />
+
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.DeceiveCharisma" Label="@StringResources.Character_Skills_DeceiveCharisma" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.DeceiveCharisma)" />
+    <br />
+
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.SurvivalSkillWisdom" Label="@StringResources.Character_Skills_SurvivalSkillWisdom" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.SurvivalSkillWisdom)" />
+    <br />
+
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.ConvinceCharisma" Label="@StringResources.Character_Skills_ConvinceCharisma" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.ConvinceCharisma)" />
+    <br />
+
+    <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.PerceptionWisdom" Label="@StringResources.Character_Skills_PerceptionWisdom" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
+    <ValidationMessage For="@(() => Content.ViewModel.PerceptionWisdom)" />
+    <br />
+</EditDialogBase>
+

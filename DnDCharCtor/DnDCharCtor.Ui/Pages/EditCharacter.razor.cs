@@ -39,6 +39,8 @@ public partial class EditCharacter : IDisposable
     private IEditableCard personalityCardRef = default!;
     private IEditableCard propertiesCardRef = default!;
     private IEditableCard rescueDiceCardRef = default!;
+    private IEditableCard skillsCardRef = default!;
+
 
     private string? _searchText = string.Empty;
     private string? SearchText
