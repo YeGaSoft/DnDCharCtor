@@ -3,22 +3,22 @@
 <EditableCardBase Title="@StringResources.Character_Properties" EditButtonText="@EditButtonText" EditButtonIcon="@EditButtonIcon" EditButtonCallback="EditAsync" CardClickCallback="EditAsync" HasValidationErrors="@(ViewModel.HasValidationErrors)">
     <br />
     <div><strong>@StringResources.Character_Strength:</strong> @ViewModel.Strength </div>
-    <div><strong>@StringResources.Character_Strength (@StringResources.Stat_Modifier):</strong> @(ViewModel.Strength.ToInt()) </div>
+    <div><strong>@StringResources.Character_Strength (@StringResources.Stat_Modifier):</strong> @(ViewModel.Strength.ToInt() is int strength ? DndRulesService.CalculateStatModifier(strength) : string.Empty) </div>
     <br />
     <div><strong>@StringResources.Character_Skillfulness:</strong> @ViewModel.Skillfulness </div>
-    <div><strong>@StringResources.Character_Skillfulness (@StringResources.Stat_Modifier):</strong> @(ViewModel.Skillfulness.ToInt()) </div>
+    <div><strong>@StringResources.Character_Skillfulness (@StringResources.Stat_Modifier):</strong> @(ViewModel.Skillfulness.ToInt() is int skillfulness ? DndRulesService.CalculateStatModifier(skillfulness) : string.Empty) </div>
     <br />
     <div><strong>@StringResources.Character_Constitution:</strong> @ViewModel.Constitution </div>
-    <div><strong>@StringResources.Character_Constitution (@StringResources.Stat_Modifier):</strong> @(ViewModel.Constitution.ToInt()) </div>
+    <div><strong>@StringResources.Character_Constitution (@StringResources.Stat_Modifier):</strong> @(ViewModel.Constitution.ToInt() is int constitution ? DndRulesService.CalculateStatModifier(constitution) : string.Empty) </div>
     <br />
     <div><strong>@StringResources.Character_Intelligence:</strong> @ViewModel.Intelligence </div>
-    <div><strong>@StringResources.Character_Intelligence (@StringResources.Stat_Modifier):</strong> @(ViewModel.Intelligence.ToInt()) </div>
+    <div><strong>@StringResources.Character_Intelligence (@StringResources.Stat_Modifier):</strong> @(ViewModel.Intelligence.ToInt() is int intelligence ? DndRulesService.CalculateStatModifier(intelligence) : string.Empty) </div>
     <br />
     <div><strong>@StringResources.Character_Wisdom:</strong> @ViewModel.Wisdom </div>
-    <div><strong>@StringResources.Character_Wisdom (@StringResources.Stat_Modifier):</strong> @(ViewModel.Wisdom.ToInt()) </div>
+    <div><strong>@StringResources.Character_Wisdom (@StringResources.Stat_Modifier):</strong> @(ViewModel.Wisdom.ToInt() is int wisdom ? DndRulesService.CalculateStatModifier(wisdom) : string.Empty) </div>
     <br />
     <div><strong>@StringResources.Character_Charisma:</strong> @ViewModel.Charisma </div>
-    <div><strong>@StringResources.Character_Charisma (@StringResources.Stat_Modifier):</strong> @(ViewModel.Charisma.ToInt()) </div>
+    <div><strong>@StringResources.Character_Charisma (@StringResources.Stat_Modifier):</strong> @(ViewModel.Charisma.ToInt() is int charisma ? DndRulesService.CalculateStatModifier(charisma) : string.Empty) </div>
     <br />
     <div><strong>@StringResources.Character_Inspiration:</strong> @ViewModel.Inspiration </div>
     <br />

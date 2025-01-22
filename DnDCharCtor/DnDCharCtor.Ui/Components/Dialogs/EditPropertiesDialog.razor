@@ -3,32 +3,32 @@
 <EditDialogBase Content="@Content">
     <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.Strength" Label="@StringResources.Character_Strength" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.ViewModel.Strength)" />
-    <div><strong>@StringResources.Character_Strength (@StringResources.Stat_Modifier):</strong> @(Content.ViewModel.Strength.ToInt()) </div>
+    <div>@StringResources.Character_Strength (@StringResources.Stat_Modifier): @(Content.ViewModel.Strength.ToInt() is int strength ? DndRulesService.CalculateStatModifier(strength) : string.Empty) </div>
     <br />
 
     <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.Skillfulness" Label="@StringResources.Character_Skillfulness" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.ViewModel.Skillfulness)" />
-    <div><strong>@StringResources.Character_Skillfulness (@StringResources.Stat_Modifier):</strong> @(Content.ViewModel.Skillfulness.ToInt()) </div>
+    <div>@StringResources.Character_Skillfulness (@StringResources.Stat_Modifier): @(Content.ViewModel.Skillfulness.ToInt() is int skillfulness ? DndRulesService.CalculateStatModifier(skillfulness) : string.Empty) </div>
     <br />
 
     <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.Constitution" Label="@StringResources.Character_Constitution" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.ViewModel.Constitution)" />
-    <div><strong>@StringResources.Character_Constitution (@StringResources.Stat_Modifier):</strong> @(Content.ViewModel.Constitution.ToInt()) </div>
+    <div>@StringResources.Character_Constitution (@StringResources.Stat_Modifier): @(Content.ViewModel.Constitution.ToInt() is int constitution ? DndRulesService.CalculateStatModifier(constitution) : string.Empty) </div>
     <br />
 
     <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.Intelligence" Label="@StringResources.Character_Intelligence" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.ViewModel.Intelligence)" />
-    <div><strong>@StringResources.Character_Intelligence (@StringResources.Stat_Modifier):</strong> @(Content.ViewModel.Intelligence.ToInt()) </div>
+    <div>@StringResources.Character_Intelligence (@StringResources.Stat_Modifier): @(Content.ViewModel.Intelligence.ToInt() is int intelligence ? DndRulesService.CalculateStatModifier(intelligence) : string.Empty) </div>
     <br />
 
     <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.Wisdom" Label="@StringResources.Character_Wisdom" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.ViewModel.Wisdom)" />
-    <div><strong>@StringResources.Character_Wisdom (@StringResources.Stat_Modifier):</strong> @(Content.ViewModel.Wisdom.ToInt()) </div>
+    <div>@StringResources.Character_Wisdom (@StringResources.Stat_Modifier): @(Content.ViewModel.Wisdom.ToInt() is int wisdom ? DndRulesService.CalculateStatModifier(wisdom) : string.Empty) </div>
     <br />
 
     <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.Charisma" Label="@StringResources.Character_Charisma" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.ViewModel.Charisma)" />
-    <div><strong>@StringResources.Character_Charisma (@StringResources.Stat_Modifier):</strong> @(Content.ViewModel.Charisma.ToInt()) </div>
+    <div>@StringResources.Character_Charisma (@StringResources.Stat_Modifier): @(Content.ViewModel.Charisma.ToInt() is int charisma ? DndRulesService.CalculateStatModifier(charisma) : string.Empty) </div>
     <br />
 
     <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.Inspiration" Label="@StringResources.Character_Inspiration" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
@@ -42,4 +42,3 @@
     <FluentTextField InputMode="InputMode.Numeric" @bind-Value="Content.ViewModel.PassiveWisdomRecognition" Label="@StringResources.Character_PassiveWisdomRecognition" Immediate="true" Required="true" title="@StringResources.Validation_Tooltip_Required" />
     <ValidationMessage For="@(() => Content.ViewModel.PassiveWisdomRecognition)" />
 </EditDialogBase>
-
