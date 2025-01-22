@@ -47,55 +47,55 @@ public partial class PropertiesViewModel : ObservableValidator, IViewModelBase<P
     [ObservableProperty]
     [NotifyDataErrorInfo]
     [LocalizedParsedIntegerRequired(nameof(StringResources.Character_Strength))]
-    [LocalizedParsedRange(nameof(StringResources.Character_Strength), 1, int.MaxValue)]
+    [LocalizedParsedRange(nameof(StringResources.Character_Strength), 1, 30)]
     private string _strength;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
     [LocalizedParsedIntegerRequired(nameof(StringResources.Character_Skillfulness))]
-    [LocalizedParsedRange(nameof(StringResources.Character_Skillfulness), 1, int.MaxValue)]
+    [LocalizedParsedRange(nameof(StringResources.Character_Skillfulness), 1, 30)]
     private string _skillfulness;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
     [LocalizedParsedIntegerRequired(nameof(StringResources.Character_Constitution))]
-    [LocalizedParsedRange(nameof(StringResources.Character_Constitution), 1, int.MaxValue)]
+    [LocalizedParsedRange(nameof(StringResources.Character_Constitution), 1, 30)]
     private string _constitution;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
     [LocalizedParsedIntegerRequired(nameof(StringResources.Character_Intelligence))]
-    [LocalizedParsedRange(nameof(StringResources.Character_Intelligence), 1, int.MaxValue)]
+    [LocalizedParsedRange(nameof(StringResources.Character_Intelligence), 1, 30)]
     private string _intelligence;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
     [LocalizedParsedIntegerRequired(nameof(StringResources.Character_Wisdom))]
-    [LocalizedParsedRange(nameof(StringResources.Character_Wisdom), 1, int.MaxValue)]
+    [LocalizedParsedRange(nameof(StringResources.Character_Wisdom), 1, 30)]
     private string _wisdom;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
     [LocalizedParsedIntegerRequired(nameof(StringResources.Character_Charisma))]
-    [LocalizedParsedRange(nameof(StringResources.Character_Charisma), 1, int.MaxValue)]
+    [LocalizedParsedRange(nameof(StringResources.Character_Charisma), 1, 30)]
     private string _charisma;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
     [LocalizedParsedIntegerRequired(nameof(StringResources.Character_Inspiration))]
-    [LocalizedParsedRange(nameof(StringResources.Character_Inspiration), 1, int.MaxValue)]
+    [LocalizedParsedRange(nameof(StringResources.Character_Inspiration), 1, 30)]
     private string _inspiration;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
     [LocalizedParsedIntegerRequired(nameof(StringResources.Character_TrainingBonus))]
-    [LocalizedParsedRange(nameof(StringResources.Character_TrainingBonus), 1, int.MaxValue)]
+    [LocalizedParsedRange(nameof(StringResources.Character_TrainingBonus), 1, 30)]
     private string _trainingBonus;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
     [LocalizedParsedIntegerRequired(nameof(StringResources.Character_PassiveWisdomRecognition))]
-    [LocalizedParsedRange(nameof(StringResources.Character_PassiveWisdomRecognition), 1, int.MaxValue)]
+    [LocalizedParsedRange(nameof(StringResources.Character_PassiveWisdomRecognition), 1, 30)]
     private string _passiveWisdomRecognition;
 
 
