@@ -853,6 +853,15 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Stat Modifier.
+        /// </summary>
+        public static string Stat_Modifier {
+            get {
+                return ResourceManager.GetString("Stat_Modifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Cannot save since some cards and fields have validation errors.
         /// </summary>
         public static string Validation_CannotSave {

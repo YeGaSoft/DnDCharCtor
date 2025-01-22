@@ -1,3 +1,4 @@
+using DnDCharCtor.Common.Services;
 using DnDCharCtor.ViewModels.ModelViewModels;
 using Microsoft.AspNetCore.Components;
 using Microsoft.FluentUI.AspNetCore.Components;
@@ -11,4 +12,7 @@ public partial class EditPropertiesDialog
 
     [Parameter]
     public EditDialogParameter<PropertiesViewModel> Content { get; set; } = default!;
+
+    [Inject]
+    public IDndRulesService DndRulesService { get; set; } = default!;
 }

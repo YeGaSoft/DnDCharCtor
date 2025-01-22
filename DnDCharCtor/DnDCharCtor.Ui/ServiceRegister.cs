@@ -30,6 +30,7 @@ public static class ServiceRegister
         services.AddSingleton<ILocalizationService, LocalizationService>();
         services.AddSingleton<IHybridCacheService, HybridCacheService>();
         services.AddSingleton<IEventAggregator, EventAggregator>();
+        services.AddSingleton<IDndRulesService, DndRulesService>();
 
         return services;
     }

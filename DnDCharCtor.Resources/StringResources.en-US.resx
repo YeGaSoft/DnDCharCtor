@@ -405,4 +405,7 @@
   <data name="CharacterEditor_Skills_Edit" xml:space="preserve">
     <value>Edit skills</value>
   </data>
+  <data name="Stat_Modifier" xml:space="preserve">
+    <value>Stat Modifier</value>
+  </data>
 </root>
