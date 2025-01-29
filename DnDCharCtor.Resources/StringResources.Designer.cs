@@ -358,6 +358,24 @@ namespace DnDCharCtor.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ~Ability Score.
+        /// </summary>
+        public static string Character_Properties_AbilityScore {
+            get {
+                return ResourceManager.GetString("Character_Properties_AbilityScore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~Stat Modifier.
+        /// </summary>
+        public static string Character_Properties_StatModifier {
+            get {
+                return ResourceManager.GetString("Character_Properties_StatModifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ~Rescue dices.
         /// </summary>
         public static string Character_RescueDices {
@@ -849,15 +867,6 @@ namespace DnDCharCtor.Resources {
         public static string Settings_ThemeSettings {
             get {
                 return ResourceManager.GetString("Settings_ThemeSettings", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ~Stat Modifier.
-        /// </summary>
-        public static string Stat_Modifier {
-            get {
-                return ResourceManager.GetString("Stat_Modifier", resourceCulture);
             }
         }
         

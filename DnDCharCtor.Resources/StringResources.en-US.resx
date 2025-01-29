@@ -405,7 +405,10 @@
   <data name="CharacterEditor_Skills_Edit" xml:space="preserve">
     <value>Edit skills</value>
   </data>
-  <data name="Stat_Modifier" xml:space="preserve">
+  <data name="Character_Properties_StatModifier" xml:space="preserve">
     <value>Stat Modifier</value>
+  </data>
+  <data name="Character_Properties_AbilityScore" xml:space="preserve">
+    <value>Ability Score</value>
   </data>
 </root>
