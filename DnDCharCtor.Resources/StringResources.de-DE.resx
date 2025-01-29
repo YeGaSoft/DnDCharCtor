@@ -405,7 +405,10 @@
   <data name="CharacterEditor_Skills_Edit" xml:space="preserve">
     <value>Bearbeite Fertigkeiten</value>
   </data>
-  <data name="Stat_Modifier" xml:space="preserve">
+  <data name="Character_Properties_StatModifier" xml:space="preserve">
     <value>Status-Modifikator</value>
+  </data>
+  <data name="Character_Properties_AbilityScore" xml:space="preserve">
+    <value>Fähigkeits-Wert</value>
   </data>
 </root>
