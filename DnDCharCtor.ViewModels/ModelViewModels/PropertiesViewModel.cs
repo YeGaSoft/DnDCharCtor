@@ -15,7 +15,7 @@ namespace DnDCharCtor.ViewModels.ModelViewModels;
 
 public partial class PropertiesViewModel : ObservableValidator, IViewModelBase<PropertiesViewModel>
 {
-    public PropertiesViewModel(Properties properties)
+    public PropertiesViewModel(Properties properties, StatsViewModel statsViewModel)
     {
         Strength = properties.Strength.ToString();
         Skillfulness = properties.Skillfulness.ToString();
@@ -26,9 +26,11 @@ public partial class PropertiesViewModel : ObservableValidator, IViewModelBase<P
         Inspiration = properties.Inspiration.ToString();
         TrainingBonus = properties.TrainingBonus.ToString();
         PassiveWisdomRecognition = properties.PassiveWisdomRecognition.ToString();
+
+        StatsViewModel = statsViewModel;
     }
 
-    public PropertiesViewModel(PropertiesViewModel propertiesViewModel)
+    public PropertiesViewModel(PropertiesViewModel propertiesViewModel, StatsViewModel statsViewModel)
     {
         Strength = propertiesViewModel.Strength;
         Skillfulness = propertiesViewModel.Skillfulness;
@@ -39,6 +41,8 @@ public partial class PropertiesViewModel : ObservableValidator, IViewModelBase<P
         Inspiration = propertiesViewModel.Inspiration;
         TrainingBonus = propertiesViewModel.TrainingBonus;
         PassiveWisdomRecognition = propertiesViewModel.PassiveWisdomRecognition;
+
+        StatsViewModel = statsViewModel;
 
         HasValidationErrors = propertiesViewModel.HasValidationErrors;
         if (propertiesViewModel.HasValidationErrors) Validate();
@@ -105,6 +109,9 @@ public partial class PropertiesViewModel : ObservableValidator, IViewModelBase<P
     public string ValidationErrorSource => StringResources.Character_Properties;
 
 
+    public StatsViewModel StatsViewModel { get; }
+
+
     public bool Validate()
     {
         ClearErrors(null);
@@ -121,7 +128,7 @@ public partial class PropertiesViewModel : ObservableValidator, IViewModelBase<P
 
     public PropertiesViewModel CreateShallowCopy()
     {
-        return new PropertiesViewModel(this);
+        return new PropertiesViewModel(this, StatsViewModel);
     }
 
     public bool Search(string searchText, bool includePropertyNames)

@@ -7,25 +7,32 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DnDCharCtor.Common.Services;
 
 namespace DnDCharCtor.ViewModels.ModelViewModels;
 
 public partial class CharacterViewModel : ObservableValidator, IViewModelBase<CharacterViewModel>
 {
+    private readonly StatsViewModel _statsViewModel;
+
     public CharacterViewModel(Character character)
     {
+        _statsViewModel = new(this);
+
         CharacterId = character.Id;
         PersonalityViewModel = new(character.Personality);
-        PropertiesViewModel = new(character.Properties);
+        PropertiesViewModel = new(character.Properties, _statsViewModel);
         RescueDicesViewModel = new(character.RescueDices);
         SkillsViewModel = new SkillsViewModel(character.Skills);
     }
 
     public CharacterViewModel(CharacterViewModel characterViewModel)
     {
+        _statsViewModel = new(this);
+
         CharacterId = characterViewModel.CharacterId;
         PersonalityViewModel = new(characterViewModel.PersonalityViewModel);
-        PropertiesViewModel = new(characterViewModel.PropertiesViewModel);
+        PropertiesViewModel = new(characterViewModel.PropertiesViewModel, _statsViewModel);
         RescueDicesViewModel = new(characterViewModel.RescueDicesViewModel);
         SkillsViewModel = new(characterViewModel.SkillsViewModel);
     }
