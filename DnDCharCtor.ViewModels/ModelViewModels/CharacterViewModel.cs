@@ -13,11 +13,15 @@ namespace DnDCharCtor.ViewModels.ModelViewModels;
 
 public partial class CharacterViewModel : ObservableValidator, IViewModelBase<CharacterViewModel>
 {
+    private readonly IEquipmentService _equipmentService;
+    private readonly IStatsService _statsService;
     private readonly StatsViewModel _statsViewModel;
 
     public CharacterViewModel(Character character)
     {
-        _statsViewModel = new(this);
+        _equipmentService = new EquipmentService();
+        _statsService = new StatsService(_equipmentService);
+        _statsViewModel = new(this, _statsService);
 
         CharacterId = character.Id;
         PersonalityViewModel = new(character.Personality);
@@ -28,7 +32,9 @@ public partial class CharacterViewModel : ObservableValidator, IViewModelBase<Ch
 
     public CharacterViewModel(CharacterViewModel characterViewModel)
     {
-        _statsViewModel = new(this);
+        _equipmentService = new EquipmentService();
+        _statsService = new StatsService(_equipmentService);
+        _statsViewModel = new(this, _statsService);
 
         CharacterId = characterViewModel.CharacterId;
         PersonalityViewModel = new(characterViewModel.PersonalityViewModel);
