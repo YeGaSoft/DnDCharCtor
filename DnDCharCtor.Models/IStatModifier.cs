@@ -1,6 +1,6 @@
 namespace DnDCharCtor.Models;
 
-public interface IStatModifierCommand
+public interface IStatModifier
 {
     int CalculateDelta(int baseValue);
     string StatName { get; }

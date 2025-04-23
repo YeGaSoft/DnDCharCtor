@@ -1,12 +1,14 @@
+using DnDCharCtor.Models;
+using DnDCharCtor.Models.Equipment;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace DnDCharCtor.Models.Services;
+namespace DnDCharCtor.Common.Services;
 
 public class StatsService : INotifyPropertyChanged
 {
     private readonly Properties _baseStats;
-    private readonly HashSet<Equipment.Equipment> _equipment = new();
+    private readonly HashSet<Equipment> _equipment = [];
     
     public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -15,7 +17,7 @@ public class StatsService : INotifyPropertyChanged
         _baseStats = baseStats;
     }
 
-    public bool AddEquipment(Equipment.Equipment equipment)
+    public bool AddEquipment(Equipment equipment)
     {
         if (_equipment.Any(e => e.GetType() == equipment.GetType()))
             return false;
@@ -25,7 +27,7 @@ public class StatsService : INotifyPropertyChanged
         return true;
     }
 
-    public bool RemoveEquipment(Equipment.Equipment equipment)
+    public bool RemoveEquipment(Equipment equipment)
     {
         if (_equipment.Remove(equipment))
         {
@@ -35,9 +37,9 @@ public class StatsService : INotifyPropertyChanged
         return false;
     }
 
-    private void NotifyStatsChanged(IEnumerable<IStatModifierCommand> affectedCommands)
+    private void NotifyStatsChanged(IEnumerable<IStatModifier> statModifiers)
     {
-        var affectedStats = affectedCommands.Select(c => c.StatName).Distinct();
+        var affectedStats = statModifiers.Select(c => c.StatName).Distinct();
         foreach (var stat in affectedStats)
         {
             OnPropertyChanged(stat);

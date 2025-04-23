@@ -2,7 +2,7 @@ namespace DnDCharCtor.Models.Equipment;
 
 public abstract class Equipment
 {
-    protected readonly List<IStatModifierCommand> _commands = new();
+    protected readonly List<IStatModifier> _commands = new();
     public string Name { get; }
     public Guid Id { get; } = Guid.NewGuid();
 
@@ -11,5 +11,5 @@ public abstract class Equipment
         Name = name;
     }
 
-    public IReadOnlyList<IStatModifierCommand> Commands => _commands.AsReadOnly();
+    public IReadOnlyList<IStatModifier> Commands => _commands.AsReadOnly();
 }
