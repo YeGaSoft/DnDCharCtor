@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace DnDCharCtor.Ui.Components;
 
-public partial class DebouncedSearch
+public partial class DebouncedSearch : IDisposable
 {
     [Parameter]
     [EditorRequired]
@@ -73,5 +73,14 @@ public partial class DebouncedSearch
         timer.Elapsed -= TimerElapsed_TickAsync;
         timer.Dispose();
         timer = null;
+    }
+
+
+
+    public void Dispose()
+    {
+        GC.SuppressFinalize(this);
+
+        DisposeTimer();
     }
 }

@@ -3,6 +3,7 @@
 
 using Microsoft.AspNetCore.Internal;
 using Microsoft.Extensions.Primitives;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
@@ -113,7 +114,7 @@ public static class QueryHelpers
         }
 
         sb.Append(anchorText);
-        return sb.ToString(CultureInfo.CurrentCulture);
+        return sb.ToString();
     }
 
     /// <summary>
@@ -145,7 +146,7 @@ public static class QueryHelpers
 
         foreach (var pair in enumerable)
         {
-            accumulator.Append(pair.DecodeName().ToString(CultureInfo.CurrentCulture), pair.DecodeValue().ToString(CultureInfo.CurrentCulture));
+            accumulator.Append(pair.DecodeName().ToString(), pair.DecodeValue().ToString());
         }
 
         if (!accumulator.HasValues)

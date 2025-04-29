@@ -14,7 +14,8 @@
 			$(NoWarn);
 			CS7035, <!-- The specified version string '0.x.*' does not conform to the recommended format - major.minor.build.revision -->
 			CA1805, <!-- Do not initialize unnecessarily (with default value) -->
-			CA1863 <!-- Use 'CompositeFormat' - Since we can change the language during runtime we can NOT cache the StringResources since otherwise these strings won't change when language changes -->
+			CA1863, <!-- Use 'CompositeFormat' - Since we can change the language during runtime we can NOT cache the StringResources since otherwise these strings won't change when language changes -->
+			CA1824 <!-- Mark assemblies with NeutralResourcesLanguageAttribute - Since we have multi language support with localized StringResources, we want to ensure that all satellite assemblies are loaded -->
 		</NoWarn>
 	</PropertyGroup>
 

@@ -4,7 +4,7 @@ using SQLite;
 using System.IO;
 using System.Threading.Tasks;
 
-internal class DatabaseService : IDisposable, IDatabaseService
+internal sealed partial class DatabaseService : IDisposable, IDatabaseService
 {
     private const string DbName = "dnd_char_ctor.db";
 

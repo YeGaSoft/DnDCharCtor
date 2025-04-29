@@ -7,6 +7,7 @@ using DnDCharCtor.ViewModels;
 using DnDCharCtor.ViewModels.ModelViewModels;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.WebUtilities;
+using System.Globalization;
 
 namespace DnDCharCtor.Ui.Components.Cards;
 
@@ -40,9 +41,9 @@ public partial class CharacterCard
         var query = new Dictionary<string, string?>
         {
             { Routes.EditCharacterQueryParameterForceNew, true.ToString(CultureInfo.CurrentCulture) },
-            { Routes.EditCharacterQueryParameterId, ViewModel.CharacterId.ToString(CultureInfo.CurrentCulture) },
+            { Routes.EditCharacterQueryParameterId, ViewModel.CharacterId.ToString() },
         };
-        var newUri = QueryHelpers.AddQueryString(uri.ToString(CultureInfo.CurrentCulture), query);
+        var newUri = QueryHelpers.AddQueryString(uri.ToString(), query);
         NavigationManager.NavigateTo(newUri);
     }
 
