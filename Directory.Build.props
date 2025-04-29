@@ -5,9 +5,16 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 	  
-	  <AnalysisMode>Recommended</AnalysisMode>
-	 <!--The specified version string '0.x.*' does not conform to the recommended format - major.minor.build.revision-->
-	 <NoWarn>$(NoWarn);7035</NoWarn>
+	  
   </PropertyGroup>
+	<PropertyGroup>
+		<AnalysisMode>Recommended</AnalysisMode>
+		
+		<NoWarn>
+			$(NoWarn);
+			CS7035, <!-- The specified version string '0.x.*' does not conform to the recommended format - major.minor.build.revision -->
+			CA1805 <!-- Do not initialize unnecessarily (with default value) -->
+		</NoWarn>
+	</PropertyGroup>
 
 </Project>

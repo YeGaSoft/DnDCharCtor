@@ -11,10 +11,10 @@ using DnDCharCtor.Common.Services;
 
 namespace DnDCharCtor.ViewModels.ModelViewModels;
 
-public partial class CharacterViewModel : ObservableValidator, IViewModelBase<CharacterViewModel>
+public partial class CharacterViewModel : ObservableValidator, IViewModelBase<CharacterViewModel>, IDisposable
 {
     private readonly IEquipmentService _equipmentService;
-    private readonly IStatsService _statsService;
+    private readonly StatsService _statsService; // Do NOT use interface so we can use the Dispose() method
     private readonly StatsViewModel _statsViewModel;
 
     public CharacterViewModel(Character character)
@@ -107,5 +107,15 @@ public partial class CharacterViewModel : ObservableValidator, IViewModelBase<Ch
             RescueDices = RescueDicesViewModel.ToRescueDices(),
             Skills = SkillsViewModel.ToSkills(),
         };
+    }
+
+
+
+    public void Dispose()
+    {
+        GC.SuppressFinalize(this);
+
+        _statsViewModel.Dispose();
+        _statsService.Dispose();
     }
 }

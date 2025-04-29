@@ -64,7 +64,7 @@ internal class DatabaseService : IDisposable, IDatabaseService
     }
 }
 
-internal class Entity
+internal sealed class Entity
 {
     [PrimaryKey]
     public string Key { get; set; } = string.Empty;

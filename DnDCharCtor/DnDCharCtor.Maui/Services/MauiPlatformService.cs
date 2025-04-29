@@ -6,7 +6,7 @@ using System.Text.Json;
 
 namespace DnDCharCtor.Maui.Services;
 
-internal class MauiPlatformService : IPlatformService
+internal sealed class MauiPlatformService : IPlatformService
 {
     private readonly IDatabaseService _databaseService;
 
