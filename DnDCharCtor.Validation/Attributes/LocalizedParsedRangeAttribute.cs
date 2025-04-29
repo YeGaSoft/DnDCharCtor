@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ public class LocalizedParsedRangeAttribute(string fieldNameResourceKey, int mini
     {
         var valueStr = value?.ToString();
         // When the field is empty, there is nothing we can parse.
-        // This means this field is not required and thus we must not show an error message whgen there is nothing to parse.
+        // This means this field is not required and thus we must not show an error message when there is nothing to parse.
         if (string.IsNullOrWhiteSpace(valueStr)) return ValidationResult.Success;
 
         if (int.TryParse(valueStr, out int parsedValue))
@@ -23,8 +24,10 @@ public class LocalizedParsedRangeAttribute(string fieldNameResourceKey, int mini
         }
         else
         {
-            string fieldName = StringResources.ResourceManager.GetString(FieldNameResourceKey) ?? validationContext.MemberName ?? string.Empty;
-            return new ValidationResult(string.Format(StringResources.Validation_RequiredParsedInteger, fieldName), [validationContext.MemberName ?? string.Empty]);
+            string fieldName = StringResources.ResourceManager.GetString(FieldNameResourceKey, CultureInfo.CurrentCulture) ?? validationContext.MemberName ?? string.Empty;
+#pragma warning disable CA1863 // Use 'CompositeFormat'
+            return new ValidationResult(string.Format(CultureInfo.CurrentCulture, StringResources.Validation_RequiredParsedInteger, fieldName), [validationContext.MemberName ?? string.Empty]);
+#pragma warning restore CA1863 // Use 'CompositeFormat'
         }
     }
 }

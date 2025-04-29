@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -50,6 +51,7 @@ public static class TaskExtensions
         }
     }
 
+#pragma warning disable CA1848 // Use the LoggerMessage delegates // We disable this rule because LoggerMessage.Define only supports 6 parameters and we need more
     private static void TryLogException(
     ILogger? logger,
     Exception ex,
@@ -61,6 +63,7 @@ public static class TaskExtensions
     {
         try
         {
+
             logger?.LogError(
                 ex,
                 "Exception in task handed over to {SafeFireAndForget} (Thread-ID: {ThreadId}): '{ExceptionMessage}'. Caller: '{CallerMemberName}' in {CallerFilePath}:{CallerLineNumber}\nExpression: {CallerArgumentExpression}",
@@ -75,6 +78,7 @@ public static class TaskExtensions
         catch (/*ObjectDisposed*/Exception secondaryEx)
         {
             var msg = string.Format(
+                CultureInfo.InvariantCulture,
                 "Exception in task handed over to {0} (Thread-ID: {1}): '{2}'. Caller: '{3}' in {4}:{5}\nExpression: {6}\nFirst exception: {7}\nSecondary exception: {8}",
                 nameof(SafeFireAndForget),
                 Environment.CurrentManagedThreadId,
@@ -96,4 +100,5 @@ public static class TaskExtensions
             Debugger.Break();
         }
     }
+#pragma warning restore CA1848 // Use the LoggerMessage delegates
 }

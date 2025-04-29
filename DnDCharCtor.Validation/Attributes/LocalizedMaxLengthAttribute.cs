@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ public class LocalizedMaxLengthAttribute(string fieldNameResourceKey, int maxLen
         var validationResult = base.IsValid(value, validationContext);
         if (validationResult == ValidationResult.Success) return validationResult;
 
-        string fieldName = StringResources.ResourceManager.GetString(FieldNameResourceKey) ?? validationContext.MemberName ?? string.Empty;
-        return new ValidationResult(string.Format(StringResources.Validation_MaxLength, fieldName, Length), [validationContext.MemberName ?? string.Empty]);
+        string fieldName = StringResources.ResourceManager.GetString(FieldNameResourceKey, CultureInfo.CurrentCulture) ?? validationContext.MemberName ?? string.Empty;
+        return new ValidationResult(string.Format(CultureInfo.CurrentCulture, StringResources.Validation_MaxLength, fieldName, Length), [validationContext.MemberName ?? string.Empty]);
     }
 }

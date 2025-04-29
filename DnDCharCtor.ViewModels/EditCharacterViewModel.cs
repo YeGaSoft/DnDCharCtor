@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -82,7 +83,7 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
 
         var characterName = CharacterViewModelToEdit.PersonalityViewModel.CharacterName;
         var hasName = string.IsNullOrWhiteSpace(characterName) is false;
-        Title = hasName ? string.Format(StringResources.CharacterEditor_Edit, characterName) : StringResources.CharacterEditor_Create;
+        Title = hasName ? string.Format(CultureInfo.CurrentCulture, StringResources.CharacterEditor_Edit, characterName) : StringResources.CharacterEditor_Create;
     }
 
 
