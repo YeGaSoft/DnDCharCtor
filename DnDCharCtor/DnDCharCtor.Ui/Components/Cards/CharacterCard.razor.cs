@@ -39,10 +39,10 @@ public partial class CharacterCard
         var uri = NavigationManager.ToAbsoluteUri(Routes.EditCharacter);
         var query = new Dictionary<string, string?>
         {
-            { Routes.EditCharacterQueryParameterForceNew, true.ToString() },
-            { Routes.EditCharacterQueryParameterId, ViewModel.CharacterId.ToString() },
+            { Routes.EditCharacterQueryParameterForceNew, true.ToString(CultureInfo.CurrentCulture) },
+            { Routes.EditCharacterQueryParameterId, ViewModel.CharacterId.ToString(CultureInfo.CurrentCulture) },
         };
-        var newUri = QueryHelpers.AddQueryString(uri.ToString(), query);
+        var newUri = QueryHelpers.AddQueryString(uri.ToString(CultureInfo.CurrentCulture), query);
         NavigationManager.NavigateTo(newUri);
     }
 

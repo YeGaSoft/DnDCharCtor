@@ -57,7 +57,7 @@ public class HybridCacheService : IHybridCacheService
         if (isCharactersUpdated)
         {
             _characters = characters.ToList();
-            var isSaved = await _platformService.SetInStorageAsync(StorageKeys.CurrentCharacterId, character.Id.ToString()).ConfigureAwait(false);
+            var isSaved = await _platformService.SetInStorageAsync(StorageKeys.CurrentCharacterId, character.Id.ToString(CultureInfo.CurrentCulture)).ConfigureAwait(false);
             _currentCharacter = character;
 
             return isSaved;

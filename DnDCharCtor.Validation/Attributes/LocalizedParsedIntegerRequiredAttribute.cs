@@ -13,7 +13,7 @@ public class LocalizedParsedIntegerRequiredAttribute(string fieldNameResourceKey
 {
     protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
     {
-        var valueStr = value?.ToString();
+        var valueStr = value?.ToString(CultureInfo.CurrentCulture);
         if (string.IsNullOrWhiteSpace(valueStr)) return base.IsValid(valueStr, validationContext);
 
         if (int.TryParse(valueStr, out int parsedValue))

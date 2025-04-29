@@ -113,7 +113,7 @@ public static class QueryHelpers
         }
 
         sb.Append(anchorText);
-        return sb.ToString();
+        return sb.ToString(CultureInfo.CurrentCulture);
     }
 
     /// <summary>
@@ -145,7 +145,7 @@ public static class QueryHelpers
 
         foreach (var pair in enumerable)
         {
-            accumulator.Append(pair.DecodeName().ToString(), pair.DecodeValue().ToString());
+            accumulator.Append(pair.DecodeName().ToString(CultureInfo.CurrentCulture), pair.DecodeValue().ToString(CultureInfo.CurrentCulture));
         }
 
         if (!accumulator.HasValues)

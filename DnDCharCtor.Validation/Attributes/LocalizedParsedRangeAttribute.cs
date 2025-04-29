@@ -13,7 +13,7 @@ public class LocalizedParsedRangeAttribute(string fieldNameResourceKey, int mini
 {
     protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
     {
-        var valueStr = value?.ToString();
+        var valueStr = value?.ToString(CultureInfo.CurrentCulture);
         // When the field is empty, there is nothing we can parse.
         // This means this field is not required and thus we must not show an error message when there is nothing to parse.
         if (string.IsNullOrWhiteSpace(valueStr)) return ValidationResult.Success;

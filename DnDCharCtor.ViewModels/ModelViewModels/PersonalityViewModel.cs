@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DnDCharCtor.Validation.Attributes;
+using System.Globalization;
 
 namespace DnDCharCtor.ViewModels.ModelViewModels;
 
@@ -18,12 +19,12 @@ public partial class PersonalityViewModel : ObservableValidator, IViewModelBase<
         CharacterName = personality.CharacterName;
         Base64EncodedImage = personality.Base64EncodedImage;
         ClassName = personality.ClassName;
-        Level = personality.Level.ToString();
+        Level = personality.Level.ToString(CultureInfo.CurrentCulture);
         Background = personality.Background;
         PlayerName = personality.PlayerName;
         Race = personality.Race;
         Attitude = personality.Attitude;
-        Experience = personality.Experience.ToString();
+        Experience = personality.Experience.ToString(CultureInfo.CurrentCulture);
     }
 
     public PersonalityViewModel(PersonalityViewModel personalityViewModel)

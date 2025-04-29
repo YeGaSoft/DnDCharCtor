@@ -5,6 +5,7 @@ using DnDCharCtor.Validation.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,12 +16,12 @@ public partial class RescueDicesViewModel : ObservableValidator, IViewModelBase<
 {
     public RescueDicesViewModel(RescueDices rescueDices)
     {
-        Strength = rescueDices.Strength.ToString();
-        Skillfulness = rescueDices.Skillfulness.ToString();
-        Constitution = rescueDices.Constitution.ToString();
-        Intelligence = rescueDices.Intelligence.ToString();
-        Wisdom = rescueDices.Wisdom.ToString();
-        Charisma = rescueDices.Charisma.ToString();
+        Strength = rescueDices.Strength.ToString(CultureInfo.CurrentCulture);
+        Skillfulness = rescueDices.Skillfulness.ToString(CultureInfo.CurrentCulture);
+        Constitution = rescueDices.Constitution.ToString(CultureInfo.CurrentCulture);
+        Intelligence = rescueDices.Intelligence.ToString(CultureInfo.CurrentCulture);
+        Wisdom = rescueDices.Wisdom.ToString(CultureInfo.CurrentCulture);
+        Charisma = rescueDices.Charisma.ToString(CultureInfo.CurrentCulture);
     }
 
     public RescueDicesViewModel(RescueDicesViewModel rescueDicesViewModel)

@@ -15,24 +15,24 @@ public partial class SkillsViewModel : ObservableValidator, IViewModelBase<Skill
 {
     public SkillsViewModel(Skills skills)
     {
-        AcrobaticSkillfulness = skills.AcrobaticSkillfulness.ToString();
-        ArcaneLoreIntelligence = skills.ArcaneLoreIntelligence.ToString();
-        AthleticStrength = skills.AthleticStrength.ToString();
-        AppearCharisma = skills.AppearCharisma.ToString();
-        IntimidateCharisma = skills.IntimidateCharisma.ToString();
-        DexteritySkillfulness = skills.DexteritySkillfulness.ToString();
-        HistoryIntelligence = skills.HistoryIntelligence.ToString();
-        MedicineWisdom = skills.MedicineWisdom.ToString();
-        StealthSkillfulness = skills.StealthSkillfulness.ToString();
-        AnimalHandlingWisdom = skills.AnimalHandlingWisdom.ToString();
-        MotiveRecognitionWisdom = skills.MotiveRecognitionWisdom.ToString();
-        ResearchIntelligence = skills.ResearchIntelligence.ToString();
-        NaturalHistoryIntelligence = skills.NaturalHistoryIntelligence.ToString();
-        ReligionIntelligence = skills.ReligionIntelligence.ToString();
-        DeceiveCharisma = skills.DeceiveCharisma.ToString();
-        SurvivalSkillWisdom = skills.SurvivalSkillWisdom.ToString();
-        ConvinceCharisma = skills.ConvinceCharisma.ToString();
-        PerceptionWisdom = skills.PerceptionWisdom.ToString();
+        AcrobaticSkillfulness = skills.AcrobaticSkillfulness.ToString(CultureInfo.CurrentCulture);
+        ArcaneLoreIntelligence = skills.ArcaneLoreIntelligence.ToString(CultureInfo.CurrentCulture);
+        AthleticStrength = skills.AthleticStrength.ToString(CultureInfo.CurrentCulture);
+        AppearCharisma = skills.AppearCharisma.ToString(CultureInfo.CurrentCulture);
+        IntimidateCharisma = skills.IntimidateCharisma.ToString(CultureInfo.CurrentCulture);
+        DexteritySkillfulness = skills.DexteritySkillfulness.ToString(CultureInfo.CurrentCulture);
+        HistoryIntelligence = skills.HistoryIntelligence.ToString(CultureInfo.CurrentCulture);
+        MedicineWisdom = skills.MedicineWisdom.ToString(CultureInfo.CurrentCulture);
+        StealthSkillfulness = skills.StealthSkillfulness.ToString(CultureInfo.CurrentCulture);
+        AnimalHandlingWisdom = skills.AnimalHandlingWisdom.ToString(CultureInfo.CurrentCulture);
+        MotiveRecognitionWisdom = skills.MotiveRecognitionWisdom.ToString(CultureInfo.CurrentCulture);
+        ResearchIntelligence = skills.ResearchIntelligence.ToString(CultureInfo.CurrentCulture);
+        NaturalHistoryIntelligence = skills.NaturalHistoryIntelligence.ToString(CultureInfo.CurrentCulture);
+        ReligionIntelligence = skills.ReligionIntelligence.ToString(CultureInfo.CurrentCulture);
+        DeceiveCharisma = skills.DeceiveCharisma.ToString(CultureInfo.CurrentCulture);
+        SurvivalSkillWisdom = skills.SurvivalSkillWisdom.ToString(CultureInfo.CurrentCulture);
+        ConvinceCharisma = skills.ConvinceCharisma.ToString(CultureInfo.CurrentCulture);
+        PerceptionWisdom = skills.PerceptionWisdom.ToString(CultureInfo.CurrentCulture);
     }
 
     public SkillsViewModel(SkillsViewModel viewModel)

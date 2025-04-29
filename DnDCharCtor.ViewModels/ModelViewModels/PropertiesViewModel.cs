@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
@@ -17,15 +18,15 @@ public partial class PropertiesViewModel : ObservableValidator, IViewModelBase<P
 {
     public PropertiesViewModel(Properties properties, StatsViewModel statsViewModel)
     {
-        Strength = properties.Strength.ToString();
-        Skillfulness = properties.Skillfulness.ToString();
-        Constitution = properties.Constitution.ToString();
-        Intelligence = properties.Intelligence.ToString();
-        Wisdom = properties.Wisdom.ToString();
-        Charisma = properties.Charisma.ToString();
-        Inspiration = properties.Inspiration.ToString();
-        TrainingBonus = properties.TrainingBonus.ToString();
-        PassiveWisdomRecognition = properties.PassiveWisdomRecognition.ToString();
+        Strength = properties.Strength.ToString(CultureInfo.CurrentCulture);
+        Skillfulness = properties.Skillfulness.ToString(CultureInfo.CurrentCulture);
+        Constitution = properties.Constitution.ToString(CultureInfo.CurrentCulture);
+        Intelligence = properties.Intelligence.ToString(CultureInfo.CurrentCulture);
+        Wisdom = properties.Wisdom.ToString(CultureInfo.CurrentCulture);
+        Charisma = properties.Charisma.ToString(CultureInfo.CurrentCulture);
+        Inspiration = properties.Inspiration.ToString(CultureInfo.CurrentCulture);
+        TrainingBonus = properties.TrainingBonus.ToString(CultureInfo.CurrentCulture);
+        PassiveWisdomRecognition = properties.PassiveWisdomRecognition.ToString(CultureInfo.CurrentCulture);
 
         StatsViewModel = statsViewModel;
     }

@@ -2,7 +2,8 @@ namespace DnDCharCtor.Models.Equipment;
 
 public abstract class Equipment
 {
-    protected readonly List<IStatModifier> _commands = new();
+    private readonly List<IStatModifier> _commands = [];
+
     public string Name { get; }
     public Guid Id { get; } = Guid.NewGuid();
 
