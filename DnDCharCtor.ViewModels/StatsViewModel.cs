@@ -20,7 +20,7 @@ public class StatsViewModel : ObservableObject, IDisposable
     {
         _characterViewModel = characterViewModel;
         _statsService = statsService;
-        //_characterViewModel.PropertiesViewModel.PropertyChanged += NotifyStatChanged;
+        _characterViewModel.PropertiesViewModel.PropertyChanged += NotifyStatChanged;
         _statsService.StatModifierChanged += OnStatModifierChanged;
     }
 

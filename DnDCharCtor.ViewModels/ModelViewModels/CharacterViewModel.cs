@@ -18,29 +18,29 @@ public partial class CharacterViewModel : ObservableValidator, IViewModelBase<Ch
     private readonly StatsViewModel _statsViewModel;
 
     public CharacterViewModel(Character character)
-    {
+    {  
+        CharacterId = character.Id;
+        PersonalityViewModel = new(character.Personality);
+        PropertiesViewModel = new(character.Properties);
+        RescueDicesViewModel = new(character.RescueDices);
+        SkillsViewModel = new SkillsViewModel(character.Skills);
+
         _equipmentService = new EquipmentService();
         _statsService = new StatsService(_equipmentService);
         _statsViewModel = new(this, _statsService);
-
-        CharacterId = character.Id;
-        PersonalityViewModel = new(character.Personality);
-        PropertiesViewModel = new(character.Properties, _statsViewModel);
-        RescueDicesViewModel = new(character.RescueDices);
-        SkillsViewModel = new SkillsViewModel(character.Skills);
     }
 
     public CharacterViewModel(CharacterViewModel characterViewModel)
-    {
+    {       
+        CharacterId = characterViewModel.CharacterId;
+        PersonalityViewModel = new(characterViewModel.PersonalityViewModel);
+        PropertiesViewModel = new(characterViewModel.PropertiesViewModel);
+        RescueDicesViewModel = new(characterViewModel.RescueDicesViewModel);
+        SkillsViewModel = new(characterViewModel.SkillsViewModel);
+
         _equipmentService = new EquipmentService();
         _statsService = new StatsService(_equipmentService);
         _statsViewModel = new(this, _statsService);
-
-        CharacterId = characterViewModel.CharacterId;
-        PersonalityViewModel = new(characterViewModel.PersonalityViewModel);
-        PropertiesViewModel = new(characterViewModel.PropertiesViewModel, _statsViewModel);
-        RescueDicesViewModel = new(characterViewModel.RescueDicesViewModel);
-        SkillsViewModel = new(characterViewModel.SkillsViewModel);
     }
 
     public Guid CharacterId { get; set; }

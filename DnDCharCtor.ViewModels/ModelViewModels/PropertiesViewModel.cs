@@ -16,7 +16,7 @@ namespace DnDCharCtor.ViewModels.ModelViewModels;
 
 public partial class PropertiesViewModel : ObservableValidator, IViewModelBase<PropertiesViewModel>
 {
-    public PropertiesViewModel(Properties properties, StatsViewModel statsViewModel)
+    public PropertiesViewModel(Properties properties)
     {
         Strength = properties.Strength.ToString(CultureInfo.CurrentCulture);
         Skillfulness = properties.Skillfulness.ToString(CultureInfo.CurrentCulture);
@@ -27,11 +27,9 @@ public partial class PropertiesViewModel : ObservableValidator, IViewModelBase<P
         Inspiration = properties.Inspiration.ToString(CultureInfo.CurrentCulture);
         TrainingBonus = properties.TrainingBonus.ToString(CultureInfo.CurrentCulture);
         PassiveWisdomRecognition = properties.PassiveWisdomRecognition.ToString(CultureInfo.CurrentCulture);
-
-        StatsViewModel = statsViewModel;
     }
 
-    public PropertiesViewModel(PropertiesViewModel propertiesViewModel, StatsViewModel statsViewModel)
+    public PropertiesViewModel(PropertiesViewModel propertiesViewModel)
     {
         Strength = propertiesViewModel.Strength;
         Skillfulness = propertiesViewModel.Skillfulness;
@@ -42,8 +40,6 @@ public partial class PropertiesViewModel : ObservableValidator, IViewModelBase<P
         Inspiration = propertiesViewModel.Inspiration;
         TrainingBonus = propertiesViewModel.TrainingBonus;
         PassiveWisdomRecognition = propertiesViewModel.PassiveWisdomRecognition;
-
-        StatsViewModel = statsViewModel;
 
         HasValidationErrors = propertiesViewModel.HasValidationErrors;
         if (propertiesViewModel.HasValidationErrors) Validate();
@@ -110,9 +106,6 @@ public partial class PropertiesViewModel : ObservableValidator, IViewModelBase<P
     public string ValidationErrorSource => StringResources.Character_Properties;
 
 
-    public StatsViewModel StatsViewModel { get; }
-
-
     public bool Validate()
     {
         ClearErrors(null);
@@ -129,7 +122,7 @@ public partial class PropertiesViewModel : ObservableValidator, IViewModelBase<P
 
     public PropertiesViewModel CreateShallowCopy()
     {
-        return new PropertiesViewModel(this, StatsViewModel);
+        return new PropertiesViewModel(this);
     }
 
     public bool Search(string searchText, bool includePropertyNames)
