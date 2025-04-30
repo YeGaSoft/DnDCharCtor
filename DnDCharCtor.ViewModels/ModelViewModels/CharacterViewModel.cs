@@ -14,10 +14,10 @@ namespace DnDCharCtor.ViewModels.ModelViewModels;
 public partial class CharacterViewModel : ObservableValidator, IViewModelBase<CharacterViewModel>, IDisposable
 {
     private readonly IEquipmentService _equipmentService;
+    private readonly IDndRulesService _dndRulesService;
     private readonly StatsService _statsService; // Do NOT use interface so we can use the Dispose() method
-    private readonly StatsViewModel _statsViewModel;
 
-    public CharacterViewModel(Character character)
+    public CharacterViewModel(Character character, IDndRulesService dndRulesService)
     {  
         CharacterId = character.Id;
         PersonalityViewModel = new(character.Personality);
@@ -25,12 +25,13 @@ public partial class CharacterViewModel : ObservableValidator, IViewModelBase<Ch
         RescueDicesViewModel = new(character.RescueDices);
         SkillsViewModel = new SkillsViewModel(character.Skills);
 
+        _dndRulesService = dndRulesService;
         _equipmentService = new EquipmentService();
-        _statsService = new StatsService(_equipmentService);
-        _statsViewModel = new(this, _statsService);
+        _statsService = new StatsService(_dndRulesService, _equipmentService);
+        StatsViewModel = new(this, _statsService);
     }
 
-    public CharacterViewModel(CharacterViewModel characterViewModel)
+    public CharacterViewModel(CharacterViewModel characterViewModel, IDndRulesService dndRulesService)
     {       
         CharacterId = characterViewModel.CharacterId;
         PersonalityViewModel = new(characterViewModel.PersonalityViewModel);
@@ -38,9 +39,10 @@ public partial class CharacterViewModel : ObservableValidator, IViewModelBase<Ch
         RescueDicesViewModel = new(characterViewModel.RescueDicesViewModel);
         SkillsViewModel = new(characterViewModel.SkillsViewModel);
 
+        _dndRulesService = dndRulesService;
         _equipmentService = new EquipmentService();
-        _statsService = new StatsService(_equipmentService);
-        _statsViewModel = new(this, _statsService);
+        _statsService = new StatsService(_dndRulesService, _equipmentService);
+        StatsViewModel = new(this, _statsService);
     }
 
     public Guid CharacterId { get; set; }
@@ -56,6 +58,9 @@ public partial class CharacterViewModel : ObservableValidator, IViewModelBase<Ch
 
     [ObservableProperty]
     private SkillsViewModel _skillsViewModel;
+
+    [ObservableProperty]
+    private StatsViewModel _statsViewModel;
 
     [ObservableProperty]
     private bool _hasValidationErrors;
@@ -85,7 +90,7 @@ public partial class CharacterViewModel : ObservableValidator, IViewModelBase<Ch
 
     public CharacterViewModel CreateShallowCopy()
     {
-        return new CharacterViewModel(this);
+        return new CharacterViewModel(this, _dndRulesService);
     }
 
     public bool Search(string searchText, bool includePropertyNames)
@@ -115,7 +120,7 @@ public partial class CharacterViewModel : ObservableValidator, IViewModelBase<Ch
     {
         GC.SuppressFinalize(this);
 
-        _statsViewModel.Dispose();
+        StatsViewModel.Dispose();
         _statsService.Dispose();
     }
 }

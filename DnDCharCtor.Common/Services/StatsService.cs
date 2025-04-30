@@ -7,34 +7,36 @@ namespace DnDCharCtor.Common.Services;
 
 public class StatsService : IStatsService, IDisposable
 {
+    private readonly IDndRulesService _dndRulesService;
     private readonly IEquipmentService _equipmentService;
-    
-    public StatsService(IEquipmentService equipmentService)
+
+    public StatsService(IDndRulesService dndRulesService, IEquipmentService equipmentService)
     {
+        _dndRulesService = dndRulesService;
         _equipmentService = equipmentService;
         _equipmentService.EquipmentChanged += OnEquipmentChanged;
     }
 
     public event EventHandler<StatModifierChangedEventArgs>? StatModifierChanged;
 
-    public int CalculateStat(int baseStat, string statName)
+   
+    public int CalculateStat(int abilityScore, string statName)
     {
-        var modifiers = _equipmentService.GetModifiersForStat(statName);
-        var delta = modifiers.Sum(m => m.CalculateDelta(baseStat));
-        
-        return baseStat + delta;
+        // First calculate the D&D rules-based modifier from the ability score
+        var baseModifier = _dndRulesService.CalculateStatModifier(abilityScore);
+
+        // Then apply any equipment modifiers to the base modifier
+        var equipmentModifiers = _equipmentService.GetModifiersForStat(statName);
+        var equipmentBonus = equipmentModifiers.Sum(m => m.CalculateDelta(baseModifier));
+
+        return baseModifier + equipmentBonus;
     }
-
-
 
     public void Dispose()
     {
         GC.SuppressFinalize(this);
-
         _equipmentService.EquipmentChanged -= OnEquipmentChanged;
     }
-
-
 
     private void OnEquipmentChanged(object? sender, EquipmentChangedEventArgs e)
     {

@@ -20,15 +20,18 @@ public partial class MainViewModel : ObservableObject, IDisposable
     private readonly IHybridCacheService _hybridCacheService;
     private readonly ILocalizationService _localizationService;
     private readonly IEventAggregator _eventAggregator;
+    private readonly IDndRulesService _dndRulesService;
 
     private readonly SubscriptionToken _currentCharacterEventSubscription;
     private readonly SubscriptionToken _charactersEventSubscription;
 
-    public MainViewModel(IHybridCacheService hybridCacheService, ILocalizationService localizationService, IEventAggregator eventAggregator)
+    public MainViewModel(IHybridCacheService hybridCacheService, ILocalizationService localizationService, IEventAggregator eventAggregator, IDndRulesService dndRulesService)
     {
         _hybridCacheService = hybridCacheService;
         _localizationService = localizationService;
         _eventAggregator = eventAggregator;
+        _dndRulesService = dndRulesService;
+
         _currentCharacterEventSubscription = _eventAggregator.GetEvent<CurrentCharacterChangedEvent>().Subscribe(() => ReloadCurrentCharacterAsync().SafeFireAndForget(null));
         _charactersEventSubscription = _eventAggregator.GetEvent<CharactersChangedEvent>().Subscribe(() => ReloadCharactersAsync().SafeFireAndForget(null));
     }
@@ -79,7 +82,7 @@ public partial class MainViewModel : ObservableObject, IDisposable
     {
         if (ignoreIsBusy) IsBusy = true;
         var currentCharacter = await _hybridCacheService.GetCurrentCharacterAsync();
-        CurrentCharacterViewModel = new(currentCharacter ?? Character.Empty);
+        CurrentCharacterViewModel = new(currentCharacter ?? Character.Empty, _dndRulesService);
 
         // ReloadCurrentCharacterAsync is also called when the current character was removed or a new one was added - thus, the number of characters changed.
         await ReloadCharactersAsync(ignoreIsBusy);
@@ -93,7 +96,7 @@ public partial class MainViewModel : ObservableObject, IDisposable
     {
         if (ignoreIsBusy) IsBusy = true;
         var characters = await _hybridCacheService.GetCharactersAsync();
-        Characters = characters.Select(character => new CharacterViewModel(character)).ToList();
+        Characters = [.. characters.Select(character => new CharacterViewModel(character, _dndRulesService))];
         if (ignoreIsBusy) IsBusy = false;
 
         return true;

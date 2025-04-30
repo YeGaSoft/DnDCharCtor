@@ -20,19 +20,24 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
     private readonly IHybridCacheService _hybridCacheService;
     private readonly IEventAggregator _eventAggregator;
     private readonly ILocalizationService _localizationService;
+    private readonly IDndRulesService _dndRulesService;
 
-    public EditCharacterViewModel(IHybridCacheService hybridCacheService, IEventAggregator eventAggregator, ILocalizationService localizationService)
+    public EditCharacterViewModel(IHybridCacheService hybridCacheService, IEventAggregator eventAggregator, ILocalizationService localizationService, IDndRulesService dndRulesService)
     {
         _hybridCacheService = hybridCacheService;
         _eventAggregator = eventAggregator;
         _localizationService = localizationService;
         _localizationService.PropertyChanged += LocalizationService_OnPropertyChanged;
+        _dndRulesService = dndRulesService;
+
+        _characterViewModelBackup = new(Character.Empty, _dndRulesService);
+        CharacterViewModelToEdit = new(Character.Empty, _dndRulesService);
     }
 
-    private CharacterViewModel _characterViewModelBackup = new(Character.Empty);
+    private CharacterViewModel _characterViewModelBackup;
 
     [ObservableProperty]
-    private CharacterViewModel _characterViewModelToEdit = new(Character.Empty);
+    private CharacterViewModel _characterViewModelToEdit;
 
     [ObservableProperty]
     private string _title = StringResources.CharacterEditor_Create;
@@ -48,20 +53,20 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
     {
         var characters = await _hybridCacheService.GetCharactersAsync();
         var existingCharacter = characters.FirstOrDefault(c => c.Id == characterId);
-        var characterToEdit = new CharacterViewModel(existingCharacter ?? Character.Empty);
+        var characterToEdit = new CharacterViewModel(existingCharacter ?? Character.Empty, _dndRulesService);
         return Initialize(characterToEdit, EditMode.Edit);
     }
 
     public bool Initialize(Character character, EditMode editMode = EditMode.Edit)
     {
-        var characterToEdit = new CharacterViewModel(character);
+        var characterToEdit = new CharacterViewModel(character, _dndRulesService);
         return Initialize(characterToEdit, editMode);
     }
 
     public bool Initialize(CharacterViewModel characterViewModel, EditMode editMode = EditMode.Edit)
     {
         CharacterViewModelToEdit = characterViewModel;
-        _characterViewModelBackup = new(CharacterViewModelToEdit);
+        _characterViewModelBackup = new(CharacterViewModelToEdit, _dndRulesService);
 
         IsSaved = false;
 
@@ -117,7 +122,7 @@ public partial class EditCharacterViewModel : ObservableValidator, IValidateable
 
     public bool Reset()
     {
-        CharacterViewModelToEdit = new(_characterViewModelBackup);
+        CharacterViewModelToEdit = new(_characterViewModelBackup, _dndRulesService);
         return true;
     }
 
