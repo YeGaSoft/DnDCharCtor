@@ -22,10 +22,10 @@ public class StatsService : IStatsService, IDisposable
    
     public int CalculateStat(int abilityScore, string statName)
     {
-        // First calculate the D&D rules-based modifier from the ability score
+        // First calculate the DnD rules-based modifier from the ability score.
         var baseModifier = _dndRulesService.CalculateStatModifier(abilityScore);
 
-        // Then apply any equipment modifiers to the base modifier
+        // Then apply any equipment modifiers to the base modifier.
         var equipmentModifiers = _equipmentService.GetModifiersForStat(statName);
         var equipmentBonus = equipmentModifiers.Sum(m => m.CalculateDelta(baseModifier));
 
