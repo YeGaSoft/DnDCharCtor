@@ -11,6 +11,5 @@ public abstract class Equipment
     }
 
     private readonly List<IStatModifier> _commands = [];
-
     public IReadOnlyList<IStatModifier> Commands => _commands.AsReadOnly();
 }
