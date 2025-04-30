@@ -2,6 +2,6 @@ namespace DnDCharCtor.Models;
 
 public interface IStatModifier
 {
-    int CalculateDelta(int baseValue);
+    int CalculateDelta(int abilityScore);
     string StatName { get; }
 }
