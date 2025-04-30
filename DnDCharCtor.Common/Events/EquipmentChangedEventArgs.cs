@@ -1,4 +1,4 @@
-using DnDCharCtor.Models.Equipment;
+using DnDCharCtor.Models;
 
 namespace DnDCharCtor.Common.Events;
 

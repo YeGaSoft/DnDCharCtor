@@ -1,9 +1,7 @@
-namespace DnDCharCtor.Models.Equipment;
+namespace DnDCharCtor.Models;
 
 public abstract class Equipment
 {
-    private readonly List<IStatModifier> _commands = [];
-
     public string Name { get; }
     public Guid Id { get; } = Guid.NewGuid();
 
@@ -11,6 +9,8 @@ public abstract class Equipment
     {
         Name = name;
     }
+
+    private readonly List<IStatModifier> _commands = [];
 
     public IReadOnlyList<IStatModifier> Commands => _commands.AsReadOnly();
 }

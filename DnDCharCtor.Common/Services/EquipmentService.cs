@@ -1,6 +1,5 @@
 using DnDCharCtor.Common.Events;
 using DnDCharCtor.Models;
-using DnDCharCtor.Models.Equipment;
 
 namespace DnDCharCtor.Common.Services;
 
