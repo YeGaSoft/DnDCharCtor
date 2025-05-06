@@ -100,12 +100,12 @@ public partial class RescueDicesViewModel : ObservableValidator, IViewModelBase<
         }
 
         // Check string properties
-        if (Strength.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-            Skillfulness.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-            Constitution.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-            Intelligence.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-            Wisdom.Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-            Charisma.Contains(searchText, StringComparison.OrdinalIgnoreCase))
+        if (Strength.ToString().Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            Skillfulness.ToString().Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            Constitution.ToString().Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            Intelligence.ToString().Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            Wisdom.ToString().Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
+            Charisma.ToString().Contains(searchText, StringComparison.OrdinalIgnoreCase))
         {
             return true;
         }

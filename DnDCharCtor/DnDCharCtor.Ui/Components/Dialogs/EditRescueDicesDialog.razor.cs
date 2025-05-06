@@ -1,3 +1,4 @@
+using DnDCharCtor.ViewModels;
 using DnDCharCtor.ViewModels.ModelViewModels;
 using Microsoft.AspNetCore.Components;
 using Microsoft.FluentUI.AspNetCore.Components;
@@ -11,4 +12,8 @@ public partial class EditRescueDicesDialog
 
     [Parameter]
     public EditDialogParameter<RescueDicesViewModel> Content { get; set; } = default!;
+
+    [Parameter]
+    [EditorRequired]
+    public required StatsViewModel StatsVM { get; set; }
 }

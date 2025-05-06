@@ -3,27 +3,33 @@
 <EditDialogBase Content="@Content">
     <div class="rescue-dice-grid">
         <div class="rescue-dice-item">
-            <FluentCheckbox @bind-Value="Content.ViewModel.Strength" Label="@StringResources.Character_Strength" />
+            <FluentCheckbox @bind-Value="Content.ViewModel.Strength" />
+            <strong>@StringResources.Character_Strength:</strong> @StatsVM.GetStatWithTrainingBonus(nameof(Properties.Strength))
             <ValidationMessage For="@(() => Content.ViewModel.Strength)" />
         </div>
         <div class="rescue-dice-item">
-            <FluentCheckbox @bind-Value="Content.ViewModel.Skillfulness" Label="@StringResources.Character_Skillfulness" />
+            <FluentCheckbox @bind-Value="Content.ViewModel.Skillfulness" />
+            <strong>@StringResources.Character_Skillfulness:</strong> @StatsVM.GetStatWithTrainingBonus(nameof(Properties.Skillfulness))
             <ValidationMessage For="@(() => Content.ViewModel.Skillfulness)" />
         </div>
         <div class="rescue-dice-item">
-            <FluentCheckbox @bind-Value="Content.ViewModel.Constitution" Label="@StringResources.Character_Constitution" />
+            <FluentCheckbox @bind-Value="Content.ViewModel.Constitution" />
+            <strong>@StringResources.Character_Constitution:</strong> @StatsVM.GetStatWithTrainingBonus(nameof(Properties.Constitution))
             <ValidationMessage For="@(() => Content.ViewModel.Constitution)" />
         </div>
         <div class="rescue-dice-item">
-            <FluentCheckbox @bind-Value="Content.ViewModel.Intelligence" Label="@StringResources.Character_Intelligence" />
+            <FluentCheckbox @bind-Value="Content.ViewModel.Intelligence" />
+            <strong>@StringResources.Character_Intelligence:</strong> @StatsVM.GetStatWithTrainingBonus(nameof(Properties.Intelligence))
             <ValidationMessage For="@(() => Content.ViewModel.Intelligence)" />
         </div>
         <div class="rescue-dice-item">
-            <FluentCheckbox @bind-Value="Content.ViewModel.Wisdom" Label="@StringResources.Character_Wisdom" />
+            <FluentCheckbox @bind-Value="Content.ViewModel.Wisdom" />
+            <strong>@StringResources.Character_Wisdom:</strong> @StatsVM.GetStatWithTrainingBonus(nameof(Properties.Wisdom))
             <ValidationMessage For="@(() => Content.ViewModel.Wisdom)" />
         </div>
         <div class="rescue-dice-item">
-            <FluentCheckbox @bind-Value="Content.ViewModel.Charisma" Label="@StringResources.Character_Charisma" />
+            <FluentCheckbox @bind-Value="Content.ViewModel.Charisma" />
+            <strong>@StringResources.Character_Charisma:</strong> @StatsVM.GetStatWithTrainingBonus(nameof(Properties.Charisma))
             <ValidationMessage For="@(() => Content.ViewModel.Charisma)" />
         </div>
     </div>
@@ -37,7 +43,7 @@
     }
     .rescue-dice-item {
         display: flex;
-        flex-direction: column;
+        align-items: center;
         gap: 0.5rem;
     }
 </style>

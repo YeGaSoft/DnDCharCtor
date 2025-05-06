@@ -12,16 +12,21 @@
                                  PreviousCard="@skillsCardRef" NextCard="@propertiesCardRef" />
             </FluentGridItem>
             <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2" HiddenWhen="@(ViewModel.CharacterViewModelToEdit!.PropertiesViewModel.Search(SearchText ?? string.Empty, true) ? GridItemHidden.None : GridItemHidden.XsAndUp)">
-                <PropertiesCard @ref="propertiesCardRef"
-                                @bind-ViewModel="@(ViewModel.CharacterViewModelToEdit.PropertiesViewModel)"
-                                StatsVM="@(ViewModel.CharacterViewModelToEdit.StatsViewModel)"
-                                PreviousCard="@personalityCardRef"
-                                NextCard="@rescueDiceCardRef" />
+                <PropertiesCard 
+                    @ref="propertiesCardRef"
+                    @bind-ViewModel="@(ViewModel.CharacterViewModelToEdit.PropertiesViewModel)"
+                    StatsVM="@(ViewModel.CharacterViewModelToEdit.StatsViewModel)"
+                    PreviousCard="@personalityCardRef"
+                    NextCard="@rescueDiceCardRef" />
             </FluentGridItem>
 
             <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2" HiddenWhen="@(ViewModel.CharacterViewModelToEdit!.RescueDicesViewModel.Search(SearchText ?? string.Empty, true) ? GridItemHidden.None : GridItemHidden.XsAndUp)">
-                <RescueDicesCard @ref="rescueDiceCardRef" @bind-ViewModel="@(ViewModel.CharacterViewModelToEdit.RescueDicesViewModel)"
-                                 PreviousCard="@propertiesCardRef" NextCard="@skillsCardRef" />
+                <RescueDicesCard 
+                    @ref="rescueDiceCardRef" 
+                    @bind-ViewModel="@(ViewModel.CharacterViewModelToEdit.RescueDicesViewModel)"
+                    StatsVM="@(ViewModel.CharacterViewModelToEdit.StatsViewModel)"
+                    PreviousCard="@propertiesCardRef" 
+                    NextCard="@skillsCardRef" />
             </FluentGridItem>
             <FluentGridItem xs="12" sm="12" md="6" lg="4" xl="3" xxl="2" HiddenWhen="@(ViewModel.CharacterViewModelToEdit!.SkillsViewModel.Search(SearchText ?? string.Empty, true) ? GridItemHidden.None : GridItemHidden.XsAndUp)">
                 <SkillsCard @ref="skillsCardRef" @bind-ViewModel="@(ViewModel.CharacterViewModelToEdit.SkillsViewModel)"
