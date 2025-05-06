@@ -1,16 +1,43 @@
 ﻿@inherits EditableCardAbstraction<RescueDicesViewModel, EditRescueDicesDialog>
 
 <EditableCardBase Title="@StringResources.Character_RescueDices" EditButtonText="@EditButtonText" EditButtonIcon="@EditButtonIcon" EditButtonCallback="EditAsync" CardClickCallback="EditAsync" HasValidationErrors="@(ViewModel.HasValidationErrors)">
-    <br />
-    <div><strong>@StringResources.Character_Strength:</strong> @ViewModel.Strength </div>
-    <br />
-    <div><strong>@StringResources.Character_Skillfulness:</strong> @ViewModel.Skillfulness </div>
-    <br />
-    <div><strong>@StringResources.Character_Constitution:</strong> @ViewModel.Constitution </div>
-    <br />
-    <div><strong>@StringResources.Character_Intelligence:</strong> @ViewModel.Intelligence </div>
-    <br />
-    <div><strong>@StringResources.Character_Wisdom:</strong> @ViewModel.Wisdom </div>
-    <br />
-    <div><strong>@StringResources.Character_Charisma:</strong> @ViewModel.Charisma </div>
+    <div class="rescue-dice-grid">
+        <div class="rescue-dice-item">
+            <FluentCheckbox Checked="@ViewModel.Strength" Disabled="true" />
+            <strong>@StringResources.Character_Strength:</strong> @StatsVM.GetStatWithTrainingBonus(nameof(Properties.Strength))
+        </div>
+        <div class="rescue-dice-item">
+            <FluentCheckbox Checked="@ViewModel.Skillfulness" Disabled="true" />
+            <strong>@StringResources.Character_Skillfulness:</strong> @StatsVM.GetStatWithTrainingBonus(nameof(Properties.Skillfulness))
+        </div>
+        <div class="rescue-dice-item">
+            <FluentCheckbox Checked="@ViewModel.Constitution" Disabled="true" />
+            <strong>@StringResources.Character_Constitution:</strong> @StatsVM.GetStatWithTrainingBonus(nameof(Properties.Constitution))
+        </div>
+        <div class="rescue-dice-item">
+            <FluentCheckbox Checked="@ViewModel.Intelligence" Disabled="true" />
+            <strong>@StringResources.Character_Intelligence:</strong> @StatsVM.GetStatWithTrainingBonus(nameof(Properties.Intelligence))
+        </div>
+        <div class="rescue-dice-item">
+            <FluentCheckbox Checked="@ViewModel.Wisdom" Disabled="true" />
+            <strong>@StringResources.Character_Wisdom:</strong> @StatsVM.GetStatWithTrainingBonus(nameof(Properties.Wisdom))
+        </div>
+        <div class="rescue-dice-item">
+            <FluentCheckbox Checked="@ViewModel.Charisma" Disabled="true" />
+            <strong>@StringResources.Character_Charisma:</strong> @StatsVM.GetStatWithTrainingBonus(nameof(Properties.Charisma))
+        </div>
+    </div>
 </EditableCardBase>
+
+<style>
+    .rescue-dice-grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .rescue-dice-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+</style>

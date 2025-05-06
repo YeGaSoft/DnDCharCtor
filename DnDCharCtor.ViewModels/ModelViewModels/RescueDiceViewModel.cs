@@ -16,12 +16,12 @@ public partial class RescueDicesViewModel : ObservableValidator, IViewModelBase<
 {
     public RescueDicesViewModel(RescueDices rescueDices)
     {
-        Strength = rescueDices.Strength.ToString(CultureInfo.CurrentCulture);
-        Skillfulness = rescueDices.Skillfulness.ToString(CultureInfo.CurrentCulture);
-        Constitution = rescueDices.Constitution.ToString(CultureInfo.CurrentCulture);
-        Intelligence = rescueDices.Intelligence.ToString(CultureInfo.CurrentCulture);
-        Wisdom = rescueDices.Wisdom.ToString(CultureInfo.CurrentCulture);
-        Charisma = rescueDices.Charisma.ToString(CultureInfo.CurrentCulture);
+        Strength = rescueDices.Strength;
+        Skillfulness = rescueDices.Skillfulness;
+        Constitution = rescueDices.Constitution;
+        Intelligence = rescueDices.Intelligence;
+        Wisdom = rescueDices.Wisdom;
+        Charisma = rescueDices.Charisma;
     }
 
     public RescueDicesViewModel(RescueDicesViewModel rescueDicesViewModel)
@@ -39,40 +39,33 @@ public partial class RescueDicesViewModel : ObservableValidator, IViewModelBase<
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
-    [LocalizedParsedIntegerRequired(nameof(StringResources.Character_Strength))]
-    [LocalizedParsedRange(nameof(StringResources.Character_Strength), 1, int.MaxValue)]
-    private string _strength;
+    [LocalizedRequired(nameof(StringResources.Character_Strength))]
+    private bool _strength;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
-    [LocalizedParsedIntegerRequired(nameof(StringResources.Character_Skillfulness))]
-    [LocalizedParsedRange(nameof(StringResources.Character_Skillfulness), 1, int.MaxValue)]
-    private string _skillfulness;
+    [LocalizedRequired(nameof(StringResources.Character_Skillfulness))]
+    private bool _skillfulness;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
-    [LocalizedParsedIntegerRequired(nameof(StringResources.Character_Constitution))]
-    [LocalizedParsedRange(nameof(StringResources.Character_Constitution), 1, int.MaxValue)]
-    private string _constitution;
+    [LocalizedRequired(nameof(StringResources.Character_Constitution))]
+    private bool _constitution;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
-    [LocalizedParsedIntegerRequired(nameof(StringResources.Character_Intelligence))]
-    [LocalizedParsedRange(nameof(StringResources.Character_Intelligence), 1, int.MaxValue)]
-    private string _intelligence;
+    [LocalizedRequired(nameof(StringResources.Character_Intelligence))]
+    private bool _intelligence;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
-    [LocalizedParsedIntegerRequired(nameof(StringResources.Character_Wisdom))]
-    [LocalizedParsedRange(nameof(StringResources.Character_Wisdom), 1, int.MaxValue)]
-    private string _wisdom;
+    [LocalizedRequired(nameof(StringResources.Character_Wisdom))]
+    private bool _wisdom;
 
     [ObservableProperty]
     [NotifyDataErrorInfo]
-    [LocalizedParsedIntegerRequired(nameof(StringResources.Character_Charisma))]
-    [LocalizedParsedRange(nameof(StringResources.Character_Charisma), 1, int.MaxValue)]
-    private string _charisma;
-
+    [LocalizedRequired(nameof(StringResources.Character_Charisma))]
+    private bool _charisma;
 
     [ObservableProperty]
     private bool _hasValidationErrors;
@@ -137,21 +130,14 @@ public partial class RescueDicesViewModel : ObservableValidator, IViewModelBase<
 
     public RescueDices ToRescueDices()
     {
-        var hasStrength = int.TryParse(Strength, out var strength);
-        var hasSkillfulness = int.TryParse(Skillfulness, out var skillfulness);
-        var hasConstitution = int.TryParse(Constitution, out var constitution);
-        var hasIntelligence = int.TryParse(Intelligence, out var intelligence);
-        var hasWisdom = int.TryParse(Wisdom, out var wisdom);
-        var hasCharisma = int.TryParse(Charisma, out var charisma);
-
         return new RescueDices
         {
-            Strength = hasStrength ? strength : 0,
-            Skillfulness = hasSkillfulness ? skillfulness : 0,
-            Constitution = hasConstitution ? constitution : 0,
-            Intelligence = hasIntelligence ? intelligence : 0,
-            Wisdom = hasWisdom ? wisdom : 0,
-            Charisma = hasCharisma ? charisma : 0,
+            Strength = Strength,
+            Skillfulness = Skillfulness,
+            Constitution = Constitution,
+            Intelligence = Intelligence,
+            Wisdom = Wisdom,
+            Charisma = Charisma,
         };
     }
 }

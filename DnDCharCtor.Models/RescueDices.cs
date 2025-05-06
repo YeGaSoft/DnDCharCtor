@@ -11,36 +11,30 @@ namespace DnDCharCtor.Models;
 public record RescueDices
 {
     [LocalizedRequired(nameof(StringResources.Character_Strength))]
-    [LocalizedRange(nameof(StringResources.Character_Strength), 1, int.MaxValue)]
-    public required int Strength { get; init; }
+    public required bool Strength { get; init; }
 
     [LocalizedRequired(nameof(StringResources.Character_Skillfulness))]
-    [LocalizedRange(nameof(StringResources.Character_Skillfulness), 1, int.MaxValue)]
-    public required int Skillfulness { get; init; }
+    public required bool Skillfulness { get; init; }
 
     [LocalizedRequired(nameof(StringResources.Character_Constitution))]
-    [LocalizedRange(nameof(StringResources.Character_Constitution), 1, int.MaxValue)]
-    public required int Constitution { get; init; }
+    public required bool Constitution { get; init; }
 
     [LocalizedRequired(nameof(StringResources.Character_Intelligence))]
-    [LocalizedRange(nameof(StringResources.Character_Intelligence), 1, int.MaxValue)]
-    public required int Intelligence { get; init; }
+    public required bool Intelligence { get; init; }
 
     [LocalizedRequired(nameof(StringResources.Character_Wisdom))]
-    [LocalizedRange(nameof(StringResources.Character_Wisdom), 1, int.MaxValue)]
-    public required int Wisdom { get; init; }
+    public required bool Wisdom { get; init; }
 
     [LocalizedRequired(nameof(StringResources.Character_Charisma))]
-    [LocalizedRange(nameof(StringResources.Character_Charisma), 1, int.MaxValue)]
-    public required int Charisma { get; init; }
+    public required bool Charisma { get; init; }
 
     public static RescueDices Empty => new()
     {
-        Strength = 0,
-        Skillfulness = 0,
-        Constitution = 0,
-        Intelligence = 0,
-        Wisdom = 0,
-        Charisma = 0,
+        Strength = false,
+        Skillfulness = false,
+        Constitution = false,
+        Intelligence = false,
+        Wisdom = false,
+        Charisma = false,
     };
 }
