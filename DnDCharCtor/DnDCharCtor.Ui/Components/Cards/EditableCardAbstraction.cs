@@ -16,7 +16,8 @@ namespace DnDCharCtor.Ui.Components.Cards;
 /// When using this Base-Class, the razor-file must use '@inherits GenericCard&lt;TViewModel, TDialog&gt;' -
 /// otherwise there is an error that the partial classes inherit from different base classes.
 /// </summary>
-public abstract partial class EditableCardAbstraction<TViewModel, TDialog> : ComponentBase, IEditableCard where TViewModel : IViewModelBase<TViewModel>
+public abstract partial class EditableCardAbstraction<TViewModel, TDialog> : ComponentBase, IEditableCard 
+    where TViewModel : IViewModelBase<TViewModel>
     where TDialog : IDialogContentComponent<EditDialogParameter<TViewModel>>
 {
     [Inject]
