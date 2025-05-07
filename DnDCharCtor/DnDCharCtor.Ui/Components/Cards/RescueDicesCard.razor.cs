@@ -13,4 +13,9 @@ public partial class RescueDicesCard : EditableCardAbstraction<RescueDicesViewMo
     public required StatsViewModel StatsVM { get; set; }
 
     public override string DialogTitle => StringResources.CharacterEditor_RescueDices_Edit;
+
+    protected override Dictionary<string, object> AdditionalDialogParameters => new()
+    {
+        { nameof(EditRescueDicesDialog.StatsVM), StatsVM }
+    };
 }

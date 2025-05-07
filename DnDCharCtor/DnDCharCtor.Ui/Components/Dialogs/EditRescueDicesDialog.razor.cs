@@ -14,6 +14,5 @@ public partial class EditRescueDicesDialog
     public EditDialogParameter<RescueDicesViewModel> Content { get; set; } = default!;
 
     [Parameter]
-    [EditorRequired]
-    public required StatsViewModel StatsVM { get; set; }
+    public StatsViewModel StatsVM { get; set; } = default!;
 }

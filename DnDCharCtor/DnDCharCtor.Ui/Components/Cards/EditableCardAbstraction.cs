@@ -45,6 +45,8 @@ public abstract partial class EditableCardAbstraction<TViewModel, TDialog> : Com
 
     public abstract string DialogTitle { get; }
 
+    protected virtual Dictionary<string, object> AdditionalDialogParameters => [];
+
     public async Task EditAsync()
     {
         var data = new EditDialogParameter<TViewModel>()
@@ -60,6 +62,10 @@ public abstract partial class EditableCardAbstraction<TViewModel, TDialog> : Com
             PreventDismissOnOverlayClick = true,
             ShowDismiss = true,
         };
+        foreach (var additionalDialogParameter in AdditionalDialogParameters)
+        {
+            dialogParameters.Add(additionalDialogParameter.Key, additionalDialogParameter.Value);
+        }
         var dialog = await DialogService.ShowDialogAsync<TDialog>(data, dialogParameters);
         var result = await dialog.Result;
         if (result.Cancelled is false && result.Data is not null)
