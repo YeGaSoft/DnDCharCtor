@@ -5,32 +5,26 @@
         <div class="rescue-dice-item">
             <FluentCheckbox @bind-Value="Content.ViewModel.Strength" />
             <strong>@StringResources.Character_Strength:</strong> @StatsVM.GetStatWithTrainingBonus(nameof(Properties.Strength))
-            <ValidationMessage For="@(() => Content.ViewModel.Strength)" />
         </div>
         <div class="rescue-dice-item">
             <FluentCheckbox @bind-Value="Content.ViewModel.Skillfulness" />
             <strong>@StringResources.Character_Skillfulness:</strong> @StatsVM.GetStatWithTrainingBonus(nameof(Properties.Skillfulness))
-            <ValidationMessage For="@(() => Content.ViewModel.Skillfulness)" />
         </div>
         <div class="rescue-dice-item">
             <FluentCheckbox @bind-Value="Content.ViewModel.Constitution" />
             <strong>@StringResources.Character_Constitution:</strong> @StatsVM.GetStatWithTrainingBonus(nameof(Properties.Constitution))
-            <ValidationMessage For="@(() => Content.ViewModel.Constitution)" />
         </div>
         <div class="rescue-dice-item">
             <FluentCheckbox @bind-Value="Content.ViewModel.Intelligence" />
             <strong>@StringResources.Character_Intelligence:</strong> @StatsVM.GetStatWithTrainingBonus(nameof(Properties.Intelligence))
-            <ValidationMessage For="@(() => Content.ViewModel.Intelligence)" />
         </div>
         <div class="rescue-dice-item">
             <FluentCheckbox @bind-Value="Content.ViewModel.Wisdom" />
             <strong>@StringResources.Character_Wisdom:</strong> @StatsVM.GetStatWithTrainingBonus(nameof(Properties.Wisdom))
-            <ValidationMessage For="@(() => Content.ViewModel.Wisdom)" />
         </div>
         <div class="rescue-dice-item">
             <FluentCheckbox @bind-Value="Content.ViewModel.Charisma" />
             <strong>@StringResources.Character_Charisma:</strong> @StatsVM.GetStatWithTrainingBonus(nameof(Properties.Charisma))
-            <ValidationMessage For="@(() => Content.ViewModel.Charisma)" />
         </div>
     </div>
 </EditDialogBase>

@@ -38,33 +38,21 @@ public partial class RescueDicesViewModel : ObservableValidator, IViewModelBase<
     }
 
     [ObservableProperty]
-    [NotifyDataErrorInfo]
-    [LocalizedRequired(nameof(StringResources.Character_Strength))]
     private bool _strength;
 
     [ObservableProperty]
-    [NotifyDataErrorInfo]
-    [LocalizedRequired(nameof(StringResources.Character_Skillfulness))]
     private bool _skillfulness;
 
     [ObservableProperty]
-    [NotifyDataErrorInfo]
-    [LocalizedRequired(nameof(StringResources.Character_Constitution))]
     private bool _constitution;
 
     [ObservableProperty]
-    [NotifyDataErrorInfo]
-    [LocalizedRequired(nameof(StringResources.Character_Intelligence))]
     private bool _intelligence;
 
     [ObservableProperty]
-    [NotifyDataErrorInfo]
-    [LocalizedRequired(nameof(StringResources.Character_Wisdom))]
     private bool _wisdom;
 
     [ObservableProperty]
-    [NotifyDataErrorInfo]
-    [LocalizedRequired(nameof(StringResources.Character_Charisma))]
     private bool _charisma;
 
     [ObservableProperty]
@@ -75,16 +63,8 @@ public partial class RescueDicesViewModel : ObservableValidator, IViewModelBase<
 
     public bool Validate()
     {
-        ClearErrors(null);
-        ValidateAllProperties();
-
-        var validationContext = new ValidationContext(this);
-        var validationResults = new List<ValidationResult>();
-
-        HasValidationErrors = Validator.TryValidateObject(this, validationContext, validationResults, true) is false;
-        ValidationErrors.Clear();
-        ValidationErrors[ValidationErrorSource] = validationResults;
-        return HasValidationErrors is false;
+        // There are no required fields
+        return true;
     }
 
     public RescueDicesViewModel CreateShallowCopy()
@@ -99,16 +79,7 @@ public partial class RescueDicesViewModel : ObservableValidator, IViewModelBase<
             return true;
         }
 
-        // Check string properties
-        if (Strength.ToString().Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-            Skillfulness.ToString().Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-            Constitution.ToString().Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-            Intelligence.ToString().Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-            Wisdom.ToString().Contains(searchText, StringComparison.OrdinalIgnoreCase) ||
-            Charisma.ToString().Contains(searchText, StringComparison.OrdinalIgnoreCase))
-        {
-            return true;
-        }
+        // Since all properties are boolean, we can ignore them in the search
 
         if (includePropertyNames is false) return false;
 
