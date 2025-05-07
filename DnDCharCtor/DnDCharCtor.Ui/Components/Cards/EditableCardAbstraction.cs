@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Icons = Microsoft.FluentUI.AspNetCore.Components.Icons;
 
 namespace DnDCharCtor.Ui.Components.Cards;
 
